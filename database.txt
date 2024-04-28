@@ -1,0 +1,101 @@
+-- ChatGPT
+
+
+-- Create Cuisine table
+CREATE TABLE Cuisine (
+    CuisineID INT PRIMARY KEY,
+    FoodType NVARCHAR(255)
+);
+
+-- Create Recipe table
+CREATE TABLE Recipe (
+    RecipeID INT PRIMARY KEY,
+    RName NVARCHAR(255),
+    CreateDate DATE,
+    PrepTime INT,
+    ViewNumber INT,
+    CuisineID INT,
+    FOREIGN KEY (CuisineID) REFERENCES Cuisine(CuisineID)
+);
+
+-- Create NutritionInfo table
+CREATE TABLE NutritionInfo (
+    NutritionID INT PRIMARY KEY,
+    Name NVARCHAR(255)
+);
+
+-- Create Category table
+CREATE TABLE Category (
+    CategoryID INT PRIMARY KEY,
+    CategoryName NVARCHAR(255)
+);
+
+-- Create CookingStep table
+CREATE TABLE CookingStep (
+    StepID INT PRIMARY KEY,
+    RecipeID INT,
+    Number INT,
+    StepImage NVARCHAR(255),
+    Detail TEXT,
+    FOREIGN KEY (RecipeID) REFERENCES Recipe(RecipeID)
+);
+
+-- Create Ingredient table
+CREATE TABLE Ingredient (
+    IngredientID INT PRIMARY KEY,
+    IngredientName NVARCHAR(255),
+    IngredientDes TEXT,
+    IngredientUnit NVARCHAR(50)
+);
+
+-- Create User table
+CREATE TABLE NguoiDung (
+    ID INT PRIMARY KEY,
+    UserName NVARCHAR(50),
+    Password NVARCHAR(255),
+    Email NVARCHAR(255),
+    Role NVARCHAR(50)
+);
+
+-- Create Review table
+CREATE TABLE Review (
+    ID INT PRIMARY KEY,
+    StarRate INT,
+    Comment TEXT
+);
+
+-- Create Recipe_Ingredient table (Many-to-Many relationship between Recipe and Ingredient)
+CREATE TABLE Recipe_Ingredient (
+    RecipeID INT,
+    IngredientID INT,
+    PRIMARY KEY (RecipeID, IngredientID),
+    FOREIGN KEY (RecipeID) REFERENCES Recipe(RecipeID),
+    FOREIGN KEY (IngredientID) REFERENCES Ingredient(IngredientID)
+);
+
+-- Create Recipe_Category table (Many-to-Many relationship between Recipe and Category)
+CREATE TABLE Recipe_Category (
+    RecipeID INT,
+    CategoryID INT,
+    PRIMARY KEY (RecipeID, CategoryID),
+    FOREIGN KEY (RecipeID) REFERENCES Recipe(RecipeID),
+    FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID)
+);
+
+-- Create Recipe_Nutrition table (Many-to-Many relationship between Recipe and NutritionInfo)
+CREATE TABLE Recipe_Nutrition (
+    RecipeID INT,
+    NutritionID INT,
+    PRIMARY KEY (RecipeID, NutritionID),
+    FOREIGN KEY (RecipeID) REFERENCES Recipe(RecipeID),
+    FOREIGN KEY (NutritionID) REFERENCES NutritionInfo(NutritionID)
+);
+
+-- Create Recipe_Reivew table (Many-to-Many relationship between Recipe and Review)
+CREATE TABLE Recipe_Review (
+    RecipeID INT,
+    ReviewID INT,
+    PRIMARY KEY (RecipeID, ReviewID),
+    FOREIGN KEY (RecipeID) REFERENCES Recipe(RecipeID),
+    FOREIGN KEY (ReviewID) REFERENCES Review(ID)
+);

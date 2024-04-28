@@ -27,3 +27,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+// ngrok http --domain=distinct-aardvark-exciting.ngrok-free.app 5212
