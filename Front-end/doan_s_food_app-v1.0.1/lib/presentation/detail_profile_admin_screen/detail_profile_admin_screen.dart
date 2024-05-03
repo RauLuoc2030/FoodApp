@@ -1,3 +1,4 @@
+import 'package:doan_s_food_app/presentation/detail_profile_admin_screen/edit_profile_admin.dart';
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../widgets/app_bar/appbar_title_image.dart';
@@ -503,6 +504,10 @@ class DetailProfileAdminScreen extends StatelessWidget {
                       CustomElevatedButton(
                         text: "Edit",
                         margin: EdgeInsets.only(right: 4.h),
+                        onPressed: () {
+                          // Replace 'EditScreen()' with the actual screen you want to navigate to
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfileAdmin()));
+                        },
                       )
                     ],
                   ),
