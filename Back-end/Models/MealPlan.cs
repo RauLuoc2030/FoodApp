@@ -23,5 +23,7 @@ public partial class MealPlan
 
     public int? TotalMeal { get; set; }
 
+    public virtual ICollection<MealPlanRecipe> MealPlanRecipes { get; set; } = new List<MealPlanRecipe>();
+
     public virtual NguoiDung? NguoiDung { get; set; }
 }

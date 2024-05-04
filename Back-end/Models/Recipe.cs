@@ -33,6 +33,8 @@ public partial class Recipe
 
     public virtual ICollection<Favourite> Favourites { get; set; } = new List<Favourite>();
 
+    public virtual ICollection<MealPlanRecipe> MealPlanRecipes { get; set; } = new List<MealPlanRecipe>();
+
     public virtual ICollection<RecipeIngredient> RecipeIngredients { get; set; } = new List<RecipeIngredient>();
 
     public virtual ICollection<RecipeNutrition> RecipeNutritions { get; set; } = new List<RecipeNutrition>();

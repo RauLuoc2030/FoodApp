@@ -54,7 +54,7 @@ public partial class FoodContext : DbContext
     {
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.CategoryId).HasName("PK__Category__19093A2BECE84E64");
+            entity.HasKey(e => e.CategoryId).HasName("PK__Category__19093A2BADFD6420");
 
             entity.ToTable("Category");
 
@@ -64,7 +64,7 @@ public partial class FoodContext : DbContext
 
         modelBuilder.Entity<Comment>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Comment__3214EC279B4C2C12");
+            entity.HasKey(e => e.Id).HasName("PK__Comment__3214EC276545DDA6");
 
             entity.ToTable("Comment");
 
@@ -84,7 +84,7 @@ public partial class FoodContext : DbContext
 
         modelBuilder.Entity<CookingStep>(entity =>
         {
-            entity.HasKey(e => e.StepId).HasName("PK__CookingS__24343337844E589E");
+            entity.HasKey(e => e.StepId).HasName("PK__CookingS__243433379638AFD3");
 
             entity.ToTable("CookingStep");
 
@@ -98,7 +98,7 @@ public partial class FoodContext : DbContext
 
         modelBuilder.Entity<Cuisine>(entity =>
         {
-            entity.HasKey(e => e.CuisineId).HasName("PK__Cuisine__B1C3E7AB7C0C9AA4");
+            entity.HasKey(e => e.CuisineId).HasName("PK__Cuisine__B1C3E7AB746F5C35");
 
             entity.ToTable("Cuisine");
 
@@ -108,7 +108,7 @@ public partial class FoodContext : DbContext
 
         modelBuilder.Entity<Favourite>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Favourit__3214EC27F02F3176");
+            entity.HasKey(e => e.Id).HasName("PK__Favourit__3214EC27C2B60279");
 
             entity.ToTable("Favourite");
 
@@ -127,7 +127,7 @@ public partial class FoodContext : DbContext
 
         modelBuilder.Entity<Ingredient>(entity =>
         {
-            entity.HasKey(e => e.IngredientId).HasName("PK__Ingredie__BEAEB27AEF60BB5F");
+            entity.HasKey(e => e.IngredientId).HasName("PK__Ingredie__BEAEB27A819CC753");
 
             entity.ToTable("Ingredient");
 
@@ -138,7 +138,7 @@ public partial class FoodContext : DbContext
 
         modelBuilder.Entity<MealPlan>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__MealPlan__3214EC273DE5A35C");
+            entity.HasKey(e => e.Id).HasName("PK__MealPlan__3214EC27916398B0");
 
             entity.ToTable("MealPlan");
 
@@ -156,28 +156,26 @@ public partial class FoodContext : DbContext
 
         modelBuilder.Entity<MealPlanRecipe>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("MealPlan_Recipe");
+            entity.HasKey(e => new { e.MealPlanId, e.RecipeId }).HasName("PK__MealPlan__19FD43DB0B8A2A49");
 
-            entity.Property(e => e.Date).HasColumnType("date");
+            entity.ToTable("MealPlan_Recipe");
+
             entity.Property(e => e.MealPlanId).HasColumnName("MealPlanID");
             entity.Property(e => e.RecipeId).HasColumnName("RecipeID");
+            entity.Property(e => e.Date).HasColumnType("date");
 
-            entity.HasOne(d => d.MealPlan).WithMany()
+            entity.HasOne(d => d.MealPlan).WithMany(p => p.MealPlanRecipes)
                 .HasForeignKey(d => d.MealPlanId)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("FK__MealPlan___MealP__59063A47");
+                .HasConstraintName("FK__MealPlan___MealP__59FA5E80");
 
-            entity.HasOne(d => d.Recipe).WithMany()
+            entity.HasOne(d => d.Recipe).WithMany(p => p.MealPlanRecipes)
                 .HasForeignKey(d => d.RecipeId)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("FK__MealPlan___Recip__59FA5E80");
+                .HasConstraintName("FK__MealPlan___Recip__5AEE82B9");
         });
 
         modelBuilder.Entity<NguoiDung>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__NguoiDun__3214EC27DC0B7DB1");
+            entity.HasKey(e => e.Id).HasName("PK__NguoiDun__3214EC274DBB9E9E");
 
             entity.ToTable("NguoiDung");
 
@@ -187,7 +185,7 @@ public partial class FoodContext : DbContext
 
         modelBuilder.Entity<NutritionInfo>(entity =>
         {
-            entity.HasKey(e => e.NutritionId).HasName("PK__Nutritio__8A74A1B614DCD573");
+            entity.HasKey(e => e.NutritionId).HasName("PK__Nutritio__8A74A1B60FA07644");
 
             entity.ToTable("NutritionInfo");
 
@@ -198,7 +196,7 @@ public partial class FoodContext : DbContext
 
         modelBuilder.Entity<Post>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Post__3214EC272156ABEB");
+            entity.HasKey(e => e.Id).HasName("PK__Post__3214EC275C9D622E");
 
             entity.ToTable("Post");
 
@@ -214,7 +212,7 @@ public partial class FoodContext : DbContext
 
         modelBuilder.Entity<Recipe>(entity =>
         {
-            entity.HasKey(e => e.RecipeId).HasName("PK__Recipe__FDD988D00F65DB32");
+            entity.HasKey(e => e.RecipeId).HasName("PK__Recipe__FDD988D0E24BD527");
 
             entity.ToTable("Recipe");
 
@@ -237,7 +235,7 @@ public partial class FoodContext : DbContext
 
         modelBuilder.Entity<RecipeIngredient>(entity =>
         {
-            entity.HasKey(e => new { e.RecipeId, e.IngredientId }).HasName("PK__Recipe_I__463363F71CE56092");
+            entity.HasKey(e => new { e.RecipeId, e.IngredientId }).HasName("PK__Recipe_I__463363F766C0B6F6");
 
             entity.ToTable("Recipe_Ingredient");
 
@@ -246,16 +244,16 @@ public partial class FoodContext : DbContext
 
             entity.HasOne(d => d.Ingredient).WithMany(p => p.RecipeIngredients)
                 .HasForeignKey(d => d.IngredientId)
-                .HasConstraintName("FK__Recipe_In__Ingre__5DCAEF64");
+                .HasConstraintName("FK__Recipe_In__Ingre__5EBF139D");
 
             entity.HasOne(d => d.Recipe).WithMany(p => p.RecipeIngredients)
                 .HasForeignKey(d => d.RecipeId)
-                .HasConstraintName("FK__Recipe_In__Recip__5CD6CB2B");
+                .HasConstraintName("FK__Recipe_In__Recip__5DCAEF64");
         });
 
         modelBuilder.Entity<RecipeNutrition>(entity =>
         {
-            entity.HasKey(e => new { e.RecipeId, e.NutritionId }).HasName("PK__Recipe_N__857EC2CBBAAA0BA6");
+            entity.HasKey(e => new { e.RecipeId, e.NutritionId }).HasName("PK__Recipe_N__857EC2CB653B7488");
 
             entity.ToTable("Recipe_Nutrition", tb => tb.HasTrigger("CalculateCalories"));
 
@@ -264,16 +262,16 @@ public partial class FoodContext : DbContext
 
             entity.HasOne(d => d.Nutrition).WithMany(p => p.RecipeNutritions)
                 .HasForeignKey(d => d.NutritionId)
-                .HasConstraintName("FK__Recipe_Nu__Nutri__619B8048");
+                .HasConstraintName("FK__Recipe_Nu__Nutri__628FA481");
 
             entity.HasOne(d => d.Recipe).WithMany(p => p.RecipeNutritions)
                 .HasForeignKey(d => d.RecipeId)
-                .HasConstraintName("FK__Recipe_Nu__Recip__60A75C0F");
+                .HasConstraintName("FK__Recipe_Nu__Recip__619B8048");
         });
 
         modelBuilder.Entity<Review>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Review__3214EC27A1BC455E");
+            entity.HasKey(e => e.Id).HasName("PK__Review__3214EC27413AE408");
 
             entity.ToTable("Review");
 

@@ -180,9 +180,11 @@ CREATE TABLE MealPlan_Recipe (
     MealPlanID INT,
     RecipeID INT,
     Date DATE,
+    PRIMARY KEY (MealPlanID, RecipeID),
     FOREIGN KEY (MealPlanID) REFERENCES MealPlan(ID) on delete cascade,
     FOREIGN KEY (RecipeID) REFERENCES Recipe(RecipeID) on delete cascade
 );
+
 
 -- Create Recipe_Ingredient table (Many-to-Many relationship between Recipe and Ingredient)
 CREATE TABLE Recipe_Ingredient (
@@ -204,6 +206,8 @@ CREATE TABLE Recipe_Nutrition (
     FOREIGN KEY (RecipeID) REFERENCES Recipe(RecipeID) on delete cascade,
     FOREIGN KEY (NutritionID) REFERENCES NutritionInfo(NutritionID) on delete cascade
 );
+
+GO
 
 CREATE Trigger CalculateCalories ON Recipe_Nutrition for insert, update
 AS
