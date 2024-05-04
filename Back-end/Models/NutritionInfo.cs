@@ -9,5 +9,7 @@ public partial class NutritionInfo
 
     public string? Name { get; set; }
 
-    public virtual ICollection<Recipe> Recipes { get; set; } = new List<Recipe>();
+    public string? Unit { get; set; }
+
+    public virtual ICollection<RecipeNutrition> RecipeNutritions { get; set; } = new List<RecipeNutrition>();
 }
