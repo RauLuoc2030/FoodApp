@@ -12,6 +12,7 @@ import '../../widgets/custom_icon_button.dart';
 import 'package:http/http.dart' as http;
 
 class EditProfileAdmin extends StatelessWidget {
+  
   final TextEditingController nameController = TextEditingController();
   final TextEditingController genderController = TextEditingController();
   final TextEditingController occupationController = TextEditingController();
