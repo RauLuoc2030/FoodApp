@@ -3,3 +3,8 @@
 ################################################################################
 
 /.vs
+.vs/FoodApp/DesignTimeBuild/.dtbcache.v2
+.vs/FoodApp/v17/.suo
+Front-end/doan_s_food_app-v1.0.1/.dart_tool/flutter_build
+Front-end/doan_s_food_app-v1.0.1/android/.gradle
+Front-end/doan_s_food_app-v1.0.1/build
