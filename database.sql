@@ -70,6 +70,34 @@ insert into NutritionInfo (Name, Unit) values ('Vitamin A', 'IU');
 insert into NutritionInfo (Name, Unit) values ('Vitamin C', 'mg');
 insert into NutritionInfo (Name, Unit) values ('Calcium', 'mg');
 insert into NutritionInfo (Name, Unit) values ('Iron', 'mg');
+insert into NutritionInfo (Name, Unit) values ('Vitamin D', 'IU');
+insert into NutritionInfo (Name, Unit) values ('Vitamin E', 'mg');
+insert into NutritionInfo (Name, Unit) values ('Vitamin K', 'mcg');
+insert into NutritionInfo (Name, Unit) values ('Thiamin', 'mg');
+insert into NutritionInfo (Name, Unit) values ('Vitamin E', 'mg');
+insert into NutritionInfo (Name, Unit) values ('Riboflavin', 'mg');
+insert into NutritionInfo (Name, Unit) values ('Niacin', 'mg');
+insert into NutritionInfo (Name, Unit) values ('Vitamin B6', 'mg');
+insert into NutritionInfo (Name, Unit) values ('Folate', 'mcg');
+insert into NutritionInfo (Name, Unit) values ('Vitamin B12', 'mcg');
+insert into NutritionInfo (Name, Unit) values ('Biotin', 'mcg');
+insert into NutritionInfo (Name, Unit) values ('Pantothenic Acid', 'mg');
+insert into NutritionInfo (Name, Unit) values ('Phosphorus', 'mg');
+insert into NutritionInfo (Name, Unit) values ('Iodine', 'mcg');
+insert into NutritionInfo (Name, Unit) values ('Magnesium', 'mg');
+insert into NutritionInfo (Name, Unit) values ('Zinc', 'mg');
+insert into NutritionInfo (Name, Unit) values ('Selenium', 'mcg');
+insert into NutritionInfo (Name, Unit) values ('Copper', 'mg');
+insert into NutritionInfo (Name, Unit) values ('Manganese', 'mg');
+insert into NutritionInfo (Name, Unit) values ('Chromium', 'mcg');
+insert into NutritionInfo (Name, Unit) values ('Molybdenum', 'mcg');
+insert into NutritionInfo (Name, Unit) values ('Chloride', 'mg');
+insert into NutritionInfo (Name, Unit) values ('Omega-3', 'g');
+insert into NutritionInfo (Name, Unit) values ('Omega-6', 'g');
+insert into NutritionInfo (Name, Unit) values ('Omega-9', 'g');
+insert into NutritionInfo (Name, Unit) values ('Vitamin D2', 'IU');
+insert into NutritionInfo (Name, Unit) values ('Vitamin D3', 'IU');
+
 
 -- Create CookingStep table
 -- CookingStep(StepID, RecipeID, Number, Detail)
@@ -176,6 +204,16 @@ CREATE TABLE Post (
     FOREIGN KEY (NguoiDungID) REFERENCES NguoiDung(ID)
 );
 
+/*
+insert into Post (NguoiDungID, Content, LikeCount, ImgUrl, RecipeName) values (1, 'This is a great recipe', 10, 'https://www.google.com', 'Fried Chicken');
+insert into Post (NguoiDungID, Content, LikeCount, ImgUrl, RecipeName) values (2, 'I love this!', 10, 'https://www.google.com', 'Bún Bò Huế');
+insert into Post (NguoiDungID, Content, LikeCount, ImgUrl, RecipeName) values (3, 'I will try this recipe', 10, 'https://www.google.com', 'Bún Riêu');
+insert into Post (NguoiDungID, Content, LikeCount, ImgUrl, RecipeName) values (4, 'I love this recipe', 10, 'https://www.google.com', 'Bánh Canh Cua');
+insert into Post (NguoiDungID, Content, LikeCount, ImgUrl, RecipeName) values (5, 'I will try this recipe', 10, 'https://www.google.com', 'Bún Bò Huế');
+insert into Post (NguoiDungID, Content, LikeCount, ImgUrl, RecipeName) values (6, 'I love this recipe', 10, 'https://www.google.com', 'Bún Riêu');
+insert into Post (NguoiDungID, Content, LikeCount, ImgUrl, RecipeName) values (7, 'I will try this recipe', 10, 'https://www.google.com', 'Bánh Canh Cua');
+*/
+
 -- Create MealPlan table
 -- MealPlan(ID, NguoiDungID, Name, Description, AmountOfMeals, Length, StartDate, EndDate, TotalMeal)
 CREATE TABLE MealPlan (
@@ -239,6 +277,3 @@ begin
         update Recipe set Calories = @Value where RecipeID = @RecipeID;
     end
 end;
-
-Scaffold-DbContext "Server=Lochoang;Database=Food;Trusted_Connection=True;TrustServerCertificate=True" -provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -ContextDir Context -Context RecipeAppContext -Force
-
