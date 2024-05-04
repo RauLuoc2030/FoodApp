@@ -17,6 +17,7 @@ DROP TABLE IF EXISTS cuisine;
 
 
 -- Create Cuisine table
+-- Cuisine(CuisineID, FoodType)
 CREATE TABLE Cuisine (
     CuisineID INT PRIMARY KEY identity(1,1),
     FoodType NVARCHAR(255) -- Vegetarian, Meat, Seafood, etc.
@@ -28,7 +29,10 @@ CREATE TABLE Category (
     CategoryName NVARCHAR(255)
 );
 
+
+
 -- Create Recipe table
+-- Recipe(RecipeID, RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
 CREATE TABLE Recipe (
     RecipeID INT PRIMARY KEY identity(1,1),
     RName NVARCHAR(255),
@@ -44,9 +48,8 @@ CREATE TABLE Recipe (
     FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID)
 );
 
-Alter table Recipe add constraint fk_Recipe_Category foreign key (CategoryID) references Category(CategoryID);
-
 -- Create NutritionInfo table
+-- NutritionInfo(NutritionID, Name, Unit)
 CREATE TABLE NutritionInfo (
     NutritionID INT PRIMARY KEY identity(1,1),
     Name NVARCHAR(255),
@@ -69,6 +72,7 @@ insert into NutritionInfo (Name, Unit) values ('Calcium', 'mg');
 insert into NutritionInfo (Name, Unit) values ('Iron', 'mg');
 
 -- Create CookingStep table
+-- CookingStep(StepID, RecipeID, Number, Detail)
 CREATE TABLE CookingStep (
     StepID INT PRIMARY KEY identity(1,1),
     RecipeID INT,
@@ -78,6 +82,7 @@ CREATE TABLE CookingStep (
 );
 
 -- Create Ingredient table
+-- Ingredient(IngredientID, Name, Unit)
 CREATE TABLE Ingredient (
     IngredientID INT PRIMARY KEY identity(1,1),
     Name NVARCHAR(255),
@@ -116,6 +121,7 @@ insert into Ingredient (Name, Unit) values ('Banana', 'g');
 insert into Ingredient (Name, Unit) values ('Orange', 'g');
 
 -- Create User table
+-- NguoiDung(ID, Email, DietaryRestrictions, Allergies, Role)
 CREATE TABLE NguoiDung (
     ID INT PRIMARY KEY identity(1,1),
     Email NVARCHAR(255),
@@ -124,6 +130,8 @@ CREATE TABLE NguoiDung (
     Role INT
 );
 
+-- Create Favourite table
+-- Favourite(ID, RecipeID, NguoiDungID)
 CREATE TABLE Favourite (
     ID INT PRIMARY KEY identity(1,1),
     RecipeID INT,
@@ -133,6 +141,7 @@ CREATE TABLE Favourite (
 );
 
 -- Create Review table
+-- Review(ID, RecipeID, NguoiDungID, Content, LikeCount)
 CREATE TABLE Review (
     ID INT PRIMARY KEY identity(1,1),
     RecipeID INT,
@@ -143,26 +152,32 @@ CREATE TABLE Review (
     FOREIGN KEY (NguoiDungID) REFERENCES NguoiDung(ID)
 );
 
-CREATE TABLE [Comment] (
+-- Create Comment table
+-- Comment(ID, ReviewID, NguoiDungID, Content, LikeCount)
+CREATE TABLE Comment (
     ID INT PRIMARY KEY identity(1,1),
     ReviewID INT,
     NguoiDungID INT,
-    Content TEXT,
+    Content NVARCHAR(255),
     LikeCount INT,
     FOREIGN KEY (ReviewID) REFERENCES Review(ID),
     FOREIGN KEY (NguoiDungID) REFERENCES NguoiDung(ID)
 );
 
+-- Create Post table
+-- Post(ID, NguoiDungID, Content, LikeCount, ImgUrl, RecipeName)
 CREATE TABLE Post (
     ID INT PRIMARY KEY identity(1,1),
     NguoiDungID INT,
-    Content TEXT,
+    Content NVARCHAR(255),
     LikeCount INT,
     ImgUrl NVARCHAR(MAX),
     RecipeName NVARCHAR(255),
     FOREIGN KEY (NguoiDungID) REFERENCES NguoiDung(ID)
 );
 
+-- Create MealPlan table
+-- MealPlan(ID, NguoiDungID, Name, Description, AmountOfMeals, Length, StartDate, EndDate, TotalMeal)
 CREATE TABLE MealPlan (
     ID INT PRIMARY KEY identity(1,1),
     NguoiDungID INT,
@@ -176,6 +191,8 @@ CREATE TABLE MealPlan (
     FOREIGN KEY (NguoiDungID) REFERENCES NguoiDung(ID)
 );
 
+-- Create MealPlan_Recipe table (Many-to-Many relationship between MealPlan and Recipe)
+-- MealPlan_Recipe(MealPlanID, RecipeID, Date)
 CREATE TABLE MealPlan_Recipe (
     MealPlanID INT,
     RecipeID INT,
@@ -187,6 +204,7 @@ CREATE TABLE MealPlan_Recipe (
 
 
 -- Create Recipe_Ingredient table (Many-to-Many relationship between Recipe and Ingredient)
+-- Recipe_Ingredient(RecipeID, IngredientID, Value)(RecipeID, IngredientID, Value)
 CREATE TABLE Recipe_Ingredient (
     RecipeID INT,
     IngredientID INT,
@@ -198,6 +216,7 @@ CREATE TABLE Recipe_Ingredient (
 
 
 -- Create Recipe_Nutrition table (Many-to-Many relationship between Recipe and NutritionInfo)
+-- Recipe_Nutrition(RecipeID, NutritionID, Value)
 CREATE TABLE Recipe_Nutrition (
     RecipeID INT,
     NutritionID INT,

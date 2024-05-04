@@ -23,6 +23,9 @@ dependencies:
 dev_dependencies: 
   flutter_test: 
     sdk: flutter
+dependency_overrides:
+  web: ^0.5.1
+  firebase_auth_web: ^5.9.6
 flutter: 
   uses-material-design: true
   assets: 
