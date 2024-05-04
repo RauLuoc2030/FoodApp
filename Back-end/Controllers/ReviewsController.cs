@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FoodApp.Models;
+using FoodApp.Models.Context;
 
 namespace FoodApp.Controllers
 {
@@ -13,9 +14,9 @@ namespace FoodApp.Controllers
     [ApiController]
     public class ReviewsController : ControllerBase
     {
-        private readonly MyDbContext _context;
+        private readonly FoodContext _context;
 
-        public ReviewsController(MyDbContext context)
+        public ReviewsController(FoodContext context)
         {
             _context = context;
         }
@@ -87,24 +88,10 @@ namespace FoodApp.Controllers
         {
           if (_context.Reviews == null)
           {
-              return Problem("Entity set 'MyDbContext.Reviews'  is null.");
+              return Problem("Entity set 'FoodContext.Reviews'  is null.");
           }
             _context.Reviews.Add(review);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (ReviewExists(review.Id))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetReview", new { id = review.Id }, review);
         }

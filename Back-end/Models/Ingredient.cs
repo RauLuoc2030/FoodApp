@@ -7,11 +7,9 @@ public partial class Ingredient
 {
     public int IngredientId { get; set; }
 
-    public string? IngredientName { get; set; }
+    public string? Name { get; set; }
 
-    public string? IngredientDes { get; set; }
+    public string? Unit { get; set; }
 
-    public string? IngredientUnit { get; set; }
-
-    public virtual ICollection<Recipe> Recipes { get; set; } = new List<Recipe>();
+    public virtual ICollection<RecipeIngredient> RecipeIngredients { get; set; } = new List<RecipeIngredient>();
 }

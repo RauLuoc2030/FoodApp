@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FoodApp.Models;
+using FoodApp.Models.Context;
 
 namespace FoodApp.Controllers
 {
@@ -13,9 +14,9 @@ namespace FoodApp.Controllers
     [ApiController]
     public class NutritionInfoesController : ControllerBase
     {
-        private readonly MyDbContext _context;
+        private readonly FoodContext _context;
 
-        public NutritionInfoesController(MyDbContext context)
+        public NutritionInfoesController(FoodContext context)
         {
             _context = context;
         }
@@ -87,24 +88,10 @@ namespace FoodApp.Controllers
         {
           if (_context.NutritionInfos == null)
           {
-              return Problem("Entity set 'MyDbContext.NutritionInfos'  is null.");
+              return Problem("Entity set 'FoodContext.NutritionInfos'  is null.");
           }
             _context.NutritionInfos.Add(nutritionInfo);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (NutritionInfoExists(nutritionInfo.NutritionId))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetNutritionInfo", new { id = nutritionInfo.NutritionId }, nutritionInfo);
         }

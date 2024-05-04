@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FoodApp.Models;
+using FoodApp.Models.Context;
 
 namespace FoodApp.Controllers
 {
@@ -13,9 +14,9 @@ namespace FoodApp.Controllers
     [ApiController]
     public class CookingStepsController : ControllerBase
     {
-        private readonly MyDbContext _context;
+        private readonly FoodContext _context;
 
-        public CookingStepsController(MyDbContext context)
+        public CookingStepsController(FoodContext context)
         {
             _context = context;
         }
@@ -87,24 +88,10 @@ namespace FoodApp.Controllers
         {
           if (_context.CookingSteps == null)
           {
-              return Problem("Entity set 'MyDbContext.CookingSteps'  is null.");
+              return Problem("Entity set 'FoodContext.CookingSteps'  is null.");
           }
             _context.CookingSteps.Add(cookingStep);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (CookingStepExists(cookingStep.StepId))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetCookingStep", new { id = cookingStep.StepId }, cookingStep);
         }
