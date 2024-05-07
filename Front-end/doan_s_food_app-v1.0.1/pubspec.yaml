@@ -12,14 +12,15 @@ dependencies:
   flutter_svg: ^2.0.9
   intl: ^0.18.0
   connectivity_plus: ^5.0.2
+  google_fonts: 6.1.0
 dev_dependencies: 
   flutter_test: 
     sdk: flutter
 flutter: 
   uses-material-design: true
-  assets: 
-    - assets/
-    - assets/images/
+#  assets:
+#    - assets/
+#    - assets/images/
   fonts: 
     - family: Be Vietnam Pro
       fonts: 

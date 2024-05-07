@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:doan_s_food_app/pages/admin_home_page.dart';
+import 'package:doan_s_food_app/pages/detail_profile_admin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -33,8 +35,11 @@ class MyApp extends StatelessWidget {
           theme: theme,
           title: 'doan_s_food_app',
           debugShowCheckedModeBanner: false,
-          initialRoute: AppRoutes.initialRoute,
-          routes: AppRoutes.routes,
+          // initialRoute: AppRoutes.initialRoute,
+          // routes: AppRoutes.routes,
+          home: Scaffold(
+            body: AdminHomePage(),
+          ),
         );
       },
     );
