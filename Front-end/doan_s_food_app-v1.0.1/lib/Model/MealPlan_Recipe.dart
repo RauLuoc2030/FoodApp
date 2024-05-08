@@ -27,9 +27,18 @@ class MealPlan_Recipe {
   // Factory constructor for JSON parsing
   factory MealPlan_Recipe.fromJson(Map<String, dynamic> json) {
     return MealPlan_Recipe(
-      mealPlanID: json['MealPlanID'],
-      recipeID: json['RecipeID'],
-      date: DateTime.parse(json['Date']),
+      mealPlanID: json['mealPlanId'],
+      recipeID: json['recipeId'],
+      date: DateTime.parse(json['date']),
     );
+  }
+
+  // Method to convert to JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'mealPlanId': mealPlanID,
+      'recipeId': recipeID,
+      'date': date.toString(),
+    };
   }
 }

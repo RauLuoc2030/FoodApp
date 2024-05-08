@@ -26,22 +26,22 @@ class Review {
   // Factory constructor for JSON parsing
   factory Review.fromJson(Map<String, dynamic> json) {
     return Review(
-      id: json['ID'],
-      recipeID: json['RecipeID'],
-      nguoiDungID: json['NguoiDungID'],
-      content: json['Content'],
-      likeCount: json['LikeCount'],
+      id: json['id'],
+      recipeID: json['recipeId'],
+      nguoiDungID: json['nguoiDungId'],
+      content: json['content'],
+      likeCount: json['likeCount'],
     );
   }
 
   // Method to convert Review object to JSON
   Map<String, dynamic> toJson() {
     return {
-      'ID': id,
-      'RecipeID': recipeID,
-      'NguoiDungID': nguoiDungID,
-      'Content': content,
-      'LikeCount': likeCount,
+      // 'id': id,
+      'recipeId': recipeID,
+      'nguoiDungId': nguoiDungID,
+      'content': content,
+      'likeCount': likeCount,
     };
   }
 }

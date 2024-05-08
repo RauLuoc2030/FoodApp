@@ -20,9 +20,18 @@ class Ingredient {
   // Factory constructor for JSON parsing
   factory Ingredient.fromJson(Map<String, dynamic> json) {
     return Ingredient(
-      ingredientID: json['IngredientID'],
-      name: json['Name'],
-      unit: json['Unit'],
+      ingredientID: json['ingredientId'],
+      name: json['name'],
+      unit: json['unit'],
     );
+  }
+
+  // Method to convert Ingredient object to JSON
+  Map<String, dynamic> toJson() {
+    return {
+      // 'ingredientId': ingredientID,
+      'name': name,
+      'unit': unit,
+    };
   }
 }

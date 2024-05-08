@@ -24,22 +24,22 @@ class NguoiDung {
   // Factory constructor for JSON parsing
   factory NguoiDung.fromJson(Map<String, dynamic> json) {
     return NguoiDung(
-      id: json['ID'],
-      email: json['Email'],
-      dietaryRestrictions: json['DietaryRestrictions'],
-      allergies: json['Allergies'],
-      role: json['Role'],
+      id: json['id'],
+      email: json['email'],
+      dietaryRestrictions: json['dietaryRestrictions'],
+      allergies: json['allergies'],
+      role: json['role'],
     );
   }
 
   // Method to convert NguoiDung object to JSON
   Map<String, dynamic> toJson() {
     return {
-      'ID': id,
-      'Email': email,
-      'DietaryRestrictions': dietaryRestrictions,
-      'Allergies': allergies,
-      'Role': role,
+      // 'id': id,
+      'email': email,
+      'dietaryRestrictions': dietaryRestrictions,
+      'allergies': allergies,
+      'role': role,
     };
   }
   

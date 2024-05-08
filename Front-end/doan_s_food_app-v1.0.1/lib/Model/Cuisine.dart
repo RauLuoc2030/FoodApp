@@ -9,16 +9,16 @@ class Cuisine {
   // Factory constructor for JSON parsing
   factory Cuisine.fromJson(Map<String, dynamic> json) {
     return Cuisine(
-      cuisineID: json['CuisineID'],
-      foodType: json['FoodType'],
+      cuisineID: json['cuisineId'],
+      foodType: json['foodType'],
     );
   }
 
   // Method to convert Cuisine object to JSON
   Map<String, dynamic> toJson() {
     return {
-      'CuisineID': cuisineID,
-      'FoodType': foodType,
+      // 'cuisineId': cuisineID,
+      'foodType': foodType,
     };
   }
 }

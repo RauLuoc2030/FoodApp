@@ -20,18 +20,18 @@ class Favourite {
   // Factory constructor for JSON parsing
   factory Favourite.fromJson(Map<String, dynamic> json) {
     return Favourite(
-      id: json['ID'],
-      recipeID: json['RecipeID'],
-      nguoiDungID: json['NguoiDungID'],
+      id: json['id'],
+      recipeID: json['recipeId'],
+      nguoiDungID: json['nguoiDungId'],
     );
   }
 
   // Method to convert Favourite object to JSON
   Map<String, dynamic> toJson() {
     return {
-      'ID': id,
-      'RecipeID': recipeID,
-      'NguoiDungID': nguoiDungID,
+      // 'id': id,
+      'recipeId': recipeID,
+      'nguoiDungId': nguoiDungID,
     };
   }
 }

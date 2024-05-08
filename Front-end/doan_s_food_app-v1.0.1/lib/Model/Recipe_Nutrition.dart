@@ -35,18 +35,18 @@ class Recipe_Nutrition {
   // Factory constructor for JSON parsing
   factory Recipe_Nutrition.fromJson(Map<String, dynamic> json) {
     return Recipe_Nutrition(
-      recipeID: json['RecipeID'],
-      nutritionID: json['NutritionID'],
-      value: json['Value'],
+      recipeID: json['recipeId'],
+      nutritionID: json['nutritionId'],
+      value: json['value'],
     );
   }
 
   // Method to convert Recipe_Nutrition object to JSON
   Map<String, dynamic> toJson() {
     return {
-      'RecipeID': recipeID,
-      'NutritionID': nutritionID,
-      'Value': value,
+      'recipeId': recipeID,
+      'nutritionId': nutritionID,
+      'value': value,
     };
   }
 }

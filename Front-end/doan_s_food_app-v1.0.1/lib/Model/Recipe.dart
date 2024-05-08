@@ -53,32 +53,32 @@ class Recipe {
   // Factory constructor for JSON parsing
   factory Recipe.fromJson(Map<String, dynamic> json) {
     return Recipe(
-      recipeID: json['RecipeID'] ?? 0,
-      rname: json['RName'] ?? '',
-      createDate: json['CreateDate'] != null ? DateTime.parse(json['CreateDate']) : DateTime.now(),
-      prepTime: json['PrepTime'] ?? 0,
-      calories: json['Calories'] ?? 0.0,
-      viewNumber: json['ViewNumber'] ?? 0,
-      cuisineID: json['CuisineID'] ?? 0,
-      categoryID: json['CategoryID'] ?? 0,
-      description: json['Description'] ?? '',
-      imgUrl: json['ImgUrl'] ?? '',
+      recipeID: json['recipeId'],
+      rname: json['rname'] ?? '',
+      createDate: json['createDate'] != null ? DateTime.parse(json['createDate']) : DateTime.now(),
+      prepTime: json['prepTime'] ?? 0,
+      calories: json['calories'] ?? 0.0,
+      viewNumber: json['viewNumber'] ?? 0,
+      cuisineID: json['cuisineId'] ?? 0,
+      categoryID: json['categoryId'] ?? 0,
+      description: json['description'] ?? '',
+      imgUrl: json['imgUrl'] ?? '',
     );
   }
 
   // Method to convert Recipe object to JSON
   Map<String, dynamic> toJson() {
     return {
-      'RecipeID': recipeID,
-      'RName': rname,
-      'CreateDate': createDate.toIso8601String(),
-      'PrepTime': prepTime,
-      'Calories': calories,
-      'ViewNumber': viewNumber,
-      'CuisineID': cuisineID,
-      'CategoryID': categoryID,
-      'Description': description,
-      'ImgUrl': imgUrl,
+      // 'recipeId': recipeID,
+      'rname': rname,
+      'createDate': createDate.toIso8601String(),
+      'prepTime': prepTime,
+      'calories': calories,
+      'viewNumber': viewNumber,
+      'cuisineId': cuisineID,
+      'categoryId': categoryID,
+      'description': description,
+      'imgUrl': imgUrl,
     };
   }
 }

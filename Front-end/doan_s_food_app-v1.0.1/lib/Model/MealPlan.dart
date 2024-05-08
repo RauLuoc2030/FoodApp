@@ -37,30 +37,30 @@ class MealPlan {
   // Factory constructor for JSON parsing
   factory MealPlan.fromJson(Map<String, dynamic> json) {
     return MealPlan(
-      id: json['ID'],
-      nguoiDungID: json['NguoiDungID'],
-      name: json['Name'],
-      description: json['Description'],
-      amountOfMeals: json['AmountOfMeals'],
-      length: json['Length'],
-      startDate: json['StartDate'],
-      endDate: json['EndDate'],
-      totalMeal: json['TotalMeal'],
+      id: json['id'],
+      nguoiDungID: json['nguoiDungId'],
+      name: json['name'],
+      description: json['description'],
+      amountOfMeals: json['amountOfMeals'],
+      length: json['length'],
+      startDate: json['startDate'],
+      endDate: json['endDate'],
+      totalMeal: json['totalMeal'],
     );
   }
 
   // Method to convert MealPlan object to JSON
   Map<String, dynamic> toJson() {
     return {
-      'ID': id,
-      'NguoiDungID': nguoiDungID,
-      'Name': name,
-      'Description': description,
-      'AmountOfMeals': amountOfMeals,
-      'Length': length,
-      'StartDate': startDate,
-      'EndDate': endDate,
-      'TotalMeal': totalMeal,
+      // 'id': id,
+      'nguoiDungId': nguoiDungID,
+      'name': name,
+      'description': description,
+      'amountOfMeals': amountOfMeals,
+      'length': length,
+      'startDate': startDate,
+      'endDate': endDate,
+      'totalMeal': totalMeal,
     };
   }
 }

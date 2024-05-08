@@ -21,22 +21,22 @@ class Comment {
   // Factory constructor for JSON parsing
   factory Comment.fromJson(Map<String, dynamic> json) {
     return Comment(
-      id: json['ID'],
-      reviewID: json['ReviewID'],
-      nguoiDungID: json['NguoiDungID'],
-      content: json['Content'],
-      likeCount: json['LikeCount'],
+      id: json['id'],
+      reviewID: json['reviewId'],
+      nguoiDungID: json['nguoiDungId'],
+      content: json['content'],
+      likeCount: json['likeCount'],
     );
   }
 
   // Method to convert Comment object to JSON
   Map<String, dynamic> toJson() {
     return {
-      'ID': id,
-      'ReviewID': reviewID,
-      'NguoiDungID': nguoiDungID,
-      'Content': content,
-      'LikeCount': likeCount,
+      // 'id': id,
+      'reviewId': reviewID,
+      'nguoiDungId': nguoiDungID,
+      'content': content,
+      'likeCount': likeCount,
     };
   }
 }

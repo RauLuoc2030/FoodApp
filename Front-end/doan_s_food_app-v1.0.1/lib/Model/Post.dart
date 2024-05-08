@@ -25,24 +25,24 @@ class Post{
   // Factory constructor for JSON parsing
   factory Post.fromJson(Map<String, dynamic> json) {
     return Post(
-      id: json['ID'],
-      nguoiDungID: json['NguoiDungID'],
-      content: json['Content'],
-      likeCount: json['LikeCount'],
-      imgUrl: json['ImgUrl'],
-      recipeName: json['RecipeName'],
+      id: json['id'],
+      nguoiDungID: json['nguoiDungId'],
+      content: json['content'],
+      likeCount: json['likeCount'],
+      imgUrl: json['imgUrl'],
+      recipeName: json['recipeName'],
     );
   }
 
   // Method to convert Post object to JSON
   Map<String, dynamic> toJson() {
     return {
-      'ID': id,
-      'NguoiDungID': nguoiDungID,
-      'Content': content,
-      'LikeCount': likeCount,
-      'ImgUrl': imgUrl,
-      'RecipeName': recipeName,
+      // 'id': id,
+      'nguoiDungId': nguoiDungID,
+      'content': content,
+      'likeCount': likeCount,
+      'imgUrl': imgUrl,
+      'recipeName': recipeName,
     };
   }
 }
