@@ -1,26 +1,26 @@
 class Post{
   // Post(ID, NguoiDungID, Content, LikeCount, ImgUrl, RecipeName)
-  final int id;
-  final int nguoiDungID;
+  final int? id;
+  final int? nguoiDungID;
   /**
    * The content/caption of the post
    */
-  final String content;
+  final String? content;
   /**
    * The number of likes the post has
    */
-  final int likeCount;
+  final int? likeCount;
   /**
    * The image URL of the post
    */
-  final String imgUrl;
+  final String? imgUrl;
   /**
    * The name of the recipe in the post
    */
-  final String recipeName;
+  final String? recipeName;
 
   // Constructor
-  Post({required this.id, required this.nguoiDungID, required this.content, required this.likeCount, required this.imgUrl, required this.recipeName});
+  Post({ this.id,  this.nguoiDungID,  this.content,  this.likeCount,  this.imgUrl,  this.recipeName});
 
   // Factory constructor for JSON parsing
   factory Post.fromJson(Map<String, dynamic> json) {

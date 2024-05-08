@@ -12,11 +12,11 @@
  */
 class Recipe_Ingredient {
   // Recipe_Ingredient(RecipeID, IngredientID, Value)(RecipeID, IngredientID, Value)
-  final int recipeID;
+  final int? recipeID;
   /**
    * The ID of the Ingredient (IngredientID) in the Recipe (RecipeID)
    */
-  final int ingredientID;
+  final int? ingredientID;
   /**
    * The value of the Ingredient (IngredientID) in the Recipe (RecipeID)
    * 
@@ -27,10 +27,10 @@ class Recipe_Ingredient {
    * - Đơn vị của Value phụ thuộc vào Unit của Ingredient (Ingredient.Unit)
    * - Value có thể là số thập phân
    */
-  final double value;
+  final double? value;
 
   // Constructor
-  Recipe_Ingredient({required this.recipeID, required this.ingredientID, required this.value});
+  Recipe_Ingredient({ this.recipeID,  this.ingredientID,  this.value});
 
   // Factory constructor for JSON parsing
   factory Recipe_Ingredient.fromJson(Map<String, dynamic> json) {

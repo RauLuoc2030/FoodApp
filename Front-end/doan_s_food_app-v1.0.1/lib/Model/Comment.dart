@@ -9,14 +9,14 @@
  */
 class Comment {
   // Comment(ID, ReviewID, NguoiDungID, Content, LikeCount)
-  final int id;
-  final int reviewID;
-  final int nguoiDungID;
-  final String content;
-  final int likeCount;
+  final int? id;
+  final int? reviewID;
+  final int? nguoiDungID;
+  final String? content;
+  final int? likeCount;
 
   // Constructor
-  Comment({required this.id, required this.reviewID, required this.nguoiDungID, required this.content, required this.likeCount});
+  Comment({ this.id,  this.reviewID,  this.nguoiDungID,  this.content,  this.likeCount});
 
   // Factory constructor for JSON parsing
   factory Comment.fromJson(Map<String, dynamic> json) {

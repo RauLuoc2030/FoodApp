@@ -4,18 +4,18 @@
  */
 class NutritionInfo {
   // NutritionInfo(NutritionID, Name, Unit)
-  final int nutritionID;
+  final int? nutritionID;
   /**
    * The name of the nutrition (Calories, Protein, ...)
    */
-  final String name;
+  final String? name;
   /**
    * The unit of the nutrition (g, mg, kcal, ...)
    */
-  final String unit;
+  final String? unit;
 
   // Constructor
-  NutritionInfo({required this.nutritionID, required this.name, required this.unit});
+  NutritionInfo({ this.nutritionID,  this.name,  this.unit});
 
   // Factory constructor for JSON parsing
   factory NutritionInfo.fromJson(Map<String, dynamic> json) {

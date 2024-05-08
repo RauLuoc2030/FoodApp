@@ -4,18 +4,18 @@
  */
 class Ingredient {
   // Ingredient(IngredientID, Name, Unit)
-  final int ingredientID;
+  final int? ingredientID;
   /**
    * The name of the ingredient (Sugar, Salt, ...)
    */
-  final String name;
+  final String? name;
   /**
    * The unit of the ingredient (g, kg, ...)
    */
-  final String unit;
+  final String? unit;
 
   // Constructor
-  Ingredient({required this.ingredientID, required this.name, required this.unit});
+  Ingredient({ this.ingredientID,  this.name,  this.unit});
 
   // Factory constructor for JSON parsing
   factory Ingredient.fromJson(Map<String, dynamic> json) {

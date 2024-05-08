@@ -1,10 +1,10 @@
 class Cuisine {
   // Cuisine(CuisineID, FoodType)
-  final int cuisineID;
-  final String foodType;
+  final int? cuisineID;
+  final String? foodType;
 
   // Constructor
-  Cuisine({required this.cuisineID, required this.foodType});
+  Cuisine({ this.cuisineID,  this.foodType});
 
   // Factory constructor for JSON parsing
   factory Cuisine.fromJson(Map<String, dynamic> json) {

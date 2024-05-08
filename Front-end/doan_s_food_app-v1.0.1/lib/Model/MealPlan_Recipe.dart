@@ -11,18 +11,18 @@
  */
 class MealPlan_Recipe {
   // MealPlan_Recipe(MealPlanID, RecipeID, Date)
-  final int mealPlanID;
+  final int? mealPlanID;
   /**
    * The ID of the Recipe (RecipeID) in the MealPlan (MealPlanID)
    */
-  final int recipeID;
+  final int? recipeID;
   /**
    * The date of the MealPlan (MealPlanID) that the Recipe (RecipeID) is in
    */
-  final DateTime date;
+  final DateTime? date;
 
   // Constructor
-  MealPlan_Recipe({required this.mealPlanID, required this.recipeID, required this.date});
+  MealPlan_Recipe({ this.mealPlanID,  this.recipeID,  this.date});
 
   // Factory constructor for JSON parsing
   factory MealPlan_Recipe.fromJson(Map<String, dynamic> json) {

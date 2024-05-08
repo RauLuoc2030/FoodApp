@@ -4,18 +4,18 @@
  */
 class Favourite {
   // Favourite(ID, RecipeID, NguoiDungID)
-  final int id;
+  final int? id;
   /**
    * The ID of the recipe which is favourite recipe of the user
    */
-  final int recipeID;
+  final int? recipeID;
   /**
    * The ID of the user who favourite the recipe
    */
-  final int nguoiDungID;
+  final int? nguoiDungID;
 
   // Constructor
-  Favourite({required this.id, required this.recipeID, required this.nguoiDungID});
+  Favourite({ this.id,  this.recipeID,  this.nguoiDungID});
 
   // Factory constructor for JSON parsing
   factory Favourite.fromJson(Map<String, dynamic> json) {

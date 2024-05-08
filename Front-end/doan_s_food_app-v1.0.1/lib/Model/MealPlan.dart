@@ -1,38 +1,38 @@
 class MealPlan {
   // MealPlan(ID, NguoiDungID, Name, Description, AmountOfMeals, Length, StartDate, EndDate, TotalMeal)
-  final int id;
-  final int nguoiDungID;
+  final int? id;
+  final int? nguoiDungID;
   /**
    * Name of the meal plan, named by the user
    */
-  final String name;
+  final String? name;
   /**
    * Description of the meal plan shown to the user
    */
-  final String description;
+  final String? description;
   /**
    * Number of meals per day
    */
-  final int amountOfMeals;
+  final int? amountOfMeals;
   /**
    * Number of weeks the meal plan lasts
    *  */
-  final int length;
+  final int? length;
   /**
    * Start date of the meal plan
    */
-  final String startDate;
+  final String? startDate;
   /**
    * End date of the meal plan
    */
-  final String endDate;
+  final String? endDate;
   /**
    * Total number of meals in the meal plan
    */
-  final int totalMeal;
+  final int? totalMeal;
 
   // Constructor
-  MealPlan({required this.id, required this.nguoiDungID, required this.name, required this.description, required this.amountOfMeals, required this.length, required this.startDate, required this.endDate, required this.totalMeal});
+  MealPlan({ this.id,  this.nguoiDungID,  this.name,  this.description,  this.amountOfMeals,  this.length,  this.startDate,  this.endDate,  this.totalMeal});
 
   // Factory constructor for JSON parsing
   factory MealPlan.fromJson(Map<String, dynamic> json) {
