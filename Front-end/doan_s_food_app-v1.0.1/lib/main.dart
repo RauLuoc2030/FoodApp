@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:doan_s_food_app/pages/admin_home_page.dart';
 import 'package:doan_s_food_app/pages/detail_profile_admin.dart';
+import 'package:doan_s_food_app/pages/profile_1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -38,7 +39,8 @@ class MyApp extends StatelessWidget {
           // initialRoute: AppRoutes.initialRoute,
           // routes: AppRoutes.routes,
           home: Scaffold(
-            body: AdminHomePage(),
+            body: Profile1(),
+            // AdminHomePage(),
           ),
         );
       },

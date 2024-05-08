@@ -64,6 +64,7 @@ class AdminHomePage extends StatelessWidget {
                                   ),
                                   Container(
                                     width: 52.1,
+                                    height: 52.1,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(26.0416660309),
                                     ),
@@ -378,7 +379,7 @@ class AdminHomePage extends StatelessWidget {
                                 child: Align(
                                   alignment: Alignment.topLeft,
                                   child: Text(
-                                    'Số công thức nấu ăn ',
+                                    'Số công thức \nnấu ăn ',
                                     style: GoogleFonts.getFont(
                                       'Be Vietnam Pro',
                                       fontWeight: FontWeight.w700,
