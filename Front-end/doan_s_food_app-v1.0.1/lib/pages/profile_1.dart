@@ -118,9 +118,9 @@ class Profile1 extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            margin: EdgeInsets.fromLTRB(0, 0, 10.5, 0),
+                            margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                             child: SizedBox(
-                              width: 125.7,
+                              width: 125,
                               child: Text(
                                 'Saved Recipes',
                                 style: GoogleFonts.getFont(
@@ -133,14 +133,19 @@ class Profile1 extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Text(
-                            'Cookbooks',
-                            style: GoogleFonts.getFont(
-                              'Alata',
-                              fontWeight: FontWeight.w400,
-                              fontSize: 15.6,
-                              letterSpacing: -0.1,
-                              color: Color(0xFF000000),
+                          Container(
+                            margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                            child: SizedBox(
+                              width: 125,
+                              child: Text(
+                                'Cookbooks',
+                                style: GoogleFonts.getFont(
+                                  'Alata',
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 15.6,
+                                  letterSpacing: -0.1,
+                                ),
+                              ),
                             ),
                           ),
                           Text(
@@ -187,24 +192,27 @@ class Profile1 extends StatelessWidget {
                       ],
                     ),
                     child: Container(
-                      padding: EdgeInsets.fromLTRB(0, 6.8, 0, 6.7),
+                      padding: EdgeInsets.fromLTRB(20, 6.8, 20, 6.8),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
                             width: 26.4,
                             height: 28.2,
-                            child: SizedBox(
-                              width: 26.4,
-                              height: 28.2,
-                              child: SvgPicture.asset(
-                                'assets/vectors/vector_43_x2.svg',
+                            child: Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: AssetImage(
+                                    'assets/images/magnifying-glass 1.png',
+                                  ),
+                                ),
                               ),
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.fromLTRB(0, 3.6, 0, 3.6),
+                            margin: EdgeInsets.fromLTRB(20, 3.6, 0, 3.6),
                             child: Text(
                               'Search Saved Recipes',
                               style: GoogleFonts.getFont(
@@ -402,28 +410,17 @@ class Profile1 extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
-                                    margin: EdgeInsets.fromLTRB(0, 0, 0.1, 6.5),
+                                  margin: EdgeInsets.fromLTRB(0, 0, 0.1, 6.5),
+                                  width: 30,
+                                  height: 34.5,
+                                  child: SizedBox(
                                     width: 30,
                                     height: 34.5,
-                                    child: SizedBox(
-                                      width: 30,
-                                      height: 34.5,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                            fit: BoxFit.cover,
-                                            image: AssetImage(
-                                                'assets/images/magnifying-glass 1.png'
-                                            ),
-                                          ),
-                                        ),
-                                        child: Container(
-                                          width: 26.42,
-                                          height: 28.15,
-                                        ),
-                                      ),
+                                    child: SvgPicture.asset(
+                                      'assets/vectors/bbq_x2.svg',
                                     ),
                                   ),
+                                ),
                                   Text(
                                     'Community',
                                     style: GoogleFonts.getFont(
