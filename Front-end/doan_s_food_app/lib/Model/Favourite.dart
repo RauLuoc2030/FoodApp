@@ -29,7 +29,7 @@ class Favourite {
   // Method to convert Favourite object to JSON
   Map<String, dynamic> toJson() {
     return {
-      // 'id': id,
+      'id': id != null ? id : 0,
       'recipeId': recipeID,
       'nguoiDungId': nguoiDungID,
     };

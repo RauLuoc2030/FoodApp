@@ -37,7 +37,7 @@ class Review {
   // Method to convert Review object to JSON
   Map<String, dynamic> toJson() {
     return {
-      // 'id': id,
+      'id': id != null ? id : 0,
       'recipeId': recipeID,
       'nguoiDungId': nguoiDungID,
       'content': content,

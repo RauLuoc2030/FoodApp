@@ -52,7 +52,7 @@ class MealPlan {
   // Method to convert MealPlan object to JSON
   Map<String, dynamic> toJson() {
     return {
-      // 'id': id,
+      'id': id != null ? id : 0,
       'nguoiDungId': nguoiDungID,
       'name': name,
       'description': description,

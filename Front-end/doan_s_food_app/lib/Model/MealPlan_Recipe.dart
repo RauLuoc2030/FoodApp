@@ -10,7 +10,10 @@
  * - Ngày 2024-12-03 có Recipe 3, Recipe 1, Recipe 2
  */
 class MealPlan_Recipe {
-  // MealPlan_Recipe(MealPlanID, RecipeID, Date)
+  // MealPlan_Recipe(id, MealPlanID, RecipeID, Date)
+
+  final int? id;
+
   final int? mealPlanID;
   /**
    * The ID of the Recipe (RecipeID) in the MealPlan (MealPlanID)
@@ -22,11 +25,12 @@ class MealPlan_Recipe {
   final DateTime? date;
 
   // Constructor
-  MealPlan_Recipe({ this.mealPlanID,  this.recipeID,  this.date});
+  MealPlan_Recipe({this.id, this.mealPlanID,  this.recipeID,  this.date});
 
   // Factory constructor for JSON parsing
   factory MealPlan_Recipe.fromJson(Map<String, dynamic> json) {
     return MealPlan_Recipe(
+      id: json['id'],
       mealPlanID: json['mealPlanId'],
       recipeID: json['recipeId'],
       date: DateTime.parse(json['date']),
@@ -36,6 +40,7 @@ class MealPlan_Recipe {
   // Method to convert to JSON
   Map<String, dynamic> toJson() {
     return {
+      'id': id != null ? id : 0,
       'mealPlanId': mealPlanID,
       'recipeId': recipeID,
       'date': date.toString(),

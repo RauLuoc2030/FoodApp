@@ -1,6 +1,6 @@
 class CookingStep {
-  // CookingStep(StepID, RecipeID, Number, Detail)
-  final int? stepID;
+  // CookingStep(id, RecipeID, Number, Detail)
+  final int? id;
   final int? recipeID;
   /**
    * The order of the step in the recipe
@@ -12,12 +12,12 @@ class CookingStep {
   final String? detail;
 
   // Constructor
-  CookingStep({ this.stepID,  this.recipeID,  this.number,  this.detail});
+  CookingStep({ this.id,  this.recipeID,  this.number,  this.detail});
 
   // Factory constructor for JSON parsing
   factory CookingStep.fromJson(Map<String, dynamic> json) {
     return CookingStep(
-      stepID: json['stepId'],
+      id: json['id'],
       recipeID: json['recipeId'],
       number: json['number'],
       detail: json['detail'],
@@ -27,7 +27,7 @@ class CookingStep {
   // Method to convert CookingStep object to JSON
   Map<String, dynamic> toJson() {
     return {
-      // 'stepId': stepID,
+      'id': id != null ? id : 0,
       'recipeId': recipeID,
       'number': number,
       'detail': detail,

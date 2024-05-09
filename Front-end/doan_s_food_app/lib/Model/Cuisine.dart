@@ -1,15 +1,15 @@
 class Cuisine {
-  // Cuisine(CuisineID, FoodType)
-  final int? cuisineID;
+  // Cuisine(id, FoodType)
+  final int? id;
   final String? foodType;
 
   // Constructor
-  Cuisine({ this.cuisineID,  this.foodType});
+  Cuisine({ this.id,  this.foodType});
 
   // Factory constructor for JSON parsing
   factory Cuisine.fromJson(Map<String, dynamic> json) {
     return Cuisine(
-      cuisineID: json['cuisineId'],
+      id: json['id'],
       foodType: json['foodType'],
     );
   }
@@ -17,7 +17,7 @@ class Cuisine {
   // Method to convert Cuisine object to JSON
   Map<String, dynamic> toJson() {
     return {
-      // 'cuisineId': cuisineID,
+      'id': id != null ? id : 0,
       'foodType': foodType,
     };
   }

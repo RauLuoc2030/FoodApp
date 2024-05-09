@@ -32,7 +32,7 @@ class Comment {
   // Method to convert Comment object to JSON
   Map<String, dynamic> toJson() {
     return {
-      // 'id': id,
+      'id': id != null ? id : 0,
       'reviewId': reviewID,
       'nguoiDungId': nguoiDungID,
       'content': content,

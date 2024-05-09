@@ -37,7 +37,7 @@ class Post{
   // Method to convert Post object to JSON
   Map<String, dynamic> toJson() {
     return {
-      // 'id': id,
+      'id': id != null ? id : 0,
       'nguoiDungId': nguoiDungID,
       'content': content,
       'likeCount': likeCount,

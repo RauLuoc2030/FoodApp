@@ -5,7 +5,6 @@ import 'dart:convert';
 
 import 'package:doan_s_food_app/Model/Category.dart';
 import 'package:doan_s_food_app/globals.dart';
-import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 
 
@@ -44,7 +43,7 @@ class CategoryService {
   // Get the category by ID
   Category getCategoryById(int id) {
     // Find the category with the given ID
-    return Categories.firstWhere((element) => element.categoryId == id);
+    return Categories.firstWhere((element) => element.id == id);
   }
 
   // Get the category by ID from server
@@ -97,7 +96,7 @@ class CategoryService {
   Future<Category?> putCategory(Category category) async {
     // Send a PUT request to the server
     var response = await http.put(
-      Uri.parse('${Globals.serverUrl}/categories/${category.categoryId}'),
+      Uri.parse('${Globals.serverUrl}/categories/${category.id}'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },

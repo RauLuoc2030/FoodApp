@@ -3,8 +3,8 @@
  * Use to store data of Ingredient (Nguyên liệu)
  */
 class Ingredient {
-  // Ingredient(IngredientID, Name, Unit)
-  final int? ingredientID;
+  // Ingredient(id, Name, Unit)
+  final int? id;
   /**
    * The name of the ingredient (Sugar, Salt, ...)
    */
@@ -15,12 +15,12 @@ class Ingredient {
   final String? unit;
 
   // Constructor
-  Ingredient({ this.ingredientID,  this.name,  this.unit});
+  Ingredient({ this.id,  this.name,  this.unit});
 
   // Factory constructor for JSON parsing
   factory Ingredient.fromJson(Map<String, dynamic> json) {
     return Ingredient(
-      ingredientID: json['ingredientId'],
+      id: json['id'],
       name: json['name'],
       unit: json['unit'],
     );
@@ -29,7 +29,7 @@ class Ingredient {
   // Method to convert Ingredient object to JSON
   Map<String, dynamic> toJson() {
     return {
-      // 'ingredientId': ingredientID,
+      'id': id != null ? id : 0,
       'name': name,
       'unit': unit,
     };

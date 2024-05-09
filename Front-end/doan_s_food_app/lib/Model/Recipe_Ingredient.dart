@@ -11,7 +11,9 @@
   *      - "Hành": 50g
  */
 class Recipe_Ingredient {
-  // Recipe_Ingredient(RecipeID, IngredientID, Value)(RecipeID, IngredientID, Value)
+  // Recipe_Ingredient(id, RecipeID, IngredientID, Value)(RecipeID, IngredientID, Value)
+  final int? id;
+
   final int? recipeID;
   /**
    * The ID of the Ingredient (IngredientID) in the Recipe (RecipeID)
@@ -30,11 +32,12 @@ class Recipe_Ingredient {
   final double? value;
 
   // Constructor
-  Recipe_Ingredient({ this.recipeID,  this.ingredientID,  this.value});
+  Recipe_Ingredient({ this.id, this.recipeID,  this.ingredientID,  this.value});
 
   // Factory constructor for JSON parsing
   factory Recipe_Ingredient.fromJson(Map<String, dynamic> json) {
     return Recipe_Ingredient(
+      id: json['id'],
       recipeID: json['recipeId'],
       ingredientID: json['ingredientId'],
       value: json['value'],
@@ -44,6 +47,7 @@ class Recipe_Ingredient {
   // Method to convert Recipe_Ingredient object to JSON
   Map<String, dynamic> toJson() {
     return {
+      'id': id != null ? id : 0,
       'recipeId': recipeID,
       'ingredientId': ingredientID,
       'value': value,

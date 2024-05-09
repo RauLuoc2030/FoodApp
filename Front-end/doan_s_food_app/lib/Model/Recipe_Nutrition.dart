@@ -11,7 +11,9 @@
   * - ...
  */
 class Recipe_Nutrition {
-  // Recipe_Nutrition(RecipeID, NutritionID, Value)
+  // Recipe_Nutrition(id, RecipeID, NutritionID, Value)
+  final int? id;
+
   final int? recipeID;
   /**
    * The ID of the Nutrition (NutritionID) in the Recipe (RecipeID)
@@ -30,11 +32,12 @@ class Recipe_Nutrition {
   final double? value;
 
   // Constructor
-  Recipe_Nutrition({ this.recipeID,  this.nutritionID,  this.value});
+  Recipe_Nutrition({ this.id, this.recipeID,  this.nutritionID,  this.value});
 
   // Factory constructor for JSON parsing
   factory Recipe_Nutrition.fromJson(Map<String, dynamic> json) {
     return Recipe_Nutrition(
+      id: json['id'],
       recipeID: json['recipeId'],
       nutritionID: json['nutritionId'],
       value: json['value'],
@@ -44,6 +47,7 @@ class Recipe_Nutrition {
   // Method to convert Recipe_Nutrition object to JSON
   Map<String, dynamic> toJson() {
     return {
+      'id': id != null ? id : 0,
       'recipeId': recipeID,
       'nutritionId': nutritionID,
       'value': value,

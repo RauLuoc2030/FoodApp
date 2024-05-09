@@ -35,7 +35,7 @@ class NguoiDung {
   // Method to convert NguoiDung object to JSON
   Map<String, dynamic> toJson() {
     return {
-      // 'id': id,
+      'id': id != null ? id : 0,
       'email': email,
       'dietaryRestrictions': dietaryRestrictions,
       'allergies': allergies,

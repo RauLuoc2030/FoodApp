@@ -1,6 +1,6 @@
 class Recipe {
-  // Recipe(RecipeID, RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
-  final int? recipeID;
+  // Recipe(id, RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
+  final int? id;
   /**
    * The name of the recipe
    */
@@ -36,7 +36,7 @@ class Recipe {
 
   // Constructor
   Recipe({
-     this.recipeID,
+     this.id,
      this.rname,
      this.createDate,
      this.prepTime,
@@ -51,7 +51,7 @@ class Recipe {
   // Factory constructor for JSON parsing
   factory Recipe.fromJson(Map<String, dynamic> json) {
     return Recipe(
-      recipeID: json['recipeId'],
+      id: json['id'],
       rname: json['rname'] ?? '',
       createDate: json['createDate'] != null ? DateTime.parse(json['createDate']) : DateTime.now(),
       prepTime: json['prepTime'] ?? 0,
@@ -67,7 +67,7 @@ class Recipe {
   // Method to convert Recipe object to JSON
   Map<String, dynamic> toJson() {
     return {
-      // 'recipeId': recipeID,
+      'id': id != null ? id : 0,
       'rname': rname,
       'createDate': createDate?.toIso8601String(),
       'prepTime': prepTime,

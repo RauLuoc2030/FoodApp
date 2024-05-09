@@ -3,8 +3,8 @@
  * Use to store data of one Nutrition (Giá trị dinh dưỡng)
  */
 class NutritionInfo {
-  // NutritionInfo(NutritionID, Name, Unit)
-  final int? nutritionID;
+  // NutritionInfo(id, Name, Unit)
+  final int? id;
   /**
    * The name of the nutrition (Calories, Protein, ...)
    */
@@ -15,12 +15,12 @@ class NutritionInfo {
   final String? unit;
 
   // Constructor
-  NutritionInfo({ this.nutritionID,  this.name,  this.unit});
+  NutritionInfo({ this.id,  this.name,  this.unit});
 
   // Factory constructor for JSON parsing
   factory NutritionInfo.fromJson(Map<String, dynamic> json) {
     return NutritionInfo(
-      nutritionID: json['nutritionID'],
+      id: json['id'],
       name: json['name'],
       unit: json['unit'],
     );
@@ -29,7 +29,7 @@ class NutritionInfo {
   // Method to convert NutritionInfo object to JSON
   Map<String, dynamic> toJson() {
     return {
-      // 'nutritionID': nutritionID,
+      'id': id != null ? id : 0,
       'name': name,
       'unit': unit,
     };
