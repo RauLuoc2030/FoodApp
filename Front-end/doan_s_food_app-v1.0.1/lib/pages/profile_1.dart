@@ -258,21 +258,21 @@ class Profile1 extends StatelessWidget {
                                           ),
                                         ),
                                       ),
-                                Container(
-                                        height: 171.9,
-                                        padding: EdgeInsets.fromLTRB(16.4, 135.2, 16.4, 18),
-                                        child: Container(
-                                          width: 18.3,
-                                          height: 18.8,
-                                          child: SizedBox(
-                                            width: 18.3,
-                                            height: 18.8,
-                                            child: SvgPicture.asset(
-                                              'assets/vectors/vector_26_x2.svg',
-                                            ),
-                                          ),
-                                        ),
-                                      ),
+                                // Container(
+                                //         height: 171.9,
+                                //         padding: EdgeInsets.fromLTRB(16.4, 135.2, 16.4, 18),
+                                //         child: Container(
+                                //           width: 18.3,
+                                //           height: 18.8,
+                                //           child: SizedBox(
+                                //             width: 18.3,
+                                //             height: 18.8,
+                                //             child: SvgPicture.asset(
+                                //               'assets/vectors/vector_26_x2.svg',
+                                //             ),
+                                //           ),
+                                //         ),
+                                //       ),
                                     ],
                                   ),
                                 ),
@@ -292,62 +292,62 @@ class Profile1 extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Expanded(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.fromLTRB(0, 0, 0, 5.7),
-                                child: Stack(
-                                  children: [
-                                    Positioned(
-                                      right: -10.1,
-                                      top: -10.4,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFFFFFFFF),
-                                          borderRadius: BorderRadius.circular(19.3),
-                                        ),
-                                        child: Container(
-                                          width: 38.5,
-                                          height: 38.5,
-                                        ),
-                                      ),
-                                    ),
-                              Container(
-                                      height: 171.9,
-                                      padding: EdgeInsets.fromLTRB(16.4, 135.2, 16.4, 18),
-                                      child: Container(
-                                        width: 18.3,
-                                        height: 18.8,
-                                        child: SizedBox(
-                                          width: 18.3,
-                                          height: 18.8,
-                                          child: SvgPicture.asset(
-                                            'assets/vectors/vector_55_x2.svg',
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Align(
-                                alignment: Alignment.topLeft,
-                                child: Text(
-                                  'Sfogliatine',
-                                  style: GoogleFonts.getFont(
-                                    'Alata',
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 15.6,
-                                    color: Color(0xFF000000),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                        // Expanded(
+                        //   child: Column(
+                        //     mainAxisAlignment: MainAxisAlignment.start,
+                        //     crossAxisAlignment: CrossAxisAlignment.start,
+                        //     children: [
+                        //       Container(
+                        //         margin: EdgeInsets.fromLTRB(0, 0, 0, 5.7),
+                        //         child: Stack(
+                        //           children: [
+                        //             Positioned(
+                        //               right: -10.1,
+                        //               top: -10.4,
+                        //               child: Container(
+                        //                 decoration: BoxDecoration(
+                        //                   color: Color(0xFFFFFFFF),
+                        //                   borderRadius: BorderRadius.circular(19.3),
+                        //                 ),
+                        //                 child: Container(
+                        //                   width: 38.5,
+                        //                   height: 38.5,
+                        //                 ),
+                        //               ),
+                        //             ),
+                        //       Container(
+                        //               height: 171.9,
+                        //               padding: EdgeInsets.fromLTRB(16.4, 135.2, 16.4, 18),
+                        //               child: Container(
+                        //                 width: 18.3,
+                        //                 height: 18.8,
+                        //                 child: SizedBox(
+                        //                   width: 18.3,
+                        //                   height: 18.8,
+                        //                   child: SvgPicture.asset(
+                        //                     'assets/vectors/vector_55_x2.svg',
+                        //                   ),
+                        //                 ),
+                        //               ),
+                        //             ),
+                        //           ],
+                        //         ),
+                        //       ),
+                        //       Align(
+                        //         alignment: Alignment.topLeft,
+                        //         child: Text(
+                        //           'Sfogliatine',
+                        //           style: GoogleFonts.getFont(
+                        //             'Alata',
+                        //             fontWeight: FontWeight.w400,
+                        //             fontSize: 15.6,
+                        //             color: Color(0xFF000000),
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ],
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
