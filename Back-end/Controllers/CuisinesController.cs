@@ -55,7 +55,7 @@ namespace FoodApp.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCuisine(int id, Cuisine cuisine)
         {
-            if (id != cuisine.CuisineId)
+            if (id != cuisine.Id)
             {
                 return BadRequest();
             }
@@ -93,7 +93,7 @@ namespace FoodApp.Controllers
             _context.Cuisines.Add(cuisine);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCuisine", new { id = cuisine.CuisineId }, cuisine);
+            return CreatedAtAction("GetCuisine", new { id = cuisine.Id }, cuisine);
         }
 
         // DELETE: api/Cuisines/5
@@ -118,7 +118,7 @@ namespace FoodApp.Controllers
 
         private bool CuisineExists(int id)
         {
-            return (_context.Cuisines?.Any(e => e.CuisineId == id)).GetValueOrDefault();
+            return (_context.Cuisines?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

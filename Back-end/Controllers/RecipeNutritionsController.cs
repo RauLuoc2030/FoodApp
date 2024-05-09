@@ -55,7 +55,7 @@ namespace FoodApp.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutRecipeNutrition(int id, RecipeNutrition recipeNutrition)
         {
-            if (id != recipeNutrition.RecipeId)
+            if (id != recipeNutrition.Id)
             {
                 return BadRequest();
             }
@@ -91,23 +91,9 @@ namespace FoodApp.Controllers
               return Problem("Entity set 'FoodContext.RecipeNutritions'  is null.");
           }
             _context.RecipeNutritions.Add(recipeNutrition);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (RecipeNutritionExists(recipeNutrition.RecipeId))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetRecipeNutrition", new { id = recipeNutrition.RecipeId }, recipeNutrition);
+            return CreatedAtAction("GetRecipeNutrition", new { id = recipeNutrition.Id }, recipeNutrition);
         }
 
         // DELETE: api/RecipeNutritions/5
@@ -132,7 +118,7 @@ namespace FoodApp.Controllers
 
         private bool RecipeNutritionExists(int id)
         {
-            return (_context.RecipeNutritions?.Any(e => e.RecipeId == id)).GetValueOrDefault();
+            return (_context.RecipeNutritions?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

@@ -19,13 +19,13 @@ DROP TABLE IF EXISTS cuisine;
 -- Create Cuisine table
 -- Cuisine(CuisineID, FoodType)
 CREATE TABLE Cuisine (
-    CuisineID INT PRIMARY KEY identity(1,1),
+    id INT PRIMARY KEY identity(1,1),
     FoodType NVARCHAR(255) -- Vegetarian, Meat, Seafood, etc.
 );
 
 -- Create Category table
 CREATE TABLE Category (
-    CategoryID INT PRIMARY KEY identity(1,1),
+    id INT PRIMARY KEY identity(1,1),
     CategoryName NVARCHAR(255)
 );
 
@@ -34,7 +34,7 @@ CREATE TABLE Category (
 -- Create Recipe table
 -- Recipe(RecipeID, RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
 CREATE TABLE Recipe (
-    RecipeID INT PRIMARY KEY identity(1,1),
+    id INT PRIMARY KEY identity(1,1),
     RName NVARCHAR(255),
     CreateDate DATE,
     PrepTime INT,
@@ -44,14 +44,14 @@ CREATE TABLE Recipe (
     CategoryID INT,
     Description NVARCHAR(MAX),
     ImgUrl NVARCHAR(MAX),
-    FOREIGN KEY (CuisineID) REFERENCES Cuisine(CuisineID),
-    FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID)
+    FOREIGN KEY (CuisineID) REFERENCES Cuisine(id) on delete set null,
+    FOREIGN KEY (CategoryID) REFERENCES Category(id) on delete set null
 );
 
 -- Create NutritionInfo table
 -- NutritionInfo(NutritionID, Name, Unit)
 CREATE TABLE NutritionInfo (
-    NutritionID INT PRIMARY KEY identity(1,1),
+    id INT PRIMARY KEY identity(1,1),
     Name NVARCHAR(255),
     Unit NVARCHAR(50)
 );
@@ -102,17 +102,17 @@ insert into NutritionInfo (Name, Unit) values ('Vitamin D3', 'IU');
 -- Create CookingStep table
 -- CookingStep(StepID, RecipeID, Number, Detail)
 CREATE TABLE CookingStep (
-    StepID INT PRIMARY KEY identity(1,1),
+    id INT PRIMARY KEY identity(1,1),
     RecipeID INT,
     Number INT,
     Detail NVARCHAR(MAX),
-    FOREIGN KEY (RecipeID) REFERENCES Recipe(RecipeID)
+    FOREIGN KEY (RecipeID) REFERENCES Recipe(id)
 );
 
 -- Create Ingredient table
 -- Ingredient(IngredientID, Name, Unit)
 CREATE TABLE Ingredient (
-    IngredientID INT PRIMARY KEY identity(1,1),
+    id INT PRIMARY KEY identity(1,1),
     Name NVARCHAR(255),
     Unit NVARCHAR(50)
 );
@@ -149,9 +149,9 @@ insert into Ingredient (Name, Unit) values ('Banana', 'g');
 insert into Ingredient (Name, Unit) values ('Orange', 'g');
 
 -- Create User table
--- NguoiDung(ID, Email, DietaryRestrictions, Allergies, Role)
+-- NguoiDung(id, Email, DietaryRestrictions, Allergies, Role)
 CREATE TABLE NguoiDung (
-    ID INT PRIMARY KEY identity(1,1),
+    id INT PRIMARY KEY identity(1,1),
     Email NVARCHAR(255),
     DietaryRestrictions NVARCHAR(MAX),
     Allergies NVARCHAR(MAX),
@@ -159,49 +159,49 @@ CREATE TABLE NguoiDung (
 );
 
 -- Create Favourite table
--- Favourite(ID, RecipeID, NguoiDungID)
+-- Favourite(id, RecipeID, NguoiDungID)
 CREATE TABLE Favourite (
-    ID INT PRIMARY KEY identity(1,1),
+    id INT PRIMARY KEY identity(1,1),
     RecipeID INT,
     NguoiDungID INT,
-    FOREIGN KEY (RecipeID) REFERENCES Recipe(RecipeID),
-    FOREIGN KEY (NguoiDungID) REFERENCES NguoiDung(ID)
+    FOREIGN KEY (RecipeID) REFERENCES Recipe(id),
+    FOREIGN KEY (NguoiDungID) REFERENCES NguoiDung(id)
 );
 
 -- Create Review table
--- Review(ID, RecipeID, NguoiDungID, Content, LikeCount)
+-- Review(id, RecipeID, NguoiDungID, Content, LikeCount)
 CREATE TABLE Review (
-    ID INT PRIMARY KEY identity(1,1),
+    id INT PRIMARY KEY identity(1,1),
     RecipeID INT,
     NguoiDungID INT,
     Content TEXT,
     LikeCount INT,
-    FOREIGN KEY (RecipeID) REFERENCES Recipe(RecipeID),
-    FOREIGN KEY (NguoiDungID) REFERENCES NguoiDung(ID)
+    FOREIGN KEY (RecipeID) REFERENCES Recipe(id),
+    FOREIGN KEY (NguoiDungID) REFERENCES NguoiDung(id) 
 );
 
 -- Create Comment table
--- Comment(ID, ReviewID, NguoiDungID, Content, LikeCount)
+-- Comment(id, ReviewID, NguoiDungID, Content, LikeCount)
 CREATE TABLE Comment (
-    ID INT PRIMARY KEY identity(1,1),
+    id INT PRIMARY KEY identity(1,1),
     ReviewID INT,
     NguoiDungID INT,
     Content NVARCHAR(255),
     LikeCount INT,
-    FOREIGN KEY (ReviewID) REFERENCES Review(ID),
-    FOREIGN KEY (NguoiDungID) REFERENCES NguoiDung(ID)
+    FOREIGN KEY (ReviewID) REFERENCES Review(id) on delete cascade,
+    FOREIGN KEY (NguoiDungID) REFERENCES NguoiDung(id) 
 );
 
 -- Create Post table
--- Post(ID, NguoiDungID, Content, LikeCount, ImgUrl, RecipeName)
+-- Post(id, NguoiDungID, Content, LikeCount, ImgUrl, RecipeName)
 CREATE TABLE Post (
-    ID INT PRIMARY KEY identity(1,1),
+    id INT PRIMARY KEY identity(1,1),
     NguoiDungID INT,
     Content NVARCHAR(255),
     LikeCount INT,
     ImgUrl NVARCHAR(MAX),
     RecipeName NVARCHAR(255),
-    FOREIGN KEY (NguoiDungID) REFERENCES NguoiDung(ID)
+    FOREIGN KEY (NguoiDungID) REFERENCES NguoiDung(id) 
 );
 
 /*
@@ -215,9 +215,9 @@ insert into Post (NguoiDungID, Content, LikeCount, ImgUrl, RecipeName) values (7
 */
 
 -- Create MealPlan table
--- MealPlan(ID, NguoiDungID, Name, Description, AmountOfMeals, Length, StartDate, EndDate, TotalMeal)
+-- MealPlan(id, NguoiDungID, Name, Description, AmountOfMeals, Length, StartDate, EndDate, TotalMeal)
 CREATE TABLE MealPlan (
-    ID INT PRIMARY KEY identity(1,1),
+    id INT PRIMARY KEY identity(1,1),
     NguoiDungID INT,
     Name NVARCHAR(255),
     Description NVARCHAR(255),
@@ -226,42 +226,42 @@ CREATE TABLE MealPlan (
     StartDate DATE,
     EndDate DATE,
     TotalMeal INT,
-    FOREIGN KEY (NguoiDungID) REFERENCES NguoiDung(ID)
+    FOREIGN KEY (NguoiDungID) REFERENCES NguoiDung(id) 
 );
 
 -- Create MealPlan_Recipe table (Many-to-Many relationship between MealPlan and Recipe)
--- MealPlan_Recipe(MealPlanID, RecipeID, Date)
+-- MealPlan_Recipe(id, MealPlanID, RecipeID, Date)
 CREATE TABLE MealPlan_Recipe (
+    id INT PRIMARY KEY identity(1,1),
     MealPlanID INT,
     RecipeID INT,
     Date DATE,
-    PRIMARY KEY (MealPlanID, RecipeID),
-    FOREIGN KEY (MealPlanID) REFERENCES MealPlan(ID) on delete cascade,
-    FOREIGN KEY (RecipeID) REFERENCES Recipe(RecipeID) on delete cascade
+    FOREIGN KEY (MealPlanID) REFERENCES MealPlan(id) on delete cascade,
+    FOREIGN KEY (RecipeID) REFERENCES Recipe(id)
 );
 
 
 -- Create Recipe_Ingredient table (Many-to-Many relationship between Recipe and Ingredient)
--- Recipe_Ingredient(RecipeID, IngredientID, Value)(RecipeID, IngredientID, Value)
+-- Recipe_Ingredient(id, RecipeID, IngredientID, Value)(RecipeID, IngredientID, Value)
 CREATE TABLE Recipe_Ingredient (
+    id INT PRIMARY KEY identity(1,1),
     RecipeID INT,
     IngredientID INT,
     Value FLOAT,
-    PRIMARY KEY (RecipeID, IngredientID),
-    FOREIGN KEY (RecipeID) REFERENCES Recipe(RecipeID) on delete cascade,
-    FOREIGN KEY (IngredientID) REFERENCES Ingredient(IngredientID) on delete cascade
+    FOREIGN KEY (RecipeID) REFERENCES Recipe(id),
+    FOREIGN KEY (IngredientID) REFERENCES Ingredient(id) on delete cascade
 );
 
 
 -- Create Recipe_Nutrition table (Many-to-Many relationship between Recipe and NutritionInfo)
--- Recipe_Nutrition(RecipeID, NutritionID, Value)
+-- Recipe_Nutrition(id, RecipeID, NutritionID, Value)
 CREATE TABLE Recipe_Nutrition (
+    id INT PRIMARY KEY identity(1,1),
     RecipeID INT,
     NutritionID INT,
     Value FLOAT,
-    PRIMARY KEY (RecipeID, NutritionID),
-    FOREIGN KEY (RecipeID) REFERENCES Recipe(RecipeID) on delete cascade,
-    FOREIGN KEY (NutritionID) REFERENCES NutritionInfo(NutritionID) on delete cascade
+    FOREIGN KEY (RecipeID) REFERENCES Recipe(id),
+    FOREIGN KEY (NutritionID) REFERENCES NutritionInfo(id) on delete cascade
 );
 
 GO
@@ -271,9 +271,55 @@ AS
 begin
     declare @RecipeID int, @NutritionID int, @Value float, @NutritionName nvarchar(255);
     select @RecipeID = RecipeID, @NutritionID = NutritionID, @Value = Value from inserted;
-    select @NutritionName = Name from NutritionInfo where NutritionID = @NutritionID
+    select @NutritionName = Name from NutritionInfo where NutritionInfo.id = @NutritionID
     if @NutritionName = 'Calories'
     begin
-        update Recipe set Calories = @Value where RecipeID = @RecipeID;
+        update Recipe set Calories = @Value where id = @RecipeID;
     end
 end;
+
+GO
+
+-- Trigger for Recipe
+CREATE TRIGGER trg_DeleteRecipeCascade
+ON Recipe
+AFTER DELETE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Delete associated CookingSteps
+    DELETE FROM CookingStep WHERE RecipeID IN (SELECT id FROM deleted);
+    -- Delete associated Favourites
+    DELETE FROM Favourite WHERE RecipeID IN (SELECT id FROM deleted);
+    -- Delete associated Reviews
+    DELETE FROM Review WHERE RecipeID IN (SELECT id FROM deleted);
+    -- Delete associated MealPlan_Recipe
+    DELETE FROM MealPlan_Recipe WHERE RecipeID IN (SELECT id FROM deleted);
+    -- Delete associated Recipe_Ingredient
+    DELETE FROM Recipe_Ingredient WHERE RecipeID IN (SELECT id FROM deleted);
+    -- Delete associated Recipe_Nutrition
+    DELETE FROM Recipe_Nutrition WHERE RecipeID IN (SELECT id FROM deleted);
+END;
+
+GO
+
+CREATE TRIGGER trg_DeleteNguoiDungCascade
+ON NguoiDung
+AFTER DELETE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Delete associated Favourites
+    DELETE FROM Favourite WHERE NguoiDungID IN (SELECT id FROM deleted);
+    -- Delete associated Reviews
+    DELETE FROM Review WHERE NguoiDungID IN (SELECT id FROM deleted);
+    -- Delete associated Comments
+    DELETE FROM Comment WHERE NguoiDungID IN (SELECT id FROM deleted);
+    -- Delete associated Posts
+    DELETE FROM Post WHERE NguoiDungID IN (SELECT id FROM deleted);
+    -- Delete associated MealPlans
+    DELETE FROM MealPlan WHERE NguoiDungID IN (SELECT id FROM deleted);
+    -- Additional DELETE statements for other related tables can be added here
+END;

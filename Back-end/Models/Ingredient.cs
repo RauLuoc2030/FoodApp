@@ -5,7 +5,7 @@ namespace FoodApp.Models;
 
 public partial class Ingredient
 {
-    public int IngredientId { get; set; }
+    public int Id { get; set; }
 
     public string? Name { get; set; }
 

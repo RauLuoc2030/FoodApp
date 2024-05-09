@@ -5,7 +5,7 @@ namespace FoodApp.Models;
 
 public partial class NutritionInfo
 {
-    public int NutritionId { get; set; }
+    public int Id { get; set; }
 
     public string? Name { get; set; }
 
