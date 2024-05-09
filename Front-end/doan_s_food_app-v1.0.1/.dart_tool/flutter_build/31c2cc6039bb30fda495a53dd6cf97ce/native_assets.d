@@ -1,1 +1,0 @@
- D:\\Visual\ Studio\ Code\\HK\ 6\\FoodApp\\Front-end\\doan_s_food_app-v1.0.1\\.dart_tool\\flutter_build\\31c2cc6039bb30fda495a53dd6cf97ce\\native_assets.yaml: 
