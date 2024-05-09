@@ -24,7 +24,7 @@ class Category {
   // Method to convert Category object to JSON
   Map<String, dynamic> toJson() {
     return {
-      // 'categoryId': categoryId,
+      'categoryId': categoryId != null ? categoryId : 0,
       'categoryName': categoryName,
     };
   }
