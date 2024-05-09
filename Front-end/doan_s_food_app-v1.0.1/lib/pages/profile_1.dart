@@ -408,8 +408,19 @@ class Profile1 extends StatelessWidget {
                                     child: SizedBox(
                                       width: 30,
                                       height: 34.5,
-                                      child: SvgPicture.asset(
-                                        'assets/vectors/bbq_x2.svg',
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: AssetImage(
+                                                'assets/images/magnifying-glass 1.png'
+                                            ),
+                                          ),
+                                        ),
+                                        child: Container(
+                                          width: 26.42,
+                                          height: 28.15,
+                                        ),
                                       ),
                                     ),
                                   ),
