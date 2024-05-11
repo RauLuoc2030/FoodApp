@@ -7,7 +7,6 @@ import 'package:doan_s_food_app/Model/Category.dart';
 import 'package:doan_s_food_app/globals.dart';
 import 'package:http/http.dart' as http;
 
-
 class CategoryService {
   // List of categories
   List<Category> Categories = [];
@@ -18,7 +17,7 @@ class CategoryService {
     var response = await http.get(
       Uri.parse('${Globals.serverUrl}/categories'),
     );
-    
+
     // If the request is successful
     if (response.statusCode == 200) {
       // Parse the JSON response
@@ -131,26 +130,34 @@ class CategoryService {
 void main() {
   CategoryService categoryService = CategoryService();
 
-  Category category = Category(categoryName: 'Mặn');
+  List<Category> categories = [];
 
-  categoryService.deleteCategoryById(1002);
+  void fetchAndUpdateCategories() async {
+    await categoryService.getCategories(); // Wait for getCategories() to complete
+    categories = categoryService.Categories;
 
-  // categoryService.getCategories().then((value) {
-  //   // Iterate through the list of categories
-  //   for (var category in value) {
-  //     // Do something with each category
-  //     print(category.categoryName);
-  //   }
-  // });
-  // categoryService.getCategories().then((value) {
-  //   print(value);
-  // });
-  // categoryService.getCategories();
+    for (var category in categories) {
+      print(category.categoryName);
+      if (category.categoryName == 'Cơm gà') {
+        category.categoryName = 'Cơm gà hấp';
+        categoryService.putCategory(category).then((value) {
+          print('Cập nhật Cơm gà thành Cơm gà hấp: $value');
+        });
+      } else {
+        print('Tên không khớp: ${category.categoryName}');
+      }
+    }
+    for (var category in categories) {
+      if (category.categoryName == 'string') {
+        categoryService.deleteCategoryById(category.id!);
+      } else {
+        print('Tên không khớp để xóa: ${category.categoryName}');
+      }
+    }
+  }
 
-  // Category category = Category(categoryName: 'Cơm gà');
-  // categoryService.postCategory(category).then((value) {
-  //   print(value);
-  // });
+  // Call the function
+  fetchAndUpdateCategories();
 }
 
 // flutter run --target="lib/Services/CategoryService.dart"

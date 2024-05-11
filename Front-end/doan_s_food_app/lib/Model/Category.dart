@@ -8,7 +8,7 @@ class Category {
   /**
    * The name of the category (Món chính, Món phụ, Món chay, Món mặn, ...)
    */
-  final String? categoryName;
+  String? categoryName;
 
   // Constructor
   Category({this.id, this.categoryName});
