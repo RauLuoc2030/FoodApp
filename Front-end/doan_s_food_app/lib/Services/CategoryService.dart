@@ -1,9 +1,10 @@
 /**
- * This class is used to get the list of categories from the server
+ * This class is used to interact with Categories from the server
  */
 import 'dart:convert';
 
 import 'package:doan_s_food_app/Model/Category.dart';
+import 'package:doan_s_food_app/Services/CuisineService.dart';
 import 'package:doan_s_food_app/globals.dart';
 import 'package:http/http.dart' as http;
 
@@ -80,7 +81,7 @@ class CategoryService {
     );
 
     // If the request is successful
-    if (response.statusCode == 201) {
+    if (response.statusCode == 201 || response.statusCode == 200) {
       // Parse the JSON response
       var data = jsonDecode(response.body);
 
@@ -103,8 +104,12 @@ class CategoryService {
     );
 
     // If the request is successful
-    if (response.statusCode == 204) {
-      return category;
+    if (response.statusCode == 204 || response.statusCode == 200) {
+      // Parse the JSON response
+      var data = jsonDecode(response.body);
+
+      // Return the comment
+      return Category.fromJson(data);
     } else {
       throw Exception('Failed to put category, error: ${response.body}');
     }
@@ -121,7 +126,7 @@ class CategoryService {
     );
 
     // If the request is not successful
-    if (response.statusCode != 204) {
+    if (response.statusCode != 204 && response.statusCode != 200) {
       throw Exception('Failed to delete category, error: ${response.body}');
     }
   }
