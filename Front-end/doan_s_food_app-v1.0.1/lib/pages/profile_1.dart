@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:doan_s_food_app/pages/profile_1.dart';
+import 'package:doan_s_food_app/pages/profile_2.dart';
+import 'package:doan_s_food_app/pages/profile_3.dart';
 import 'dart:ui';
 import 'package:flutter_svg/flutter_svg.dart';
-// import 'package:flutter_app/utils.dart';
+import 'package:doan_s_food_app/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Profile1 extends StatelessWidget {
@@ -133,29 +136,47 @@ class Profile1 extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Container(
-                            margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                            child: SizedBox(
-                              width: 125,
-                              child: Text(
-                                'Cookbooks',
-                                style: GoogleFonts.getFont(
-                                  'Alata',
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 15.6,
-                                  letterSpacing: -0.1,
+                          GestureDetector(
+                            onTap: () {
+                              // Xử lý khi nhấn vào 'Cookbooks'
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Profile2()),
+                              );
+                            },
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: SizedBox(
+                                width: 125,
+                                child: Text(
+                                  'Cookbooks',
+                                  style: GoogleFonts.getFont(
+                                    'Alata',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 15.6,
+                                    letterSpacing: -0.1,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                          Text(
-                            'Activity',
-                            style: GoogleFonts.getFont(
-                              'Alata',
-                              fontWeight: FontWeight.w400,
-                              fontSize: 15.6,
-                              letterSpacing: -0.1,
-                              color: Color(0xFF000000),
+                          GestureDetector(
+                            onTap: () {
+                              // Xử lý khi nhấn vào 'Activity'
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Profile3()),
+                              );
+                            },
+                            child: Text(
+                              'Activity',
+                              style: GoogleFonts.getFont(
+                                'Alata',
+                                fontWeight: FontWeight.w400,
+                                fontSize: 15.6,
+                                letterSpacing: -0.1,
+                                color: Color(0xFF000000),
+                              ),
                             ),
                           ),
                         ],

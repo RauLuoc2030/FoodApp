@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:doan_s_food_app/pages/profile_1.dart';
+import 'package:doan_s_food_app/pages/profile_3.dart';
 import 'dart:ui';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_app/utils.dart';
+import 'package:doan_s_food_app/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Profile2 extends StatelessWidget {
@@ -22,74 +24,80 @@ class Profile2 extends StatelessWidget {
               width: double.infinity,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
                     margin: EdgeInsets.fromLTRB(0, 0, 0, 16.3),
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: Text(
-                        'Yuuji',
-                        style: GoogleFonts.getFont(
-                          'Inter',
-                          fontWeight: FontWeight.w700,
-                          fontSize: 26,
-                          color: Color(0xFF000000),
-                        ),
+                    child: Text(
+                      'Yuuji',
+                      style: GoogleFonts.getFont(
+                        'Inter',
+                        fontWeight: FontWeight.w700,
+                        fontSize: 26,
+                        color: Color(0xFF000000),
                       ),
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.fromLTRB(0, 0, 0.9, 31.8),
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: SizedBox(
-                        width: 266.4,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.fromLTRB(0, 0, 25, 0),
-                              child: SizedBox(
-                                width: 93.3,
-                                child: Text(
-                                  '1\nratings',
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.getFont(
-                                    'Alata',
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 18.2,
-                                    letterSpacing: -0.1,
-                                    color: Color(0xFF000000),
-                                  ),
+                    margin: EdgeInsets.fromLTRB(0, 0, 0.9, 20),
+                    child: SizedBox(
+                      width: 266.4,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.fromLTRB(0, 0, 25, 0),
+                            child: SizedBox(
+                              width: 78.1,
+                              child: Text(
+                                '1\nratings',
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.getFont(
+                                  'Alata',
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 18.2,
+                                  letterSpacing: -0.1,
+                                  color: Color(0xFF000000),
                                 ),
                               ),
                             ),
-                            Text(
-                              '0\ntips',
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.getFont(
-                                'Alata',
-                                fontWeight: FontWeight.w400,
-                                fontSize: 18.2,
-                                letterSpacing: -0.1,
-                                color: Color(0xFF000000),
+                          ),
+                          Container(
+                            margin: EdgeInsets.fromLTRB(0, 0, 25, 0),
+                            child: SizedBox(
+                              width: 78.1,
+                              child: Text(
+                                '0\ntips',
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.getFont(
+                                  'Alata',
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 18.2,
+                                  letterSpacing: -0.1,
+                                  color: Color(0xFF000000),
+                                ),
                               ),
                             ),
-                            Text(
-                              '0\nphotos',
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.getFont(
-                                'Alata',
-                                fontWeight: FontWeight.w400,
-                                fontSize: 18.2,
-                                letterSpacing: -0.1,
-                                color: Color(0xFF000000),
+                          ),
+                          Container(
+                            margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                            child: SizedBox(
+                              width: 60,
+                              child: Text(
+                                '0\nphotos',
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.getFont(
+                                  'Alata',
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 18.2,
+                                  letterSpacing: -0.1,
+                                  color: Color(0xFF000000),
+                                ),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -111,40 +119,64 @@ class Profile2 extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            margin: EdgeInsets.fromLTRB(0, 0, 10.5, 0),
-                            child: SizedBox(
-                              width: 125.7,
-                              child: Text(
-                                'Saved Recipes',
-                                style: GoogleFonts.getFont(
-                                  'Alata',
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 15.6,
-                                  letterSpacing: -0.1,
-                                  color: Color(0xFF000000),
+                          GestureDetector(
+                            onTap: () {
+                              // Xử lý khi nhấn vào 'Activity'
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Profile1()),
+                              );
+                            },
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: SizedBox(
+                                width: 125,
+                                child: Text(
+                                  'Saved Recipes',
+                                  style: GoogleFonts.getFont(
+                                    'Alata',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 15.6,
+                                    letterSpacing: -0.1,
+                                    color: Color(0xFF000000),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                          Text(
-                            'Cookbooks',
-                            style: GoogleFonts.getFont(
-                              'Alata',
-                              fontWeight: FontWeight.w400,
-                              fontSize: 15.6,
-                              letterSpacing: -0.1,
-                              color: Color(0xFFE40553),
+                          Container(
+                              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: SizedBox(
+                                width: 125,
+                                child: Text(
+                                  'Cookbooks',
+                                  style: GoogleFonts.getFont(
+                                    'Alata',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 15.6,
+                                    letterSpacing: -0.1,
+                                    color: Color(0xFFE40553),
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
-                          Text(
-                            'Activity',
-                            style: GoogleFonts.getFont(
-                              'Alata',
-                              fontWeight: FontWeight.w400,
-                              fontSize: 15.6,
-                              letterSpacing: -0.1,
-                              color: Color(0xFF000000),
+                          GestureDetector(
+                            onTap: () {
+                              // Xử lý khi nhấn vào 'Activity'
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Profile3()),
+                              );
+                            },
+                            child: Text(
+                              'Activity',
+                              style: GoogleFonts.getFont(
+                                'Alata',
+                                fontWeight: FontWeight.w400,
+                                fontSize: 15.6,
+                                letterSpacing: -0.1,
+                                color: Color(0xFF000000),
+                              ),
                             ),
                           ),
                         ],
@@ -203,7 +235,7 @@ class Profile2 extends StatelessWidget {
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
                                   image: AssetImage(
-                                    'assets/images/sumptous_1.jpeg',
+                                    'assets/images/sumptous_1.png',
                                   ),
                                 ),
                               ),
@@ -273,7 +305,7 @@ class Profile2 extends StatelessWidget {
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
                                   image: AssetImage(
-                                    'assets/images/sumptous_1.jpeg',
+                                    'assets/images/sumptous_1.png',
                                   ),
                                 ),
                               ),
@@ -343,7 +375,7 @@ class Profile2 extends StatelessWidget {
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
                                   image: AssetImage(
-                                    'assets/images/sumptous_1.jpeg',
+                                    'assets/images/sumptous_1.png',
                                   ),
                                 ),
                               ),
@@ -393,7 +425,7 @@ class Profile2 extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.fromLTRB(0, 0, 0.3, 0),
+                    margin: EdgeInsets.fromLTRB(0, 72, 0, 0),
                     decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF),
                       boxShadow: [
@@ -405,27 +437,27 @@ class Profile2 extends StatelessWidget {
                       ],
                     ),
                     child: Container(
-                      padding: EdgeInsets.fromLTRB(19.8, 9.3, 24.5, 27.7),
+                      padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Expanded(
                             child: Container(
-                              margin: EdgeInsets.fromLTRB(0, 1.3, 24.7, 0),
+                              margin: EdgeInsets.fromLTRB(0, 2.4, 0, 0),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
-                                    margin: EdgeInsets.fromLTRB(13.9, 0, 9.5, 0),
-                                    width: 34.4,
-                                    height: 40.3,
+                                    margin: EdgeInsets.fromLTRB(0, 4, 0, 6),
+                                    width: 30.3,
+                                    height: 30.6,
                                     child: SizedBox(
-                                      width: 34.4,
-                                      height: 40.3,
-                                      child: SvgPicture.asset(
-                                        'assets/vectors/whisk_5_x2.svg',
+                                      width: 30.3,
+                                      height: 30.6,
+                                      child: Image.asset(
+                                        'assets/images/whisk.png',
                                       ),
                                     ),
                                   ),
@@ -445,20 +477,20 @@ class Profile2 extends StatelessWidget {
                           ),
                           Expanded(
                             child: Container(
-                              margin: EdgeInsets.fromLTRB(0, 0, 27.3, 0),
+                              margin: EdgeInsets.fromLTRB(0, 2.4, 0, 0),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
-                                    margin: EdgeInsets.fromLTRB(0, 0, 0.1, 6.5),
-                                    width: 30,
-                                    height: 34.5,
+                                    margin: EdgeInsets.fromLTRB(0, 4, 0, 6),
+                                    width: 30.3,
+                                    height: 30.6,
                                     child: SizedBox(
-                                      width: 30,
-                                      height: 34.5,
-                                      child: SvgPicture.asset(
-                                        'assets/vectors/bbq_6_x2.svg',
+                                      width: 30.3,
+                                      height: 30.6,
+                                      child: Image.asset(
+                                        'assets/images/B-B-Q.png',
                                       ),
                                     ),
                                   ),
@@ -478,20 +510,20 @@ class Profile2 extends StatelessWidget {
                           ),
                           Expanded(
                             child: Container(
-                              margin: EdgeInsets.fromLTRB(0, 2.4, 22.2, 0),
+                              margin: EdgeInsets.fromLTRB(0, 2.4, 0, 0),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
-                                    margin: EdgeInsets.fromLTRB(0, 0, 4.1, 8),
+                                    margin: EdgeInsets.fromLTRB(0, 4, 0, 6),
                                     width: 30.3,
                                     height: 30.6,
                                     child: SizedBox(
                                       width: 30.3,
                                       height: 30.6,
-                                      child: SvgPicture.asset(
-                                        'assets/vectors/kitchen_stove_9_x2.svg',
+                                      child: Image.asset(
+                                        'assets/images/kitchen stove.png',
                                       ),
                                     ),
                                   ),
@@ -510,33 +542,36 @@ class Profile2 extends StatelessWidget {
                             ),
                           ),
                           Expanded(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  margin: EdgeInsets.fromLTRB(7.9, 0, 8.5, 6.2),
-                                  width: 27.3,
-                                  height: 34.7,
-                                  child: SizedBox(
-                                    width: 27.3,
-                                    height: 34.7,
-                                    child: SvgPicture.asset(
-                                      'assets/vectors/hat_robe_9_x2.svg',
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(0, 2.4, 0, 0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    margin: EdgeInsets.fromLTRB(0, 4, 0, 6),
+                                    width: 30.3,
+                                    height: 30.6,
+                                    child: SizedBox(
+                                      width: 30.3,
+                                      height: 30.6,
+                                      child: Image.asset(
+                                        'assets/images/hat robe.png',
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Text(
-                                  'Profile',
-                                  style: GoogleFonts.getFont(
-                                    'Alata',
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 15.6,
-                                    letterSpacing: -0.1,
-                                    color: Color(0xFF000000),
+                                  Text(
+                                    'Profile',
+                                    style: GoogleFonts.getFont(
+                                      'Alata',
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 15.6,
+                                      letterSpacing: -0.1,
+                                      color: Color(0xFF000000),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -547,8 +582,8 @@ class Profile2 extends StatelessWidget {
               ),
             ),
             Positioned(
-              right: -229.5,
-              top: -514,
+              right: -19.5,
+              top: -54.9,
               child: Transform(
                 transform: Matrix4.identity()..rotateZ(-1.1823953716),
                 child: Opacity(
@@ -560,7 +595,7 @@ class Profile2 extends StatelessWidget {
                       width: 619.5,
                       height: 719.8,
                       child: SvgPicture.asset(
-                        'assets/vectors/group_x2.svg',
+                        'assets/vectors/group_8_x2.svg',
                       ),
                     ),
                   ),
@@ -568,10 +603,11 @@ class Profile2 extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 52.1,
+              top: -80,
+              left: 165,
               child: Container(
-                width: 91.1,
-                height: 91.1,
+                width: 80,
+                height: 80,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(45.5729179382),
                 ),
@@ -583,7 +619,7 @@ class Profile2 extends StatelessWidget {
                       image: DecorationImage(
                         fit: BoxFit.cover,
                         image: AssetImage(
-                          'assets/images/yuuji.png',
+                            'assets/images/yuuji.png'
                         ),
                       ),
                     ),
@@ -596,8 +632,8 @@ class Profile2 extends StatelessWidget {
               ),
             ),
             Positioned(
-              right: 19.5,
-              top: 21,
+              right: 20,
+              top: -110,
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14.3),
@@ -611,7 +647,7 @@ class Profile2 extends StatelessWidget {
                   ],
                 ),
                 child: SizedBox(
-                  width: 58.5,
+                  width: 70,
                   height: 21.5,
                   child: Container(
                     padding: EdgeInsets.fromLTRB(4.5, 4.5, 4.7, 4),
@@ -634,7 +670,7 @@ class Profile2 extends StatelessWidget {
                                 width: 8,
                                 height: 8.8,
                                 child: SvgPicture.asset(
-                                  'assets/vectors/group_10_x2.svg',
+                                  'assets/vectors/group_12_x2.svg',
                                 ),
                               ),
                             ),
