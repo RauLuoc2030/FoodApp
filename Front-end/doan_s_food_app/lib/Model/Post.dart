@@ -18,9 +18,13 @@ class Post{
    * The name of the recipe in the post
    */
   final String? recipeName;
+  /**
+   * Trạng thái duyệt của Post (true, false)
+   */
+  final String? trangThaiDuyet;
 
   // Constructor
-  Post({ this.id,  this.nguoiDungID,  this.content,  this.likeCount,  this.imgUrl,  this.recipeName});
+  Post({ this.id,  this.nguoiDungID,  this.content,  this.likeCount,  this.imgUrl,  this.recipeName, this.trangThaiDuyet});
 
   // Factory constructor for JSON parsing
   factory Post.fromJson(Map<String, dynamic> json) {
@@ -31,6 +35,7 @@ class Post{
       likeCount: json['likeCount'],
       imgUrl: json['imgUrl'],
       recipeName: json['recipeName'],
+      trangThaiDuyet: json['trangThaiDuyet'],
     );
   }
 
@@ -43,6 +48,7 @@ class Post{
       'likeCount': likeCount,
       'imgUrl': imgUrl,
       'recipeName': recipeName,
+      'trangThaiDuyet': trangThaiDuyet,
     };
   }
 }

@@ -1,6 +1,7 @@
 class NguoiDung {
   // NguoiDung(ID, Email, DietaryRestrictions, Allergies, Role)
   final int? id;
+  final String? name;
   final String? email;
   /**
    * The dietary restrictions of the user (Vegetarian, Vegan, ...).
@@ -19,12 +20,13 @@ class NguoiDung {
   final int? role;
 
   // Constructor
-  NguoiDung({ this.id,  this.email,  this.dietaryRestrictions,  this.allergies,  this.role});
+  NguoiDung({ this.id, this.name,  this.email,  this.dietaryRestrictions,  this.allergies,  this.role});
 
   // Factory constructor for JSON parsing
   factory NguoiDung.fromJson(Map<String, dynamic> json) {
     return NguoiDung(
       id: json['id'],
+      name: json['name'],
       email: json['email'],
       dietaryRestrictions: json['dietaryRestrictions'],
       allergies: json['allergies'],
@@ -36,6 +38,7 @@ class NguoiDung {
   Map<String, dynamic> toJson() {
     return {
       'id': id != null ? id : 0,
+      'name': name,
       'email': email,
       'dietaryRestrictions': dietaryRestrictions,
       'allergies': allergies,

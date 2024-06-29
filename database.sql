@@ -152,6 +152,7 @@ insert into Ingredient (Name, Unit) values ('Orange', 'g');
 -- NguoiDung(id, Email, DietaryRestrictions, Allergies, Role)
 CREATE TABLE NguoiDung (
     id INT PRIMARY KEY identity(1,1),
+    Name NVARCHAR(255),
     Email NVARCHAR(255),
     DietaryRestrictions NVARCHAR(MAX),
     Allergies NVARCHAR(MAX),
@@ -201,6 +202,7 @@ CREATE TABLE Post (
     LikeCount INT,
     ImgUrl NVARCHAR(MAX),
     RecipeName NVARCHAR(255),
+    TrangThaiDuyet Varchar(30),
     FOREIGN KEY (NguoiDungID) REFERENCES NguoiDung(id) 
 );
 

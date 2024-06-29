@@ -69,6 +69,7 @@ public partial class FoodContext : DbContext
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Content).HasMaxLength(255);
+            entity.Property(e => e.LikeCount).HasColumnName("Like_Count");
             entity.Property(e => e.NguoiDungId).HasColumnName("NguoiDungID");
             entity.Property(e => e.ReviewId).HasColumnName("ReviewID");
 
@@ -90,6 +91,8 @@ public partial class FoodContext : DbContext
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.RecipeId).HasColumnName("RecipeID");
+            entity.Property(e => e.Number).HasColumnName("Number");
+            entity.Property(e => e.Detail).HasMaxLength(255);
 
             entity.HasOne(d => d.Recipe).WithMany(p => p.CookingSteps)
                 .HasForeignKey(d => d.RecipeId)
@@ -143,11 +146,14 @@ public partial class FoodContext : DbContext
             entity.ToTable("MealPlan");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Description).HasMaxLength(255);
-            entity.Property(e => e.EndDate).HasColumnType("date");
             entity.Property(e => e.Name).HasMaxLength(255);
-            entity.Property(e => e.NguoiDungId).HasColumnName("NguoiDungID");
+            entity.Property(e => e.Description).HasMaxLength(255);
+            entity.Property(e => e.AmountOfMeals).HasColumnName("AmountOfMeals");
+            entity.Property(e => e.Length).HasColumnName("Length");
+            entity.Property(e => e.EndDate).HasColumnType("date");
             entity.Property(e => e.StartDate).HasColumnType("date");
+            entity.Property(e => e.TotalMeal).HasColumnName("TotalMeal");
+            entity.Property(e => e.NguoiDungId).HasColumnName("NguoiDungID");
 
             entity.HasOne(d => d.NguoiDung).WithMany(p => p.MealPlans)
                 .HasForeignKey(d => d.NguoiDungId)
@@ -182,6 +188,10 @@ public partial class FoodContext : DbContext
             entity.ToTable("NguoiDung", tb => tb.HasTrigger("trg_DeleteNguoiDungCascade"));
 
             entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Allergies).HasMaxLength(255);
+            entity.Property(e => e.DietaryRestrictions).HasMaxLength(255);
+            entity.Property(e => e.Name).HasMaxLength(255);
+            entity.Property(e => e.Role).HasColumnName("Role");
             entity.Property(e => e.Email).HasMaxLength(255);
         });
 
@@ -203,8 +213,10 @@ public partial class FoodContext : DbContext
             entity.ToTable("Post");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Content).HasMaxLength(255);
             entity.Property(e => e.NguoiDungId).HasColumnName("NguoiDungID");
+            entity.Property(e => e.Content).HasMaxLength(255);
+            entity.Property(e => e.LikeCount).HasColumnName("LikeCount");
+            entity.Property(e => e.ImgUrl).HasMaxLength(255);
             entity.Property(e => e.RecipeName).HasMaxLength(255);
 
             entity.HasOne(d => d.NguoiDung).WithMany(p => p.Posts)
@@ -219,12 +231,18 @@ public partial class FoodContext : DbContext
             entity.ToTable("Recipe", tb => tb.HasTrigger("trg_DeleteRecipeCascade"));
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
-            entity.Property(e => e.CreateDate).HasColumnType("date");
-            entity.Property(e => e.CuisineId).HasColumnName("CuisineID");
             entity.Property(e => e.Rname)
                 .HasMaxLength(255)
                 .HasColumnName("RName");
+
+            entity.Property(e => e.CreateDate).HasColumnType("date");
+            entity.Property(e => e.PrepTime).HasColumnName("PrepTime");
+            entity.Property(e => e.Calories).HasColumnName("Calories");
+            entity.Property(e => e.ViewNumber).HasColumnName("ViewNumber");
+            entity.Property(e => e.CuisineId).HasColumnName("CuisineID");
+            entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
+            entity.Property(e => e.Description).HasMaxLength(255);
+            entity.Property(e => e.ImgUrl).HasMaxLength(255);
 
             entity.HasOne(d => d.Category).WithMany(p => p.Recipes)
                 .HasForeignKey(d => d.CategoryId)
@@ -244,8 +262,9 @@ public partial class FoodContext : DbContext
             entity.ToTable("Recipe_Ingredient");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.IngredientId).HasColumnName("IngredientID");
             entity.Property(e => e.RecipeId).HasColumnName("RecipeID");
+            entity.Property(e => e.IngredientId).HasColumnName("IngredientID");
+            entity.Property(e => e.Value).HasColumnName("Value");
 
             entity.HasOne(d => d.Ingredient).WithMany(p => p.RecipeIngredients)
                 .HasForeignKey(d => d.IngredientId)
@@ -264,8 +283,9 @@ public partial class FoodContext : DbContext
             entity.ToTable("Recipe_Nutrition", tb => tb.HasTrigger("CalculateCalories"));
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.NutritionId).HasColumnName("NutritionID");
             entity.Property(e => e.RecipeId).HasColumnName("RecipeID");
+            entity.Property(e => e.NutritionId).HasColumnName("NutritionID");
+            entity.Property(e => e.Value).HasColumnName("Value");
 
             entity.HasOne(d => d.Nutrition).WithMany(p => p.RecipeNutritions)
                 .HasForeignKey(d => d.NutritionId)
@@ -284,9 +304,11 @@ public partial class FoodContext : DbContext
             entity.ToTable("Review");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Content).HasColumnType("text");
-            entity.Property(e => e.NguoiDungId).HasColumnName("NguoiDungID");
             entity.Property(e => e.RecipeId).HasColumnName("RecipeID");
+            entity.Property(e => e.NguoiDungId).HasColumnName("NguoiDungID");
+            entity.Property(e => e.Content).HasColumnType("text");
+            entity.Property(e => e.LikeCount).HasColumnName("LikeCount");
+            entity.Property(e => e.TrangThaiDuyet).HasMaxLength(255);
 
             entity.HasOne(d => d.NguoiDung).WithMany(p => p.Reviews)
                 .HasForeignKey(d => d.NguoiDungId)
