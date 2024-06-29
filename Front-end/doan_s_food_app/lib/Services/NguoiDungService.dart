@@ -28,7 +28,7 @@ class NguoiDungService {
 
       // Add the NguoiDungs to the list
       for (var nguoiDungJson in data) {
-        NguoiDungs.add(NguoiDung.fromJson(nguoiDungJson));
+        this.NguoiDungs.add(NguoiDung.fromJson(nguoiDungJson));
       }
 
       // Return the list of NguoiDungs
@@ -104,14 +104,15 @@ class NguoiDungService {
     );
 
     // If the request is successful
-    if (response.statusCode == 204 || response.statusCode == 200) {
-      // Parse the JSON response
+    if (response.statusCode == 200 && response.body.isNotEmpty) {
+      // Parse the JSON response only if the body is not empty
       var data = jsonDecode(response.body);
-
-      // Return the nguoiDung
       return NguoiDung.fromJson(data);
+    } else if (response.statusCode == 204) {
+      // Handle the 204 No Content status code
+      // You might want to return a specific result or null
+      return null; // Or handle as appropriate for your application
     } else {
-      // If the request is not successful, return null
       throw Exception('Failed to put nguoiDung, error: ${response.body}');
     }
   }

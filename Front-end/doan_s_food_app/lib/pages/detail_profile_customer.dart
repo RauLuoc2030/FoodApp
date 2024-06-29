@@ -1,14 +1,41 @@
+import 'package:doan_s_food_app/Model/NguoiDung.dart';
+import 'package:doan_s_food_app/Services/NguoiDungService.dart';
+import 'package:doan_s_food_app/pages/detail_edit_profile_customer.dart';
 import 'package:flutter/material.dart';
-import 'dart:ui';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:doan_s_food_app/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DetailProfileCustomer extends StatelessWidget {
+class DetailProfileCustomer extends StatefulWidget {
+
+  NguoiDung? nguoiDung;
+  
+  DetailProfileCustomer({Key? key, this.nguoiDung}) : super(key: key);
+
+  @override
+  _DetailProfileCustomerState createState() => _DetailProfileCustomerState();
+}
+
+class _DetailProfileCustomerState extends State<DetailProfileCustomer> {
+
+  NguoiDungService nguoiDungService = NguoiDungService();
+
+  @override
+  void initState() {
+    super.initState();
+    initNguoiDung();
+  }
+
+  void initNguoiDung() async {
+    await nguoiDungService.getNguoiDungs();
+    setState(() {
+      widget.nguoiDung = nguoiDungService.getNguoiDungById(2);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return 
-    Container(
+    return Container(
       decoration: BoxDecoration(
         color: Color(0xFFFFFFFF),
       ),
@@ -108,7 +135,7 @@ class DetailProfileCustomer extends StatelessWidget {
                                     image: DecorationImage(
                                       fit: BoxFit.cover,
                                       image: AssetImage(
-                                        'assets/images/image.png',
+                                        'assets/images/img_6.png',
                                       ),
                                     ),
                                   ),
@@ -122,14 +149,16 @@ class DetailProfileCustomer extends StatelessWidget {
                                   bottom: -5,
                                   child: Container(
                                     decoration: BoxDecoration(
-                                      border: Border.all(color: Color(0xFFFFFFFF)),
+                                      border:
+                                          Border.all(color: Color(0xFFFFFFFF)),
                                       borderRadius: BorderRadius.circular(1000),
                                       color: Color(0xFFFFA896),
                                     ),
                                     child: Container(
                                       width: 24,
                                       height: 24,
-                                      padding: EdgeInsets.fromLTRB(6, 6, 5.9, 5.9),
+                                      padding:
+                                          EdgeInsets.fromLTRB(6, 6, 5.9, 5.9),
                                       child: SizedBox(
                                         width: 12.1,
                                         height: 12.1,
@@ -174,7 +203,8 @@ class DetailProfileCustomer extends StatelessWidget {
                                 ),
                               ),
                               Container(
-                                padding: EdgeInsets.fromLTRB(15, 20.5, 15, 20.5),
+                                padding:
+                                    EdgeInsets.fromLTRB(15, 20.5, 15, 20.5),
                                 decoration: BoxDecoration(
                                   border: Border.all(color: Color(0xFFF6F6F6)),
                                   borderRadius: BorderRadius.circular(16),
@@ -186,11 +216,14 @@ class DetailProfileCustomer extends StatelessWidget {
                                     Container(
                                       margin: EdgeInsets.fromLTRB(0, 0, 0, 27),
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Container(
-                                            margin: EdgeInsets.fromLTRB(0, 0, 10.5, 0),
+                                            margin: EdgeInsets.fromLTRB(
+                                                0, 0, 10.5, 0),
                                             child: SizedBox(
                                               width: 181.2,
                                               child: Text(
@@ -207,7 +240,7 @@ class DetailProfileCustomer extends StatelessWidget {
                                             ),
                                           ),
                                           Text(
-                                            'Joyce Johnson',
+                                            widget.nguoiDung?.name ?? '',
                                             style: GoogleFonts.getFont(
                                               'Be Vietnam Pro',
                                               fontWeight: FontWeight.w500,
@@ -220,40 +253,40 @@ class DetailProfileCustomer extends StatelessWidget {
                                         ],
                                       ),
                                     ),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          margin: EdgeInsets.fromLTRB(0, 0, 10.5, 0),
-                                          child: SizedBox(
-                                            width: 193.3,
-                                            child: Text(
-                                              'Birthday',
-                                              style: GoogleFonts.getFont(
-                                                'Be Vietnam Pro',
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: 14,
-                                                height: 1.5,
-                                                letterSpacing: 0.3,
-                                                color: Color(0xFF3B3B3B),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Text(
-                                          '22/08/2003',
-                                          style: GoogleFonts.getFont(
-                                            'Be Vietnam Pro',
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 14,
-                                            height: 1.5,
-                                            letterSpacing: 0.3,
-                                            color: Color(0xFF000000),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                                    // Row(
+                                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    //   crossAxisAlignment: CrossAxisAlignment.start,
+                                    //   children: [
+                                    //     Container(
+                                    //       margin: EdgeInsets.fromLTRB(0, 0, 10.5, 0),
+                                    //       child: SizedBox(
+                                    //         width: 193.3,
+                                    //         child: Text(
+                                    //           'Birthday',
+                                    //           style: GoogleFonts.getFont(
+                                    //             'Be Vietnam Pro',
+                                    //             fontWeight: FontWeight.w500,
+                                    //             fontSize: 14,
+                                    //             height: 1.5,
+                                    //             letterSpacing: 0.3,
+                                    //             color: Color(0xFF3B3B3B),
+                                    //           ),
+                                    //         ),
+                                    //       ),
+                                    //     ),
+                                    //     Text(
+                                    //       '22/08/2003',
+                                    //       style: GoogleFonts.getFont(
+                                    //         'Be Vietnam Pro',
+                                    //         fontWeight: FontWeight.w500,
+                                    //         fontSize: 14,
+                                    //         height: 1.5,
+                                    //         letterSpacing: 0.3,
+                                    //         color: Color(0xFF000000),
+                                    //       ),
+                                    //     ),
+                                    //   ],
+                                    // ),
                                   ],
                                 ),
                               ),
@@ -284,62 +317,88 @@ class DetailProfileCustomer extends StatelessWidget {
                                 ),
                               ),
                               Container(
-                                padding: EdgeInsets.fromLTRB(15, 20.5, 15, 20.5),
+                                padding:
+                                    EdgeInsets.fromLTRB(15, 20.5, 15, 20.5),
                                 decoration: BoxDecoration(
                                   border: Border.all(color: Color(0xFFF6F6F6)),
                                   borderRadius: BorderRadius.circular(16),
                                 ),
                                 child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          margin: EdgeInsets.fromLTRB(0, 0, 10.5, 0),
-                                          child: SizedBox(
-                                            width: 148.8,
-                                            child: Text(
-                                              'Email',
-                                              style: GoogleFonts.getFont(
-                                                'Be Vietnam Pro',
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: 14,
-                                                height: 1.5,
-                                                letterSpacing: 0.3,
-                                                color: Color(0xFF3B3B3B),
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                0, 0, 10.5, 0),
+                                            child: SizedBox(
+                                              width: 148.8,
+                                              child: Text(
+                                                'Email',
+                                                style: GoogleFonts.getFont(
+                                                  'Be Vietnam Pro',
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 14,
+                                                  height: 1.5,
+                                                  letterSpacing: 0.3,
+                                                  color: Color(0xFF3B3B3B),
+                                                ),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                        Text(
-                                          'ekamcy@mail.com',
-                                          style: GoogleFonts.getFont(
-                                            'Be Vietnam Pro',
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 14,
-                                            height: 1.5,
-                                            letterSpacing: 0.3,
-                                            color: Color(0xFF000000),
+                                          Text(
+                                            widget.nguoiDung?.email ?? '',
+                                            style: GoogleFonts.getFont(
+                                              'Be Vietnam Pro',
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 14,
+                                              height: 1.5,
+                                              letterSpacing: 0.3,
+                                              color: Color(0xFF000000),
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  ]
-                                ),
+                                        ],
+                                      ),
+                                    ]),
                               ),
                             ],
                           ),
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Color(0xFFFFC6BA),
-                            borderRadius: BorderRadius.circular(7),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xFFFFC6BA),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(7),
+                            ),
                           ),
-                          child: Container(
-                            padding: EdgeInsets.fromLTRB(163, 10, 163, 10),
+                          onPressed: () {
+                            // Add your onPressed logic here
+                            // Write log when press button
+                            print('Pressed');
+                            // Navigate to EditProfileCustomer() screen with Name and Birthday value
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => EditProfileCustomer(
+                                  nguoiDung: widget.nguoiDung,
+                                  // customerName: widget.nguoiDung?.name,
+                                  // customerEmail: widget.nguoiDung?.email,
+                                  // Add birthday value here if available
+                                ),
+                              ),
+                            );
+
+                            // Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfileCustomer()));
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 163),
                             child: Text(
                               'Edit',
                               style: GoogleFonts.getFont(
