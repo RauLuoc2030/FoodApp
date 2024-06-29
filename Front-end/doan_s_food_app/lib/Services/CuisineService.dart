@@ -27,8 +27,8 @@ class CuisineService {
       Cuisines.clear();
 
       // Add the Cuisines to the list
-      for (var Cuisine in data) {
-        Cuisines.add(Cuisine.fromJson(Cuisine));
+      for (var CuisineJson in data) {
+        Cuisines.add(Cuisine.fromJson(CuisineJson));
       }
 
       // Return the list of Cuisines

@@ -27,8 +27,8 @@ class Recipe_IngredientService {
       Recipe_Ingredients.clear();
 
       // Add the Recipe_Ingredients to the list
-      for (var Recipe_Ingredient in data) {
-        Recipe_Ingredients.add(Recipe_Ingredient.fromJson(Recipe_Ingredient));
+      for (var Recipe_IngredientJson in data) {
+        Recipe_Ingredients.add(Recipe_Ingredient.fromJson(Recipe_IngredientJson));
       }
 
       // Return the list of Recipe_Ingredients

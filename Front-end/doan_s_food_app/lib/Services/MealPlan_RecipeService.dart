@@ -27,8 +27,8 @@ class MealPlan_RecipeService {
       MealPlan_Recipes.clear();
 
       // Add the MealPlan_Recipes to the list
-      for (var MealPlan_Recipe in data) {
-        MealPlan_Recipes.add(MealPlan_Recipe.fromJson(MealPlan_Recipe));
+      for (var MealPlan_RecipeJson in data) {
+        MealPlan_Recipes.add(MealPlan_Recipe.fromJson(MealPlan_RecipeJson));
       }
 
       // Return the list of MealPlan_Recipes

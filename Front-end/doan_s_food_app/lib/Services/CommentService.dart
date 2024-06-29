@@ -27,8 +27,8 @@ class CommentService {
       Comments.clear();
 
       // Add the Comments to the list
-      for (var Comment in data) {
-        Comments.add(Comment.fromJson(Comment));
+      for (var CommentJson in data) {
+        Comments.add(Comment.fromJson(CommentJson));
       }
 
       // Return the list of Comments

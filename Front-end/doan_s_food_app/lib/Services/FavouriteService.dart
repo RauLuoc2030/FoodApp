@@ -27,8 +27,8 @@ class FavouriteService {
       Favourites.clear();
 
       // Add the Favourites to the list
-      for (var Favourite in data) {
-        Favourites.add(Favourite.fromJson(Favourite));
+      for (var FavouriteJson in data) {
+        Favourites.add(Favourite.fromJson(FavouriteJson));
       }
 
       // Return the list of Favourites

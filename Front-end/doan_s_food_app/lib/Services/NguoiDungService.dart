@@ -27,8 +27,8 @@ class NguoiDungService {
       NguoiDungs.clear();
 
       // Add the NguoiDungs to the list
-      for (var NguoiDung in data) {
-        NguoiDungs.add(NguoiDung.fromJson(NguoiDung));
+      for (var nguoiDungJson in data) {
+        NguoiDungs.add(NguoiDung.fromJson(nguoiDungJson));
       }
 
       // Return the list of NguoiDungs

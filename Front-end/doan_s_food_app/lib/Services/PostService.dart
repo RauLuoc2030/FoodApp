@@ -27,8 +27,8 @@ class PostService {
       Posts.clear();
 
       // Add the Posts to the list
-      for (var Post in data) {
-        Posts.add(Post.fromJson(Post));
+      for (var PostJson in data) {
+        Posts.add(Post.fromJson(PostJson));
       }
 
       // Return the list of Posts

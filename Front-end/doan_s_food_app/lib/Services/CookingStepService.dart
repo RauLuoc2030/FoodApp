@@ -27,8 +27,8 @@ class CookingStepService {
       CookingSteps.clear();
 
       // Add the CookingSteps to the list
-      for (var CookingStep in data) {
-        CookingSteps.add(CookingStep.fromJson(CookingStep));
+      for (var CookingStepJson in data) {
+        CookingSteps.add(CookingStep.fromJson(CookingStepJson));
       }
 
       // Return the list of CookingSteps

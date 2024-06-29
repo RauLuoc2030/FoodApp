@@ -27,8 +27,8 @@ class IngredientService {
       Ingredients.clear();
 
       // Add the Ingredients to the list
-      for (var Ingredient in data) {
-        Ingredients.add(Ingredient.fromJson(Ingredient));
+      for (var IngredientJson in data) {
+        Ingredients.add(Ingredient.fromJson(IngredientJson));
       }
 
       // Return the list of Ingredients

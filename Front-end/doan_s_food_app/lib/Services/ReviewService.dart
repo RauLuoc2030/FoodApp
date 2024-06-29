@@ -27,8 +27,8 @@ class ReviewService {
       Reviews.clear();
 
       // Add the Reviews to the list
-      for (var Review in data) {
-        Reviews.add(Review.fromJson(Review));
+      for (var ReviewJson in data) {
+        Reviews.add(Review.fromJson(ReviewJson));
       }
 
       // Return the list of Reviews

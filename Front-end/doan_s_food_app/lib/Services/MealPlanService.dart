@@ -27,8 +27,8 @@ class MealPlanService {
       MealPlans.clear();
 
       // Add the MealPlans to the list
-      for (var MealPlan in data) {
-        MealPlans.add(MealPlan.fromJson(MealPlan));
+      for (var MealPlanJson in data) {
+        MealPlans.add(MealPlan.fromJson(MealPlanJson));
       }
 
       // Return the list of MealPlans

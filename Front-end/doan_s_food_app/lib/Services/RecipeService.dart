@@ -27,8 +27,8 @@ class RecipeService {
       Recipes.clear();
 
       // Add the Recipes to the list
-      for (var Recipe in data) {
-        Recipes.add(Recipe.fromJson(Recipe));
+      for (var RecipeJson in data) {
+        Recipes.add(Recipe.fromJson(RecipeJson));
       }
 
       // Return the list of Recipes

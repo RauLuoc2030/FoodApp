@@ -27,8 +27,8 @@ class NutritionInfoService {
       NutritionInfos.clear();
 
       // Add the NutritionInfos to the list
-      for (var NutritionInfo in data) {
-        NutritionInfos.add(NutritionInfo.fromJson(NutritionInfo));
+      for (var NutritionInfoJson in data) {
+        NutritionInfos.add(NutritionInfo.fromJson(NutritionInfoJson));
       }
 
       // Return the list of NutritionInfos

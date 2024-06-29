@@ -27,8 +27,8 @@ class Recipe_NutritionService {
       Recipe_Nutritions.clear();
 
       // Add the Recipe_Nutritions to the list
-      for (var Recipe_Nutrition in data) {
-        Recipe_Nutritions.add(Recipe_Nutrition.fromJson(Recipe_Nutrition));
+      for (var Recipe_NutritionJson in data) {
+        Recipe_Nutritions.add(Recipe_Nutrition.fromJson(Recipe_NutritionJson));
       }
 
       // Return the list of Recipe_Nutritions
