@@ -4,7 +4,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:doan_s_food_app/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DetailProfileAdmin extends StatelessWidget {
+class EditProfileCustomer extends StatelessWidget {
+  TextEditingController? _nameController = TextEditingController();
+  TextEditingController? _birthdayController = TextEditingController();
+  TextEditingController? _emailController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return
@@ -184,15 +188,15 @@ class DetailProfileAdmin extends StatelessWidget {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                        margin: EdgeInsets.fromLTRB(0, 0, 0, 27),
+                                        margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
                                         child: Row(
                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Container(
-                                              margin: EdgeInsets.fromLTRB(0, 0, 10.5, 0),
+                                              margin: EdgeInsets.fromLTRB(0, 12, 10.5, 0),
                                               child: SizedBox(
-                                                width: 181.2,
+                                                width: 140,
                                                 child: Text(
                                                   'Name',
                                                   style: GoogleFonts.getFont(
@@ -206,89 +210,20 @@ class DetailProfileAdmin extends StatelessWidget {
                                                 ),
                                               ),
                                             ),
-                                            Text(
-                                              'Joyce Johnson',
-                                              style: GoogleFonts.getFont(
-                                                'Be Vietnam Pro',
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: 14,
-                                                height: 1.5,
-                                                letterSpacing: 0.3,
-                                                color: Color(0xFF000000),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Container(
-                                        margin: EdgeInsets.fromLTRB(0, 0, 0, 27),
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              margin: EdgeInsets.fromLTRB(0, 0, 10.5, 0),
-                                              child: SizedBox(
-                                                width: 232.6,
-                                                child: Text(
-                                                  'Gender',
-                                                  style: GoogleFonts.getFont(
-                                                    'Be Vietnam Pro',
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 14,
-                                                    height: 1.5,
-                                                    letterSpacing: 0.3,
-                                                    color: Color(0xFF3B3B3B),
-                                                  ),
+                                            Expanded(child: TextField(
+                                                controller: _nameController,
+                                                style: GoogleFonts.getFont(
+                                                  'Be Vietnam Pro',
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 14,
+                                                  height: 1.5,
+                                                  letterSpacing: 0.3,
+                                                  color: Color(0xFF000000),
                                                 ),
-                                              ),
-                                            ),
-                                            Text(
-                                              'Female',
-                                              style: GoogleFonts.getFont(
-                                                'Be Vietnam Pro',
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: 14,
-                                                height: 1.5,
-                                                letterSpacing: 0.3,
-                                                color: Color(0xFF000000),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Container(
-                                        margin: EdgeInsets.fromLTRB(0, 0, 0, 27),
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              margin: EdgeInsets.fromLTRB(0, 0, 10.5, 0),
-                                              child: SizedBox(
-                                                width: 228.1,
-                                                child: Text(
-                                                  'Occupation',
-                                                  style: GoogleFonts.getFont(
-                                                    'Be Vietnam Pro',
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 14,
-                                                    height: 1.5,
-                                                    letterSpacing: 0.3,
-                                                    color: Color(0xFF3B3B3B),
-                                                  ),
+                                                decoration: InputDecoration(
+                                                  hintText: 'Điền tên',
+                                                  contentPadding: EdgeInsets.all(8.0),
                                                 ),
-                                              ),
-                                            ),
-                                            Text(
-                                              'Student',
-                                              style: GoogleFonts.getFont(
-                                                'Be Vietnam Pro',
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: 14,
-                                                height: 1.5,
-                                                letterSpacing: 0.3,
-                                                color: Color(0xFF000000),
                                               ),
                                             ),
                                           ],
@@ -299,9 +234,9 @@ class DetailProfileAdmin extends StatelessWidget {
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Container(
-                                            margin: EdgeInsets.fromLTRB(0, 0, 10.5, 0),
+                                            margin: EdgeInsets.fromLTRB(0, 12, 10.5, 0),
                                             child: SizedBox(
-                                              width: 193.3,
+                                              width: 140,
                                               child: Text(
                                                 'Birthday',
                                                 style: GoogleFonts.getFont(
@@ -315,8 +250,8 @@ class DetailProfileAdmin extends StatelessWidget {
                                               ),
                                             ),
                                           ),
-                                          Text(
-                                            '22/08/2003',
+                                          Expanded(child: TextField(
+                                            controller: _birthdayController,
                                             style: GoogleFonts.getFont(
                                               'Be Vietnam Pro',
                                               fontWeight: FontWeight.w500,
@@ -325,6 +260,11 @@ class DetailProfileAdmin extends StatelessWidget {
                                               letterSpacing: 0.3,
                                               color: Color(0xFF000000),
                                             ),
+                                            decoration: InputDecoration(
+                                              hintText: '22/08/2023',
+                                              contentPadding: EdgeInsets.all(8.0),
+                                            ),
+                                          ),
                                           ),
                                         ],
                                       ),
@@ -367,51 +307,14 @@ class DetailProfileAdmin extends StatelessWidget {
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Container(
-                                          margin: EdgeInsets.fromLTRB(0, 0, 0, 27),
-                                          child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Container(
-                                                margin: EdgeInsets.fromLTRB(0, 0, 10.5, 0),
-                                                child: SizedBox(
-                                                  width: 140.8,
-                                                  child: Text(
-                                                    'Phone number',
-                                                    style: GoogleFonts.getFont(
-                                                      'Poppins',
-                                                      fontWeight: FontWeight.w500,
-                                                      fontSize: 14,
-                                                      height: 1.5,
-                                                      letterSpacing: 0.3,
-                                                      color: Color(0xFF3B3B3B),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Text(
-                                                '+234 813 0400 445',
-                                                style: GoogleFonts.getFont(
-                                                  'Be Vietnam Pro',
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 14,
-                                                  height: 1.5,
-                                                  letterSpacing: 0.3,
-                                                  color: Color(0xFF000000),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
                                         Row(
                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Container(
-                                              margin: EdgeInsets.fromLTRB(0, 0, 10.5, 0),
+                                              margin: EdgeInsets.fromLTRB(0, 12, 10.5, 0),
                                               child: SizedBox(
-                                                width: 148.8,
+                                                width: 140,
                                                 child: Text(
                                                   'Email',
                                                   style: GoogleFonts.getFont(
@@ -425,8 +328,8 @@ class DetailProfileAdmin extends StatelessWidget {
                                                 ),
                                               ),
                                             ),
-                                            Text(
-                                              'ekamcy@mail.com',
+                                            Expanded(child: TextField(
+                                              controller: _nameController,
                                               style: GoogleFonts.getFont(
                                                 'Be Vietnam Pro',
                                                 fontWeight: FontWeight.w500,
@@ -435,6 +338,11 @@ class DetailProfileAdmin extends StatelessWidget {
                                                 letterSpacing: 0.3,
                                                 color: Color(0xFF000000),
                                               ),
+                                              decoration: InputDecoration(
+                                                hintText: 'ekamcy@mail.com',
+                                                contentPadding: EdgeInsets.all(8.0),
+                                              ),
+                                            ),
                                             ),
                                           ],
                                         ),

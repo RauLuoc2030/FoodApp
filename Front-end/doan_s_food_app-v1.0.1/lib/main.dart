@@ -1,7 +1,20 @@
 import 'dart:io';
 
+import 'package:doan_s_food_app/pages/menu_admin.dart';
+import 'package:doan_s_food_app/pages/admin_account.dart';
 import 'package:doan_s_food_app/pages/admin_home_page.dart';
 import 'package:doan_s_food_app/pages/detail_profile_admin.dart';
+import 'package:doan_s_food_app/pages/detail_profile_customer.dart';
+import 'package:doan_s_food_app/pages/detail_edit_profile_customer.dart';
+import 'package:doan_s_food_app/pages/admin_recipes.dart';
+import 'package:doan_s_food_app/pages/admin_recipes_2.dart';
+import 'package:doan_s_food_app/pages/admin_details_recipes.dart';
+import 'package:doan_s_food_app/pages/admin_edit_details_recipes.dart';
+import 'package:doan_s_food_app/pages/admin_community.dart';
+import 'package:doan_s_food_app/pages/admin_community_1.dart';
+import 'package:doan_s_food_app/pages/profile_1.dart';
+import 'package:doan_s_food_app/pages/profile_2.dart';
+import 'package:doan_s_food_app/pages/profile_3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -38,7 +51,22 @@ class MyApp extends StatelessWidget {
           // initialRoute: AppRoutes.initialRoute,
           // routes: AppRoutes.routes,
           home: Scaffold(
-            body: AdminHomePage(),
+            body:
+            // MenuAdmin(),
+            // AdminAccount(),
+            // AdminHomePage(),
+            // AdminRecipes(),
+            // AdminRecipes2 (),
+            // AdminDetailsRecipes(),
+            AdminEditDetailsRecipes(),
+            // AdminCommunity (),
+            // AdminCommunity1 (),
+            // DetailProfileAdmin(),
+            // DetailProfileCustomer(),
+            // EditProfileCustomer (),
+            // Profile1(),
+            // Profile2(),
+            // Profile3(),
           ),
         );
       },

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:doan_s_food_app/pages/detail_profile_admin.dart';
+import 'package:doan_s_food_app/pages/admin_recipes.dart';
 import 'dart:ui';
 import 'package:flutter_svg/flutter_svg.dart';
-// import 'package:flutter_app/utils.dart';
+import 'package:doan_s_food_app/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AdminHomePage extends StatelessWidget {
@@ -64,24 +66,31 @@ class AdminHomePage extends StatelessWidget {
                                   ),
                                   Container(
                                     width: 52.1,
+                                    height: 52.1,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(26.0416660309),
                                     ),
                                     child: Positioned(
                                       right: -7,
                                       bottom: -56.4,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                            fit: BoxFit.cover,
-                                            image: AssetImage(
-                                              'assets/images/gojo.png',
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(builder: (context) => DetailProfileAdmin()),
+                                          );
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              fit: BoxFit.cover,
+                                              image: AssetImage('assets/images/gojo.png'),
                                             ),
                                           ),
-                                        ),
-                                        child: Container(
-                                          width: 66.1,
-                                          height: 112.8,
+                                          child: Container(
+                                            width: 66.1,
+                                            height: 112.8,
+                                          )
                                         ),
                                       ),
                                     ),
@@ -378,7 +387,7 @@ class AdminHomePage extends StatelessWidget {
                                 child: Align(
                                   alignment: Alignment.topLeft,
                                   child: Text(
-                                    'Số công thức nấu ăn ',
+                                    'Số công thức \nnấu ăn ',
                                     style: GoogleFonts.getFont(
                                       'Be Vietnam Pro',
                                       fontWeight: FontWeight.w700,
@@ -388,20 +397,31 @@ class AdminHomePage extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  color: Color(0xFF4899FA),
-                                  borderRadius: BorderRadius.circular(13),
-                                ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => AdminRecipes()),
+                                  );
+                                },
                                 child: Container(
-                                  padding: EdgeInsets.fromLTRB(19.8, 10.5, 19.8, 8.6),
-                                  child: Text(
-                                    'Xem chi tiết',
-                                    style: GoogleFonts.getFont(
-                                      'Be Vietnam Pro',
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 15.6,
-                                      color: Color(0xFFFFFFFF),
+                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFF4899FA),
+                                      borderRadius: BorderRadius.circular(13),
+                                    ),
+                                    child: Container(
+                                      padding: EdgeInsets.fromLTRB(19.9, 10.5, 19.9, 8.6),
+                                      child: Text(
+                                        'Xem chi tiết',
+                                        style: GoogleFonts.getFont(
+                                          'Be Vietnam Pro',
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: 15.6,
+                                          color: Color(0xFFFFFFFF),
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -524,7 +544,7 @@ class AdminHomePage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(5.2),
                 ),
                 child: Container(
-                  height: 269.3,
+                  height: 320,
                   padding: EdgeInsets.fromLTRB(26, 8.7, 18.2, 0),
                   child: Container(
                     width: double.infinity,
