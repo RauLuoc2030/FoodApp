@@ -9,8 +9,8 @@ import 'package:google_fonts/google_fonts.dart';
 class AdminHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return
-      SingleChildScrollView(
+    return Scaffold(
+      body: SingleChildScrollView(
         child: Container(
           decoration: BoxDecoration(
             border: Border.all(color: Color(0xFF000000)),
@@ -1144,6 +1144,7 @@ class AdminHomePage extends StatelessWidget {
             ],
           ),
         ),
-      );
+      ),
+    );
   }
 }
