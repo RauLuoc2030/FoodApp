@@ -18,3 +18,10 @@ FoodApp.code-workspace
 .vscode
 Front-end/doan_s_food_app/*.log
 Front-end/doan_s_food_app/android/*.log
+Front-end/doan_s_food_app-v1.0.1/ios/
+Front-end/doan_s_food_app-v1.0.1/.dart_tool/
+Front-end/doan_s_food_app-v1.0.1/.flutter-plugins
+Front-end/doan_s_food_app-v1.0.1/.flutter-plugins-dependencies
+Front-end/doan_s_food_app-v1.0.1/pubspec.lock
+Front-end/doan_s_food_app-v1.0.1/android/local.properties
+Front-end/doan_s_food_app-v1.0.1/android/app/
