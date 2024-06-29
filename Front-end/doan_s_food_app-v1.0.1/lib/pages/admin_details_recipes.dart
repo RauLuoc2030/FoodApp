@@ -159,7 +159,7 @@ class AdminDetailsRecipes extends StatelessWidget {
                                           ),
                                         ),
                                         Container(
-                                          margin: EdgeInsets.fromLTRB(0, 3.2, 0, 2.8),
+                                          margin: EdgeInsets.fromLTRB(0, 3.2, 10, 2.8),
                                           child: Row(
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -193,9 +193,9 @@ class AdminDetailsRecipes extends StatelessWidget {
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.fromLTRB(0, 0, 19.3, 0),
+                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                                     child: Text(
-                                      'This Healthy Taco Salad is the universal delight of taco night',
+                                      'This Healthy Taco Salad is the universal delight of taco night.',
                                       style: GoogleFonts.getFont(
                                         'Be Vietnam Pro',
                                         fontWeight: FontWeight.w400,
@@ -209,7 +209,7 @@ class AdminDetailsRecipes extends StatelessWidget {
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.fromLTRB(23.4, 0, 21.7, 24.2),
+                              margin: EdgeInsets.fromLTRB(23.4, 0, 21.7, 14),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -231,29 +231,21 @@ class AdminDetailsRecipes extends StatelessWidget {
                                                   color: Color(0xFFE6EBF2),
                                                   borderRadius: BorderRadius.circular(2.1),
                                                 ),
-                                                child: Container(
-                                                  width: 20.8,
-                                                  height: 21.5,
-                                                  padding: EdgeInsets.fromLTRB(5.7, 4.9, 5.3, 4.6),
                                                   child: Container(
-                                                    width: 9.8,
-                                                    height: 12,
-                                                    child: Transform(
-                                                      transform: Matrix4.identity()..rotateZ(0.5235988067),
+                                                    width: 24,
+                                                    height: 24,
                                                       child: SizedBox(
-                                                        width: 9.8,
-                                                        height: 12,
-                                                        child: SvgPicture.asset(
-                                                          'assets/vectors/group_5122_x2.svg',
+                                                        width: 24,
+                                                        height: 24,
+                                                        child: Image.asset(
+                                                          'assets/images/group_5122_x2.png',
                                                         ),
                                                       ),
                                                     ),
-                                                  ),
-                                                ),
                                               ),
                                             ),
                                             Container(
-                                              margin: EdgeInsets.fromLTRB(0, 4.3, 0, 3.2),
+                                              margin: EdgeInsets.fromLTRB(0, 5, 0, 3.2),
                                               child: Text(
                                                 '65g carbs',
                                                 style: GoogleFonts.getFont(
@@ -272,28 +264,27 @@ class AdminDetailsRecipes extends StatelessWidget {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Container(
-                                              margin: EdgeInsets.fromLTRB(0, 0, 7.3, 0),
+                                              margin: EdgeInsets.fromLTRB(0, 0, 5.2, 0),
                                               child: Container(
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFE6EBF2),
                                                   borderRadius: BorderRadius.circular(2.1),
                                                 ),
                                                 child: Container(
-                                                  width: 20.8,
-                                                  height: 21.5,
-                                                  padding: EdgeInsets.fromLTRB(4.2, 4.3, 4.2, 4.3),
+                                                  width: 24,
+                                                  height: 24,
                                                   child: SizedBox(
-                                                    width: 12.5,
-                                                    height: 12.9,
-                                                    child: SvgPicture.asset(
-                                                      'assets/vectors/proteins_x2.svg',
+                                                    width: 24,
+                                                    height: 24,
+                                                    child: Image.asset(
+                                                      'assets/images/proteins_x2.png',
                                                     ),
                                                   ),
                                                 ),
                                               ),
                                             ),
                                             Container(
-                                              margin: EdgeInsets.fromLTRB(0, 3, 0, 3.6),
+                                              margin: EdgeInsets.fromLTRB(0, 5, 0, 3.6),
                                               child: Text(
                                                 '27g proteins',
                                                 style: GoogleFonts.getFont(
@@ -328,25 +319,20 @@ class AdminDetailsRecipes extends StatelessWidget {
                                                   borderRadius: BorderRadius.circular(2.1),
                                                 ),
                                                 child: Container(
-                                                  width: 20.8,
-                                                  height: 21.5,
-                                                  padding: EdgeInsets.fromLTRB(6, 5.1, 6, 5.1),
-                                                  child: Container(
-                                                    width: 8.8,
-                                                    height: 11.3,
-                                                    child: SizedBox(
-                                                      width: 8.8,
-                                                      height: 11.3,
-                                                      child: SvgPicture.asset(
-                                                        'assets/vectors/group_511_x2.svg',
-                                                      ),
+                                                  width: 24,
+                                                  height: 24,
+                                                  child: SizedBox(
+                                                    width: 24,
+                                                    height: 24,
+                                                    child: Image.asset(
+                                                      'assets/images/group_511_x2.png',
                                                     ),
                                                   ),
                                                 ),
                                               ),
                                             ),
                                             Container(
-                                              margin: EdgeInsets.fromLTRB(0, 2.7, 0, 3.8),
+                                              margin: EdgeInsets.fromLTRB(0, 5, 0, 3.8),
                                               child: Text(
                                                 '120 Kcal',
                                                 style: GoogleFonts.getFont(
@@ -365,28 +351,27 @@ class AdminDetailsRecipes extends StatelessWidget {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Container(
-                                              margin: EdgeInsets.fromLTRB(0, 0, 8.6, 0),
+                                              margin: EdgeInsets.fromLTRB(0, 0, 5.2, 0),
                                               child: Container(
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFE6EBF2),
                                                   borderRadius: BorderRadius.circular(2.1),
                                                 ),
                                                 child: Container(
-                                                  width: 20.8,
-                                                  height: 21.5,
-                                                  padding: EdgeInsets.fromLTRB(4.2, 4.3, 4.2, 4.3),
+                                                  width: 24,
+                                                  height: 24,
                                                   child: SizedBox(
-                                                    width: 12.5,
-                                                    height: 12.9,
-                                                    child: SvgPicture.asset(
-                                                      'assets/vectors/fats_1_x2.svg',
+                                                    width: 24,
+                                                    height: 24,
+                                                    child: Image.asset(
+                                                      'assets/images/fats_1_x2.png',
                                                     ),
                                                   ),
                                                 ),
                                               ),
                                             ),
                                             Container(
-                                              margin: EdgeInsets.fromLTRB(0, 2.4, 0, 4.1),
+                                              margin: EdgeInsets.fromLTRB(0, 5, 0, 4.1),
                                               child: Text(
                                                 '91g fats',
                                                 style: GoogleFonts.getFont(
@@ -407,7 +392,7 @@ class AdminDetailsRecipes extends StatelessWidget {
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.fromLTRB(1, 0, 0, 0),
+                              margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -694,7 +679,7 @@ class AdminDetailsRecipes extends StatelessWidget {
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.fromLTRB(0, 0, 4.8, 9.4),
+                                    margin: EdgeInsets.fromLTRB(0, 0, 4.8, 8),
                                     child: Container(
                                       decoration: BoxDecoration(
                                         color: Color(0xFFEBF0F6),
@@ -706,7 +691,7 @@ class AdminDetailsRecipes extends StatelessWidget {
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 9.4),
+                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 8),
                                     child: Column(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -782,7 +767,7 @@ class AdminDetailsRecipes extends StatelessWidget {
                                                               image: DecorationImage(
                                                                 fit: BoxFit.cover,
                                                                 image: AssetImage(
-                                                                  'assets/images/pexels_katie_e_36710831.jpeg',
+                                                                  'assets/images/pexels_katie_e_36710831.png',
                                                                 ),
                                                               ),
                                                             ),
@@ -942,7 +927,7 @@ class AdminDetailsRecipes extends StatelessWidget {
                                                             image: DecorationImage(
                                                               fit: BoxFit.cover,
                                                               image: AssetImage(
-                                                                'assets/images/pexels_katie_e_36710831.jpeg',
+                                                                'assets/images/pexels_katie_e_36710831.png',
                                                               ),
                                                             ),
                                                           ),
@@ -1044,7 +1029,6 @@ class AdminDetailsRecipes extends StatelessWidget {
                                                 crossAxisAlignment: CrossAxisAlignment.start,
                                                 children: [
                                                   Container(
-                                                    margin: EdgeInsets.fromLTRB(0, 0, 4.2, 0),
                                                     decoration: BoxDecoration(
                                                       border: Border.all(color: Color(0xFFFBFBFB)),
                                                       borderRadius: BorderRadius.circular(4.2),
@@ -1080,20 +1064,20 @@ class AdminDetailsRecipes extends StatelessWidget {
                                                                     borderRadius: BorderRadius.circular(4.1666665077),
                                                                   ),
                                                                   child: Positioned(
-                                                                    right: -26.3,
-                                                                    top: -66.8,
+                                                                    right: -19.9,
+                                                                    top: -2.1,
                                                                     child: Container(
                                                                       decoration: BoxDecoration(
                                                                         image: DecorationImage(
                                                                           fit: BoxFit.cover,
                                                                           image: AssetImage(
-                                                                            'assets/images/pexels_daniela_constantini_5591663.jpeg',
+                                                                            'assets/images/egg.png',
                                                                           ),
                                                                         ),
                                                                       ),
                                                                       child: Container(
-                                                                        width: 102.7,
-                                                                        height: 128.3,
+                                                                        width: 94.6,
+                                                                        height: 63.9,
                                                                       ),
                                                                     ),
                                                                   ),
@@ -1192,27 +1176,19 @@ class AdminDetailsRecipes extends StatelessWidget {
                                                       ),
                                                     ),
                                                   ),
-                                                ],
-                                              ),
-                                              Positioned(
-                                                right: 0,
-                                                bottom: 0,
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                    border: Border.all(color: Color(0xFFFBFBFB)),
-                                                    borderRadius: BorderRadius.circular(4.2),
-                                                    color: Color(0xFFFFFFFF),
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                        color: Color(0x1A063336),
-                                                        offset: Offset(0, 2),
-                                                        blurRadius: 8,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  child: SizedBox(
-                                                    width: 71.1,
-                                                    height: 96.6,
+                                                  Container(
+                                                    decoration: BoxDecoration(
+                                                      border: Border.all(color: Color(0xFFFBFBFB)),
+                                                      borderRadius: BorderRadius.circular(4.2),
+                                                      color: Color(0xFFFFFFFF),
+                                                      boxShadow: [
+                                                        BoxShadow(
+                                                          color: Color(0x1A063336),
+                                                          offset: Offset(0, 2),
+                                                          blurRadius: 8,
+                                                        ),
+                                                      ],
+                                                    ),
                                                     child: Container(
                                                       padding: EdgeInsets.fromLTRB(5.7, 5.7, 5.7, 19.6),
                                                       child: Column(
@@ -1236,20 +1212,20 @@ class AdminDetailsRecipes extends StatelessWidget {
                                                                     borderRadius: BorderRadius.circular(4.1666665077),
                                                                   ),
                                                                   child: Positioned(
-                                                                    left: -10.7,
-                                                                    top: -27,
+                                                                    right: -19.9,
+                                                                    top: -2.1,
                                                                     child: Container(
                                                                       decoration: BoxDecoration(
                                                                         image: DecorationImage(
                                                                           fit: BoxFit.cover,
                                                                           image: AssetImage(
-                                                                            'assets/images/max_griss_b_3_b_8_ds_sfoqg_unsplash_1.jpeg',
+                                                                            'assets/images/chicken.png',
                                                                           ),
                                                                         ),
                                                                       ),
                                                                       child: Container(
-                                                                        width: 72.5,
-                                                                        height: 90.9,
+                                                                        width: 94.6,
+                                                                        height: 63.9,
                                                                       ),
                                                                     ),
                                                                   ),
@@ -1274,7 +1250,7 @@ class AdminDetailsRecipes extends StatelessWidget {
                                                       ),
                                                     ),
                                                   ),
-                                                ),
+                                                ],
                                               ),
                                             ],
                                           ),
