@@ -1,23 +1,23 @@
 class NguoiDung {
   // NguoiDung(ID, Email, DietaryRestrictions, Allergies, Role)
-  final int? id;
-  final String? name;
-  final String? email;
+  int? id;
+  String? name;
+  String? email;
   /**
    * The dietary restrictions of the user (Vegetarian, Vegan, ...).
    * Example: Vegetarian, Vegan, Gluten-Free, ...
    */
-  final String? dietaryRestrictions;
+  String? dietaryRestrictions;
   /**
    * Lưu thông tin dị ứng của người dùng.
    * Ví dụ: Hải sản, Sữa, Đậu nành, ...
    */
-  final String? allergies;
+  String? allergies;
   /**
    * The role of the user (Admin, User, ...).
    * Example: 0 - Admin, 1 - User
    */
-  final int? role;
+  int? role;
 
   // Constructor
   NguoiDung({ this.id, this.name,  this.email,  this.dietaryRestrictions,  this.allergies,  this.role});
