@@ -4,7 +4,6 @@
 import 'dart:convert';
 
 import 'package:doan_s_food_app/Model/Category.dart';
-import 'package:doan_s_food_app/Services/CuisineService.dart';
 import 'package:doan_s_food_app/globals.dart';
 import 'package:http/http.dart' as http;
 
