@@ -1,0 +1,17 @@
+<svg width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<path d="M61.439,0.385L0.853,0.385L0.853,61.629L61.439,61.629L61.439,0.385Z" fill="url(#pf_0_i_3501_655;3494_558)" stroke="#000000" stroke-width="0.521" stroke-miterlimit="3.999327" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14.603,52.218C18.637,52.218 21.907,48.388 21.907,43.663C21.907,38.938 18.637,35.108 14.603,35.108C10.568,35.108 7.298,38.938 7.298,43.663C7.298,48.388 10.568,52.218 14.603,52.218Z" fill="#FFFFFF" stroke="#000000" stroke-width="0.521" stroke-miterlimit="3.999327" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M36.302,52.218C40.336,52.218 43.606,48.388 43.606,43.663C43.606,38.938 40.336,35.108 36.302,35.108C32.267,35.108 28.997,38.938 28.997,43.663C28.997,48.388 32.267,52.218 36.302,52.218Z" fill="#FFFFFF" stroke="#000000" stroke-width="0.521" stroke-miterlimit="3.999327" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="50.267" y1="38.11" x2="54.349" y2="38.11" stroke="#000000" stroke-width="0.521" stroke-miterlimit="3.999327" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="50.267" y1="48.175" x2="54.349" y2="48.175" stroke="#000000" stroke-width="0.521" stroke-miterlimit="3.999327" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14.603,27.056C18.637,27.056 21.907,23.226 21.907,18.501C21.907,13.777 18.637,9.946 14.603,9.946C10.568,9.946 7.298,13.777 7.298,18.501C7.298,23.226 10.568,27.056 14.603,27.056Z" fill="#FFFFFF" stroke="#000000" stroke-width="0.521" stroke-miterlimit="3.999327" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M36.302,27.056C40.336,27.056 43.606,23.226 43.606,18.501C43.606,13.777 40.336,9.946 36.302,9.946C32.267,9.946 28.997,13.777 28.997,18.501C28.997,23.226 32.267,27.056 36.302,27.056Z" fill="#FFFFFF" stroke="#000000" stroke-width="0.521" stroke-miterlimit="3.999327" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="50.267" y1="12.948" x2="54.349" y2="12.948" stroke="#000000" stroke-width="0.521" stroke-miterlimit="3.999327" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="50.267" y1="23.013" x2="54.349" y2="23.013" stroke="#000000" stroke-width="0.521" stroke-miterlimit="3.999327" stroke-linecap="round" stroke-linejoin="round"/>
+<defs>
+<linearGradient id="pf_0_i_3501_655;3494_558" x1="10.163" y1="80.075" x2="56.487" y2="13.462" gradientUnits="userSpaceOnUse">
+<stop stop-color="#3BADF5"/>
+<stop offset="1" stop-color="#0083DA"/>
+</linearGradient>
+</defs>
+</svg>
