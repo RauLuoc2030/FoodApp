@@ -6,7 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 class EditProfileCustomer extends StatelessWidget {
   TextEditingController? _nameController = TextEditingController();
-  TextEditingController? _birthdayController = TextEditingController();
   TextEditingController? _emailController = TextEditingController();
 
   @override
@@ -324,7 +323,7 @@ class EditProfileCustomer extends StatelessWidget {
                                       onPressed: () {
                                         // Add your onPressed logic here
                                         // Write log when press button
-                                        print(_emailController!.text + ' ' + _nameController!.text + ' ' + _birthdayController!.text);
+                                        print('Đã nhấn nút');
                                         // Navigate to EditProfileCustomer() screen
                                         // Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfileCustomer()));
                                       },
