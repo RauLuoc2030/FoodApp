@@ -1,0 +1,6 @@
+<svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<path d="M17.333,16.667L68.667,16.667L68.667,12.667L17.333,12.667L17.333,16.667ZM68.667,16.667C71.612,16.667 74,19.054 74,22L78,22C78,16.845 73.821,12.667 68.667,12.667L68.667,16.667ZM74,22L74,73.333L78,73.333L78,22L74,22ZM74,73.333C74,76.279 71.612,78.667 68.667,78.667L68.667,82.667C73.821,82.667 78,78.488 78,73.333L74,73.333ZM68.667,78.667L17.333,78.667L17.333,82.667L68.667,82.667L68.667,78.667ZM17.333,78.667C14.388,78.667 12,76.279 12,73.333L8,73.333C8,78.488 12.179,82.667 17.333,82.667L17.333,78.667ZM12,73.333L12,22L8,22L8,73.333L12,73.333ZM12,22C12,19.054 14.388,16.667 17.333,16.667L17.333,12.667C12.179,12.667 8,16.845 8,22L12,22Z" fill="#8C8CA1"/>
+<line x1="55.667" y1="7.333" x2="55.667" y2="22" stroke="#8C8CA1" stroke-width="2" stroke-miterlimit="3.999327" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="26.333" y1="7.333" x2="26.333" y2="22" stroke="#8C8CA1" stroke-width="2" stroke-miterlimit="3.999327" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="10" y1="34.667" x2="76" y2="34.667" stroke="#8C8CA1" stroke-width="2" stroke-miterlimit="3.999327" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
