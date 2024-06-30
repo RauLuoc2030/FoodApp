@@ -68,6 +68,18 @@ class RecipeService {
     }
   }
 
+  // Get the Recipes by Name
+  List<Recipe?> getRecipeByName(String name) {
+    // Find the Recipes with the given name
+    return Recipes.where((element) => element.rname!.toLowerCase().contains(name.toLowerCase())).toList();
+  }
+
+  // get the Recipes by Category
+  List<Recipe?> getRecipeByCategoryID(int categoryID) {
+    // Find the Recipes with the given category
+    return Recipes.where((element) => element.categoryID == categoryID).toList();
+  }
+
   // Post the Recipe to the server
   Future<Recipe?> postRecipe(Recipe recipe) async {
     // Send a POST request to the server

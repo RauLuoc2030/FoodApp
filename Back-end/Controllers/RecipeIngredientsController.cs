@@ -50,6 +50,28 @@ namespace FoodApp.Controllers
             return recipeIngredient;
         }
 
+        // GET: api/RecipeIngredients/Recipe/5
+        [HttpGet("Recipe/{recipeId}")]
+        public async Task<ActionResult<IEnumerable<RecipeIngredient>>> GetRecipeIngredientsByRecipe(int recipeId)
+        {
+          if (_context.RecipeIngredients == null)
+            {
+                return NotFound();
+            }
+            return await _context.RecipeIngredients.Where(ri => ri.RecipeId == recipeId).ToListAsync();
+        }
+
+        // GET: api/RecipeIngredients/Ingredient/5
+        [HttpGet("Ingredient/{ingredientId}")]
+        public async Task<ActionResult<IEnumerable<RecipeIngredient>>> GetRecipeIngredientsByIngredient(int ingredientId)
+        {
+          if (_context.RecipeIngredients == null)
+            {
+                return NotFound();
+            }
+            return await _context.RecipeIngredients.Where(ri => ri.IngredientId == ingredientId).ToListAsync();
+        }
+
         // PUT: api/RecipeIngredients/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

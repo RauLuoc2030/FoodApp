@@ -23,12 +23,33 @@ CREATE TABLE Cuisine (
     FoodType NVARCHAR(255) -- Vegetarian, Meat, Seafood, etc.
 );
 
+-- Insert Cuisine data
+insert into Cuisine (FoodType) values ('Vegetarian');
+insert into Cuisine (FoodType) values ('Meat');
+insert into Cuisine (FoodType) values ('Seafood');
+
 -- Create Category table
 CREATE TABLE Category (
     id INT PRIMARY KEY identity(1,1),
     CategoryName NVARCHAR(255)
 );
 
+-- Insert Category data
+insert into Category (CategoryName) values (N'Ăn sáng');
+insert into Category (CategoryName) values (N'Ăn trưa');
+insert into Category (CategoryName) values (N'Ăn tối');
+insert into Category (CategoryName) values (N'Ăn vặt');
+insert into Category (CategoryName) values (N'Món chay');
+insert into Category (CategoryName) values (N'Món mặn');
+insert into Category (CategoryName) values (N'Món ngọt');
+insert into Category (CategoryName) values (N'Món khai vị');
+insert into Category (CategoryName) values (N'Món chính');
+insert into Category (CategoryName) values (N'Món tráng miệng');
+insert into Category (CategoryName) values (N'Món ăn nhanh');
+insert into Category (CategoryName) values (N'Món ăn dặm');
+insert into Category (CategoryName) values (N'Món ăn kiêng');
+insert into Category (CategoryName) values (N'Món ăn chay');
+insert into Category (CategoryName) values (N'Món ăn dành cho trẻ em');
 
 
 -- Create Recipe table
@@ -47,6 +68,13 @@ CREATE TABLE Recipe (
     FOREIGN KEY (CuisineID) REFERENCES Cuisine(id) on delete set null,
     FOREIGN KEY (CategoryID) REFERENCES Category(id) on delete set null
 );
+
+-- Insert Recipe data
+insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl) 
+values (N'Fried Chicken', '2024-01-01', 30, 500, 100, 1, 29, N'This is a great recipe', 'https://www.google.com');
+insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
+values (N'Bún Bò Huế', '2024-05-01', 30, 500, 100, 1, 19, N'Đây là món Bún Bò Huế - Đặc sản Huế', 'https://www.google.com');
+
 
 -- Create NutritionInfo table
 -- NutritionInfo(NutritionID, Name, Unit)
@@ -253,6 +281,14 @@ CREATE TABLE Recipe_Ingredient (
     FOREIGN KEY (RecipeID) REFERENCES Recipe(id),
     FOREIGN KEY (IngredientID) REFERENCES Ingredient(id) on delete cascade
 );
+
+-- Insert Recipe_Ingredient data
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (5, 1, 10);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (5, 2, 5);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (5, 3, 2);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (6, 4, 10);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (6, 5, 5);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (6, 6, 2);
 
 
 -- Create Recipe_Nutrition table (Many-to-Many relationship between Recipe and NutritionInfo)
