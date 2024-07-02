@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b35d0b96-143b-4e4c-a847-295d7f5c8494" name="Changes" comment="scroll">
-      <change afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/assets/images/path_12_x2.png" afterDir="false" />
+    <list default="true" id="b35d0b96-143b-4e4c-a847-295d7f5c8494" name="Changes" comment="fix trang edit details recipes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/admin_community.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/admin_community.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/admin_community_1.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/admin_community_1.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/admin_edit_details_recipes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/admin_edit_details_recipes.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,11 +78,20 @@
       <option name="project" value="LOCAL" />
       <updated>1719686497250</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix trang edit details recipes">
+      <option name="closed" value="true" />
+      <created>1719882198137</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1719882198137</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="scroll" />
-    <option name="LAST_COMMIT_MESSAGE" value="scroll" />
+    <MESSAGE value="fix trang edit details recipes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix trang edit details recipes" />
   </component>
 </project>

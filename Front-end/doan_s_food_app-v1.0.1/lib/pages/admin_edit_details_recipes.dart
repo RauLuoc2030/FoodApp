@@ -17,6 +17,8 @@ class AdminEditDetailsRecipes extends StatelessWidget {
   TextEditingController? _quantity1Controller = TextEditingController();
   TextEditingController? _ingredient2Controller = TextEditingController();
   TextEditingController? _quantity2Controller = TextEditingController();
+  TextEditingController? _creatornameController = TextEditingController();
+  TextEditingController? _creatordescripController = TextEditingController();
   TextEditingController? _relate1Controller = TextEditingController();
   TextEditingController? _relate2Controller = TextEditingController();
   TextEditingController? _relate3Controller = TextEditingController();
@@ -783,6 +785,7 @@ class AdminEditDetailsRecipes extends StatelessWidget {
                                               child: SizedBox(
                                                 height: 20,
                                                 child: TextField(
+                                                  controller: _creatornameController,
                                                   style: GoogleFonts.getFont(
                                                     'Be Vietnam Pro',
                                                     fontWeight: FontWeight.w500,
@@ -800,6 +803,7 @@ class AdminEditDetailsRecipes extends StatelessWidget {
                                             SizedBox(
                                               height: 20,
                                               child:TextField(
+                                                controller: _creatordescripController,
                                                 style: GoogleFonts.getFont(
                                                   'Be Vietnam Pro',
                                                   fontWeight: FontWeight.w400,
