@@ -22,6 +22,11 @@ class AdminEditDetailsRecipes extends StatelessWidget {
   TextEditingController? _relate1Controller = TextEditingController();
   TextEditingController? _relate2Controller = TextEditingController();
   TextEditingController? _relate3Controller = TextEditingController();
+  TextEditingController? _preparation1Controller = TextEditingController();
+  TextEditingController? _preparation2Controller = TextEditingController();
+  TextEditingController? _preparation3Controller = TextEditingController();
+  TextEditingController? _preparation4Controller = TextEditingController();
+  TextEditingController? _preparation5Controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -1155,15 +1160,22 @@ class AdminEditDetailsRecipes extends StatelessWidget {
                                         ],
                                       ),
                                       child: Container(
-                                        padding: EdgeInsets.fromLTRB(4.2, 4.2, 4.2, 3.8),
-                                        child: Text(
-                                          'Bring a medium pot',
-                                          style: GoogleFonts.getFont(
-                                            'Be Vietnam Pro',
-                                            fontWeight: FontWeight.w700,
-                                            fontSize: 7.8,
-                                            height: 1.1,
-                                            color: Color(0xFF0A2533),
+                                        padding: EdgeInsets.fromLTRB(4.2, 8, 4.2, 0),
+                                        child: SizedBox(
+                                          height: 10,
+                                          child: TextField(
+                                            controller: _preparation1Controller,
+                                            style: GoogleFonts.getFont(
+                                              'Be Vietnam Pro',
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 7.8,
+                                              height: 1.1,
+                                              color: Color(0xFF0A2533),
+                                            ),
+                                            decoration: InputDecoration(
+                                              hintText: '1. ...', // Optional hint text
+                                              border: InputBorder.none, // Remove border for cleaner look (optional)
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -1172,86 +1184,163 @@ class AdminEditDetailsRecipes extends StatelessWidget {
                                 ),
                                 Container(
                                   margin: EdgeInsets.fromLTRB(0, 0, 0, 3.1),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(4.2),
-                                    color: Color(0xFFFFFFFF),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Color(0x1A063336),
-                                        offset: Offset(0, 0.5),
-                                        blurRadius: 2.0833332539,
+                                  child: Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(4.2),
+                                        color: Color(0xFFFFFFFF),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Color(0x1A063336),
+                                            offset: Offset(0, 0.5),
+                                            blurRadius: 2.0833332539,
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
-                                  child: Container(
-                                    padding: EdgeInsets.fromLTRB(4.2, 4.2, 4.2, 3.8),
-                                    child: Text(
-                                      'Use a slotted spoon to transfer a cooked egg',
-                                      style: GoogleFonts.getFont(
-                                        'Be Vietnam Pro',
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 7.8,
-                                        height: 1.1,
-                                        color: Color(0xFF0A2533),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 3.1),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(4.2),
-                                    color: Color(0xFFFFFFFF),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Color(0x1A063336),
-                                        offset: Offset(0, 0.5),
-                                        blurRadius: 2.0833332539,
-                                      ),
-                                    ],
-                                  ),
-                                  child: Container(
-                                    padding: EdgeInsets.fromLTRB(4.2, 4.2, 4.2, 3.8),
-                                    child: Text(
-                                      'Cook Bang Tran',
-                                      style: GoogleFonts.getFont(
-                                        'Be Vietnam Pro',
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 7.8,
-                                        height: 1.1,
-                                        color: Color(0xFF0A2533),
+                                      child: Container(
+                                        padding: EdgeInsets.fromLTRB(4.2, 8, 4.2, 0),
+                                        child: SizedBox(
+                                          height: 10,
+                                          child: TextField(
+                                            controller: _preparation2Controller,
+                                            style: GoogleFonts.getFont(
+                                              'Be Vietnam Pro',
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 7.8,
+                                              height: 1.1,
+                                              color: Color(0xFF0A2533),
+                                            ),
+                                            decoration: InputDecoration(
+                                              hintText: '2. ...', // Optional hint text
+                                              border: InputBorder.none, // Remove border for cleaner look (optional)
+                                            ),
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                                 Container(
                                   margin: EdgeInsets.fromLTRB(0, 0, 0, 3.1),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(4.2),
-                                    color: Color(0xFFFFFFFF),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Color(0x1A063336),
-                                        offset: Offset(0, 0.5),
-                                        blurRadius: 2.0833332539,
+                                  child: Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(4.2),
+                                        color: Color(0xFFFFFFFF),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Color(0x1A063336),
+                                            offset: Offset(0, 0.5),
+                                            blurRadius: 2.0833332539,
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
-                                  child: Container(
-                                    padding: EdgeInsets.fromLTRB(4.2, 4.2, 4.2, 3.8),
-                                    child: Text(
-                                      'Garnish with tortilla ',
-                                      style: GoogleFonts.getFont(
-                                        'Be Vietnam Pro',
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 7.8,
-                                        height: 1.1,
-                                        color: Color(0xFF0A2533),
+                                      child: Container(
+                                        padding: EdgeInsets.fromLTRB(4.2, 8, 4.2, 0),
+                                        child: SizedBox(
+                                          height: 10,
+                                          child: TextField(
+                                            controller: _preparation3Controller,
+                                            style: GoogleFonts.getFont(
+                                              'Be Vietnam Pro',
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 7.8,
+                                              height: 1.1,
+                                              color: Color(0xFF0A2533),
+                                            ),
+                                            decoration: InputDecoration(
+                                              hintText: '3. ...', // Optional hint text
+                                              border: InputBorder.none, // Remove border for cleaner look (optional)
+                                            ),
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                                 Container(
+                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 3.1),
+                                  child: Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(4.2),
+                                        color: Color(0xFFFFFFFF),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Color(0x1A063336),
+                                            offset: Offset(0, 0.5),
+                                            blurRadius: 2.0833332539,
+                                          ),
+                                        ],
+                                      ),
+                                      child: Container(
+                                        padding: EdgeInsets.fromLTRB(4.2, 8, 4.2, 0),
+                                        child: SizedBox(
+                                          height: 10,
+                                          child: TextField(
+                                            controller: _preparation4Controller,
+                                            style: GoogleFonts.getFont(
+                                              'Be Vietnam Pro',
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 7.8,
+                                              height: 1.1,
+                                              color: Color(0xFF0A2533),
+                                            ),
+                                            decoration: InputDecoration(
+                                              hintText: '4. ...', // Optional hint text
+                                              border: InputBorder.none, // Remove border for cleaner look (optional)
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 3.1),
+                                  child: Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(4.2),
+                                        color: Color(0xFFFFFFFF),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Color(0x1A063336),
+                                            offset: Offset(0, 0.5),
+                                            blurRadius: 2.0833332539,
+                                          ),
+                                        ],
+                                      ),
+                                      child: Container(
+                                        padding: EdgeInsets.fromLTRB(4.2, 8, 4.2, 0),
+                                        child: SizedBox(
+                                          height: 10,
+                                          child: TextField(
+                                            controller: _preparation5Controller,
+                                            style: GoogleFonts.getFont(
+                                              'Be Vietnam Pro',
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 7.8,
+                                              height: 1.1,
+                                              color: Color(0xFF0A2533),
+                                            ),
+                                            decoration: InputDecoration(
+                                              hintText: '5. ...', // Optional hint text
+                                              border: InputBorder.none, // Remove border for cleaner look (optional)
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 3.1),
+                                  height: 23, // Adjust width to match the container above
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(4.2),
                                     color: Color(0xFFFFFFFF),
@@ -1263,16 +1352,28 @@ class AdminEditDetailsRecipes extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  child: Container(
-                                    padding: EdgeInsets.fromLTRB(4.2, 4.2, 4.2, 3.8),
-                                    child: Text(
-                                      'Enjoy!',
-                                      style: GoogleFonts.getFont(
-                                        'Be Vietnam Pro',
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 7.8,
-                                        height: 1.1,
-                                        color: Color(0xFF0A2533),
+                                  child: TextButton(
+                                    onPressed: () {
+                                      // Add logic to create a new container with TextFields here
+                                      // (consider using a stateful widget to manage the list of ingredients)
+                                    },
+                                    child: Container(
+                                      padding: EdgeInsets.fromLTRB(4.2, 0, 4.2, 0),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            'Add Item +',
+                                            style: GoogleFonts.getFont(
+                                              'Be Vietnam Pro',
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 7.8,
+                                              height: 1.1,
+                                              color: Color(0xFF0A2533), // Change text color for button
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
