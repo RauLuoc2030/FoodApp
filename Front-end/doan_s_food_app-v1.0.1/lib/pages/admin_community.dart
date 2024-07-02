@@ -214,6 +214,7 @@ class AdminCommunity extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                //2 button
                                 children: [
                                   Container(
                                     margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
@@ -231,7 +232,7 @@ class AdminCommunity extends StatelessWidget {
                                       width: 32,
                                       height: 32,
                                       child: Image.asset(
-                                        'assets/images/path_11_x2.png',
+                                        'assets/images/path_12_x2.png',
                                       ),
                                     ),
                                   ),

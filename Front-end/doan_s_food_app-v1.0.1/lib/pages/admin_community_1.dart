@@ -231,7 +231,7 @@ class AdminCommunity1 extends StatelessWidget {
                                     width: 32,
                                     height: 32,
                                     child: Image.asset(
-                                      'assets/images/path_11_x2.png',
+                                      'assets/images/path_12_x2.png',
                                     ),
                                   ),
                                 ),
