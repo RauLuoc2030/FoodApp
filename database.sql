@@ -302,6 +302,14 @@ CREATE TABLE Recipe_Nutrition (
     FOREIGN KEY (NutritionID) REFERENCES NutritionInfo(id) on delete cascade
 );
 
+-- Insert Recipe_Nutrition data
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (5, 1, 500);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (5, 2, 20);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (5, 3, 10);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (6, 1, 600);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (6, 2, 25);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (6, 3, 15);
+
 GO
 
 CREATE Trigger CalculateCalories ON Recipe_Nutrition for insert, update
