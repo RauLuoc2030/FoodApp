@@ -263,16 +263,24 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                                     ),
                                                   ),
                                                 ),
-                                                Container(
-                                                  margin: EdgeInsets.fromLTRB(80, 5, 0, 4.4),
-                                                  child: Text(
-                                                    'Healthy Taco Salad',
-                                                    style: GoogleFonts.getFont(
-                                                      'Poppins',
-                                                      fontWeight: FontWeight.w500,
-                                                      fontSize: 14,
-                                                      letterSpacing: 0.2,
-                                                      color: Color(0xFF171725),
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(builder: (context) => AdminDetailsRecipes()), // Replace with your MenuAdmin widget
+                                                    );
+                                                  },
+                                                  child: Container(
+                                                    margin: EdgeInsets.fromLTRB(80, 5, 0, 4.4),
+                                                    child: Text(
+                                                      'Healthy Taco Salad',
+                                                      style: GoogleFonts.getFont(
+                                                        'Poppins',
+                                                        fontWeight: FontWeight.w500,
+                                                        fontSize: 14,
+                                                        letterSpacing: 0.2,
+                                                        color: Color(0xFF171725),
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
@@ -299,44 +307,52 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                 Positioned(
                                   left: 51,
                                   bottom: 14.8,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      border: Border.all(color: Color(0xFFF1F1F5)),
-                                      borderRadius: BorderRadius.circular(5),
-                                      color: Color(0xFFFFFFFF),
-                                    ),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => AdminDetailsRecipes()), // Replace with your MenuAdmin widget
+                                      );
+                                    },
                                     child: Container(
-                                      width: 50,
-                                      height: 50,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(color: Color(0xFFF1F1F5)),
+                                        borderRadius: BorderRadius.circular(5),
+                                        color: Color(0xFFFFFFFF),
+                                      ),
                                       child: Container(
                                         width: 50,
                                         height: 50,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(5),
-                                        ),
-                                        child: Positioned(
-                                          left: -1,
-                                          bottom: -14.8,
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(5),
-                                              image: DecorationImage(
-                                                fit: BoxFit.cover,
-                                                image: AssetImage(
-                                                  'assets/images/healthy.png',
-                                                ),
-                                              ),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  color: Color(0x40000000),
-                                                  offset: Offset(0, 4),
-                                                  blurRadius: 2,
-                                                ),
-                                              ],
-                                            ),
+                                        child: Container(
+                                          width: 50,
+                                          height: 50,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(5),
+                                          ),
+                                          child: Positioned(
+                                            left: -1,
+                                            bottom: -14.8,
                                             child: Container(
-                                              width: 51.3,
-                                              height: 70.8,
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(5),
+                                                image: DecorationImage(
+                                                  fit: BoxFit.cover,
+                                                  image: AssetImage(
+                                                    'assets/images/healthy.png',
+                                                  ),
+                                                ),
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    color: Color(0x40000000),
+                                                    offset: Offset(0, 4),
+                                                    blurRadius: 2,
+                                                  ),
+                                                ],
+                                              ),
+                                              child: Container(
+                                                width: 51.3,
+                                                height: 70.8,
+                                              ),
                                             ),
                                           ),
                                         ),

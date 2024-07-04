@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:doan_s_food_app/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:doan_s_food_app/pages/admin_recipes_2.dart';
+import 'package:doan_s_food_app/pages/admin_edit_details_recipes.dart';
 
 class AdminEditDetailsRecipes extends StatelessWidget {
   TextEditingController? _namerecipeController = TextEditingController();
@@ -76,62 +78,42 @@ class AdminEditDetailsRecipes extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Color(0xFFFFFFFF)),
-                                borderRadius: BorderRadius.circular(5),
-                                color: Color(0xFFFFFFFF),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Color(0x1A063336),
-                                    offset: Offset(0, 0.5),
-                                    blurRadius: 2.0833332539,
+                              margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => AdminRecipes2()),
+                                  );
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10), // Bo góc của button
                                   ),
-                                ],
-                              ),
-                              child: Container(
-                                width: 36,
-                                height: 36,
-                                padding: EdgeInsets.fromLTRB(7.4, 7.4, 7.4, 7.4),
-                                child: Container(
-                                  width: 36,
-                                  height: 36,
-                                  child: SizedBox(
-                                    width: 36,
-                                    height: 36,
-                                    child: Image.asset(
-                                      'assets/images/close_square_2_x2.png',
-                                    ),
-                                  ),
+                                ),
+                                child: Icon(
+                                  Icons.close,
+                                  color: Colors.white, // Màu của icon
                                 ),
                               ),
                             ),
                             Container(
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Color(0xFFFFFFFF)),
-                                borderRadius: BorderRadius.circular(50),
-                                color: Color(0xFFFFFFFF),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Color(0x1A063336),
-                                    offset: Offset(0, 0.5),
-                                    blurRadius: 2.0833332539,
+                              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => AdminEditDetailsRecipes()),
+                                  );
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10), // Bo góc của button
                                   ),
-                                ],
-                              ),
-                              child: Container(
-                                width: 36,
-                                height: 36,
-                                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                child: Container(
-                                  width: 36,
-                                  height: 36,
-                                  child: SizedBox(
-                                    width: 36,
-                                    height: 36,
-                                    child: Image.asset(
-                                      'assets/images/done_square_2_x2.png',
-                                    ),
-                                  ),
+                                ),
+                                child: Icon(
+                                  Icons.edit,
+                                  color: Colors.white, // Màu của icon
                                 ),
                               ),
                             ),
