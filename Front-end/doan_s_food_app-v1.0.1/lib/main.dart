@@ -53,12 +53,12 @@ class MyApp extends StatelessWidget {
           home: Scaffold(
             body:
             // MenuAdmin(),
-            // AdminAccount(),
+             AdminAccount(),
             // AdminHomePage(),
             // AdminRecipes(),
             // AdminRecipes2 (),
             // AdminDetailsRecipes(),
-             AdminEditDetailsRecipes(),
+            // AdminEditDetailsRecipes(),
             // AdminCommunity (),
             // AdminCommunity1 (),
             // DetailProfileAdmin(),
