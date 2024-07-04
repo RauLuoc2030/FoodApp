@@ -4,9 +4,24 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b35d0b96-143b-4e4c-a847-295d7f5c8494" name="Changes" comment="chuyen trang cho menu admin">
+    <list default="true" id="b35d0b96-143b-4e4c-a847-295d7f5c8494" name="Changes" comment="fix trang admin account">
+      <change afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/assets/images/image_35.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/assets/images/shape_11_x2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/assets/images/shape_17_x2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/assets/images/shape_1_x2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/assets/images/shape_21_x2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/assets/images/shape_22_x2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/assets/images/shape_23_x2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/assets/images/shape_24_x2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/assets/images/shape_25_x2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/assets/images/shape_29_x2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/assets/images/shape_31_x2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/assets/images/shape_32_x2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/assets/images/shape_6_x2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/admin_account.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/admin_account.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/assets/images/image_36.png" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/assets/images/image_36.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/admin_home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/admin_home_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +63,7 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\DELL\StudioProjects\FoodApp\Front-end\doan_s_food_app-v1.0.1\assets\images" />
+      <recent name="C:\Users\DELL\StudioProjects\FoodApp\Front-end\doan_s_food_app-v1.0.1\lib\pages" />
     </key>
   </component>
   <component name="RunManager">
@@ -110,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720059542705</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fix trang admin account">
+      <option name="closed" value="true" />
+      <created>1720073209582</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1720073209582</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -119,6 +143,7 @@
     <MESSAGE value="them controller" />
     <MESSAGE value="fix edit details recipes" />
     <MESSAGE value="chuyen trang cho menu admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="chuyen trang cho menu admin" />
+    <MESSAGE value="fix trang admin account" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix trang admin account" />
   </component>
 </project>
