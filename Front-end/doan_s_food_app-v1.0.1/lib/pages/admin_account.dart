@@ -152,18 +152,6 @@ class _AdminAccountState extends State<AdminAccount> {
                     margin: EdgeInsets.fromLTRB(25.8, 0, 29.7, 9.5),
                     child: Stack(
                       children: [
-                        //button xóa
-                        Positioned(
-                          right: 0,
-                          top: 6.8,
-                          child: SizedBox(
-                            width: 32,
-                            height: 32,
-                            child: Image.asset(
-                              'assets/images/group_181313_x2.png',
-                            ),
-                          ),
-                        ),
                         Padding(
                           padding: const EdgeInsets.all(6.0),
                           child: Column(
@@ -272,6 +260,53 @@ class _AdminAccountState extends State<AdminAccount> {
                             ],
                           ),
                         ),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(230, 3, 0, 1),
+                          child: SizedBox(
+                            width: 120,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              //2 button
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                                  child: ElevatedButton(
+                                    onPressed: () {
+
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10), // Bo góc của button
+                                      ),
+                                    ),
+                                    child: Icon(
+                                      Icons.close,
+                                      color: Colors.white, // Màu của icon
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                                  child: ElevatedButton(
+                                    onPressed: () {
+
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10), // Bo góc của button
+                                      ),
+                                    ),
+                                    child: Icon(
+                                      Icons.check,
+                                      color: Colors.white, // Màu của icon
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -350,7 +385,7 @@ class _AdminAccountState extends State<AdminAccount> {
                                         mainAxisAlignment: MainAxisAlignment.start,
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
-                                            Container(
+                                          Container(
                                               margin: EdgeInsets.fromLTRB(0, 14.2, 13.8, 15),
                                               width: 20.8,
                                               height: 20.8,
