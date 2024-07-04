@@ -24,9 +24,9 @@ CREATE TABLE Cuisine (
 );
 
 -- Insert Cuisine data
-insert into Cuisine (FoodType) values ('Vegetarian');
-insert into Cuisine (FoodType) values ('Meat');
-insert into Cuisine (FoodType) values ('Seafood');
+insert into Cuisine (FoodType) values ('Vegetarian'); -- id: 1
+insert into Cuisine (FoodType) values ('Meat'); -- id: 2
+insert into Cuisine (FoodType) values ('Seafood'); -- id: 3
 
 -- Create Category table
 CREATE TABLE Category (
@@ -35,21 +35,21 @@ CREATE TABLE Category (
 );
 
 -- Insert Category data
-insert into Category (CategoryName) values (N'Ăn sáng');
-insert into Category (CategoryName) values (N'Ăn trưa');
-insert into Category (CategoryName) values (N'Ăn tối');
-insert into Category (CategoryName) values (N'Ăn vặt');
-insert into Category (CategoryName) values (N'Món chay');
-insert into Category (CategoryName) values (N'Món mặn');
-insert into Category (CategoryName) values (N'Món ngọt');
-insert into Category (CategoryName) values (N'Món khai vị');
-insert into Category (CategoryName) values (N'Món chính');
-insert into Category (CategoryName) values (N'Món tráng miệng');
-insert into Category (CategoryName) values (N'Món ăn nhanh');
-insert into Category (CategoryName) values (N'Món ăn dặm');
-insert into Category (CategoryName) values (N'Món ăn kiêng');
-insert into Category (CategoryName) values (N'Món ăn chay');
-insert into Category (CategoryName) values (N'Món ăn dành cho trẻ em');
+insert into Category (CategoryName) values (N'Ăn sáng'); -- id: 19
+insert into Category (CategoryName) values (N'Ăn trưa'); -- id: 20
+insert into Category (CategoryName) values (N'Ăn tối'); -- id: 21
+insert into Category (CategoryName) values (N'Ăn vặt'); -- id: 22
+insert into Category (CategoryName) values (N'Món chay'); -- id: 23
+insert into Category (CategoryName) values (N'Món mặn'); -- id: 24
+insert into Category (CategoryName) values (N'Món ngọt'); -- id: 25
+insert into Category (CategoryName) values (N'Món khai vị'); -- id: 26
+insert into Category (CategoryName) values (N'Món chính'); -- id: 27
+insert into Category (CategoryName) values (N'Món tráng miệng'); -- id: 28
+insert into Category (CategoryName) values (N'Món ăn nhanh'); -- id: 29
+insert into Category (CategoryName) values (N'Món ăn dặm'); -- id: 30
+insert into Category (CategoryName) values (N'Món ăn kiêng'); -- id: 31
+insert into Category (CategoryName) values (N'Món ăn chay'); -- id: 32
+insert into Category (CategoryName) values (N'Món ăn dành cho trẻ em'); -- id: 33
 
 
 -- Create Recipe table
@@ -71,9 +71,34 @@ CREATE TABLE Recipe (
 
 -- Insert Recipe data
 insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl) 
-values (N'Fried Chicken', '2024-01-01', 30, 500, 100, 1, 29, N'This is a great recipe', 'https://www.google.com');
+values (N'Fried Chicken', '2024-01-01', 30, 500, 100, 1, 29, N'This is a great recipe', 'https://www.google.com'); -- id: 5
 insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
-values (N'Bún Bò Huế', '2024-05-01', 30, 500, 100, 1, 19, N'Đây là món Bún Bò Huế - Đặc sản Huế', 'https://www.google.com');
+values (N'Bún Bò Huế', '2024-05-01', 30, 500, 100, 1, 19, N'Đây là món Bún Bò Huế - Đặc sản Huế', 'https://www.google.com'); -- id: 6
+
+insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
+values (N'Bún Riêu', '2024-05-01', 30, 500, 0, 1, 21, N'Đây là món Bún Riêu - Món ăn ngon', 'https://www.google.com'); -- id: 7
+insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
+values (N'Bánh Canh Cua', '2024-05-01', 30, 500, 0, 1, 27, N'Đây là món Bánh Canh Cua - Món ăn ngon', 'https://www.google.com'); -- id: 8
+insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
+values (N'Cơm cà ri', '2024-05-01', 30, 500, 0, 1, 20, N'Cơm cà ri với thịt bò thơm ngon', 'https://www.google.com'); -- id: 9
+insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
+values (N'Gà nướng', '2024-05-01', 30, 500, 0, 1, 27, N'Gà nướng đặc sản', 'https://www.google.com'); -- id: 10
+insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
+values (N'Canh chua cá lóc', '2024-05-01', 30, 500, 0, 1, 27, N'Canh chua cá lóc ngon tuyệt', 'https://www.google.com'); -- id: 11
+insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
+values (N'Đậu cô ve xào', '2024-05-01', 30, 500, 0, 1, 32, N'Đậu cô ve xào chay thơm ngon', 'https://www.google.com'); -- id: 12
+insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
+values (N'Bún thịt nướng', '2024-05-01', 30, 500, 0, 1, 27, N'Bún thịt nướng ngon tuyệt', 'https://www.google.com'); -- id: 13
+insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
+values (N'Phở bò', '2024-05-01', 30, 500, 0, 1, 19, N'Phở bò gia truyền Hà Nội', 'https://www.google.com'); -- id: 14
+insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
+values (N'Gỏi cuốn', '2024-05-01', 30, 500, 0, 1, 26, N'Gỏi cuốn thơm ngon', 'https://www.google.com'); -- id: 15
+insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
+values (N'Mỳ Ý', '2024-05-01', 30, 500, 0, 1, 29, N'Mỳ Ý thơm ngon', 'https://www.google.com'); -- id: 16
+insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
+values (N'Gà xào sả ớt', '2024-05-01', 30, 500, 0, 1, 24, N'Gà xào sả ớt thơm ngon', 'https://www.google.com'); -- id: 17
+insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
+values (N'Gà chiên nước mắm', '2024-05-01', 30, 500, 0, 1, 24, N'Gà chiên nước mắm thơm ngon', 'https://www.google.com'); -- id: 18
 
 
 -- Create NutritionInfo table
@@ -85,7 +110,7 @@ CREATE TABLE NutritionInfo (
 );
 
 -- Insert NutritionInfo data
-insert into NutritionInfo (Name, Unit) values ('Calories', 'kcal');
+insert into NutritionInfo (Name, Unit) values ('Calories', 'kcal'); -- id: 1
 insert into NutritionInfo (Name, Unit) values ('Protein', 'g');
 insert into NutritionInfo (Name, Unit) values ('Fat', 'g');
 insert into NutritionInfo (Name, Unit) values ('Carbohydrate', 'g');
@@ -124,7 +149,7 @@ insert into NutritionInfo (Name, Unit) values ('Omega-3', 'g');
 insert into NutritionInfo (Name, Unit) values ('Omega-6', 'g');
 insert into NutritionInfo (Name, Unit) values ('Omega-9', 'g');
 insert into NutritionInfo (Name, Unit) values ('Vitamin D2', 'IU');
-insert into NutritionInfo (Name, Unit) values ('Vitamin D3', 'IU');
+insert into NutritionInfo (Name, Unit) values ('Vitamin D3', 'IU'); -- id: 40
 
 
 -- Create CookingStep table
@@ -145,7 +170,7 @@ CREATE TABLE Ingredient (
     Unit NVARCHAR(50)
 );
 
-insert into Ingredient (Name, Unit) values ('Salt', 'g');
+insert into Ingredient (Name, Unit) values ('Salt', 'g'); -- id: 1
 insert into Ingredient (Name, Unit) values ('Pepper', 'g');
 insert into Ingredient (Name, Unit) values ('Sugar', 'g');
 insert into Ingredient (Name, Unit) values ('Garlic', 'g');
@@ -174,7 +199,7 @@ insert into Ingredient (Name, Unit) values ('Spinach', 'g');
 insert into Ingredient (Name, Unit) values ('Kale', 'g');
 insert into Ingredient (Name, Unit) values ('Apple', 'g');
 insert into Ingredient (Name, Unit) values ('Banana', 'g');
-insert into Ingredient (Name, Unit) values ('Orange', 'g');
+insert into Ingredient (Name, Unit) values ('Orange', 'g'); -- id: 30
 
 -- Create User table
 -- NguoiDung(id, Email, DietaryRestrictions, Allergies, Role)
