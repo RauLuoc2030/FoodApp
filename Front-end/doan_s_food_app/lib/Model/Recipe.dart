@@ -55,7 +55,7 @@ class Recipe {
       rname: json['rname'] ?? '',
       createDate: json['createDate'] != null ? DateTime.parse(json['createDate']) : DateTime.now(),
       prepTime: json['prepTime'] ?? 0,
-      calories: json['calories'] ?? 0.0,
+      calories: (json['calories'] ?? 0).toDouble(),
       viewNumber: json['viewNumber'] ?? 0,
       cuisineID: json['cuisineId'] ?? 0,
       categoryID: json['categoryId'] ?? 0,
