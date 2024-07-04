@@ -218,6 +218,7 @@ public partial class FoodContext : DbContext
             entity.Property(e => e.LikeCount).HasColumnName("LikeCount");
             entity.Property(e => e.ImgUrl).HasMaxLength(255);
             entity.Property(e => e.RecipeName).HasMaxLength(255);
+            entity.Property(e => e.TrangThaiDuyet).HasMaxLength(30);
 
             entity.HasOne(d => d.NguoiDung).WithMany(p => p.Posts)
                 .HasForeignKey(d => d.NguoiDungId)
