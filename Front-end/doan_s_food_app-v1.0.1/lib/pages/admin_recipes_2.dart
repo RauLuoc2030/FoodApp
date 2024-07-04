@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:doan_s_food_app/pages/detail_profile_admin.dart';
 import 'dart:ui';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:doan_s_food_app/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:doan_s_food_app/pages/detail_profile_admin.dart';
+import 'package:doan_s_food_app/pages/menu_admin.dart';
+import 'package:doan_s_food_app/pages/admin_details_recipes.dart';
+import 'package:doan_s_food_app/pages/admin_edit_details_recipes.dart';
 
-class AdminRecipes2 extends StatelessWidget {
+class AdminRecipes2 extends StatefulWidget {
+  @override
+  _AdminRecipes2State createState() => _AdminRecipes2State();
+}
+
+class _AdminRecipes2State extends State<AdminRecipes2> {
+  bool isSelected1 = false;
+  bool isSelected2 = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,13 +52,22 @@ class AdminRecipes2 extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Container(
-                                      margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                                      child: SizedBox(
-                                        width: 26,
-                                        height: 26,
-                                        child: Image.asset(
-                                          'assets/images/vector_x2.png',
+                                    GestureDetector(
+                                      onTap: () {
+                                        // Navigate to MenuAdmin page
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => MenuAdmin()), // Replace with your MenuAdmin widget
+                                        );
+                                      },
+                                      child: Container(
+                                        margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                                        child: SizedBox(
+                                          width: 26,
+                                          height: 26,
+                                          child: Image.asset(
+                                            'assets/images/vector_x2.png',
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -141,28 +161,45 @@ class AdminRecipes2 extends StatelessWidget {
                       Container(
                         margin: EdgeInsets.fromLTRB(0, 3, 0, 1),
                         child: SizedBox(
-                          width: 74,
+                          width: 116,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
                                 margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
-                                child: SizedBox(
-                                  width: 32,
-                                  height: 32,
-                                  child: Image.asset(
-                                    'assets/images/group_181313_x2.png',
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => AdminEditDetailsRecipes()),
+                                    );
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10), // Bo góc của button
+                                    ),
+                                  ),
+                                  child: Icon(
+                                    Icons.add,
+                                    color: Colors.white, // Màu của icon
                                   ),
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                child: SizedBox(
-                                  width: 32,
-                                  height: 32,
-                                  child: Image.asset(
-                                    'assets/images/path_11_x2.png',
+                                margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                                child: ElevatedButton(
+                                  onPressed: () {
+
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10), // Bo góc của button
+                                    ),
+                                  ),
+                                  child: Icon(
+                                    Icons.close,
+                                    color: Colors.white, // Màu của icon
                                   ),
                                 ),
                               ),
@@ -174,7 +211,7 @@ class AdminRecipes2 extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.fromLTRB(24.7, 0, 24.7, 0),
+                  margin: EdgeInsets.fromLTRB(24.7, 0, 24.7, 22),
                   child: Container(
                     decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF),
@@ -208,15 +245,21 @@ class AdminRecipes2 extends StatelessWidget {
                                               // mainAxisAlignment: MainAxisAlignment.start,
                                               crossAxisAlignment: CrossAxisAlignment.start,
                                               children: [
+                                                // button select
                                                 Container(
-                                                  margin: EdgeInsets.fromLTRB(0, 4.6, 0, 0),
+                                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                                                   width: 20.8,
                                                   height: 20.8,
-                                                  child: SizedBox(
-                                                    width: 20.8,
-                                                    height: 20.8,
-                                                    child: SvgPicture.asset(
-                                                      'assets/vectors/shape_30_x2.svg',
+                                                  child: InkWell(
+                                                    onTap: () {
+                                                      setState(() {
+                                                        isSelected1 = !isSelected1;
+                                                      });
+                                                    },
+                                                    child: Icon(
+                                                      isSelected1 ? Icons.check_box : Icons.check_box_outline_blank,
+                                                      size: 20.8,
+                                                      color: Colors.black,
                                                     ),
                                                   ),
                                                 ),
@@ -280,7 +323,7 @@ class AdminRecipes2 extends StatelessWidget {
                                               image: DecorationImage(
                                                 fit: BoxFit.cover,
                                                 image: AssetImage(
-                                                  'assets/images/how_to_prepare_nigerian_fried_rice_127.jpeg',
+                                                  'assets/images/healthy.png',
                                                 ),
                                               ),
                                               boxShadow: [
@@ -326,15 +369,21 @@ class AdminRecipes2 extends StatelessWidget {
                                               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                               crossAxisAlignment: CrossAxisAlignment.start,
                                               children: [
+                                                // button select
                                                 Container(
-                                                  margin: EdgeInsets.fromLTRB(0, 4.6, 0, 0),
+                                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                                                   width: 20.8,
                                                   height: 20.8,
-                                                  child: SizedBox(
-                                                    width: 20.8,
-                                                    height: 20.8,
-                                                    child: SvgPicture.asset(
-                                                      'assets/vectors/shape_30_x2.svg',
+                                                  child: InkWell(
+                                                    onTap: () {
+                                                      setState(() {
+                                                        isSelected2 = !isSelected2;
+                                                      });
+                                                    },
+                                                    child: Icon(
+                                                      isSelected2 ? Icons.check_box : Icons.check_box_outline_blank,
+                                                      size: 20.8,
+                                                      color: Colors.black,
                                                     ),
                                                   ),
                                                 ),
@@ -398,7 +447,7 @@ class AdminRecipes2 extends StatelessWidget {
                                               image: DecorationImage(
                                                 fit: BoxFit.cover,
                                                 image: AssetImage(
-                                                  'assets/images/how_to_prepare_nigerian_fried_rice_127.jpeg',
+                                                  'assets/images/healthy.png',
                                                 ),
                                               ),
                                               boxShadow: [
@@ -420,60 +469,6 @@ class AdminRecipes2 extends StatelessWidget {
                                   ),
                                 ),
                               ],
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.fromLTRB(17.8, 0, 17.8, 0),
-                            child: SizedBox(
-                              // width: 84,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    margin: EdgeInsets.fromLTRB(0, 0, 15.9, 0),
-                                    width: 50,
-                                    height: 40,
-                                    padding: EdgeInsets.fromLTRB(12.8, 9.4, 13.8, 9.4),
-                                    decoration: BoxDecoration(
-                                      border: Border.all(color: Color(0xFFE2E2EA)),
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    child: Container(
-                                      width: 26,
-                                      height: 23,
-                                      child: SizedBox(
-                                        width: 26,
-                                        height: 23,
-                                        child: Image.asset(
-                                          'assets/images/shape_12_x2.png',
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.fromLTRB(0, 0, 15.9, 0),
-                                    width: 50,
-                                    height: 40,
-                                    padding: EdgeInsets.fromLTRB(12.8, 9.4, 13.8, 9.4),
-                                    decoration: BoxDecoration(
-                                      border: Border.all(color: Color(0xFFE2E2EA)),
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    child: Container(
-                                      width: 26,
-                                      height: 23,
-                                      child: SizedBox(
-                                        width: 26,
-                                        height: 23,
-                                        child: Image.asset(
-                                          'assets/images/shape_12_x3.png',
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
                             ),
                           ),
                         ],

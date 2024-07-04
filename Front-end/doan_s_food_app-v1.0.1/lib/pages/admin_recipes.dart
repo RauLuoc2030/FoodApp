@@ -5,6 +5,7 @@ import 'package:doan_s_food_app/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:doan_s_food_app/pages/detail_profile_admin.dart';
 import 'package:doan_s_food_app/pages/menu_admin.dart';
+import 'package:doan_s_food_app/pages/admin_recipes_2.dart';
 
 class AdminRecipes extends StatefulWidget {
   @override
@@ -207,7 +208,120 @@ class _AdminRecipesState extends State<AdminRecipes> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          margin: EdgeInsets.fromLTRB(0, 0, 0, 0.2),
+                          margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => AdminRecipes2()),
+                              );
+                            },
+                          child: Stack(
+                            children: [
+                              SizedBox(
+                                width: double.infinity,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      margin: EdgeInsets.fromLTRB(0, 0, 0, 26.5),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFFFFFFFF),
+                                        ),
+                                        child: Container(
+                                          padding: EdgeInsets.fromLTRB(13.6, 25, 0, 0),
+                                          child: Row(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                margin: EdgeInsets.fromLTRB(80, 5, 0, 4.4),
+                                                child: Text(
+                                                  'Healthy',
+                                                  style: GoogleFonts.getFont(
+                                                    'Poppins',
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14,
+                                                    letterSpacing: 0.2,
+                                                    color: Color(0xFF171725),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.fromLTRB(11, 0, 10.7, 0),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFFF1F1F5),
+                                        ),
+                                        child: Container(
+                                          width: 303.3,
+                                          height: 0.8,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Positioned(
+                                left: 30,
+                                bottom: 14.8,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(color: Color(0xFFF1F1F5)),
+                                    borderRadius: BorderRadius.circular(5),
+                                    color: Color(0xFFFFFFFF),
+                                  ),
+                                  child: Container(
+                                    width: 50,
+                                    height: 50,
+                                    child: Container(
+                                      width: 50,
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(5),
+                                      ),
+                                      child: Positioned(
+                                        left: -1,
+                                        bottom: -14.8,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(5),
+                                            image: DecorationImage(
+                                              fit: BoxFit.cover,
+                                              image: AssetImage(
+                                                'assets/images/healthy.png',
+                                              ),
+                                            ),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Color(0x40000000),
+                                                offset: Offset(0, 4),
+                                                blurRadius: 2,
+                                              ),
+                                            ],
+                                          ),
+                                          child: Container(
+                                            width: 51.3,
+                                            height: 70.8,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 0, 0, 460),
                           child: Stack(
                             children: [
                               SizedBox(
@@ -307,130 +421,6 @@ class _AdminRecipesState extends State<AdminRecipes> {
                                               fit: BoxFit.cover,
                                               image: AssetImage(
                                                 'assets/images/cake.png',
-                                              ),
-                                            ),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: Color(0x40000000),
-                                                offset: Offset(0, 4),
-                                                blurRadius: 2,
-                                              ),
-                                            ],
-                                          ),
-                                          child: Container(
-                                            width: 51.3,
-                                            height: 70.8,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.fromLTRB(0, 0, 0, 460),
-                          child: Stack(
-                            children: [
-                              SizedBox(
-                                width: double.infinity,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      margin: EdgeInsets.fromLTRB(0, 0, 0, 26.5),
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFFFFFFFF),
-                                        ),
-                                        child: Container(
-                                          padding: EdgeInsets.fromLTRB(13.6, 25, 0, 0),
-                                          child: Row(
-                                            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                                // button select
-                                              // Container(
-                                              //   margin: EdgeInsets.fromLTRB(0, 0, 13.8, 0),
-                                              //   width: 20.8,
-                                              //   height: 20.8,
-                                              //   child: InkWell(
-                                              //     onTap: () {
-                                              //       setState(() {
-                                              //         isSelected2 = !isSelected2;
-                                              //       });
-                                              //     },
-                                              //     child: Icon(
-                                              //       isSelected2 ? Icons.check_box : Icons.check_box_outline_blank,
-                                              //       size: 20.8,
-                                              //       color: Colors.black,
-                                              //     ),
-                                              //   ),
-                                              // ),
-                                              Container(
-                                                margin: EdgeInsets.fromLTRB(80, 5, 0, 4.4),
-                                                child: Text(
-                                                  'Healthy',
-                                                  style: GoogleFonts.getFont(
-                                                    'Poppins',
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 14,
-                                                    letterSpacing: 0.2,
-                                                    color: Color(0xFF171725),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.fromLTRB(11, 0, 10.7, 0),
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFFF1F1F5),
-                                        ),
-                                        child: Container(
-                                          width: 303.3,
-                                          height: 0.8,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Positioned(
-                                left: 30,
-                                bottom: 14.8,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    border: Border.all(color: Color(0xFFF1F1F5)),
-                                    borderRadius: BorderRadius.circular(5),
-                                    color: Color(0xFFFFFFFF),
-                                  ),
-                                  child: Container(
-                                    width: 50,
-                                    height: 50,
-                                    child: Container(
-                                      width: 50,
-                                      height: 50,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(5),
-                                      ),
-                                      child: Positioned(
-                                        left: -1,
-                                        bottom: -14.8,
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(5),
-                                            image: DecorationImage(
-                                              fit: BoxFit.cover,
-                                              image: AssetImage(
-                                                'assets/images/healthy.png',
                                               ),
                                             ),
                                             boxShadow: [
