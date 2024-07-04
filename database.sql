@@ -71,34 +71,33 @@ CREATE TABLE Recipe (
 
 -- Insert Recipe data
 insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl) 
-values (N'Fried Chicken', '2024-01-01', 30, 500, 100, 1, 29, N'This is a great recipe', 'https://www.google.com'); -- id: 5
+values (N'Fried Chicken', '2024-01-01', 30, 500, 100, 1, 29, N'This is a great recipe', 'https://i.ibb.co/pbsYk76/230.jpg'); -- id: 5
 insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
-values (N'Bún Bò Huế', '2024-05-01', 30, 500, 100, 1, 19, N'Đây là món Bún Bò Huế - Đặc sản Huế', 'https://www.google.com'); -- id: 6
-
+values (N'Bún Bò Huế', '2024-05-01', 30, 500, 100, 1, 19, N'Đây là món Bún Bò Huế - Đặc sản Huế', 'https://i.ibb.co/zHBVb1q/228.jpg'); -- id: 6
 insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
-values (N'Bún Riêu', '2024-05-01', 30, 500, 0, 1, 21, N'Đây là món Bún Riêu - Món ăn ngon', 'https://www.google.com'); -- id: 7
+values (N'Bún Riêu', '2024-05-01', 30, 500, 0, 1, 21, N'Đây là món Bún Riêu - Món ăn ngon', 'https://i.ibb.co/s3t0yhS/213.jpg'); -- id: 7
 insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
-values (N'Bánh Canh Cua', '2024-05-01', 30, 500, 0, 1, 27, N'Đây là món Bánh Canh Cua - Món ăn ngon', 'https://www.google.com'); -- id: 8
+values (N'Bánh Canh Cua', '2024-05-01', 30, 500, 0, 1, 27, N'Đây là món Bánh Canh Cua - Món ăn ngon', 'https://i.ibb.co/dpdxY5Q/210.jpg'); -- id: 8
 insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
-values (N'Cơm cà ri', '2024-05-01', 30, 500, 0, 1, 20, N'Cơm cà ri với thịt bò thơm ngon', 'https://www.google.com'); -- id: 9
+values (N'Cơm cà ri', '2024-05-01', 30, 500, 0, 1, 20, N'Cơm cà ri với thịt bò thơm ngon', 'https://i.ibb.co/F54Yk4C/203.jpg'); -- id: 9
 insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
-values (N'Gà nướng', '2024-05-01', 30, 500, 0, 1, 27, N'Gà nướng đặc sản', 'https://www.google.com'); -- id: 10
+values (N'Gà nướng', '2024-05-01', 30, 500, 0, 1, 27, N'Gà nướng đặc sản', 'https://i.ibb.co/sHyLGRR/191.jpg'); -- id: 10
 insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
-values (N'Canh chua cá lóc', '2024-05-01', 30, 500, 0, 1, 27, N'Canh chua cá lóc ngon tuyệt', 'https://www.google.com'); -- id: 11
+values (N'Canh chua cá lóc', '2024-05-01', 30, 500, 0, 1, 27, N'Canh chua cá lóc ngon tuyệt', 'https://i.ibb.co/NtQJ0QM/192.jpg'); -- id: 11
 insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
-values (N'Đậu cô ve xào', '2024-05-01', 30, 500, 0, 1, 32, N'Đậu cô ve xào chay thơm ngon', 'https://www.google.com'); -- id: 12
+values (N'Đậu cô ve xào', '2024-05-01', 30, 500, 0, 1, 32, N'Đậu cô ve xào chay thơm ngon', 'https://i.ibb.co/9pqTj2L/188.jpg'); -- id: 12
 insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
-values (N'Bún thịt nướng', '2024-05-01', 30, 500, 0, 1, 27, N'Bún thịt nướng ngon tuyệt', 'https://www.google.com'); -- id: 13
+values (N'Bún thịt nướng', '2024-05-01', 30, 500, 0, 1, 27, N'Bún thịt nướng ngon tuyệt', 'https://i.ibb.co/wMnwd0d/181.jpg'); -- id: 13
 insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
-values (N'Phở bò', '2024-05-01', 30, 500, 0, 1, 19, N'Phở bò gia truyền Hà Nội', 'https://www.google.com'); -- id: 14
+values (N'Phở bò', '2024-05-01', 30, 500, 0, 1, 19, N'Phở bò gia truyền Hà Nội', 'https://i.ibb.co/51zZDCd/177.jpg'); -- id: 14
 insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
-values (N'Gỏi cuốn', '2024-05-01', 30, 500, 0, 1, 26, N'Gỏi cuốn thơm ngon', 'https://www.google.com'); -- id: 15
+values (N'Gỏi cuốn', '2024-05-01', 30, 500, 0, 1, 26, N'Gỏi cuốn thơm ngon', 'https://i.ibb.co/MhHLk3j/175.jpg'); -- id: 15
 insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
-values (N'Mỳ Ý', '2024-05-01', 30, 500, 0, 1, 29, N'Mỳ Ý thơm ngon', 'https://www.google.com'); -- id: 16
+values (N'Mỳ Ý', '2024-05-01', 30, 500, 0, 1, 29, N'Mỳ Ý thơm ngon', 'https://i.ibb.co/PF4FKXS/166.jpg'); -- id: 16
 insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
-values (N'Gà xào sả ớt', '2024-05-01', 30, 500, 0, 1, 24, N'Gà xào sả ớt thơm ngon', 'https://www.google.com'); -- id: 17
+values (N'Gà xào sả ớt', '2024-05-01', 30, 500, 0, 1, 24, N'Gà xào sả ớt thơm ngon', 'https://i.ibb.co/t4m7Mdf/165.jpg'); -- id: 17
 insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
-values (N'Gà chiên nước mắm', '2024-05-01', 30, 500, 0, 1, 24, N'Gà chiên nước mắm thơm ngon', 'https://www.google.com'); -- id: 18
+values (N'Gà chiên nước mắm', '2024-05-01', 30, 500, 0, 1, 24, N'Gà chiên nước mắm thơm ngon', 'https://i.ibb.co/gZ3MLbH/159.jpg'); -- id: 18
 
 
 -- Create NutritionInfo table

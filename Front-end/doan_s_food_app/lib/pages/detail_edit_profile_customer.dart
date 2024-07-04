@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:doan_s_food_app/Model/NguoiDung.dart';
 import 'package:doan_s_food_app/Services/NguoiDungService.dart';
 import 'package:doan_s_food_app/pages/detail_profile_customer.dart';
@@ -431,9 +433,9 @@ class _EditProfileCustomerState extends State<EditProfileCustomer> {
                               onPressed: () async {
                                 // Add your onPressed logic here
                                 // Write log when press button
-                                print(_nameController!.text +
+                                print(_nameController.text +
                                     ' ' +
-                                    _emailController!.text);
+                                    _emailController.text);
                                 NguoiDung nguoiDung = new NguoiDung();
                                 nguoiDung.id = widget.nguoiDung?.id;
                                 nguoiDung.name = _nameController.text;
