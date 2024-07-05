@@ -15,6 +15,8 @@ public partial class Review
 
     public int? LikeCount { get; set; }
 
+    public string? TrangThaiDuyet { get; set; }
+
     public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
 
     public virtual NguoiDung? NguoiDung { get; set; }

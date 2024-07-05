@@ -5,7 +5,7 @@ namespace FoodApp.Models;
 
 public partial class CookingStep
 {
-    public int StepId { get; set; }
+    public int Id { get; set; }
 
     public int? RecipeId { get; set; }
 

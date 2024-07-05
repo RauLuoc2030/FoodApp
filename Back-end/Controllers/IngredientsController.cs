@@ -50,12 +50,36 @@ namespace FoodApp.Controllers
             return ingredient;
         }
 
+        // GET: api/Ingredients/Recipe/5
+        [HttpGet("Recipe/{recipeId}")]
+        public async Task<ActionResult<IEnumerable<Ingredient>>> GetIngredientsByRecipe(int recipeId)
+        {
+            if (_context.Ingredients == null)
+            {
+                return NotFound();
+            }
+        
+            // Truy vấn kết nối ba bảng và lấy danh sách Ingredients
+            var ingredients = await _context.RecipeIngredients
+                .Where(ri => ri.RecipeId == recipeId) // Lọc theo RecipeId
+                .Select(ri => ri.Ingredient) // Chọn Ingredient từ mỗi RecipeIngredient
+                .ToListAsync(); // Thực thi truy vấn và chuyển thành List
+        
+            if (ingredients == null || !ingredients.Any())
+            {
+                return NotFound();
+            }
+        
+            return ingredients;
+        }
+
+
         // PUT: api/Ingredients/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutIngredient(int id, Ingredient ingredient)
         {
-            if (id != ingredient.IngredientId)
+            if (id != ingredient.Id)
             {
                 return BadRequest();
             }
@@ -93,7 +117,7 @@ namespace FoodApp.Controllers
             _context.Ingredients.Add(ingredient);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetIngredient", new { id = ingredient.IngredientId }, ingredient);
+            return CreatedAtAction("GetIngredient", new { id = ingredient.Id }, ingredient);
         }
 
         // DELETE: api/Ingredients/5
@@ -118,7 +142,7 @@ namespace FoodApp.Controllers
 
         private bool IngredientExists(int id)
         {
-            return (_context.Ingredients?.Any(e => e.IngredientId == id)).GetValueOrDefault();
+            return (_context.Ingredients?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

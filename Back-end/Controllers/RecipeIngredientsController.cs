@@ -50,12 +50,34 @@ namespace FoodApp.Controllers
             return recipeIngredient;
         }
 
+        // GET: api/RecipeIngredients/Recipe/5
+        [HttpGet("Recipe/{recipeId}")]
+        public async Task<ActionResult<IEnumerable<RecipeIngredient>>> GetRecipeIngredientsByRecipe(int recipeId)
+        {
+          if (_context.RecipeIngredients == null)
+            {
+                return NotFound();
+            }
+            return await _context.RecipeIngredients.Where(ri => ri.RecipeId == recipeId).ToListAsync();
+        }
+
+        // GET: api/RecipeIngredients/Ingredient/5
+        [HttpGet("Ingredient/{ingredientId}")]
+        public async Task<ActionResult<IEnumerable<RecipeIngredient>>> GetRecipeIngredientsByIngredient(int ingredientId)
+        {
+          if (_context.RecipeIngredients == null)
+            {
+                return NotFound();
+            }
+            return await _context.RecipeIngredients.Where(ri => ri.IngredientId == ingredientId).ToListAsync();
+        }
+
         // PUT: api/RecipeIngredients/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutRecipeIngredient(int id, RecipeIngredient recipeIngredient)
         {
-            if (id != recipeIngredient.RecipeId)
+            if (id != recipeIngredient.Id)
             {
                 return BadRequest();
             }
@@ -91,23 +113,9 @@ namespace FoodApp.Controllers
               return Problem("Entity set 'FoodContext.RecipeIngredients'  is null.");
           }
             _context.RecipeIngredients.Add(recipeIngredient);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (RecipeIngredientExists(recipeIngredient.RecipeId))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetRecipeIngredient", new { id = recipeIngredient.RecipeId }, recipeIngredient);
+            return CreatedAtAction("GetRecipeIngredient", new { id = recipeIngredient.Id }, recipeIngredient);
         }
 
         // DELETE: api/RecipeIngredients/5
@@ -132,7 +140,7 @@ namespace FoodApp.Controllers
 
         private bool RecipeIngredientExists(int id)
         {
-            return (_context.RecipeIngredients?.Any(e => e.RecipeId == id)).GetValueOrDefault();
+            return (_context.RecipeIngredients?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
