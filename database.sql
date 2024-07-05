@@ -161,6 +161,78 @@ CREATE TABLE CookingStep (
     FOREIGN KEY (RecipeID) REFERENCES Recipe(id)
 );
 
+-- insert CookingStep data
+-- Fried Chicken Cooking Steps
+insert into CookingStep (RecipeID, Number, Detail) values (5, 1, N'Wash the chicken'); -- id: 1
+insert into CookingStep (RecipeID, Number, Detail) values (5, 2, N'Cut the chicken into pieces');
+insert into CookingStep (RecipeID, Number, Detail) values (5, 3, N'Marinate the chicken with salt, pepper, and sugar');
+insert into CookingStep (RecipeID, Number, Detail) values (5, 4, N'Fry the chicken until golden brown');
+insert into CookingStep (RecipeID, Number, Detail) values (5, 5, N'Serve hot');
+-- Bún Bò Huế Cooking Steps
+insert into CookingStep (RecipeID, Number, Detail) values (6, 1, N'Wash the beef bones');
+insert into CookingStep (RecipeID, Number, Detail) values (6, 2, N'Boil the beef bones with lemongrass, ginger, and onion');
+insert into CookingStep (RecipeID, Number, Detail) values (6, 3, N'Add the beef slices and cook until done');
+insert into CookingStep (RecipeID, Number, Detail) values (6, 4, N'Serve hot');
+-- Bún Riêu Cooking Steps
+insert into CookingStep (RecipeID, Number, Detail) values (7, 1, N'Wash the crab');
+insert into CookingStep (RecipeID, Number, Detail) values (7, 2, N'Boil the crab and extract the meat');
+insert into CookingStep (RecipeID, Number, Detail) values (7, 3, N'Cook the crab meat with tomato and tofu');
+insert into CookingStep (RecipeID, Number, Detail) values (7, 4, N'Serve hot');
+-- Bánh Canh Cua Cooking Steps
+insert into CookingStep (RecipeID, Number, Detail) values (8, 1, N'Wash the crab');
+insert into CookingStep (RecipeID, Number, Detail) values (8, 2, N'Boil the crab and extract the meat');
+insert into CookingStep (RecipeID, Number, Detail) values (8, 3, N'Cook the crab meat with noodles');
+insert into CookingStep (RecipeID, Number, Detail) values (8, 4, N'Serve hot');
+-- Cơm cà ri Cooking Steps
+insert into CookingStep (RecipeID, Number, Detail) values (9, 1, N'Wash the beef');
+insert into CookingStep (RecipeID, Number, Detail) values (9, 2, N'Cook the beef with curry powder');
+insert into CookingStep (RecipeID, Number, Detail) values (9, 3, N'Add coconut milk and cook until done');
+insert into CookingStep (RecipeID, Number, Detail) values (9, 4, N'Serve hot');
+-- Gà nướng Cooking Steps
+insert into CookingStep (RecipeID, Number, Detail) values (10, 1, N'Wash the chicken');
+insert into CookingStep (RecipeID, Number, Detail) values (10, 2, N'Marinate the chicken with salt, pepper, and sugar');
+insert into CookingStep (RecipeID, Number, Detail) values (10, 3, N'Grill the chicken until done');
+insert into CookingStep (RecipeID, Number, Detail) values (10, 4, N'Serve hot');
+-- Canh chua cá lóc Cooking Steps
+insert into CookingStep (RecipeID, Number, Detail) values (11, 1, N'Wash the fish');
+insert into CookingStep (RecipeID, Number, Detail) values (11, 2, N'Cook the fish with tamarind and tomato');
+insert into CookingStep (RecipeID, Number, Detail) values (11, 3, N'Add pineapple and cook until done');
+insert into CookingStep (RecipeID, Number, Detail) values (11, 4, N'Serve hot');
+-- Đậu cô ve xào Cooking Steps
+insert into CookingStep (RecipeID, Number, Detail) values (12, 1, N'Wash the beans');
+insert into CookingStep (RecipeID, Number, Detail) values (12, 2, N'Stir-fry the beans with garlic and onion');
+insert into CookingStep (RecipeID, Number, Detail) values (12, 3, N'Add soy sauce and cook until done');
+insert into CookingStep (RecipeID, Number, Detail) values (12, 4, N'Serve hot');
+-- Bún thịt nướng Cooking Steps
+insert into CookingStep (RecipeID, Number, Detail) values (13, 1, N'Wash the beef');
+insert into CookingStep (RecipeID, Number, Detail) values (13, 2, N'Cook the beef with lemongrass and garlic');
+insert into CookingStep (RecipeID, Number, Detail) values (13, 3, N'Grill the beef until done');
+insert into CookingStep (RecipeID, Number, Detail) values (13, 4, N'Serve hot');
+-- Phở bò Cooking Steps
+insert into CookingStep (RecipeID, Number, Detail) values (14, 1, N'Wash the beef bones');
+insert into CookingStep (RecipeID, Number, Detail) values (14, 2, N'Boil the beef');
+insert into CookingStep (RecipeID, Number, Detail) values (14, 3, N'Cook the beef slices and noodles');
+insert into CookingStep (RecipeID, Number, Detail) values (14, 4, N'Serve hot');
+-- Gỏi cuốn Cooking Steps
+insert into CookingStep (RecipeID, Number, Detail) values (15, 1, N'Wash the vegetables');
+insert into CookingStep (RecipeID, Number, Detail) values (15, 2, N'Roll the vegetables and meat in rice paper');
+insert into CookingStep (RecipeID, Number, Detail) values (15, 3, N'Serve with dipping sauce');
+-- Mỳ Ý Cooking Steps
+insert into CookingStep (RecipeID, Number, Detail) values (16, 1, N'Cook the pasta in boiling water');
+insert into CookingStep (RecipeID, Number, Detail) values (16, 2, N'Stir-fry the pasta with garlic and olive oil');
+insert into CookingStep (RecipeID, Number, Detail) values (16, 3, N'Serve hot');
+-- Gà xào sả ớt Cooking Steps
+insert into CookingStep (RecipeID, Number, Detail) values (17, 1, N'Wash the chicken');
+insert into CookingStep (RecipeID, Number, Detail) values (17, 2, N'Stir-fry the chicken with lemongrass and chili');
+insert into CookingStep (RecipeID, Number, Detail) values (17, 3, N'Serve hot');
+-- Gà chiên nước mắm Cooking Steps
+insert into CookingStep (RecipeID, Number, Detail) values (18, 1, N'Wash the chicken');
+insert into CookingStep (RecipeID, Number, Detail) values (18, 2, N'Fry the chicken until golden brown');
+insert into CookingStep (RecipeID, Number, Detail) values (18, 3, N'Stir-fry the chicken with fish sauce');
+insert into CookingStep (RecipeID, Number, Detail) values (18, 4, N'Serve hot');
+
+
+
 -- Create Ingredient table
 -- Ingredient(IngredientID, Name, Unit)
 CREATE TABLE Ingredient (
