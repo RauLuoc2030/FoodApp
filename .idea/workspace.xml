@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b35d0b96-143b-4e4c-a847-295d7f5c8494" name="Changes" comment="fix trang admin details recipes">
+    <list default="true" id="b35d0b96-143b-4e4c-a847-295d7f5c8494" name="Changes" comment="fix trang admin community">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/admin_account.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/admin_account.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/admin_community.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/admin_community.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/admin_community_1.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/admin_community_1.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720121381184</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fix trang admin community">
+      <option name="closed" value="true" />
+      <created>1720125193527</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1720125193527</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -167,6 +174,7 @@
     <MESSAGE value="fix trang admin recipes" />
     <MESSAGE value="fix trang admin recipes 2" />
     <MESSAGE value="fix trang admin details recipes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix trang admin details recipes" />
+    <MESSAGE value="fix trang admin community" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix trang admin community" />
   </component>
 </project>
