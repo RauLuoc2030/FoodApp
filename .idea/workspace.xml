@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b35d0b96-143b-4e4c-a847-295d7f5c8494" name="Changes" comment="fix trang admin community">
+    <list default="true" id="b35d0b96-143b-4e4c-a847-295d7f5c8494" name="Changes" comment="fix trang admin community 1">
+      <change afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/detail_edit_profile_admin.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/admin_community_1.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/admin_community_1.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/detail_profile_admin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/detail_profile_admin.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,22 +32,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Doan&quot;,
-    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/DELL/StudioProjects/FoodApp&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "Doan",
+    "io.flutter.reload.alreadyRun": "true",
+    "last_opened_file_path": "C:/Users/DELL/StudioProjects/FoodApp/Front-end/doan_s_food_app-v1.0.1/lib/pages",
+    "settings.editor.selected.configurable": "AndroidSdkUpdater",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\DELL\StudioProjects\FoodApp\Front-end\doan_s_food_app-v1.0.1\lib\pages" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\DELL\StudioProjects\FoodApp\Front-end\doan_s_food_app-v1.0.1\assets\images" />
       <recent name="C:\Users\DELL\StudioProjects\FoodApp\Front-end\doan_s_food_app-v1.0.1\lib\pages" />
@@ -160,7 +164,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720125193527</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix trang admin community 1">
+      <option name="closed" value="true" />
+      <created>1720148368288</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1720148368288</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -175,6 +187,7 @@
     <MESSAGE value="fix trang admin recipes 2" />
     <MESSAGE value="fix trang admin details recipes" />
     <MESSAGE value="fix trang admin community" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix trang admin community" />
+    <MESSAGE value="fix trang admin community 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix trang admin community 1" />
   </component>
 </project>

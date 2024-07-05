@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:doan_s_food_app/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:doan_s_food_app/pages/detail_edit_profile_admin.dart';
+import 'package:doan_s_food_app/pages/admin_home_page.dart';
 
 class DetailProfileAdmin extends StatelessWidget {
   @override
@@ -49,24 +51,39 @@ class DetailProfileAdmin extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
-                                  width: 45,
-                                  height: 45,
-                                  child: SizedBox(
-                                    width: 45,
-                                    height: 45,
-                                    child: Image.asset(
-                                      'assets/images/icon_back_1_x2.png',
+                                  margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => AdminHomePage()),
+                                      );
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10), // Bo góc của button
+                                      ),
+                                    ),
+                                    child: Icon(
+                                      Icons.turn_left_sharp,
+                                      color: Colors.white, // Màu của icon
                                     ),
                                   ),
                                 ),
                                 Container(
-                                  width: 45,
-                                  height: 45,
-                                  child: SizedBox(
-                                    width: 45,
-                                    height: 45,
-                                    child: Image.asset(
-                                      'assets/images/icon_notifiaction_1_x2.png',
+                                  margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                                  child: ElevatedButton(
+                                    onPressed: () {
+
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10), // Bo góc của button
+                                      ),
+                                    ),
+                                    child: Icon(
+                                      Icons.notifications,
+                                      color: Colors.white, // Màu của icon
                                     ),
                                   ),
                                 ),
@@ -119,24 +136,21 @@ class DetailProfileAdmin extends StatelessWidget {
                                         // ),
                                       ),
                                       Positioned(
-                                        right: 10,
-                                        bottom: -5,
+                                        right: -10,
+                                        bottom: 0,
                                         child: Container(
-                                          decoration: BoxDecoration(
-                                            border: Border.all(color: Color(0xFFFFFFFF)),
-                                            borderRadius: BorderRadius.circular(1000),
-                                            color: Color(0xFFFFA896),
-                                          ),
-                                          child: Container(
-                                            width: 24,
-                                            height: 24,
-                                            padding: EdgeInsets.fromLTRB(6, 6, 5.9, 5.9),
-                                            child: SizedBox(
-                                              width: 12.1,
-                                              height: 12.1,
-                                              child: Image.asset(
-                                                'assets/images/group_7_x2.png',
+                                          margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                                          child: ElevatedButton(
+                                            onPressed: () {
+
+                                            },
+                                            style: ElevatedButton.styleFrom(
+                                              shape: CircleBorder(
                                               ),
+                                            ),
+                                            child: Icon(
+                                              Icons.edit,
+                                              color: Colors.white, // Màu của icon
                                             ),
                                           ),
                                         ),
@@ -359,7 +373,7 @@ class DetailProfileAdmin extends StatelessWidget {
                                       ),
                                     ),
                                     Container(
-                                      padding: EdgeInsets.fromLTRB(15, 20.5, 15, 20.5),
+                                      padding: EdgeInsets.fromLTRB(15, 20.5, 15, 0),
                                       decoration: BoxDecoration(
                                         border: Border.all(color: Color(0xFFF6F6F6)),
                                         borderRadius: BorderRadius.circular(16),
@@ -445,23 +459,29 @@ class DetailProfileAdmin extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFFFC6BA),
-                                  borderRadius: BorderRadius.circular(7),
+                              ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  primary: Color(0xFFFFC6BA), // màu nền của button
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(7), // bo góc
+                                  ),
+                                  padding: EdgeInsets.fromLTRB(163, 30, 163, 30), // khoảng cách padding
                                 ),
-                                child: Container(
-                                  padding: EdgeInsets.fromLTRB(163, 10, 163, 10),
-                                  child: Text(
-                                    'Edit',
-                                    style: GoogleFonts.getFont(
-                                      'Be Vietnam Pro',
-                                      fontWeight: FontWeight.w900,
-                                      fontSize: 16,
-                                      height: 1.5,
-                                      letterSpacing: 0.3,
-                                      color: Color(0xFFFFFFFF),
-                                    ),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => EditDetailProfileAdmin()),
+                                  );  // Hành động khi nhấn nút
+                                },
+                                child: Text(
+                                  'Edit',
+                                  style: GoogleFonts.getFont(
+                                    'Be Vietnam Pro',
+                                    fontWeight: FontWeight.w900,
+                                    fontSize: 16,
+                                    height: 1.5,
+                                    letterSpacing: 0.3,
+                                    color: Color(0xFFFFFFFF), // màu chữ
                                   ),
                                 ),
                               ),

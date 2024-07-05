@@ -4,6 +4,7 @@ import 'package:doan_s_food_app/pages/menu_admin.dart';
 import 'package:doan_s_food_app/pages/admin_account.dart';
 import 'package:doan_s_food_app/pages/admin_home_page.dart';
 import 'package:doan_s_food_app/pages/detail_profile_admin.dart';
+import 'package:doan_s_food_app/pages/detail_edit_profile_admin.dart';
 import 'package:doan_s_food_app/pages/detail_profile_customer.dart';
 import 'package:doan_s_food_app/pages/detail_edit_profile_customer.dart';
 import 'package:doan_s_food_app/pages/admin_recipes.dart';
@@ -60,8 +61,9 @@ class MyApp extends StatelessWidget {
             // AdminDetailsRecipes(),
             // AdminEditDetailsRecipes(),
             // AdminCommunity (),
-             AdminCommunity1 (),
+            // AdminCommunity1 (),
             // DetailProfileAdmin(),
+             EditDetailProfileAdmin(),
             // DetailProfileCustomer(),
             // EditProfileCustomer (),
             // Profile1(),
