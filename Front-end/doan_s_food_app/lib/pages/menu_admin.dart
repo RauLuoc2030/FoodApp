@@ -102,10 +102,11 @@ class MenuAdmin extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     // Navigate to AdminAccount page
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => AdminAccount()), // Replace with your AdminAccount widget
-                    );
+                    // Navigator.push(
+                      // context,
+                      // TODO: CÁI NÀY TRUYỀN THAM SỐ VÔ SAU
+                      // MaterialPageRoute(builder: (context) => AdminAccount()), // Replace with your AdminAccount widget
+                    // );
                   },
                   child: Container(
                     width: double.infinity, // Set width to full width

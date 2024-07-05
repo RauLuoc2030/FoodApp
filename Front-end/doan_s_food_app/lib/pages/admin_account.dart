@@ -1,12 +1,15 @@
+import 'package:doan_s_food_app/Model/NguoiDung.dart';
 import 'package:flutter/material.dart';
 import 'package:doan_s_food_app/pages/detail_profile_admin.dart';
-import 'dart:ui';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:doan_s_food_app/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:doan_s_food_app/pages/menu_admin.dart';
 
 class AdminAccount extends StatefulWidget {
+
+  List<NguoiDung?> nguoiDungs = [];
+
+  AdminAccount({required this.nguoiDungs});
+
   @override
   _AdminAccountState createState() => _AdminAccountState();
 }

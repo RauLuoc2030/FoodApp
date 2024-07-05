@@ -341,7 +341,7 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                                             MaterialPageRoute(
                                                                 builder:
                                                                     (context) =>
-                                                                        AdminDetailsRecipes()), // Replace with your MenuAdmin widget
+                                                                        AdminDetailsRecipes(category: widget.category, recipe: recipe,)), // Replace with your MenuAdmin widget
                                                           );
                                                         },
                                                         child: Container(
@@ -396,7 +396,7 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      AdminDetailsRecipes()), // Replace with your MenuAdmin widget
+                                                      AdminDetailsRecipes(category: widget.category, recipe: recipe,)), // Replace with your MenuAdmin widget
                                             );
                                           },
                                           child: Container(

@@ -1,14 +1,19 @@
+import 'package:doan_s_food_app/Model/NguoiDung.dart';
+import 'package:doan_s_food_app/Model/Recipe.dart';
+import 'package:doan_s_food_app/Services/NguoiDungService.dart';
+import 'package:doan_s_food_app/Services/RecipeService.dart';
 import 'package:flutter/material.dart';
 import 'package:doan_s_food_app/pages/detail_profile_admin.dart';
 import 'package:doan_s_food_app/pages/admin_recipes.dart';
 import 'package:doan_s_food_app/pages/admin_account.dart';
-import 'dart:ui';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:doan_s_food_app/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:doan_s_food_app/pages/menu_admin.dart';
 
 class AdminHomePage extends StatefulWidget {
+
+  List<NguoiDung?> nguoidung = [];
+  List<Recipe?> recipe = [];
+
   @override
   _AdminHomePageState createState() => _AdminHomePageState();
 }
@@ -21,6 +26,24 @@ class _AdminHomePageState extends State<AdminHomePage> {
   String? selectedDay = '1';
   String? selectedMonth = 'January';
   String? selectedYear = '2023';
+
+  NguoiDungService nguoiDungService = NguoiDungService();
+  RecipeService recipeService = RecipeService();
+
+  @override
+  void initState() {
+    super.initState();
+    initData();
+  }
+
+  void initData() async {
+    await nguoiDungService.getNguoiDungs();
+    await recipeService.getRecipes();
+    setState(() {
+      widget.nguoidung = nguoiDungService.NguoiDungs;
+      widget.recipe = recipeService.Recipes;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -292,7 +315,9 @@ class _AdminHomePageState extends State<AdminHomePage> {
                                       child: SizedBox(
                                         width: 95.4,
                                         child: Text(
-                                          '150',
+                                          // TODO: Số tài khoản người dùng
+                                          // '150',
+                                          widget.nguoidung.length.toString(),
                                           style: GoogleFonts.getFont(
                                             'Be Vietnam Pro',
                                             fontWeight: FontWeight.w700,
@@ -336,7 +361,7 @@ class _AdminHomePageState extends State<AdminHomePage> {
                                 onTap: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => AdminAccount()),
+                                    MaterialPageRoute(builder: (context) => AdminAccount(nguoiDungs: widget.nguoidung,)),
                                   );
                                 },
                                 child: Container(
@@ -349,6 +374,7 @@ class _AdminHomePageState extends State<AdminHomePage> {
                                     child: Container(
                                       padding: EdgeInsets.fromLTRB(19.9, 10.5, 19.9, 8.6),
                                       child: Text(
+                                        // TODO: Xem chi tiết Người Dùng
                                         'Xem chi tiết',
                                         style: GoogleFonts.getFont(
                                           'Be Vietnam Pro',
@@ -398,7 +424,9 @@ class _AdminHomePageState extends State<AdminHomePage> {
                                       child: SizedBox(
                                         width: 92.8,
                                         child: Text(
-                                          '87',
+                                          // TODO: Số công thức nấu ăn
+                                          // '87',
+                                          widget.recipe.length.toString(),
                                           style: GoogleFonts.getFont(
                                             'Be Vietnam Pro',
                                             fontWeight: FontWeight.w700,
@@ -458,6 +486,7 @@ class _AdminHomePageState extends State<AdminHomePage> {
                                     child: Container(
                                       padding: EdgeInsets.fromLTRB(19.9, 10.5, 19.9, 8.6),
                                       child: Text(
+                                        // TODO: Xem chi tiết Recipes
                                         'Xem chi tiết',
                                         style: GoogleFonts.getFont(
                                           'Be Vietnam Pro',
