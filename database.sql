@@ -211,6 +211,16 @@ CREATE TABLE NguoiDung (
     Role INT
 );
 
+-- Insert NguoiDung data
+insert into NguoiDung (Name, Email, Role)
+values ('Loc', 'loc@gmail.com', 1); -- id: 3
+insert into NguoiDung (Name, Email, Role)
+values ('Bang', 'bang@gmail.com', 0); -- id: 4
+insert into NguoiDung (Name, Email, Role)
+values ('KAnh', 'kanh@gmail.com', 1); -- id: 5
+insert into NguoiDung (Name, Email, Role)
+values ('Doan', 'doan@gmail.com', 1); -- id: 6
+
 -- Create Favourite table
 -- Favourite(id, RecipeID, NguoiDungID)
 CREATE TABLE Favourite (

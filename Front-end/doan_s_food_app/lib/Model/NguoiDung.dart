@@ -46,4 +46,13 @@ class NguoiDung {
     };
   }
   
+  // Check if the user is an admin
+  bool isAdmin() {
+    return role == 0;
+  }
+
+  // Check if the user is a normal user
+  bool isUser() {
+    return role == 1;
+  }
 }
