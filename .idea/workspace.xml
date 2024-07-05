@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b35d0b96-143b-4e4c-a847-295d7f5c8494" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database.sql" afterDir="false" />
+    <list default="true" id="b35d0b96-143b-4e4c-a847-295d7f5c8494" name="Changes" comment="fix trang admin community 1">
+      <change afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/detail_edit_profile_admin.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/detail_profile_admin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/pages/detail_profile_admin.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,23 +25,48 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2fzZJoZrj9aqsmcvyJCFZf1xRE3" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/Visual Studio Code/HK 6/FoodApp",
+    "git-widget-placeholder": "Doan",
+    "io.flutter.reload.alreadyRun": "true",
+    "last_opened_file_path": "C:/Users/DELL/StudioProjects/FoodApp/Front-end/doan_s_food_app-v1.0.1/lib/pages",
     "settings.editor.selected.configurable": "AndroidSdkUpdater",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\DELL\StudioProjects\FoodApp\Front-end\doan_s_food_app-v1.0.1\lib\pages" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\DELL\StudioProjects\FoodApp\Front-end\doan_s_food_app-v1.0.1\assets\images" />
+      <recent name="C:\Users\DELL\StudioProjects\FoodApp\Front-end\doan_s_food_app-v1.0.1\lib\pages" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/Front-end/doan_s_food_app-v1.0.1/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flutter.main.dart" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -48,6 +76,118 @@
       <option name="presentableId" value="Default" />
       <updated>1714805797349</updated>
     </task>
+    <task id="LOCAL-00001" summary="scroll">
+      <option name="closed" value="true" />
+      <created>1719686497250</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1719686497250</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix trang edit details recipes">
+      <option name="closed" value="true" />
+      <created>1719882198137</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1719882198137</updated>
+    </task>
+    <task id="LOCAL-00003" summary="them controller">
+      <option name="closed" value="true" />
+      <created>1719882373066</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1719882373066</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix edit details recipes">
+      <option name="closed" value="true" />
+      <created>1719883970719</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1719883970719</updated>
+    </task>
+    <task id="LOCAL-00005" summary="chuyen trang cho menu admin">
+      <option name="closed" value="true" />
+      <created>1720059542705</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1720059542705</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix trang admin account">
+      <option name="closed" value="true" />
+      <created>1720073209582</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1720073209582</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix trang admin home page">
+      <option name="closed" value="true" />
+      <created>1720111115400</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1720111115400</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix trang admin recipes">
+      <option name="closed" value="true" />
+      <created>1720113263065</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1720113263065</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix trang admin recipes 2">
+      <option name="closed" value="true" />
+      <created>1720119064724</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1720119064724</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix trang admin details recipes">
+      <option name="closed" value="true" />
+      <created>1720121381184</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1720121381184</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix trang admin community">
+      <option name="closed" value="true" />
+      <created>1720125193527</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1720125193527</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix trang admin community 1">
+      <option name="closed" value="true" />
+      <created>1720148368288</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1720148368288</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="scroll" />
+    <MESSAGE value="fix trang edit details recipes" />
+    <MESSAGE value="them controller" />
+    <MESSAGE value="fix edit details recipes" />
+    <MESSAGE value="chuyen trang cho menu admin" />
+    <MESSAGE value="fix trang admin account" />
+    <MESSAGE value="fix trang admin home page" />
+    <MESSAGE value="fix trang admin recipes" />
+    <MESSAGE value="fix trang admin recipes 2" />
+    <MESSAGE value="fix trang admin details recipes" />
+    <MESSAGE value="fix trang admin community" />
+    <MESSAGE value="fix trang admin community 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix trang admin community 1" />
   </component>
 </project>
