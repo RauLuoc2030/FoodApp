@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "706688743265",
+    "project_id": "bangtasty-3c647",
+    "storage_bucket": "bangtasty-3c647.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706688743265:android:8a34be658282519c063720",
+        "android_client_info": {
+          "package_name": "com.bangsapplication.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "706688743265-hee0qe5njit4aa1jajnupf3h120kkbd5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bangsapplication.app",
+            "certificate_hash": "c882955f27ad31743cf576463587b7ae4ade1bfe"
+          }
+        },
+        {
+          "client_id": "706688743265-cplaejakm2q9dum9u1rva7f4asclqpj0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYnRT5F30RTFNkYPW-3d7d4WKxpCh7MQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "706688743265-cplaejakm2q9dum9u1rva7f4asclqpj0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,7 +1,50 @@
 ﻿################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+# Syntax to remove tracking for a file from your repository:
+# git rm -r --cached <file path>
 ################################################################################
 
 /.vs
 .idea/
 Front-end/bang_s_application1/
+Front-end/bang_s_application1/
+Front-end/doan_s_food_app/.dart_tool/
+Front-end/doan_s_food_app/android/
+Front-end/doan_s_food_app/build/
+Front-end/doan_s_food_app/ios/
+Front-end/doan_s_food_app/linux/
+Front-end/doan_s_food_app/macos/
+Front-end/doan_s_food_app/.flutter-plugins
+Front-end/doan_s_food_app/.flutter-plugins-dependencies
+Front-end/doan_s_food_app/*.log
+Front-end/doan_s_food_app/pubspec.lock
+
+Front-end/foodapp1-v1.0.1/
+
+Front-end/doan_s_food_app/.dart_tool/flutter_build
+Front-end/doan_s_food_app/android/.gradle
+Front-end/doan_s_food_app/build
+Front-end/doan_s_food_app/ios/Runner/
+Front-end/doan_s_food_app/.flutter-plugins-dependencies
+Front-end/doan_s_food_app/.flutter-plugins
+Front-end/doan_s_food_app/pubspec.lock
+Front-end/doan_s_food_app/macos/
+Front-end/doan_s_food_app/ios/
+Front-end/doan_s_food_app/linux/
+Front-end/doan_s_food_app/windows/
+Front-end/doan_s_food_app/android/.settings/
+Front-end/doan_s_food_app/*.log
+Front-end/doan_s_food_app/android/*.log
+
+FoodApp.code-workspace
+.vscode
+Front-end/doan_s_food_app-v1.0.1/ios/
+Front-end/doan_s_food_app-v1.0.1/.dart_tool/
+Front-end/doan_s_food_app-v1.0.1/.flutter-plugins
+Front-end/doan_s_food_app-v1.0.1/.flutter-plugins-dependencies
+Front-end/doan_s_food_app-v1.0.1/pubspec.lock
+Front-end/doan_s_food_app-v1.0.1/android/local.properties
+Front-end/doan_s_food_app-v1.0.1/android/app/
+
+Front-end/bang_s_application1/android/.gradle/
+Front-end/bang_s_application1/android/.settings/

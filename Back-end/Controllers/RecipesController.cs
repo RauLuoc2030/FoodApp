@@ -55,7 +55,7 @@ namespace FoodApp.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutRecipe(int id, Recipe recipe)
         {
-            if (id != recipe.RecipeId)
+            if (id != recipe.Id)
             {
                 return BadRequest();
             }
@@ -93,7 +93,7 @@ namespace FoodApp.Controllers
             _context.Recipes.Add(recipe);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetRecipe", new { id = recipe.RecipeId }, recipe);
+            return CreatedAtAction("GetRecipe", new { id = recipe.Id }, recipe);
         }
 
         // DELETE: api/Recipes/5
@@ -118,7 +118,7 @@ namespace FoodApp.Controllers
 
         private bool RecipeExists(int id)
         {
-            return (_context.Recipes?.Any(e => e.RecipeId == id)).GetValueOrDefault();
+            return (_context.Recipes?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

@@ -5,13 +5,15 @@ namespace FoodApp.Models;
 
 public partial class RecipeNutrition
 {
-    public int RecipeId { get; set; }
+    public int Id { get; set; }
 
-    public int NutritionId { get; set; }
+    public int? RecipeId { get; set; }
+
+    public int? NutritionId { get; set; }
 
     public double? Value { get; set; }
 
-    public virtual NutritionInfo Nutrition { get; set; } = null!;
+    public virtual NutritionInfo? Nutrition { get; set; }
 
-    public virtual Recipe Recipe { get; set; } = null!;
+    public virtual Recipe? Recipe { get; set; }
 }

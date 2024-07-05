@@ -17,5 +17,7 @@ public partial class Post
 
     public string? RecipeName { get; set; }
 
+    public string? TrangThaiDuyet { get; set; }
+
     public virtual NguoiDung? NguoiDung { get; set; }
 }

@@ -50,12 +50,23 @@ namespace FoodApp.Controllers
             return cookingStep;
         }
 
+        // GET: api/CookingSteps/Recipe/5
+        [HttpGet("Recipe/{recipeId}")]
+        public async Task<ActionResult<IEnumerable<CookingStep>>> GetCookingStepsByRecipe(int recipeId)
+        {
+            if (_context.CookingSteps == null)
+            {
+                return NotFound();
+            }
+            return await _context.CookingSteps.Where(cs => cs.RecipeId == recipeId).ToListAsync();
+        }
+
         // PUT: api/CookingSteps/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCookingStep(int id, CookingStep cookingStep)
         {
-            if (id != cookingStep.StepId)
+            if (id != cookingStep.Id)
             {
                 return BadRequest();
             }
@@ -93,7 +104,7 @@ namespace FoodApp.Controllers
             _context.CookingSteps.Add(cookingStep);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCookingStep", new { id = cookingStep.StepId }, cookingStep);
+            return CreatedAtAction("GetCookingStep", new { id = cookingStep.Id }, cookingStep);
         }
 
         // DELETE: api/CookingSteps/5
@@ -118,7 +129,7 @@ namespace FoodApp.Controllers
 
         private bool CookingStepExists(int id)
         {
-            return (_context.CookingSteps?.Any(e => e.StepId == id)).GetValueOrDefault();
+            return (_context.CookingSteps?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
