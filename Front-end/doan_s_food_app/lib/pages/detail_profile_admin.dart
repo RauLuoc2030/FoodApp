@@ -6,7 +6,16 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:doan_s_food_app/pages/detail_edit_profile_admin.dart';
 import 'package:doan_s_food_app/pages/admin_home_page.dart';
 
-class DetailProfileAdmin extends StatelessWidget {
+// Convert to  StatefulWidget
+class DetailProfileAdmin extends StatefulWidget {
+
+  DetailProfileAdmin({Key? key}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => _DetailProfileAdminState();
+}
+
+class _DetailProfileAdminState extends State<DetailProfileAdmin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -461,7 +470,7 @@ class DetailProfileAdmin extends StatelessWidget {
                               ),
                               ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  primary: Color(0xFFFFC6BA), // màu nền của button
+                                  backgroundColor: Color(0xFFFFC6BA), // màu nền của button
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(7), // bo góc
                                   ),

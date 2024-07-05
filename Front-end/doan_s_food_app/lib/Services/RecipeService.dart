@@ -75,7 +75,7 @@ class RecipeService {
   }
 
   // get the Recipes by Category
-  List<Recipe?> getRecipeByCategoryID(int categoryID) {
+  List<Recipe?> getRecipeByCategoryID(int? categoryID) {
     // Find the Recipes with the given category
     return Recipes.where((element) => element.categoryID == categoryID).toList();
   }

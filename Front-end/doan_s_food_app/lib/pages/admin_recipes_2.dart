@@ -1,4 +1,7 @@
+import 'package:doan_s_food_app/Model/Category.dart';
+import 'package:doan_s_food_app/Services/RecipeService.dart';
 import 'package:flutter/material.dart';
+import 'package:doan_s_food_app/Model/Recipe.dart';
 import 'dart:ui';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:doan_s_food_app/utils.dart';
@@ -9,13 +12,46 @@ import 'package:doan_s_food_app/pages/admin_details_recipes.dart';
 import 'package:doan_s_food_app/pages/admin_edit_details_recipes.dart';
 
 class AdminRecipes2 extends StatefulWidget {
+  List<Recipe?> recipes = [];
+  Category? category;
+
+  AdminRecipes2({this.category});
+
   @override
   _AdminRecipes2State createState() => _AdminRecipes2State();
 }
 
 class _AdminRecipes2State extends State<AdminRecipes2> {
+  RecipeService recipeService = RecipeService();
+
+  List<bool> isSelected = [];
+
   bool isSelected1 = false;
-  bool isSelected2 = false;
+  // bool isSelected2 = false;
+
+  @override
+  void initState() {
+    super.initState();
+    initRecipes();
+  }
+
+  @override
+  void didUpdateWidget(covariant AdminRecipes2 oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.category != widget.category) {
+      initRecipes();
+    }
+  }
+
+  void initRecipes() async {
+    await recipeService.getRecipes();
+    setState(() {
+      widget.recipes = recipeService.getRecipeByCategoryID(widget.category!.id);
+    });
+    for (int i = 0; i < widget.recipes.length; i++) {
+      isSelected.add(false);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +85,8 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                               children: [
                                 // Row chứa Mr. Gojo Satoru và Admin
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     GestureDetector(
@@ -57,11 +94,14 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                         // Navigate to MenuAdmin page
                                         Navigator.push(
                                           context,
-                                          MaterialPageRoute(builder: (context) => MenuAdmin()), // Replace with your MenuAdmin widget
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  MenuAdmin()), // Replace with your MenuAdmin widget
                                         );
                                       },
                                       child: Container(
-                                        margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                                        margin:
+                                            EdgeInsets.fromLTRB(0, 10, 0, 10),
                                         child: SizedBox(
                                           width: 26,
                                           height: 26,
@@ -72,11 +112,13 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                       ),
                                     ),
                                     Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         // Mr. Gojo Satoru
                                         Container(
-                                          margin: EdgeInsets.fromLTRB(154, 3, 0, 4),
+                                          margin:
+                                              EdgeInsets.fromLTRB(154, 3, 0, 4),
                                           child: Text(
                                             'Mr. Gojo Satoru',
                                             style: GoogleFonts.getFont(
@@ -89,7 +131,8 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                         ),
                                         // Admin
                                         Container(
-                                          margin: EdgeInsets.fromLTRB(240, 3, 6, 12),
+                                          margin: EdgeInsets.fromLTRB(
+                                              240, 3, 6, 12),
                                           child: Text(
                                             'Admin',
                                             style: GoogleFonts.getFont(
@@ -108,20 +151,24 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                       width: 52.1,
                                       height: 52.1,
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(26.0416660309),
+                                        borderRadius: BorderRadius.circular(
+                                            26.0416660309),
                                       ),
                                       child: GestureDetector(
                                         onTap: () {
                                           Navigator.push(
                                             context,
-                                            MaterialPageRoute(builder: (context) => DetailProfileAdmin()),
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    DetailProfileAdmin()),
                                           );
                                         },
                                         child: Container(
                                           decoration: BoxDecoration(
                                             image: DecorationImage(
                                               fit: BoxFit.cover,
-                                              image: AssetImage('assets/images/gojo.png'),
+                                              image: AssetImage(
+                                                  'assets/images/gojo.png'),
                                             ),
                                           ),
                                           child: Container(
@@ -149,7 +196,7 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                     children: [
                       Container(
                         child: Text(
-                          'Healthy',
+                          widget.category!.categoryName ?? '',
                           style: GoogleFonts.getFont(
                             'Inter',
                             fontWeight: FontWeight.w600,
@@ -172,12 +219,15 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                   onPressed: () {
                                     Navigator.push(
                                       context,
-                                      MaterialPageRoute(builder: (context) => AdminEditDetailsRecipes()),
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              AdminEditDetailsRecipes()),
                                     );
                                   },
                                   style: ElevatedButton.styleFrom(
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10), // Bo góc của button
+                                      borderRadius: BorderRadius.circular(
+                                          10), // Bo góc của button
                                     ),
                                   ),
                                   child: Icon(
@@ -189,12 +239,11 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                               Container(
                                 margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
                                 child: ElevatedButton(
-                                  onPressed: () {
-
-                                  },
+                                  onPressed: () {},
                                   style: ElevatedButton.styleFrom(
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10), // Bo góc của button
+                                      borderRadius: BorderRadius.circular(
+                                          10), // Bo góc của button
                                     ),
                                   ),
                                   child: Icon(
@@ -220,273 +269,194 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                     child: Container(
                       padding: EdgeInsets.fromLTRB(0, 0, 0, 4.4),
                       child: Column(
+                        mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            margin: EdgeInsets.fromLTRB(0, 0, 0, 0.2),
-                            child: Stack(
-                              children: [
-                                SizedBox(
-                                  width: double.infinity,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                          Flexible(
+                            fit: FlexFit.loose,
+                            // TODO: List of recipes
+                            child: ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: widget.recipes.length,
+                              itemBuilder: (context, index) {
+                                var recipe = widget.recipes[index];
+                                // bool isSelected = false;
+                                return Container(
+                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 0.2),
+                                  child: Stack(
                                     children: [
-                                      Container(
-                                        margin: EdgeInsets.fromLTRB(0, 0, 0, 26.5),
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFFFFFF),
-                                          ),
-                                          child: Container(
-                                            padding: EdgeInsets.fromLTRB(13.6, 25, 0, 1),
-                                            child: Row(
-                                              // mainAxisAlignment: MainAxisAlignment.start,
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              children: [
-                                                // button select
-                                                Container(
-                                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                                  width: 20.8,
-                                                  height: 20.8,
-                                                  child: InkWell(
-                                                    onTap: () {
-                                                      setState(() {
-                                                        isSelected1 = !isSelected1;
-                                                      });
-                                                    },
-                                                    child: Icon(
-                                                      isSelected1 ? Icons.check_box : Icons.check_box_outline_blank,
-                                                      size: 20.8,
-                                                      color: Colors.black,
-                                                    ),
-                                                  ),
-                                                ),
-                                                GestureDetector(
-                                                  onTap: () {
-                                                    Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(builder: (context) => AdminDetailsRecipes()), // Replace with your MenuAdmin widget
-                                                    );
-                                                  },
-                                                  child: Container(
-                                                    margin: EdgeInsets.fromLTRB(80, 5, 0, 4.4),
-                                                    child: Text(
-                                                      'Healthy Taco Salad',
-                                                      style: GoogleFonts.getFont(
-                                                        'Poppins',
-                                                        fontWeight: FontWeight.w500,
-                                                        fontSize: 14,
-                                                        letterSpacing: 0.2,
-                                                        color: Color(0xFF171725),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        margin: EdgeInsets.fromLTRB(11, 0, 10.7, 0),
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFF1F1F5),
-                                          ),
-                                          child: Container(
-                                            width: 303.3,
-                                            height: 0.8,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Positioned(
-                                  left: 51,
-                                  bottom: 14.8,
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => AdminDetailsRecipes()), // Replace with your MenuAdmin widget
-                                      );
-                                    },
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        border: Border.all(color: Color(0xFFF1F1F5)),
-                                        borderRadius: BorderRadius.circular(5),
-                                        color: Color(0xFFFFFFFF),
-                                      ),
-                                      child: Container(
-                                        width: 50,
-                                        height: 50,
-                                        child: Container(
-                                          width: 50,
-                                          height: 50,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(5),
-                                          ),
-                                          child: Positioned(
-                                            left: -1,
-                                            bottom: -14.8,
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.circular(5),
-                                                image: DecorationImage(
-                                                  fit: BoxFit.cover,
-                                                  image: AssetImage(
-                                                    'assets/images/healthy.png',
-                                                  ),
-                                                ),
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                    color: Color(0x40000000),
-                                                    offset: Offset(0, 4),
-                                                    blurRadius: 2,
-                                                  ),
-                                                ],
-                                              ),
+                                      SizedBox(
+                                        width: double.infinity,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              margin: EdgeInsets.fromLTRB(
+                                                  0, 0, 0, 26.5),
                                               child: Container(
-                                                width: 51.3,
-                                                height: 70.8,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFFFFFFF),
+                                                ),
+                                                child: Container(
+                                                  padding: EdgeInsets.fromLTRB(
+                                                      13.6, 25, 0, 1),
+                                                  child: Row(
+                                                    // mainAxisAlignment: MainAxisAlignment.start,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      // button select
+                                                      Container(
+                                                        margin:
+                                                            EdgeInsets.fromLTRB(
+                                                                0, 0, 0, 0),
+                                                        width: 20.8,
+                                                        height: 20.8,
+                                                        child: InkWell(
+                                                          onTap: () {
+                                                            setState(() {
+                                                              isSelected[index] = !isSelected[index];
+                                                            });
+                                                          },
+                                                          child: Icon(
+                                                            isSelected[index]
+                                                                ? Icons
+                                                                    .check_box
+                                                                : Icons
+                                                                    .check_box_outline_blank,
+                                                            size: 20.8,
+                                                            color: Colors.black,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      GestureDetector(
+                                                        onTap: () {
+                                                          Navigator.push(
+                                                            context,
+                                                            MaterialPageRoute(
+                                                                builder:
+                                                                    (context) =>
+                                                                        AdminDetailsRecipes()), // Replace with your MenuAdmin widget
+                                                          );
+                                                        },
+                                                        child: Container(
+                                                          margin: EdgeInsets
+                                                              .fromLTRB(80, 5,
+                                                                  0, 4.4),
+                                                          child: Text(
+                                                            // TODO: Rows data
+                                                            recipe!.rname ?? '',
+                                                            style: GoogleFonts
+                                                                .getFont(
+                                                              'Poppins',
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontSize: 14,
+                                                              letterSpacing:
+                                                                  0.2,
+                                                              color: Color(
+                                                                  0xFF171725),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.fromLTRB(0, 0, 0, 460),
-                            child: Stack(
-                              children: [
-                                SizedBox(
-                                  width: double.infinity,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                        margin: EdgeInsets.fromLTRB(0, 0, 0, 26.5),
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFFFFFF),
-                                          ),
-                                          child: Container(
-                                            padding: EdgeInsets.fromLTRB(13.6, 25, 0, 0),
-                                            child: Row(
-                                              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              children: [
-                                                // button select
-                                                Container(
-                                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                                  width: 20.8,
-                                                  height: 20.8,
-                                                  child: InkWell(
-                                                    onTap: () {
-                                                      setState(() {
-                                                        isSelected2 = !isSelected2;
-                                                      });
-                                                    },
-                                                    child: Icon(
-                                                      isSelected2 ? Icons.check_box : Icons.check_box_outline_blank,
-                                                      size: 20.8,
-                                                      color: Colors.black,
-                                                    ),
-                                                  ),
+                                            Container(
+                                              margin: EdgeInsets.fromLTRB(
+                                                  11, 0, 10.7, 0),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFF1F1F5),
                                                 ),
-                                                Container(
-                                                  margin: EdgeInsets.fromLTRB(80, 5, 0, 4.4),
-                                                  child: Text(
-                                                    'Hawaiian Salad',
-                                                    style: GoogleFonts.getFont(
-                                                      'Poppins',
-                                                      fontWeight: FontWeight.w500,
-                                                      fontSize: 14,
-                                                      letterSpacing: 0.2,
-                                                      color: Color(0xFF171725),
-                                                    ),
-                                                  ),
+                                                child: Container(
+                                                  width: 303.3,
+                                                  height: 0.8,
                                                 ),
-                                              ],
+                                              ),
                                             ),
-                                          ),
+                                          ],
                                         ),
                                       ),
-                                      Container(
-                                        margin: EdgeInsets.fromLTRB(11, 0, 10.7, 0),
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFF1F1F5),
-                                          ),
-                                          child: Container(
-                                            width: 303.3,
-                                            height: 0.8,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Positioned(
-                                  left: 51,
-                                  bottom: 14.8,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      border: Border.all(color: Color(0xFFF1F1F5)),
-                                      borderRadius: BorderRadius.circular(5),
-                                      color: Color(0xFFFFFFFF),
-                                    ),
-                                    child: Container(
-                                      width: 50,
-                                      height: 50,
-                                      child: Container(
-                                        width: 50,
-                                        height: 50,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(5),
-                                        ),
-                                        child: Positioned(
-                                          left: -1,
-                                          bottom: -14.8,
+                                      Positioned(
+                                        left: 51,
+                                        bottom: 14.8,
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      AdminDetailsRecipes()), // Replace with your MenuAdmin widget
+                                            );
+                                          },
                                           child: Container(
                                             decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(5),
-                                              image: DecorationImage(
-                                                fit: BoxFit.cover,
-                                                image: AssetImage(
-                                                  'assets/images/healthy.png',
-                                                ),
-                                              ),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  color: Color(0x40000000),
-                                                  offset: Offset(0, 4),
-                                                  blurRadius: 2,
-                                                ),
-                                              ],
+                                              border: Border.all(
+                                                  color: Color(0xFFF1F1F5)),
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                              color: Color(0xFFFFFFFF),
                                             ),
                                             child: Container(
-                                              width: 51.3,
-                                              height: 70.8,
+                                              width: 50,
+                                              height: 50,
+                                              child: Container(
+                                                width: 50,
+                                                height: 50,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(5),
+                                                ),
+                                                child: Positioned(
+                                                  left: -1,
+                                                  bottom: -14.8,
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              5),
+                                                      image: DecorationImage(
+                                                        fit: BoxFit.cover,
+                                                        image: AssetImage(
+                                                          'assets/images/healthy.png',
+                                                        ),
+                                                      ),
+                                                      boxShadow: [
+                                                        BoxShadow(
+                                                          color:
+                                                              Color(0x40000000),
+                                                          offset: Offset(0, 4),
+                                                          blurRadius: 2,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    child: Container(
+                                                      width: 51.3,
+                                                      height: 70.8,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
                                             ),
                                           ),
                                         ),
                                       ),
-                                    ),
+                                    ],
                                   ),
-                                ),
-                              ],
+                                );
+                              },
                             ),
-                          ),
+                          )
                         ],
                       ),
                     ),

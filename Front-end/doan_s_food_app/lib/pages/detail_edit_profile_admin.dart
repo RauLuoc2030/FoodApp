@@ -523,7 +523,7 @@ class EditDetailProfileAdmin extends StatelessWidget {
                             ),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                primary: Color(0xFFFFC6BA), // màu nền của button
+                                backgroundColor: Color(0xFFFFC6BA), // màu nền của button
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(7), // bo góc
                                 ),
