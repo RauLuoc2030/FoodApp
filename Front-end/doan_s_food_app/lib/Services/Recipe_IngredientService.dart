@@ -68,6 +68,18 @@ class Recipe_IngredientService {
     }
   }
 
+  // Get the Recipe_Ingredient by Recipe ID
+  List<Recipe_Ingredient> getRecipe_IngredientByRecipeId(int recipeId) {
+    // Find the Recipe_Ingredients with the given Recipe ID
+    return Recipe_Ingredients.where((element) => element.recipeID == recipeId).toList();
+  }
+
+  // Get the Recipe_Ingredient by Ingredient ID
+  List<Recipe_Ingredient> getRecipe_IngredientByIngredientId(int ingredientId) {
+    // Find the Recipe_Ingredients with the given Ingredient ID
+    return Recipe_Ingredients.where((element) => element.ingredientID == ingredientId).toList();
+  }
+
   // Post the Recipe_Ingredient to the server
   Future<Recipe_Ingredient?> postRecipe_Ingredient(Recipe_Ingredient recipe_Ingredient) async {
     // Send a POST request to the server
