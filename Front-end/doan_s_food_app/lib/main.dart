@@ -57,8 +57,8 @@ class MyApp extends StatelessWidget {
             body:
             // MenuAdmin(),
             // AdminAccount(),
-            // AdminHomePage(),
-            AdminRecipes(),
+            AdminHomePage(),
+            // AdminRecipes(),
             // AdminRecipes2 (),
             // AdminDetailsRecipes(),
             // AdminEditDetailsRecipes(),

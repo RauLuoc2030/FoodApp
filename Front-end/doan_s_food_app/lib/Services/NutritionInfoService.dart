@@ -49,7 +49,7 @@ class NutritionInfoService {
   Future<NutritionInfo?> getNutritionInfoByIdFromServer(int id) async {
     // Send a GET request to the server
     var response = await http.get(
-      Uri.parse('${Globals.serverUrl}/nutritioninfos/$id'),
+      Uri.parse('${Globals.serverUrl}/nutritioninfoes/$id'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },
