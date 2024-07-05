@@ -50,6 +50,17 @@ namespace FoodApp.Controllers
             return cookingStep;
         }
 
+        // GET: api/CookingSteps/Recipe/5
+        [HttpGet("Recipe/{recipeId}")]
+        public async Task<ActionResult<IEnumerable<CookingStep>>> GetCookingStepsByRecipe(int recipeId)
+        {
+            if (_context.CookingSteps == null)
+            {
+                return NotFound();
+            }
+            return await _context.CookingSteps.Where(cs => cs.RecipeId == recipeId).ToListAsync();
+        }
+
         // PUT: api/CookingSteps/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
