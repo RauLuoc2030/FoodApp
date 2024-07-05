@@ -111,43 +111,43 @@ CREATE TABLE NutritionInfo (
 -- Insert NutritionInfo data
 insert into NutritionInfo (Name, Unit) values ('Calories', 'kcal'); -- id: 1
 insert into NutritionInfo (Name, Unit) values ('Protein', 'g');
-insert into NutritionInfo (Name, Unit) values ('Fat', 'g');
+insert into NutritionInfo (Name, Unit) values ('Fat', 'g'); -- id: 3
 insert into NutritionInfo (Name, Unit) values ('Carbohydrate', 'g');
 insert into NutritionInfo (Name, Unit) values ('Fiber', 'g');
-insert into NutritionInfo (Name, Unit) values ('Sugar', 'g');
+insert into NutritionInfo (Name, Unit) values ('Sugar', 'g'); -- id: 6
 insert into NutritionInfo (Name, Unit) values ('Cholesterol', 'mg');
 insert into NutritionInfo (Name, Unit) values ('Sodium', 'mg');
-insert into NutritionInfo (Name, Unit) values ('Potassium', 'mg');
+insert into NutritionInfo (Name, Unit) values ('Potassium', 'mg'); -- id: 9
 insert into NutritionInfo (Name, Unit) values ('Vitamin A', 'IU');
 insert into NutritionInfo (Name, Unit) values ('Vitamin C', 'mg');
-insert into NutritionInfo (Name, Unit) values ('Calcium', 'mg');
+insert into NutritionInfo (Name, Unit) values ('Calcium', 'mg'); -- id: 12
 insert into NutritionInfo (Name, Unit) values ('Iron', 'mg');
 insert into NutritionInfo (Name, Unit) values ('Vitamin D', 'IU');
-insert into NutritionInfo (Name, Unit) values ('Vitamin E', 'mg');
+insert into NutritionInfo (Name, Unit) values ('Vitamin E', 'mg'); -- id: 15
 insert into NutritionInfo (Name, Unit) values ('Vitamin K', 'mcg');
 insert into NutritionInfo (Name, Unit) values ('Thiamin', 'mg');
-insert into NutritionInfo (Name, Unit) values ('Vitamin E', 'mg');
+insert into NutritionInfo (Name, Unit) values ('Vitamin E', 'mg'); -- id: 18
 insert into NutritionInfo (Name, Unit) values ('Riboflavin', 'mg');
 insert into NutritionInfo (Name, Unit) values ('Niacin', 'mg');
-insert into NutritionInfo (Name, Unit) values ('Vitamin B6', 'mg');
+insert into NutritionInfo (Name, Unit) values ('Vitamin B6', 'mg'); -- id: 21
 insert into NutritionInfo (Name, Unit) values ('Folate', 'mcg');
 insert into NutritionInfo (Name, Unit) values ('Vitamin B12', 'mcg');
-insert into NutritionInfo (Name, Unit) values ('Biotin', 'mcg');
-insert into NutritionInfo (Name, Unit) values ('Pantothenic Acid', 'mg');
+insert into NutritionInfo (Name, Unit) values ('Biotin', 'mcg'); -- id: 24
+insert into NutritionInfo (Name, Unit) values ('Pantothenic Acid', 'mg'); -- id: 25
 insert into NutritionInfo (Name, Unit) values ('Phosphorus', 'mg');
-insert into NutritionInfo (Name, Unit) values ('Iodine', 'mcg');
+insert into NutritionInfo (Name, Unit) values ('Iodine', 'mcg'); -- id: 27
 insert into NutritionInfo (Name, Unit) values ('Magnesium', 'mg');
 insert into NutritionInfo (Name, Unit) values ('Zinc', 'mg');
-insert into NutritionInfo (Name, Unit) values ('Selenium', 'mcg');
+insert into NutritionInfo (Name, Unit) values ('Selenium', 'mcg'); -- id: 30
 insert into NutritionInfo (Name, Unit) values ('Copper', 'mg');
 insert into NutritionInfo (Name, Unit) values ('Manganese', 'mg');
-insert into NutritionInfo (Name, Unit) values ('Chromium', 'mcg');
+insert into NutritionInfo (Name, Unit) values ('Chromium', 'mcg'); -- id: 33
 insert into NutritionInfo (Name, Unit) values ('Molybdenum', 'mcg');
 insert into NutritionInfo (Name, Unit) values ('Chloride', 'mg');
-insert into NutritionInfo (Name, Unit) values ('Omega-3', 'g');
+insert into NutritionInfo (Name, Unit) values ('Omega-3', 'g'); -- id: 36
 insert into NutritionInfo (Name, Unit) values ('Omega-6', 'g');
 insert into NutritionInfo (Name, Unit) values ('Omega-9', 'g');
-insert into NutritionInfo (Name, Unit) values ('Vitamin D2', 'IU');
+insert into NutritionInfo (Name, Unit) values ('Vitamin D2', 'IU'); -- id: 39
 insert into NutritionInfo (Name, Unit) values ('Vitamin D3', 'IU'); -- id: 40
 
 
@@ -317,12 +317,49 @@ CREATE TABLE Recipe_Ingredient (
 );
 
 -- Insert Recipe_Ingredient data
-insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (5, 1, 10);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (5, 1, 10); -- id: 7
 insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (5, 2, 5);
 insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (5, 3, 2);
 insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (6, 4, 10);
 insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (6, 5, 5);
 insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (6, 6, 2);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (7, 7, 10);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (7, 8, 5);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (7, 9, 2);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (8, 10, 10);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (8, 11, 5);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (8, 12, 2);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (9, 13, 10);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (9, 14, 5);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (9, 15, 2);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (10, 16, 10);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (10, 17, 5);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (10, 18, 2);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (11, 19, 10);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (11, 20, 5);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (11, 21, 2);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (12, 22, 10);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (12, 23, 5);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (12, 24, 2);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (13, 25, 10);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (13, 26, 5);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (13, 27, 2);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (14, 28, 10);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (14, 29, 5);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (14, 30, 2);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (15, 1, 10);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (15, 2, 5);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (15, 3, 2);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (16, 4, 10);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (16, 5, 5);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (16, 6, 2);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (17, 7, 10);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (17, 8, 5);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (17, 9, 2);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (18, 10, 10);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (18, 11, 5);
+insert into Recipe_Ingredient (RecipeID, IngredientID, Value) values (18, 12, 2); -- id: 48
+
 
 
 -- Create Recipe_Nutrition table (Many-to-Many relationship between Recipe and NutritionInfo)
@@ -337,12 +374,49 @@ CREATE TABLE Recipe_Nutrition (
 );
 
 -- Insert Recipe_Nutrition data
-insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (5, 1, 500);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (5, 1, 500); -- id: 1
 insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (5, 2, 20);
 insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (5, 3, 10);
 insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (6, 1, 600);
 insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (6, 2, 25);
 insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (6, 3, 15);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (7, 4, 700);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (7, 5, 30);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (7, 6, 20);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (8, 7, 800);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (8, 8, 35);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (8, 9, 25);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (9, 10, 900);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (9, 11, 40);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (9, 12, 30);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (10, 13, 1000);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (10, 14, 45);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (10, 15, 35);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (11, 16, 1100);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (11, 17, 50);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (11, 18, 40);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (12, 19, 1200);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (12, 20, 55);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (12, 21, 45);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (13, 22, 1300);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (13, 23, 60);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (13, 24, 50);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (14, 25, 1400);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (14, 26, 65);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (14, 27, 55);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (15, 28, 1500);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (15, 29, 70);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (15, 30, 60);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (16, 31, 1600);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (16, 32, 75);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (16, 33, 65);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (17, 34, 1700);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (17, 35, 80);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (17, 36, 70);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (18, 37, 1800);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (18, 38, 85);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (18, 39, 75);
+insert into Recipe_Nutrition (RecipeID, NutritionID, Value) values (18, 40, 75); -- id: 43
 
 GO
 
