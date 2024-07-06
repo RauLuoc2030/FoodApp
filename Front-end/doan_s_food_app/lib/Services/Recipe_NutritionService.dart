@@ -68,6 +68,18 @@ class Recipe_NutritionService {
     }
   }
 
+  // Get the Recipe_Nutrition by Recipe ID
+  List<Recipe_Nutrition> getRecipe_NutritionByRecipeId(int recipeId) {
+    // Find the Recipe_Nutritions with the given Recipe ID
+    return Recipe_Nutritions.where((element) => element.recipeID == recipeId).toList();
+  }
+
+  // Get the Recipe_Nutrition by Nutrition ID
+  List<Recipe_Nutrition> getRecipe_NutritionByNutritionId(int nutritionId) {
+    // Find the Recipe_Nutritions with the given Nutrition ID
+    return Recipe_Nutritions.where((element) => element.nutritionID == nutritionId).toList();
+  }
+
   // Post the Recipe_Nutrition to the server
   Future<Recipe_Nutrition?> postRecipe_Nutrition(Recipe_Nutrition recipe_Nutrition) async {
     // Send a POST request to the server

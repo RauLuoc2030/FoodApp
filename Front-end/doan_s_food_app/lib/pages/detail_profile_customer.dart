@@ -2,8 +2,6 @@ import 'package:doan_s_food_app/Model/NguoiDung.dart';
 import 'package:doan_s_food_app/Services/NguoiDungService.dart';
 import 'package:doan_s_food_app/pages/detail_edit_profile_customer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:doan_s_food_app/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DetailProfileCustomer extends StatefulWidget {
@@ -29,7 +27,7 @@ class _DetailProfileCustomerState extends State<DetailProfileCustomer> {
   void initNguoiDung() async {
     await nguoiDungService.getNguoiDungs();
     setState(() {
-      widget.nguoiDung = nguoiDungService.getNguoiDungById(2);
+      widget.nguoiDung = nguoiDungService.getNguoiDungById(3);
     });
   }
 
@@ -214,7 +212,7 @@ class _DetailProfileCustomerState extends State<DetailProfileCustomer> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
-                                      margin: EdgeInsets.fromLTRB(0, 0, 0, 27),
+                                      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
@@ -239,6 +237,7 @@ class _DetailProfileCustomerState extends State<DetailProfileCustomer> {
                                               ),
                                             ),
                                           ),
+                                          // TODO: Add Name value here
                                           Text(
                                             widget.nguoiDung?.name ?? '',
                                             style: GoogleFonts.getFont(
@@ -352,6 +351,7 @@ class _DetailProfileCustomerState extends State<DetailProfileCustomer> {
                                               ),
                                             ),
                                           ),
+                                          // TODO: Add Email value here
                                           Text(
                                             widget.nguoiDung?.email ?? '',
                                             style: GoogleFonts.getFont(

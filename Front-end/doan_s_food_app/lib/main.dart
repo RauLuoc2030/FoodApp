@@ -1,9 +1,14 @@
+// ignore_for_file: unused_import
+
 import 'dart:io';
 
+import 'package:doan_s_food_app/Model/NguoiDung.dart';
+import 'package:doan_s_food_app/Services/NguoiDungService.dart';
 import 'package:doan_s_food_app/pages/menu_admin.dart';
 import 'package:doan_s_food_app/pages/admin_account.dart';
 import 'package:doan_s_food_app/pages/admin_home_page.dart';
 import 'package:doan_s_food_app/pages/detail_profile_admin.dart';
+import 'package:doan_s_food_app/pages/detail_edit_profile_admin.dart';
 import 'package:doan_s_food_app/pages/detail_profile_customer.dart';
 import 'package:doan_s_food_app/pages/detail_edit_profile_customer.dart';
 import 'package:doan_s_food_app/pages/admin_recipes.dart';
@@ -54,17 +59,18 @@ class MyApp extends StatelessWidget {
             body:
             // MenuAdmin(),
             // AdminAccount(),
-            // AdminHomePage(),
-            // AdminRecipes(),
+            //  AdminHomePage(), // Phải chạy từ file này đầu tiên
+            AdminRecipes(),    // Hoặc file này
             // AdminRecipes2 (),
             // AdminDetailsRecipes(),
             // AdminEditDetailsRecipes(),
             // AdminCommunity (),
             // AdminCommunity1 (),
             // DetailProfileAdmin(),
-            DetailProfileCustomer(),
+            // EditDetailProfileAdmin(),
+            // DetailProfileCustomer(),
             // EditProfileCustomer (),
-            // Profile1(),
+            // Profile1(nguoiDung: NguoiDung(id: 3, name: "Loc", email: "loc@gmail.com", role: 1)), // 
             // Profile2(),
             // Profile3(),
           ),

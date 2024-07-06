@@ -40,7 +40,7 @@ class Recipe_Ingredient {
       id: json['id'],
       recipeID: json['recipeId'],
       ingredientID: json['ingredientId'],
-      value: json['value'],
+      value: (json['value'] ?? 0).toDouble(),
     );
   }
 

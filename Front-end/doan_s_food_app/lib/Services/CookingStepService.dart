@@ -68,6 +68,33 @@ class CookingStepService {
     }
   }
 
+  // Get the CookingStep by Recipe ID from the server
+  Future<List<CookingStep?>> getCookingStepsByRecipeId(int recipeId) async {
+    // Send a GET request to the server
+    var response = await http.get(
+      Uri.parse('${Globals.serverUrl}/cookingsteps/recipe/$recipeId'),
+    );
+
+    // If the request is successful
+    if (response.statusCode == 200) {
+      // Parse the JSON response
+      var data = jsonDecode(response.body);
+
+      List<CookingStep?> CookingSteps = [];
+
+      // Add the CookingSteps to the list
+      for (var CookingStepJson in data) {
+        CookingSteps.add(CookingStep.fromJson(CookingStepJson));
+      }
+
+      // Return the list of CookingSteps
+      return CookingSteps;
+    } else {
+      // If the request is not successful, return an empty list
+      return [];
+    }
+  }
+
   // Post the CookingStep to the server
   Future<CookingStep?> postCookingStep(CookingStep cookingStep) async {
     // Send a POST request to the server
