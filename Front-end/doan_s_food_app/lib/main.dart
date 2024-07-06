@@ -57,8 +57,8 @@ class MyApp extends StatelessWidget {
             body:
             // MenuAdmin(),
             // AdminAccount(),
-            // AdminHomePage(),
-            // AdminRecipes(),
+             AdminHomePage(), // Phải chạy từ file này đầu tiên
+            // AdminRecipes(),    // Hoặc file này
             // AdminRecipes2 (),
             // AdminDetailsRecipes(),
             // AdminEditDetailsRecipes(),
@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
             // DetailProfileCustomer(),
             // EditProfileCustomer (),
             // Profile1(),
-             Profile2(),
+            // Profile2(),
             // Profile3(),
           ),
         );

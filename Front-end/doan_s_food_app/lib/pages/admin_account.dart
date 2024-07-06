@@ -1,4 +1,5 @@
 import 'package:doan_s_food_app/Model/NguoiDung.dart';
+import 'package:doan_s_food_app/Services/NguoiDungService.dart';
 import 'package:flutter/material.dart';
 import 'package:doan_s_food_app/pages/detail_profile_admin.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,6 +8,7 @@ import 'package:doan_s_food_app/pages/menu_admin.dart';
 class AdminAccount extends StatefulWidget {
 
   List<NguoiDung?> nguoiDungs = [];
+  NguoiDung? nguoidung;
 
   AdminAccount({required this.nguoiDungs});
 
@@ -25,7 +27,33 @@ class _AdminAccountState extends State<AdminAccount> {
 
   TextEditingController? _searchController = TextEditingController();
 
-  bool isSelected = false;
+  List<bool> isSelected = [];
+
+  NguoiDungService nguoiDungService = NguoiDungService();
+
+  @override
+  void initState() {
+    super.initState();
+    initNguoiDung();
+  }
+
+  void initNguoiDung() async {
+    await nguoiDungService.getNguoiDungs();
+    setState(() {
+      //widget.nguoiDungs = nguoiDungService.getNguoiDungById(widget.nguoidungungs!.id);
+    });
+    for (int i = 0; i < widget.nguoiDungs.length; i++) {
+      isSelected.add(false);
+    }
+  }
+
+  @override
+  void didUpdateWidget(covariant AdminAccount oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.nguoiDungs != widget.nguoiDungs) {
+      initNguoiDung();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -351,7 +379,7 @@ class _AdminAccountState extends State<AdminAccount> {
                                   ),
                                   Expanded(
                                     child: Container(
-                                      margin: EdgeInsets.fromLTRB(0, 13, 0, 0),
+                                      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                                       child: SizedBox(
                                         height: 20,
                                         child: TextField(
@@ -377,176 +405,136 @@ class _AdminAccountState extends State<AdminAccount> {
                             Container(
                               margin: EdgeInsets.fromLTRB(10.8, 0, 10.8, 440),
                               child: Column(
+                                mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Container(
-                                    margin: EdgeInsets.fromLTRB(2.6, 0, 2.6, 21),
-                                    child: Align(
-                                      alignment: Alignment.topLeft,
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                              margin: EdgeInsets.fromLTRB(0, 14.2, 13.8, 15),
-                                              width: 20.8,
-                                              height: 20.8,
-                                              child: InkWell(
-                                                onTap: () {
-                                                  setState(() {
-                                                    isSelected = !isSelected;
-                                                  });
-                                                },
-                                                  child: Icon(
-                                                    isSelected ? Icons.check_box : Icons.check_box_outline_blank,
-                                                    size: 20.8,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                              ),
-                                          Container(
-                                            margin: EdgeInsets.fromLTRB(0, 0, 13, 0),
-                                            decoration: BoxDecoration(
-                                              border: Border.all(color: Color(0xFFF1F1F5)),
-                                              borderRadius: BorderRadius.circular(5),
-                                              color: Color(0xFFFFFFFF),
-                                            ),
-                                            child: Container(
-                                              width: 50,
-                                              height: 50,
-                                              child: Container(
-                                                width: 50,
-                                                height: 50,
-                                                decoration: BoxDecoration(
-                                                  borderRadius: BorderRadius.circular(5),
-                                                ),
-                                                child: Positioned(
-                                                  right: -2.9,
-                                                  bottom: 0,
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                      image: DecorationImage(
-                                                        fit: BoxFit.cover,
-                                                        image: AssetImage(
-                                                          'assets/images/image_81.png',
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    child: Container(
-                                                      width: 50,
-                                                      height: 50,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            margin: EdgeInsets.fromLTRB(0, 5, 0, 8),
-                                            child: Column(
+                                  Flexible(
+                                    fit: FlexFit.loose,
+                                    // TODO: List of recipes
+                                    child: ListView.builder(
+                                      shrinkWrap: true,
+                                      itemCount: widget.nguoiDungs.length,
+                                      itemBuilder: (context, index) {
+                                        var nguoidung = widget.nguoiDungs[index];
+                                        // bool isSelected = false;
+                                        return Container(
+                                          margin: EdgeInsets.fromLTRB(2.6, 0, 2.6, 21),
+                                          child: Align(
+                                            alignment: Alignment.topLeft,
+                                            child: Row(
                                               mainAxisAlignment: MainAxisAlignment.start,
                                               crossAxisAlignment: CrossAxisAlignment.start,
                                               children: [
                                                 Container(
-                                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 1),
-                                                  child: Text(
-                                                    'Monkey D. Luffy',
-                                                    style: GoogleFonts.getFont(
-                                                      'Poppins',
-                                                      fontWeight: FontWeight.w500,
-                                                      fontSize: 14,
-                                                      letterSpacing: 0.2,
-                                                      color: Color(0xFF171725),
+                                                    margin: EdgeInsets.fromLTRB(0, 14.2, 13.8, 15),
+                                                    width: 20.8,
+                                                    height: 20.8,
+                                                    child: InkWell(
+                                                      onTap: () {
+                                                        setState(() {
+                                                          isSelected[index] = !isSelected[index];
+                                                        });
+                                                      },
+                                                        child: Icon(
+                                                          isSelected[index] ? Icons.check_box : Icons.check_box_outline_blank,
+                                                          size: 20.8,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
                                                     ),
-                                                  ),
-                                                ),
-                                                Align(
-                                                  alignment: Alignment.topLeft,
-                                                  child: Text(
-                                                    '04:04 PM',
-                                                    style: GoogleFonts.getFont(
-                                                      'Inter',
-                                                      fontWeight: FontWeight.w400,
-                                                      fontSize: 12,
-                                                      color: Color(0xFF696974),
-                                                    ),
+                                                // Container(
+                                                //   margin: EdgeInsets.fromLTRB(0, 0, 13, 0),
+                                                //   decoration: BoxDecoration(
+                                                //     border: Border.all(color: Color(0xFFF1F1F5)),
+                                                //     borderRadius: BorderRadius.circular(5),
+                                                //     color: Color(0xFFFFFFFF),
+                                                //   ),
+                                                //   child: Container(
+                                                //     width: 50,
+                                                //     height: 50,
+                                                //     child: Container(
+                                                //       width: 50,
+                                                //       height: 50,
+                                                //       decoration: BoxDecoration(
+                                                //         borderRadius: BorderRadius.circular(5),
+                                                //       ),
+                                                //       child: Positioned(
+                                                //         right: -2.9,
+                                                //         bottom: 0,
+                                                //         child: Container(
+                                                //           decoration: BoxDecoration(
+                                                //             image: DecorationImage(
+                                                //               fit: BoxFit.cover,
+                                                //               image: AssetImage(
+                                                //                 'assets/images/image_81.png',
+                                                //               ),
+                                                //             ),
+                                                //           ),
+                                                //           child: Container(
+                                                //             width: 50,
+                                                //             height: 50,
+                                                //           ),
+                                                //         ),
+                                                //       ),
+                                                //     ),
+                                                //   ),
+                                                // ),
+                                                Container(
+                                                  margin: EdgeInsets.fromLTRB(0, 5, 0, 8),
+                                                  child: Column(
+                                                    mainAxisAlignment: MainAxisAlignment.start,
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: [
+                                                      Container(
+                                                        margin: EdgeInsets.fromLTRB(0, 0, 0, 1),
+                                                        child: Text(
+                                                          // TODO: Rows data
+                                                          nguoidung!.name ?? '',
+                                                          style: GoogleFonts.getFont(
+                                                            'Poppins',
+                                                            fontWeight: FontWeight.w500,
+                                                            fontSize: 14,
+                                                            letterSpacing: 0.2,
+                                                            color: Color(0xFF171725),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Align(
+                                                        alignment: Alignment.topLeft,
+                                                        child: Text(
+                                                          nguoidung!.email ?? '',
+                                                          //'mdluffy@gmail.com',
+                                                          style: GoogleFonts.getFont(
+                                                            'Inter',
+                                                            fontWeight: FontWeight.w400,
+                                                            fontSize: 12,
+                                                            color: Color(0xFF696974),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ),
                                               ],
                                             ),
                                           ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFF1F1F5),
-                                    ),
-                                    child: Container(
-                                      width: 303.3,
-                                      height: 0.8,
+                                        );
+                                      },
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                            // Button chuyển trang
-                            // Container(
-                            //   margin: EdgeInsets.fromLTRB(17.8, 0, 17.8, 0),
-                            //   child: SizedBox(
-                            //     // width: 84,
-                            //     child: Row(
-                            //       mainAxisAlignment: MainAxisAlignment.start,
-                            //       crossAxisAlignment: CrossAxisAlignment.start,
-                            //       children: [
-                            //         Container(
-                            //           margin: EdgeInsets.fromLTRB(0, 0, 15.9, 0),
-                            //           width: 50,
-                            //           height: 40,
-                            //           padding: EdgeInsets.fromLTRB(12.8, 9.4, 13.8, 9.4),
-                            //           decoration: BoxDecoration(
-                            //             border: Border.all(color: Color(0xFFE2E2EA)),
-                            //             borderRadius: BorderRadius.circular(8),
-                            //           ),
-                            //           child: Container(
-                            //             width: 26,
-                            //             height: 23,
-                            //             child: SizedBox(
-                            //               width: 26,
-                            //               height: 23,
-                            //               child: Image.asset(
-                            //                 'assets/images/shape_12_x2.png',
-                            //               ),
-                            //             ),
-                            //           ),
-                            //         ),
-                            //         Container(
-                            //           margin: EdgeInsets.fromLTRB(0, 0, 15.9, 0),
-                            //           width: 50,
-                            //           height: 40,
-                            //           padding: EdgeInsets.fromLTRB(12.8, 9.4, 13.8, 9.4),
-                            //           decoration: BoxDecoration(
-                            //             border: Border.all(color: Color(0xFFE2E2EA)),
-                            //             borderRadius: BorderRadius.circular(8),
-                            //           ),
-                            //           child: Container(
-                            //             width: 26,
-                            //             height: 23,
-                            //             child: SizedBox(
-                            //               width: 26,
-                            //               height: 23,
-                            //               child: Image.asset(
-                            //                 'assets/images/shape_12_x3.png',
-                            //               ),
-                            //             ),
-                            //           ),
-                            //         ),
-                            //       ],
-                            //     ),
-                            //   ),
-                            // ),
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Color(0xFFF1F1F5),
+                              ),
+                              child: Container(
+                                width: 303.3,
+                                height: 0.8,
+                              ),
+                            ),
                           ],
                         ),
                       ),
