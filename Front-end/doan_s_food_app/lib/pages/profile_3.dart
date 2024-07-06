@@ -229,7 +229,14 @@ class _Profile3State extends State<Profile3> {
                                         // Xử lý khi nhấn vào ''
                                         Navigator.push(
                                           context,
-                                          MaterialPageRoute(builder: (context) => Profile1()),
+                                          PageRouteBuilder(
+                                            pageBuilder: (context, animation, secondaryAnimation) => Profile1(),
+                                            transitionDuration: Duration(seconds: 0), // No animation
+                                            reverseTransitionDuration: Duration(seconds: 0), // No animation for popping back
+                                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                              return child; // No animation
+                                            },
+                                          ),
                                         );
                                       },
                                       child: Container(
@@ -254,7 +261,14 @@ class _Profile3State extends State<Profile3> {
                                         // Xử lý khi nhấn vào 'Activity'
                                         Navigator.push(
                                           context,
-                                          MaterialPageRoute(builder: (context) => Profile2()),
+                                          PageRouteBuilder(
+                                            pageBuilder: (context, animation, secondaryAnimation) => Profile2(),
+                                            transitionDuration: Duration(seconds: 0), // No animation
+                                            reverseTransitionDuration: Duration(seconds: 0), // No animation for popping back
+                                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                              return child; // No animation
+                                            },
+                                          ),
                                         );
                                       },
                                       child: Container(

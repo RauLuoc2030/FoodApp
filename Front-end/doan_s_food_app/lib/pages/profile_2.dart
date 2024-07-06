@@ -226,10 +226,17 @@ class _Profile2State extends State<Profile2> {
                                   children: [
                                     GestureDetector(
                                       onTap: () {
-                                        // Xử lý khi nhấn vào 'Activity'
+                                        // Xử lý khi nhấn vào 'Saved Recipes'
                                         Navigator.push(
                                           context,
-                                          MaterialPageRoute(builder: (context) => Profile1()),
+                                          PageRouteBuilder(
+                                            pageBuilder: (context, animation, secondaryAnimation) => Profile1(),
+                                            transitionDuration: Duration(seconds: 0), // No animation
+                                            reverseTransitionDuration: Duration(seconds: 0), // No animation for popping back
+                                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                              return child; // No animation
+                                            },
+                                          ),
                                         );
                                       },
                                       child: Container(
@@ -270,7 +277,14 @@ class _Profile2State extends State<Profile2> {
                                         // Xử lý khi nhấn vào 'Activity'
                                         Navigator.push(
                                           context,
-                                          MaterialPageRoute(builder: (context) => Profile3()),
+                                          PageRouteBuilder(
+                                            pageBuilder: (context, animation, secondaryAnimation) => Profile3(),
+                                            transitionDuration: Duration(seconds: 0), // No animation
+                                            reverseTransitionDuration: Duration(seconds: 0), // No animation for popping back
+                                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                              return child; // No animation
+                                            },
+                                          ),
                                         );
                                       },
                                       child: Text(
