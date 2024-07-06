@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
             // MenuAdmin(),
             // AdminAccount(),
             //  AdminHomePage(), // Phải chạy từ file này đầu tiên
-            // AdminRecipes(),    // Hoặc file này
+            AdminRecipes(),    // Hoặc file này
             // AdminRecipes2 (),
             // AdminDetailsRecipes(),
             // AdminEditDetailsRecipes(),
@@ -70,7 +70,7 @@ class MyApp extends StatelessWidget {
             // EditDetailProfileAdmin(),
             // DetailProfileCustomer(),
             // EditProfileCustomer (),
-            Profile1(nguoiDung: NguoiDung(id: 3, name: "Loc", email: "loc@gmail.com", role: 1)), // 
+            // Profile1(nguoiDung: NguoiDung(id: 3, name: "Loc", email: "loc@gmail.com", role: 1)), // 
             // Profile2(),
             // Profile3(),
           ),
