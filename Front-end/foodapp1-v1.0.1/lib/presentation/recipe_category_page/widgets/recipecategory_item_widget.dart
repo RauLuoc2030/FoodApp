@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../../core/app_export.dart';
+import '../../recipe_details_screen/recipe_details_screen.dart';
 import '../models/recipecategory_item_model.dart'; // ignore: must_be_immutable
-// ignore_for_file: must_be_immutable
 
+// ignore_for_file: must_be_immutable
 // ignore_for_file: must_be_immutable
 class RecipecategoryItemWidget extends StatelessWidget {
   RecipecategoryItemWidget(this.recipecategoryItemModelObj, {Key? key})
@@ -18,6 +19,9 @@ class RecipecategoryItemWidget extends StatelessWidget {
       imagePath: recipecategoryItemModelObj.r!,
       height: 76.v,
       width: 66.h,
+      onTap: () {
+       NavigatorService.pushNamed(AppRoutes.recipeDetailsScreen);
+      },
     );
   }
 }

@@ -135,8 +135,8 @@ class RecipeDetailsScreenState extends State<RecipeDetailsScreen> {
       width: double.maxFinite,
       child: Stack(
         alignment: Alignment.bottomLeft,
-        children: [
-          CustomAppBar(),
+              children: [
+              CustomAppBar(),
           Align(
             alignment: Alignment.bottomLeft,
             child: SizedBox(

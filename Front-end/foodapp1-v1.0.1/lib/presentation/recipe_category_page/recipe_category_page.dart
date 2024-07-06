@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
+import '../recipe_details_screen/recipe_details_screen.dart';
 import 'models/recipe_category_model.dart';
 import 'models/recipecategory_item_model.dart';
 import 'provider/recipe_category_provider.dart';
 import 'widgets/recipecategory_item_widget.dart'; // ignore_for_file: must_be_immutable
+import '../recipe_details_screen/provider/recipe_details_provider.dart';
+
 
 class RecipeCategoryPage extends StatefulWidget {
   const RecipeCategoryPage({Key? key})
@@ -75,6 +78,7 @@ class RecipeCategoryPageState extends State<RecipeCategoryPage> {
                           right: 62.h,
                         ),
                         decoration: AppDecoration.outlineBlack,
+                        //
                         child: Text(
                           "msg_recipes_categories".tr,
                           maxLines: null,

@@ -34,5 +34,6 @@ class AppRoutes {
         writeTipsScreen: WriteTipsScreen.builder,
         appNavigationScreen: AppNavigationScreen.builder,
         initialRoute: RecipeCategoryContainerScreen.builder
+
       };
 }

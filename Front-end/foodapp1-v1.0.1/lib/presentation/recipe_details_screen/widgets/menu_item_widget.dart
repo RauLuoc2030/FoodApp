@@ -30,6 +30,9 @@ class MenuItemWidget extends StatelessWidget {
               alignment: Alignment.topRight,
               children: [
                 CustomImageView(
+                  onTap: () {
+                    NavigatorService.pushNamed(AppRoutes.detailsRecipesScreen);
+                  },
                   imagePath: menuItemModelObj.image!,
                   height: 145.v,
                   width: 284.h,

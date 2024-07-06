@@ -560,9 +560,15 @@ class DetailsRecipesScreenState extends State<DetailsRecipesScreen> {
               decoration: AppDecoration.outlineDeepOrange.copyWith(
                 borderRadius: BorderRadiusStyle.roundedBorder4,
               ),
+              child:GestureDetector(
+                onTap: () {
+                  NavigatorService.pushNamed(AppRoutes.detailsTipsFor1RecipeScreen);
+                },
               child: Text(
                 "lbl_i_made_this".tr,
                 style: theme.textTheme.labelMedium,
+
+              ),
               ),
             ),
           ),

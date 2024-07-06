@@ -50,7 +50,10 @@ class DetailsTipsFor1RecipeScreenState
                   builder: (context, searchController, child) {
                     return CustomSearchView(
                       controller: searchController,
-                      hintText: "msg_write_your_tips".tr,
+                      hintText: "msg_write_your_tips".tr, onTap: () {
+                      NavigatorService.pushNamed(AppRoutes.writeTipsScreen);
+                    },
+
                     );
                   },
                 ),
@@ -1039,6 +1042,42 @@ class DetailsTipsFor1RecipeScreenState
   onTapIconbutton(BuildContext context) {
     NavigatorService.pushNamed(
       AppRoutes.detailsRecipesScreen,
+    );
+  }
+}
+class CustomSearchView extends StatelessWidget {
+  final VoidCallback onTap;
+  final String hintText;
+
+  const CustomSearchView({
+    Key? key,
+    required this.onTap,
+    this.hintText = 'Search', TextEditingController? controller,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        decoration: BoxDecoration(
+          color: Colors.grey[200],
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Row(
+          children: [
+            Icon(Icons.search, color: Colors.grey),
+            SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                hintText,
+                style: TextStyle(color: Colors.grey),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../widgets/custom_bottom_bar.dart';
 import '../recipe_category_page/recipe_category_page.dart';
+import '../recipe_details_screen/recipe_details_screen.dart';
 import 'models/recipe_category_container_model.dart';
 import 'provider/recipe_category_container_provider.dart';
 
@@ -41,6 +42,7 @@ class RecipeCategoryContainerScreenState
         extendBodyBehindAppBar: true,
         backgroundColor: appTheme.deepOrange100,
         body: Container(
+
           width: SizeUtils.width,
           height: SizeUtils.height,
           decoration: BoxDecoration(
