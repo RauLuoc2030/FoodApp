@@ -57,8 +57,8 @@ class MyApp extends StatelessWidget {
             body:
             // MenuAdmin(),
             // AdminAccount(),
-             AdminHomePage(), // Phải chạy từ file này đầu tiên
-            // AdminRecipes(),    // Hoặc file này
+            // AdminHomePage(), // Phải chạy từ file này đầu tiên
+             AdminRecipes(),    // Hoặc file này
             // AdminRecipes2 (),
             // AdminDetailsRecipes(),
             // AdminEditDetailsRecipes(),
