@@ -98,6 +98,13 @@ insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID
 values (N'Gà xào sả ớt', '2024-05-01', 30, 500, 0, 1, 24, N'Gà xào sả ớt thơm ngon', 'https://i.ibb.co/t4m7Mdf/165.jpg'); -- id: 17
 insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
 values (N'Gà chiên nước mắm', '2024-05-01', 30, 500, 0, 1, 24, N'Gà chiên nước mắm thơm ngon', 'https://i.ibb.co/gZ3MLbH/159.jpg'); -- id: 18
+-- Insert Recipe dump data
+insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
+values (N'Bún Bò Huế Test', '2024-05-01', 30, 500, 100, 1, 19, N'Đây là món Bún Bò Huế - Đặc sản Huế', 'https://i.ibb.co/zHBVb1q/228.jpg'); -- id: 6
+insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
+values (N'Bún Bò Huế Test', '2024-05-01', 30, 500, 100, 1, 19, N'Đây là món Bún Bò Huế - Đặc sản Huế', 'https://i.ibb.co/zHBVb1q/228.jpg'); -- id: 6
+insert into Recipe (RName, CreateDate, PrepTime, Calories, ViewNumber, CuisineID, CategoryID, Description, ImgUrl)
+values (N'Bún Bò Huế Test', '2024-05-01', 30, 500, 100, 1, 19, N'Đây là món Bún Bò Huế - Đặc sản Huế', 'https://i.ibb.co/zHBVb1q/228.jpg'); -- id: 6
 
 
 -- Create NutritionInfo table
@@ -292,6 +299,10 @@ insert into NguoiDung (Name, Email, Role)
 values ('KAnh', 'kanh@gmail.com', 1); -- id: 5
 insert into NguoiDung (Name, Email, Role)
 values ('Doan', 'doan@gmail.com', 1); -- id: 6
+-- Insert NguoiDung dump data
+insert into NguoiDung (Name, Email, Role) values ('Loc Test 1', 'loc@gmail.com', 1); -- id: 3
+insert into NguoiDung (Name, Email, Role) values ('Loc Test 2', 'loc@gmail.com', 1); -- id: 3
+insert into NguoiDung (Name, Email, Role) values ('Loc Test 3', 'loc@gmail.com', 1); -- id: 3
 
 -- Create Favourite table
 -- Favourite(id, RecipeID, NguoiDungID)
