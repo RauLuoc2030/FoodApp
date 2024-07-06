@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
             body:
             // MenuAdmin(),
             // AdminAccount(),
-            AdminHomePage(),
+            // AdminHomePage(),
             // AdminRecipes(),
             // AdminRecipes2 (),
             // AdminDetailsRecipes(),
@@ -65,15 +65,11 @@ class MyApp extends StatelessWidget {
             // AdminCommunity (),
             // AdminCommunity1 (),
             // DetailProfileAdmin(),
-<<<<<<< HEAD:Front-end/doan_s_food_app-v1.0.1/lib/main.dart
             // EditDetailProfileAdmin(),
-             DetailProfileCustomer(),
-=======
             // DetailProfileCustomer(),
->>>>>>> aaa999e983994213322a0ebec9ac7ce22ed78fbf:Front-end/doan_s_food_app/lib/main.dart
             // EditProfileCustomer (),
             // Profile1(),
-            // Profile2(),
+             Profile2(),
             // Profile3(),
           ),
         );
