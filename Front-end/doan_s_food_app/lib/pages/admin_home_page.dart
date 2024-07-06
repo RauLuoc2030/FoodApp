@@ -40,7 +40,7 @@ class _AdminHomePageState extends State<AdminHomePage> {
     await nguoiDungService.getNguoiDungs();
     await recipeService.getRecipes();
     setState(() {
-      widget.nguoidung = nguoiDungService.NguoiDungs;
+      widget.nguoidung = nguoiDungService.NguoiDungs.where((element) => element.role == 1).toList();
       widget.recipe = recipeService.Recipes;
     });
   }
