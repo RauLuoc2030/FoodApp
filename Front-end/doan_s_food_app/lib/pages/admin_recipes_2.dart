@@ -2,9 +2,6 @@ import 'package:doan_s_food_app/Model/Category.dart';
 import 'package:doan_s_food_app/Services/RecipeService.dart';
 import 'package:flutter/material.dart';
 import 'package:doan_s_food_app/Model/Recipe.dart';
-import 'dart:ui';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:doan_s_food_app/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:doan_s_food_app/pages/detail_profile_admin.dart';
 import 'package:doan_s_food_app/pages/menu_admin.dart';
@@ -112,8 +109,7 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: [
-          SingleChildScrollView(
+        children: [SingleChildScrollView(
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(color: Color(0xFF000000)),
@@ -283,11 +279,13 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                     margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
                                     child: ElevatedButton(
                                       onPressed: () {
+                                        // print("Nút xóa");
+                                        // _deleteRecipe();
                                         _showDeleteDialog(context);
                                       },
                                       style: ElevatedButton.styleFrom(
                                         shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(10), // Bo góc của button
+                                          borderRadius: BorderRadius.circular(10), // Bo góc của button Xóa DELETE
                                         ),
                                       ),
                                       child: Icon(
@@ -303,186 +301,186 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                         ],
                       ),
                     ),
-                    Container(
-                      margin: EdgeInsets.fromLTRB(5, 170, 5, 0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xFFFFFFFF),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Container(
-                          padding: EdgeInsets.fromLTRB(0, 0, 0, 4.4),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Flexible(
-                                fit: FlexFit.loose,
-                                // TODO: List of recipes
-                                child: ListView.builder(
-                                  shrinkWrap: true,
-                                  itemCount: widget.recipes.length,
-                                  itemBuilder: (context, index) {
-                                    var recipe = widget.recipes[index];
-                                    // bool isSelected = false;
-                                    return Container(
-                                      margin: EdgeInsets.fromLTRB(0, 0, 0, 0.2),
-                                      child: Stack(
-                                        children: [
-                                          SizedBox(
-                                            width: double.infinity,
-                                            child: Column(
-                                              mainAxisAlignment: MainAxisAlignment.start,
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.fromLTRB(24.7, 170, 24.7, 22),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Color(0xFFFFFFFF),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Container(
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 4.4),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Flexible(
+                      fit: FlexFit.loose,
+                      // TODO: List of recipes
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: widget.recipes.length,
+                        itemBuilder: (context, index) {
+                          var recipe = widget.recipes[index];
+                          // bool isSelected = false;
+                          return Container(
+                            margin: EdgeInsets.fromLTRB(0, 0, 0, 0.2),
+                            child: Stack(
+                              children: [
+                                SizedBox(
+                                  width: double.infinity,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.fromLTRB(0, 0, 0, 26.5),
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFFFFFFF),
+                                          ),
+                                          child: Container(
+                                            padding: EdgeInsets.fromLTRB(13.6, 25, 0, 1),
+                                            child: Row(
+                                              // mainAxisAlignment: MainAxisAlignment.start,
                                               crossAxisAlignment: CrossAxisAlignment.start,
                                               children: [
+                                                // button select
                                                 Container(
-                                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 26.5),
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0xFFFFFFFF),
-                                                    ),
-                                                    child: Container(
-                                                      padding: EdgeInsets.fromLTRB(13.6, 25, 0, 1),
-                                                      child: Row(
-                                                        // mainAxisAlignment: MainAxisAlignment.start,
-                                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                                        children: [
-                                                          // button select
-                                                          Container(
-                                                            margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                                            width: 20.8,
-                                                            height: 20.8,
-                                                            child: InkWell(
-                                                              onTap: () {
-                                                                setState(() {
-                                                                  isSelected[index] = !isSelected[index];
-                                                                });
-                                                              },
-                                                              child: Icon(
-                                                                isSelected[index] ? Icons.check_box : Icons.check_box_outline_blank,
-                                                                size: 20.8,
-                                                                color: Colors.black,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          GestureDetector(
-                                                            onTap: () {
-                                                              Navigator.push(
-                                                                context,
-                                                                MaterialPageRoute(
-                                                                    builder: (context) => AdminDetailsRecipes(
-                                                                          category: widget.category,
-                                                                          recipe: recipe,
-                                                                        )), // Replace with your MenuAdmin widget
-                                                              );
-                                                            },
-                                                            child: Container(
-                                                              margin: EdgeInsets.fromLTRB(80, 5, 0, 4.4),
-                                                              child: Text(
-                                                                // TODO: Rows data
-                                                                recipe!.rname ?? '',
-                                                                style: GoogleFonts.getFont(
-                                                                  'Poppins',
-                                                                  fontWeight: FontWeight.w500,
-                                                                  fontSize: 14,
-                                                                  letterSpacing: 0.2,
-                                                                  color: Color(0xFF171725),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
+                                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                                  width: 20.8,
+                                                  height: 20.8,
+                                                  child: InkWell(
+                                                    onTap: () {
+                                                      setState(() {
+                                                        isSelected[index] = !isSelected[index];
+                                                      });
+                                                    },
+                                                    child: Icon(
+                                                      isSelected[index] ? Icons.check_box : Icons.check_box_outline_blank,
+                                                      size: 20.8,
+                                                      color: Colors.black,
                                                     ),
                                                   ),
                                                 ),
-                                                Container(
-                                                  margin: EdgeInsets.fromLTRB(11, 0, 10.7, 0),
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                          builder: (context) => AdminDetailsRecipes(
+                                                            category: widget.category,
+                                                            recipe: recipe,
+                                                          )), // Replace with your MenuAdmin widget
+                                                    );
+                                                  },
                                                   child: Container(
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0xFFF1F1F5),
-                                                    ),
-                                                    child: Container(
-                                                      width: 303.3,
-                                                      height: 0.8,
+                                                    margin: EdgeInsets.fromLTRB(80, 5, 0, 4.4),
+                                                    child: Text(
+                                                      // TODO: Rows data
+                                                      recipe!.rname ?? '',
+                                                      style: GoogleFonts.getFont(
+                                                        'Poppins',
+                                                        fontWeight: FontWeight.w500,
+                                                        fontSize: 14,
+                                                        letterSpacing: 0.2,
+                                                        color: Color(0xFF171725),
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
                                               ],
                                             ),
                                           ),
-                                          Positioned(
-                                            left: 51,
-                                            bottom: 14.8,
-                                            child: GestureDetector(
-                                              onTap: () {
-                                                Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                      builder: (context) => AdminDetailsRecipes(
-                                                            category: widget.category,
-                                                            recipe: recipe,
-                                                          )), // Replace with your MenuAdmin widget
-                                                );
-                                              },
-                                              child: Container(
-                                                decoration: BoxDecoration(
-                                                  border: Border.all(color: Color(0xFFF1F1F5)),
-                                                  borderRadius: BorderRadius.circular(5),
-                                                  color: Color(0xFFFFFFFF),
-                                                ),
-                                                child: Container(
-                                                  width: 50,
-                                                  height: 50,
-                                                  child: Container(
-                                                    width: 50,
-                                                    height: 50,
-                                                    decoration: BoxDecoration(
-                                                      borderRadius: BorderRadius.circular(5),
-                                                    ),
-                                                    child: Positioned(
-                                                      left: -1,
-                                                      bottom: -14.8,
-                                                      child: Container(
-                                                        decoration: BoxDecoration(
-                                                          borderRadius: BorderRadius.circular(5),
-                                                          image: DecorationImage(
-                                                            fit: BoxFit.cover,
-                                                            image: AssetImage(
-                                                              'assets/images/healthy.png',
-                                                            ),
-                                                          ),
-                                                          boxShadow: [
-                                                            BoxShadow(
-                                                              color: Color(0x40000000),
-                                                              offset: Offset(0, 4),
-                                                              blurRadius: 2,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        child: Container(
-                                                          width: 51.3,
-                                                          height: 70.8,
-                                                        ),
-                                                      ),
-                                                    ),
+                                        ),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.fromLTRB(11, 0, 10.7, 0),
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFF1F1F5),
+                                          ),
+                                          child: Container(
+                                            width: 303.3,
+                                            height: 0.8,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Positioned(
+                                  left: 51,
+                                  bottom: 14.8,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => AdminDetailsRecipes(
+                                              category: widget.category,
+                                              recipe: recipe,
+                                            )), // Replace with your MenuAdmin widget
+                                      );
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        border: Border.all(color: Color(0xFFF1F1F5)),
+                                        borderRadius: BorderRadius.circular(5),
+                                        color: Color(0xFFFFFFFF),
+                                      ),
+                                      child: Container(
+                                        width: 50,
+                                        height: 50,
+                                        child: Container(
+                                          width: 50,
+                                          height: 50,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(5),
+                                          ),
+                                          child: Positioned(
+                                            left: -1,
+                                            bottom: -14.8,
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(5),
+                                                image: DecorationImage(
+                                                  fit: BoxFit.cover,
+                                                  image: AssetImage(
+                                                    'assets/images/healthy.png',
                                                   ),
                                                 ),
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    color: Color(0x40000000),
+                                                    offset: Offset(0, 4),
+                                                    blurRadius: 2,
+                                                  ),
+                                                ],
+                                              ),
+                                              child: Container(
+                                                width: 51.3,
+                                                height: 70.8,
                                               ),
                                             ),
                                           ),
-                                        ],
+                                        ),
                                       ),
-                                    );
-                                  },
+                                    ),
+                                  ),
                                 ),
-                              )
-                            ],
-                          ),
-                        ),
+                              ],
+                            ),
+                          );
+                        },
                       ),
-                    ),
+                    )
                   ],
                 ),
               ),

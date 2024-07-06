@@ -10,12 +10,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 class EditProfileCustomer extends StatefulWidget {
 
-  NguoiDung? nguoiDung;
+  NguoiDung nguoiDung;
   // String? customerName;
   // String? customerEmail;
 
 
-  EditProfileCustomer({Key? key, this.nguoiDung}) : super(key: key);
+  EditProfileCustomer({Key? key, required this.nguoiDung}) : super(key: key);
 
   @override
   _EditProfileCustomerState createState() => _EditProfileCustomerState();
@@ -91,7 +91,7 @@ class _EditProfileCustomerState extends State<EditProfileCustomer> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              DetailProfileCustomer()));
+                                              DetailProfileCustomer(nguoiDung: widget.nguoiDung,)));
                                 },
                                 child: Container(
                                   width: 45,
@@ -437,13 +437,15 @@ class _EditProfileCustomerState extends State<EditProfileCustomer> {
                                     ' ' +
                                     _emailController.text);
                                 NguoiDung nguoiDung = new NguoiDung();
-                                nguoiDung.id = widget.nguoiDung?.id;
+                                nguoiDung.id = widget.nguoiDung.id;
                                 nguoiDung.name = _nameController.text;
                                 nguoiDung.email = _emailController.text;
+                                nguoiDung.role = widget.nguoiDung.role;
 
                                 // Call API to update user profile
                                 try {
                                   await NguoiDungService().putNguoiDung(nguoiDung);
+                                  widget.nguoiDung = nguoiDung;
                                   // Success handling code, e.g., pop the current route or show a success message
                                   Navigator.push(
                                       context,

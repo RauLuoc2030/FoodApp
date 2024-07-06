@@ -1,3 +1,4 @@
+import 'package:doan_s_food_app/Model/NguoiDung.dart';
 import 'package:flutter/material.dart';
 import 'package:doan_s_food_app/pages/profile_1.dart';
 import 'package:doan_s_food_app/pages/profile_2.dart';
@@ -8,6 +9,11 @@ import 'package:doan_s_food_app/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Profile3 extends StatefulWidget {
+
+  NguoiDung nguoiDung;
+
+  Profile3({required this.nguoiDung});
+
   @override
   _Profile3State createState() => _Profile3State();
 }
@@ -133,7 +139,8 @@ class _Profile3State extends State<Profile3> {
                             Container(
                               margin: EdgeInsets.fromLTRB(0, 0, 0, 16.3),
                               child: Text(
-                                'Yuuji',
+                                // TODO: NguoiDung Name
+                                widget.nguoiDung.name ?? '',
                                 style: GoogleFonts.getFont(
                                   'Inter',
                                   fontWeight: FontWeight.w700,
@@ -230,7 +237,7 @@ class _Profile3State extends State<Profile3> {
                                         Navigator.push(
                                           context,
                                           PageRouteBuilder(
-                                            pageBuilder: (context, animation, secondaryAnimation) => Profile1(),
+                                            pageBuilder: (context, animation, secondaryAnimation) => Profile1(nguoiDung: widget.nguoiDung,),
                                             transitionDuration: Duration(seconds: 0), // No animation
                                             reverseTransitionDuration: Duration(seconds: 0), // No animation for popping back
                                             transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -262,7 +269,7 @@ class _Profile3State extends State<Profile3> {
                                         Navigator.push(
                                           context,
                                           PageRouteBuilder(
-                                            pageBuilder: (context, animation, secondaryAnimation) => Profile2(),
+                                            pageBuilder: (context, animation, secondaryAnimation) => Profile2(nguoiDung: widget.nguoiDung,),
                                             transitionDuration: Duration(seconds: 0), // No animation
                                             reverseTransitionDuration: Duration(seconds: 0), // No animation for popping back
                                             transitionsBuilder: (context, animation, secondaryAnimation, child) {

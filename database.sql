@@ -314,6 +314,12 @@ CREATE TABLE Favourite (
     FOREIGN KEY (NguoiDungID) REFERENCES NguoiDung(id)
 );
 
+-- Insert Favourite data
+insert into Favourite (RecipeID, NguoiDungID) values (5, 3); -- id: 1
+insert into Favourite (RecipeID, NguoiDungID) values (6, 3);
+insert into Favourite (RecipeID, NguoiDungID) values (7, 3);
+insert into Favourite (RecipeID, NguoiDungID) values (8, 3);
+
 -- Create Review table
 -- Review(id, RecipeID, NguoiDungID, Content, LikeCount)
 CREATE TABLE Review (

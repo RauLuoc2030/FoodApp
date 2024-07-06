@@ -1,14 +1,15 @@
 import 'package:doan_s_food_app/Model/NguoiDung.dart';
 import 'package:doan_s_food_app/Services/NguoiDungService.dart';
 import 'package:doan_s_food_app/pages/detail_edit_profile_customer.dart';
+import 'package:doan_s_food_app/pages/profile_1.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DetailProfileCustomer extends StatefulWidget {
 
-  NguoiDung? nguoiDung;
+  NguoiDung nguoiDung;
   
-  DetailProfileCustomer({Key? key, this.nguoiDung}) : super(key: key);
+  DetailProfileCustomer({Key? key, required this.nguoiDung}) : super(key: key);
 
   @override
   _DetailProfileCustomerState createState() => _DetailProfileCustomerState();
@@ -21,7 +22,7 @@ class _DetailProfileCustomerState extends State<DetailProfileCustomer> {
   @override
   void initState() {
     super.initState();
-    initNguoiDung();
+    // initNguoiDung();
   }
 
   void initNguoiDung() async {
@@ -72,14 +73,24 @@ class _DetailProfileCustomerState extends State<DetailProfileCustomer> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            width: 45,
-                            height: 45,
-                            child: SizedBox(
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Profile1(nguoiDung: widget.nguoiDung),
+                                ),
+                              );
+                            },
+                            child: Container(
                               width: 45,
                               height: 45,
-                              child: Image.asset(
-                                'assets/images/icon_back_1_x2.png',
+                              child: SizedBox(
+                                width: 45,
+                                height: 45,
+                                child: Image.asset(
+                                  'assets/images/icon_back_1_x2.png',
+                                ),
                               ),
                             ),
                           ),

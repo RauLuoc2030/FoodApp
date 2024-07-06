@@ -1,4 +1,10 @@
+import 'package:doan_s_food_app/Model/Favourite.dart';
 import 'package:doan_s_food_app/Model/NguoiDung.dart';
+import 'package:doan_s_food_app/Model/Recipe.dart';
+import 'package:doan_s_food_app/Services/FavouriteService.dart';
+import 'package:doan_s_food_app/Services/RecipeService.dart';
+import 'package:doan_s_food_app/pages/admin_details_recipes.dart';
+import 'package:doan_s_food_app/pages/detail_profile_customer.dart';
 import 'package:flutter/material.dart';
 import 'package:doan_s_food_app/pages/profile_1.dart';
 import 'package:doan_s_food_app/pages/profile_2.dart';
@@ -9,9 +15,11 @@ import 'package:doan_s_food_app/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Profile1 extends StatefulWidget {
-  NguoiDung? nguoiDung = NguoiDung();
+  NguoiDung nguoiDung = NguoiDung();
+  List<Favourite> listFavourite = [];
+  List<Recipe> listRecipe = [];
 
-  Profile1({this.nguoiDung});
+  Profile1({required this.nguoiDung});
 
   @override
   _Profile1State createState() => _Profile1State();
@@ -19,6 +27,46 @@ class Profile1 extends StatefulWidget {
 
 class _Profile1State extends State<Profile1> {
   TextEditingController? _searchController = TextEditingController();
+
+  FavouriteService favouriteService = FavouriteService();
+  RecipeService recipeService = RecipeService();
+
+  @override
+  void initState() {
+    super.initState();
+    // initData();
+  }
+
+  Future<void> initData() async {
+    await favouriteService.getFavourites();
+
+    // print("Number of Favourite: ${favouriteService.Favourites.length}");
+
+    for (var favourite in favouriteService.Favourites.where((element) => element.nguoiDungID == widget.nguoiDung.id)) {
+      // print("Favourite ID: ${favourite.recipeID}");
+      // print("NguoiDung ID: ${favourite.nguoiDungID}");
+      // print("Recipe ID: ${favourite.recipeID}");
+      var recipe = await recipeService.getRecipeByIdFromServer(favourite.recipeID!);
+      if (recipe != null) {
+        widget.listRecipe.add(recipe);
+      }
+    }
+
+    return;
+  }
+
+  // void initData() async {
+  //   await favouriteService.getFavourites();
+
+  //   for (var favourite in favouriteService.Favourites) {
+  //     var recipe = await recipeService.getRecipeById(favourite.recipeID!);
+  //     widget.listRecipe.add(recipe);
+  //   }
+
+  //   setState(() {
+  //     widget.listFavourite = favouriteService.Favourites;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +95,17 @@ class _Profile1State extends State<Profile1> {
                             Container(
                               child: Row(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [
                                 // Image Yuuji
-                                Container(
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => DetailProfileCustomer(
+                                          nguoiDung: widget.nguoiDung,
+                                        )
+                                      ),
+                                    );
+                                  },
                                   child: Container(
                                     margin: EdgeInsets.fromLTRB(144, 40, 0, 10),
                                     child: Container(
@@ -134,7 +192,7 @@ class _Profile1State extends State<Profile1> {
                               margin: EdgeInsets.fromLTRB(0, 0, 0, 16.3),
                               child: Text(
                                 // TODO: NguoiDung Name
-                                widget.nguoiDung?.name ?? '',
+                                widget.nguoiDung.name ?? '',
                                 style: GoogleFonts.getFont(
                                   'Inter',
                                   fontWeight: FontWeight.w700,
@@ -246,7 +304,9 @@ class _Profile1State extends State<Profile1> {
                                         Navigator.push(
                                           context,
                                           PageRouteBuilder(
-                                            pageBuilder: (context, animation, secondaryAnimation) => Profile2(),
+                                            pageBuilder: (context, animation, secondaryAnimation) => Profile2(
+                                              nguoiDung: widget.nguoiDung,
+                                            ),
                                             transitionDuration: Duration(seconds: 0), // No animation
                                             reverseTransitionDuration: Duration(seconds: 0), // No animation for popping back
                                             transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -277,7 +337,9 @@ class _Profile1State extends State<Profile1> {
                                         Navigator.push(
                                           context,
                                           PageRouteBuilder(
-                                            pageBuilder: (context, animation, secondaryAnimation) => Profile3(),
+                                            pageBuilder: (context, animation, secondaryAnimation) => Profile3(
+                                              nguoiDung: widget.nguoiDung,
+                                            ),
                                             transitionDuration: Duration(seconds: 0), // No animation
                                             reverseTransitionDuration: Duration(seconds: 0), // No animation for popping back
                                             transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -318,7 +380,7 @@ class _Profile1State extends State<Profile1> {
                             ),
                             //Search
                             Container(
-                              margin: EdgeInsets.fromLTRB(10, 10, 10, 20),
+                              margin: EdgeInsets.fromLTRB(10, 10, 10, 400),
                               padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                               decoration: BoxDecoration(
                                 border: Border.all(color: Color(0xFFE2E2EA)),
@@ -366,59 +428,232 @@ class _Profile1State extends State<Profile1> {
                               ),
                             ),
                             // Recipes
-                            Container(
-                              margin: EdgeInsets.fromLTRB(10, 0, 10, 180),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Expanded(
-                                    child: Container(
-                                      margin: EdgeInsets.fromLTRB(0, 0, 15.6, 20),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                border: Border.all(
-                                                  color: Color(0xFFFFFFFF),
-                                                  width: 1.0,
-                                                ),
-                                              ),
-                                              child: Container(
-                                                height: 171.9,
-                                                width: 171.9,
-                                                child: Image.asset(
-                                                  'assets/images/Group 8646.png',
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment: Alignment.topLeft,
-                                            child: Padding(
-                                              padding: EdgeInsets.fromLTRB(6, 0, 0, 0),
-                                              child: Text(
-                                                'Sfogliatine',
-                                                style: GoogleFonts.getFont(
-                                                  'Alata',
-                                                  fontWeight: FontWeight.w400,
-                                                  fontSize: 15.6,
-                                                  color: Color(0xFF000000),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
+
+                            // GridView.builder(
+                            //   padding: const EdgeInsets.all(8),
+                            //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            //     crossAxisCount: 2, // Two columns
+                            //     crossAxisSpacing: 10, // Horizontal space between cards
+                            //     mainAxisSpacing: 10, // Vertical space between cards
+                            //     childAspectRatio: 0.8, // Aspect ratio of the cards
+                            //   ),
+                            //   shrinkWrap: true,
+                            //   itemCount: widget.listRecipe.length,
+                            //   itemBuilder: (context, index) {
+                            //     Recipe recipe = widget.listRecipe[index];
+
+                            //     return Card(
+                            //       child: Column(
+                            //         children: <Widget>[
+                            //           Image.network(
+                            //             recipe.imgUrl ?? '',
+                            //             fit: BoxFit.cover,
+                            //             height: 120, // Set a fixed height for the image
+                            //             width: double.infinity, // Make the image take the full width of the card
+                            //           ),
+                            //           Padding(
+                            //             padding: const EdgeInsets.all(8.0),
+                            //             child: Text(recipe.rname ?? ''),
+                            //           ),
+                            //         ],
+                            //       ),
+                            //     );
+                            //   },
+                            // ),
+                            // Container(
+                            //   margin: EdgeInsets.fromLTRB(10, 0, 10, 80),
+                            //   child: Row(
+                            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            //     crossAxisAlignment: CrossAxisAlignment.start,
+                            //     children: [
+                            //       Expanded(
+                            //         child: Container(
+                            //           margin: EdgeInsets.fromLTRB(0, 0, 15.6, 20),
+                            //           child: Column(
+                            //             mainAxisAlignment: MainAxisAlignment.start,
+                            //             crossAxisAlignment: CrossAxisAlignment.start,
+                            //             children: [
+                            //               Container(
+                            //                 margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                            //                 child: Container(
+                            //                   decoration: BoxDecoration(
+                            //                     border: Border.all(
+                            //                       color: Color(0xFFFFFFFF),
+                            //                       width: 1.0,
+                            //                     ),
+                            //                   ),
+                            //                   child: Container(
+                            //                     height: 171.9,
+                            //                     width: 171.9,
+                            //                     child: Image.asset(
+                            //                       'assets/images/Group 8646.png',
+                            //                     ),
+                            //                   ),
+                            //                 ),
+                            //               ),
+                            //               Align(
+                            //                 alignment: Alignment.topLeft,
+                            //                 child: Padding(
+                            //                   padding: EdgeInsets.fromLTRB(6, 0, 0, 0),
+                            //                   child: Text(
+                            //                     'Sfogliatine',
+                            //                     style: GoogleFonts.getFont(
+                            //                       'Alata',
+                            //                       fontWeight: FontWeight.w400,
+                            //                       fontSize: 15.6,
+                            //                       color: Color(0xFF000000),
+                            //                     ),
+                            //                   ),
+                            //                 ),
+                            //               ),
+                            //             ],
+                            //           ),
+                            //         ),
+                            //       ),
+                            //       Expanded(
+                            //         child: Container(
+                            //           margin: EdgeInsets.fromLTRB(0, 0, 15.6, 20),
+                            //           child: Column(
+                            //             mainAxisAlignment: MainAxisAlignment.start,
+                            //             crossAxisAlignment: CrossAxisAlignment.start,
+                            //             children: [
+                            //               Container(
+                            //                 margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                            //                 child: Container(
+                            //                   decoration: BoxDecoration(
+                            //                     border: Border.all(
+                            //                       color: Color(0xFFFFFFFF),
+                            //                       width: 1.0,
+                            //                     ),
+                            //                   ),
+                            //                   child: Container(
+                            //                     height: 171.9,
+                            //                     width: 171.9,
+                            //                     child: Image.asset(
+                            //                       'assets/images/Group 8646.png',
+                            //                     ),
+                            //                   ),
+                            //                 ),
+                            //               ),
+                            //               Align(
+                            //                 alignment: Alignment.topLeft,
+                            //                 child: Padding(
+                            //                   padding: EdgeInsets.fromLTRB(6, 0, 0, 0),
+                            //                   child: Text(
+                            //                     'Sfogliatine',
+                            //                     style: GoogleFonts.getFont(
+                            //                       'Alata',
+                            //                       fontWeight: FontWeight.w400,
+                            //                       fontSize: 15.6,
+                            //                       color: Color(0xFF000000),
+                            //                     ),
+                            //                   ),
+                            //                 ),
+                            //               ),
+                            //             ],
+                            //           ),
+                            //         ),
+                            //       ),
+                            //     ],
+                            //   ),
+                            // ),
+                            // Container(
+                            //   margin: EdgeInsets.fromLTRB(10, 0, 10, 80),
+                            //   child: Row(
+                            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            //     crossAxisAlignment: CrossAxisAlignment.start,
+                            //     children: [
+                            //       Expanded(
+                            //         child: Container(
+                            //           margin: EdgeInsets.fromLTRB(0, 0, 15.6, 20),
+                            //           child: Column(
+                            //             mainAxisAlignment: MainAxisAlignment.start,
+                            //             crossAxisAlignment: CrossAxisAlignment.start,
+                            //             children: [
+                            //               Container(
+                            //                 margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                            //                 child: Container(
+                            //                   decoration: BoxDecoration(
+                            //                     border: Border.all(
+                            //                       color: Color(0xFFFFFFFF),
+                            //                       width: 1.0,
+                            //                     ),
+                            //                   ),
+                            //                   child: Container(
+                            //                     height: 171.9,
+                            //                     width: 171.9,
+                            //                     child: Image.asset(
+                            //                       'assets/images/Group 8646.png',
+                            //                     ),
+                            //                   ),
+                            //                 ),
+                            //               ),
+                            //               Align(
+                            //                 alignment: Alignment.topLeft,
+                            //                 child: Padding(
+                            //                   padding: EdgeInsets.fromLTRB(6, 0, 0, 0),
+                            //                   child: Text(
+                            //                     'Sfogliatine',
+                            //                     style: GoogleFonts.getFont(
+                            //                       'Alata',
+                            //                       fontWeight: FontWeight.w400,
+                            //                       fontSize: 15.6,
+                            //                       color: Color(0xFF000000),
+                            //                     ),
+                            //                   ),
+                            //                 ),
+                            //               ),
+                            //             ],
+                            //           ),
+                            //         ),
+                            //       ),
+                            //       Expanded(
+                            //         child: Container(
+                            //           margin: EdgeInsets.fromLTRB(0, 0, 15.6, 20),
+                            //           child: Column(
+                            //             mainAxisAlignment: MainAxisAlignment.start,
+                            //             crossAxisAlignment: CrossAxisAlignment.start,
+                            //             children: [
+                            //               Container(
+                            //                 margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                            //                 child: Container(
+                            //                   decoration: BoxDecoration(
+                            //                     border: Border.all(
+                            //                       color: Color(0xFFFFFFFF),
+                            //                       width: 1.0,
+                            //                     ),
+                            //                   ),
+                            //                   child: Container(
+                            //                     height: 171.9,
+                            //                     width: 171.9,
+                            //                     child: Image.asset(
+                            //                       'assets/images/Group 8646.png',
+                            //                     ),
+                            //                   ),
+                            //                 ),
+                            //               ),
+                            //               Align(
+                            //                 alignment: Alignment.topLeft,
+                            //                 child: Padding(
+                            //                   padding: EdgeInsets.fromLTRB(6, 0, 0, 0),
+                            //                   child: Text(
+                            //                     'Sfogliatine',
+                            //                     style: GoogleFonts.getFont(
+                            //                       'Alata',
+                            //                       fontWeight: FontWeight.w400,
+                            //                       fontSize: 15.6,
+                            //                       color: Color(0xFF000000),
+                            //                     ),
+                            //                   ),
+                            //                 ),
+                            //               ),
+                            //             ],
+                            //           ),
+                            //         ),
+                            //       ),
+                            //     ],
+                            //   ),
+                            // ),
                           ],
                         ),
                       ),
@@ -426,6 +661,76 @@ class _Profile1State extends State<Profile1> {
                   ],
                 ),
               ),
+            ),
+          ),
+          // Content
+          Container(
+            margin: EdgeInsets.fromLTRB(3, 470, 3, 70),
+            child: FutureBuilder<void>(
+              future: initData(),
+              builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (snapshot.hasError) {
+                  return Center(
+                    child: Text('Error: ${snapshot.error}'),
+                  );
+                } else {
+                  return GridView.builder(
+                    padding: const EdgeInsets.all(8),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2, // Two columns
+                      crossAxisSpacing: 10, // Horizontal space between cards
+                      mainAxisSpacing: 10, // Vertical space between cards
+                      childAspectRatio: 0.8, // Aspect ratio of the cards
+                    ),
+                    shrinkWrap: true,
+                    itemCount: widget.listRecipe.length,
+                    itemBuilder: (context, index) {
+                      Recipe recipe = widget.listRecipe[index];
+
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AdminDetailsRecipes(
+                                recipe: recipe,
+                              ),
+                            ),
+                          );
+                        },
+                        child: Card(
+                          child: Column(
+                            children: <Widget>[
+                              Image.network(
+                                recipe.imgUrl ?? '',
+                                fit: BoxFit.cover,
+                                height: 171.9, // Set a fixed height for the image
+                                width: double.infinity, // Make the image take the full width of the card
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  recipe.rname ?? '',
+                                  style: GoogleFonts.getFont(
+                                    'Alata',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 15.6,
+                                    color: Color(0xFF000000),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                }
+              },
             ),
           ),
           //Sidebar

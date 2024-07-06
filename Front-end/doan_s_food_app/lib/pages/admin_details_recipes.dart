@@ -72,6 +72,13 @@ class _AdminDetailsRecipesState extends State<AdminDetailsRecipes> {
     widget.recipe_nutritions = recipe_nutritionService.getRecipe_NutritionByRecipeId(widget.recipe!.id!);
     widget.cookingSteps = await cookingStepService.getCookingStepsByRecipeId(widget.recipe!.id!);
 
+    widget.recipe_nutritions.forEach((element) {
+      print("recipeNutrition ID: ${element!.nutritionID}");
+      print("recipeNutrition RecipeID: ${element.recipeID}");
+      print("recipeNutrition NutritionID: ${element.nutritionID}");
+      print("recipeNutrition Value: ${element.value}");
+    });
+
     List<Future<NutritionInfo?>> nutritionInfoFutures = [];
     for (var recipe_nutrition in widget.recipe_nutritions) {
       nutritionInfoFutures.add(NutritionInfoService().getNutritionInfoByIdFromServer(recipe_nutrition!.nutritionID!));
@@ -83,6 +90,12 @@ class _AdminDetailsRecipesState extends State<AdminDetailsRecipes> {
 
     setState(() {
       widget.nutritionInfos.addAll(nutritionInfos.whereType<NutritionInfo>());
+    });
+
+    widget.nutritionInfos.forEach((element) {
+      print("nutritionInfo ID: ${element!.id}");
+      print("nutritionInfo Name: ${element.name}");
+      print("nutritionInfo Unit: ${element.unit}");
     });
   }
 
@@ -187,7 +200,15 @@ class _AdminDetailsRecipesState extends State<AdminDetailsRecipes> {
                                 onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => AdminEditDetailsRecipes()),
+                                    MaterialPageRoute(builder: (context) => AdminEditDetailsRecipes(
+                                      category: widget.category,
+                                      recipe: widget.recipe,
+                                      ingredients: widget.ingredients,
+                                      cookingSteps: widget.cookingSteps,
+                                      nutritionInfos: widget.nutritionInfos,
+                                      recipe_ingredients: widget.recipe_ingredients,
+                                      recipe_nutritions: widget.recipe_nutritions,
+                                    )),
                                   );
                                 },
                                 style: ElevatedButton.styleFrom(
@@ -351,8 +372,8 @@ class _AdminDetailsRecipesState extends State<AdminDetailsRecipes> {
                                               margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
                                               child: Text(
                                                 // TODO: Nutrition Name
-                                                '65g carbs',
-                                                // (recipe_nutrition!.value.toString() + nutritionInfo!.unit! + nutritionInfo.name!) ?? 'Nutrition Name',
+                                                // '65g carbs',
+                                                (recipe_nutrition!.value.toString() + nutritionInfo!.unit! + ' ' + nutritionInfo.name!) ?? 'Nutrition Name',
                                                 style: GoogleFonts.getFont(
                                                   'Be Vietnam Pro',
                                                   fontWeight: FontWeight.w500,

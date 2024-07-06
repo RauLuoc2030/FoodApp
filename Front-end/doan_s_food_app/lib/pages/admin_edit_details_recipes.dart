@@ -1,3 +1,10 @@
+import 'package:doan_s_food_app/Model/Category.dart';
+import 'package:doan_s_food_app/Model/CookingStep.dart';
+import 'package:doan_s_food_app/Model/Ingredient.dart';
+import 'package:doan_s_food_app/Model/NutritionInfo.dart';
+import 'package:doan_s_food_app/Model/Recipe.dart';
+import 'package:doan_s_food_app/Model/Recipe_Ingredient.dart';
+import 'package:doan_s_food_app/Model/Recipe_Nutrition.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -6,7 +13,31 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:doan_s_food_app/pages/admin_recipes_2.dart';
 import 'package:doan_s_food_app/pages/admin_edit_details_recipes.dart';
 
-class AdminEditDetailsRecipes extends StatelessWidget {
+class AdminEditDetailsRecipes extends StatefulWidget {
+  Category? category;
+  Recipe? recipe;
+  List<Ingredient?> ingredients = [];
+  List<CookingStep?> cookingSteps = [];
+  List<NutritionInfo?> nutritionInfos = [];
+  List<Recipe_Ingredient?> recipe_ingredients = [];
+  List<Recipe_Nutrition?> recipe_nutritions = [];
+
+  AdminEditDetailsRecipes(
+      {this.category,
+      this.recipe,
+      this.ingredients = const [],
+      this.cookingSteps = const [],
+      this.nutritionInfos = const [],
+      this.recipe_ingredients = const [],
+      this.recipe_nutritions = const []}
+    );
+
+  @override
+  _AdminEditDetailsRecipesState createState() => _AdminEditDetailsRecipesState();
+}
+
+class _AdminEditDetailsRecipesState extends State<AdminEditDetailsRecipes> {
+
   TextEditingController? _namerecipeController = TextEditingController();
   TextEditingController? _descriptionController = TextEditingController();
   TextEditingController? _timeController = TextEditingController();
@@ -29,6 +60,15 @@ class AdminEditDetailsRecipes extends StatelessWidget {
   TextEditingController? _preparation3Controller = TextEditingController();
   TextEditingController? _preparation4Controller = TextEditingController();
   TextEditingController? _preparation5Controller = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    // Now it's safe to access widget properties
+    _namerecipeController = TextEditingController(text: widget.recipe?.rname);
+    _descriptionController = TextEditingController(text: widget.recipe?.description);
+    _timeController = TextEditingController(text: widget.recipe?.prepTime.toString());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -101,10 +141,11 @@ class AdminEditDetailsRecipes extends StatelessWidget {
                               margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                               child: ElevatedButton(
                                 onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => AdminEditDetailsRecipes()),
-                                  );
+                                  print("Nút bút chì pencil được nhấn");
+                                  // Navigator.push(
+                                  //   context,
+                                  //   MaterialPageRoute(builder: (context) => AdminEditDetailsRecipes()),
+                                  // );
                                 },
                                 style: ElevatedButton.styleFrom(
                                   shape: RoundedRectangleBorder(
@@ -494,45 +535,45 @@ class AdminEditDetailsRecipes extends StatelessWidget {
                                             ),
                                           ),
                                         ),
-                                        Align(
-                                          alignment: Alignment.topLeft,
-                                          child: Row( // Wrap TextField in a Row for proper alignment
-                                            children: [
-                                              SizedBox(
-                                                height: 20,
-                                                child:Text(
-                                                  'Items: ', // Optional static text before TextField
-                                                  style: GoogleFonts.getFont(
-                                                    'Be Vietnam Pro',
-                                                    fontWeight: FontWeight.w400,
-                                                    fontSize: 10.4,
-                                                    height: 1.5,
-                                                    color: Color(0xFF748189),
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                height: 25,
-                                                width: 30, // Adjust width as needed for the number
-                                                child: TextField(
-                                                  controller: _numberitemController,
-                                                  keyboardType: TextInputType.number, // Suggest numeric keyboard
-                                                  style: GoogleFonts.getFont(
-                                                    'Be Vietnam Pro',
-                                                    fontWeight: FontWeight.w400,
-                                                    fontSize: 10.4,
-                                                    height: 1.5,
-                                                    color: Color(0xFF748189),
-                                                  ),
-                                                  decoration: InputDecoration(
-                                                    hintText: '...', // Optional hint text
-                                                    border: InputBorder.none, // Remove border for cleaner look (optional)
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
+                                        // Align(
+                                        //   alignment: Alignment.topLeft,
+                                        //   child: Row( // Wrap TextField in a Row for proper alignment
+                                        //     children: [
+                                        //       SizedBox(
+                                        //         height: 20,
+                                        //         child:Text(
+                                        //           'Items: ', // Optional static text before TextField
+                                        //           style: GoogleFonts.getFont(
+                                        //             'Be Vietnam Pro',
+                                        //             fontWeight: FontWeight.w400,
+                                        //             fontSize: 10.4,
+                                        //             height: 1.5,
+                                        //             color: Color(0xFF748189),
+                                        //           ),
+                                        //         ),
+                                        //       ),
+                                        //       SizedBox(
+                                        //         height: 25,
+                                        //         width: 30, // Adjust width as needed for the number
+                                        //         child: TextField(
+                                        //           controller: _numberitemController,
+                                        //           keyboardType: TextInputType.number, // Suggest numeric keyboard
+                                        //           style: GoogleFonts.getFont(
+                                        //             'Be Vietnam Pro',
+                                        //             fontWeight: FontWeight.w400,
+                                        //             fontSize: 10.4,
+                                        //             height: 1.5,
+                                        //             color: Color(0xFF748189),
+                                        //           ),
+                                        //           decoration: InputDecoration(
+                                        //             hintText: '...', // Optional hint text
+                                        //             border: InputBorder.none, // Remove border for cleaner look (optional)
+                                        //           ),
+                                        //         ),
+                                        //       ),
+                                        //     ],
+                                        //   ),
+                                        // ),
                                       ],
                                     ),
                                   ),
