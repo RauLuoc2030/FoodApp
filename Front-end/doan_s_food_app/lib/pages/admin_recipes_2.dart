@@ -140,7 +140,8 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                               children: [
                                 // Row chứa Mr. Gojo Satoru và Admin
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     GestureDetector(
@@ -148,11 +149,14 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                         // Navigate to MenuAdmin page
                                         Navigator.push(
                                           context,
-                                          MaterialPageRoute(builder: (context) => MenuAdmin()), // Replace with your MenuAdmin widget
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  MenuAdmin()), // Replace with your MenuAdmin widget
                                         );
                                       },
                                       child: Container(
-                                        margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                                        margin:
+                                            EdgeInsets.fromLTRB(0, 10, 0, 10),
                                         child: SizedBox(
                                           width: 26,
                                           height: 26,
@@ -163,11 +167,13 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                       ),
                                     ),
                                     Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         // Mr. Gojo Satoru
                                         Container(
-                                          margin: EdgeInsets.fromLTRB(154, 3, 0, 4),
+                                          margin:
+                                              EdgeInsets.fromLTRB(154, 3, 0, 4),
                                           child: Text(
                                             'Mr. Gojo Satoru',
                                             style: GoogleFonts.getFont(
@@ -180,7 +186,8 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                         ),
                                         // Admin
                                         Container(
-                                          margin: EdgeInsets.fromLTRB(240, 3, 6, 12),
+                                          margin: EdgeInsets.fromLTRB(
+                                              240, 3, 6, 12),
                                           child: Text(
                                             'Admin',
                                             style: GoogleFonts.getFont(
@@ -199,20 +206,24 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                       width: 52.1,
                                       height: 52.1,
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(26.0416660309),
+                                        borderRadius: BorderRadius.circular(
+                                            26.0416660309),
                                       ),
                                       child: GestureDetector(
                                         onTap: () {
                                           Navigator.push(
                                             context,
-                                            MaterialPageRoute(builder: (context) => DetailProfileAdmin()),
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    DetailProfileAdmin()),
                                           );
                                         },
                                         child: Container(
                                           decoration: BoxDecoration(
                                             image: DecorationImage(
                                               fit: BoxFit.cover,
-                                              image: AssetImage('assets/images/gojo.png'),
+                                              image: AssetImage(
+                                                  'assets/images/gojo.png'),
                                             ),
                                           ),
                                           child: Container(
@@ -233,7 +244,7 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.fromLTRB(24.7, 0, 29.7, 10),
+                  margin: EdgeInsets.fromLTRB(24.7, 0, 29.7, 700),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -263,12 +274,15 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                   onPressed: () {
                                     Navigator.push(
                                       context,
-                                      MaterialPageRoute(builder: (context) => AdminEditDetailsRecipes()),
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              AdminEditDetailsRecipes()),
                                     );
                                   },
                                   style: ElevatedButton.styleFrom(
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10), // Bo góc của button
+                                      borderRadius: BorderRadius.circular(
+                                          10), // Bo góc của button
                                     ),
                                   ),
                                   child: Icon(
@@ -280,14 +294,11 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                               Container(
                                 margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
                                 child: ElevatedButton(
-                                  onPressed: () {
-                                    // print("Nút xóa");
-                                    // _deleteRecipe();
-                                    _showDeleteDialog(context);
-                                  },
+                                  onPressed: () {},
                                   style: ElevatedButton.styleFrom(
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10), // Bo góc của button Xóa DELETE
+                                      borderRadius: BorderRadius.circular(
+                                          10), // Bo góc của button
                                     ),
                                   ),
                                   child: Icon(
@@ -304,7 +315,7 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.fromLTRB(24.7, 0, 24.7, 22),
+                  margin: EdgeInsets.fromLTRB(5, 170, 5, 0),
                   child: Container(
                     decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF),
@@ -333,24 +344,32 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                       SizedBox(
                                         width: double.infinity,
                                         child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Container(
-                                              margin: EdgeInsets.fromLTRB(0, 0, 0, 26.5),
+                                              margin: EdgeInsets.fromLTRB(
+                                                  0, 0, 0, 26.5),
                                               child: Container(
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFFFFFFF),
                                                 ),
                                                 child: Container(
-                                                  padding: EdgeInsets.fromLTRB(13.6, 25, 0, 1),
+                                                  padding: EdgeInsets.fromLTRB(
+                                                      13.6, 25, 0, 1),
                                                   child: Row(
                                                     // mainAxisAlignment: MainAxisAlignment.start,
-                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
                                                     children: [
                                                       // button select
                                                       Container(
-                                                        margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                                        margin:
+                                                            EdgeInsets.fromLTRB(
+                                                                0, 0, 0, 0),
                                                         width: 20.8,
                                                         height: 20.8,
                                                         child: InkWell(
@@ -360,7 +379,11 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                                             });
                                                           },
                                                           child: Icon(
-                                                            isSelected[index] ? Icons.check_box : Icons.check_box_outline_blank,
+                                                            isSelected[index]
+                                                                ? Icons
+                                                                    .check_box
+                                                                : Icons
+                                                                    .check_box_outline_blank,
                                                             size: 20.8,
                                                             color: Colors.black,
                                                           ),
@@ -371,23 +394,29 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                                           Navigator.push(
                                                             context,
                                                             MaterialPageRoute(
-                                                                builder: (context) => AdminDetailsRecipes(
-                                                                      category: widget.category,
-                                                                      recipe: recipe,
-                                                                    )), // Replace with your MenuAdmin widget
+                                                                builder:
+                                                                    (context) =>
+                                                                        AdminDetailsRecipes(category: widget.category, recipe: recipe,)), // Replace with your MenuAdmin widget
                                                           );
                                                         },
                                                         child: Container(
-                                                          margin: EdgeInsets.fromLTRB(80, 5, 0, 4.4),
+                                                          margin: EdgeInsets
+                                                              .fromLTRB(80, 5,
+                                                                  0, 4.4),
                                                           child: Text(
                                                             // TODO: Rows data
                                                             recipe!.rname ?? '',
-                                                            style: GoogleFonts.getFont(
+                                                            style: GoogleFonts
+                                                                .getFont(
                                                               'Poppins',
-                                                              fontWeight: FontWeight.w500,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
                                                               fontSize: 14,
-                                                              letterSpacing: 0.2,
-                                                              color: Color(0xFF171725),
+                                                              letterSpacing:
+                                                                  0.2,
+                                                              color: Color(
+                                                                  0xFF171725),
                                                             ),
                                                           ),
                                                         ),
@@ -398,7 +427,8 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                               ),
                                             ),
                                             Container(
-                                              margin: EdgeInsets.fromLTRB(11, 0, 10.7, 0),
+                                              margin: EdgeInsets.fromLTRB(
+                                                  11, 0, 10.7, 0),
                                               child: Container(
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFF1F1F5),
@@ -420,16 +450,16 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                             Navigator.push(
                                               context,
                                               MaterialPageRoute(
-                                                  builder: (context) => AdminDetailsRecipes(
-                                                        category: widget.category,
-                                                        recipe: recipe,
-                                                      )), // Replace with your MenuAdmin widget
+                                                  builder: (context) =>
+                                                      AdminDetailsRecipes(category: widget.category, recipe: recipe,)), // Replace with your MenuAdmin widget
                                             );
                                           },
                                           child: Container(
                                             decoration: BoxDecoration(
-                                              border: Border.all(color: Color(0xFFF1F1F5)),
-                                              borderRadius: BorderRadius.circular(5),
+                                              border: Border.all(
+                                                  color: Color(0xFFF1F1F5)),
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
                                               color: Color(0xFFFFFFFF),
                                             ),
                                             child: Container(
@@ -439,14 +469,17 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                                 width: 50,
                                                 height: 50,
                                                 decoration: BoxDecoration(
-                                                  borderRadius: BorderRadius.circular(5),
+                                                  borderRadius:
+                                                      BorderRadius.circular(5),
                                                 ),
                                                 child: Positioned(
                                                   left: -1,
                                                   bottom: -14.8,
                                                   child: Container(
                                                     decoration: BoxDecoration(
-                                                      borderRadius: BorderRadius.circular(5),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              5),
                                                       image: DecorationImage(
                                                         fit: BoxFit.cover,
                                                         image: AssetImage(
@@ -455,7 +488,8 @@ class _AdminRecipes2State extends State<AdminRecipes2> {
                                                       ),
                                                       boxShadow: [
                                                         BoxShadow(
-                                                          color: Color(0x40000000),
+                                                          color:
+                                                              Color(0x40000000),
                                                           offset: Offset(0, 4),
                                                           blurRadius: 2,
                                                         ),
