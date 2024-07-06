@@ -365,6 +365,12 @@ CREATE TABLE MealPlan (
     FOREIGN KEY (NguoiDungID) REFERENCES NguoiDung(id) 
 );
 
+-- Insert MealPlan data
+insert into MealPlan (NguoiDungID, Name, Description, AmountOfMeals, Length, StartDate, EndDate, TotalMeal)
+values (3, N'7-Day Meal Plan', N'Kế hoạch giảm cân', 3, 1, '2024-01-01', '2024-01-07', 21); -- id: 3
+insert into MealPlan (NguoiDungID, Name, Description, AmountOfMeals, Length, StartDate, EndDate, TotalMeal)
+values (5, N'5-Day Meal Plan', N'Kế hoạch tăng cân', 3, 2, '2024-01-01', '2024-01-5', 15); -- id: 4
+
 -- Create MealPlan_Recipe table (Many-to-Many relationship between MealPlan and Recipe)
 -- MealPlan_Recipe(id, MealPlanID, RecipeID, Date)
 CREATE TABLE MealPlan_Recipe (
@@ -375,6 +381,44 @@ CREATE TABLE MealPlan_Recipe (
     FOREIGN KEY (MealPlanID) REFERENCES MealPlan(id) on delete cascade,
     FOREIGN KEY (RecipeID) REFERENCES Recipe(id)
 );
+
+-- Insert MealPlan_Recipe data
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (3, 5, '2024-01-01'); -- id: 1
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (3, 6, '2024-01-01');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (3, 7, '2024-01-01');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (3, 8, '2024-01-02');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (3, 9, '2024-01-02');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (3, 10, '2024-01-02');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (3, 11, '2024-01-03');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (3, 12, '2024-01-03');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (3, 13, '2024-01-03');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (3, 14, '2024-01-04');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (3, 15, '2024-01-04');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (3, 16, '2024-01-04');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (3, 17, '2024-01-05');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (3, 18, '2024-01-05');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (3, 5, '2024-01-05');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (3, 6, '2024-01-06');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (3, 7, '2024-01-06');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (3, 8, '2024-01-06');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (3, 9, '2024-01-07');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (3, 10, '2024-01-07');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (3, 11, '2024-01-07');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (4, 5, '2024-01-01');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (4, 6, '2024-01-01');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (4, 7, '2024-01-01');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (4, 8, '2024-01-02');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (4, 9, '2024-01-02');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (4, 10, '2024-01-02');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (4, 11, '2024-01-03');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (4, 12, '2024-01-03');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (4, 13, '2024-01-03');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (4, 14, '2024-01-04');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (4, 15, '2024-01-04');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (4, 16, '2024-01-04');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (4, 17, '2024-01-05');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (4, 18, '2024-01-05');
+insert into MealPlan_Recipe (MealPlanID, RecipeID, Date) values (4, 5, '2024-01-05');
 
 
 -- Create Recipe_Ingredient table (Many-to-Many relationship between Recipe and Ingredient)
