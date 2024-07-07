@@ -1,6 +1,6 @@
 # Food Social Networking App
 
-![Logo](./resource/Logo 2.png)
+![Logo](./Resources/Logo 2.png)
 
 ## Project Introduction
 The application provides features such as sharing images and reviews of food, creating and joining cooking communities, generating suitable meal plans, as well as searching for and saving favorite recipes
@@ -22,7 +22,7 @@ The application provides features such as sharing images and reviews of food, cr
 - **Tools**: Figma, Draw.io, StarUML, Git/Github
 
 ## Database Schema 
-![Schema](./resource/Sơ đồ.png)
+![Schema](./Resources/Sơ đồ.png)
 
 ## Main Features of the Website
 ----------------
