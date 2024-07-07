@@ -1,7 +1,7 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=D:\FlutterSDK\flutter"
-export "FLUTTER_APPLICATION_PATH=D:\Visual Studio Code\HK 6\FoodApp\Front-end\bang_s_application1"
+export "FLUTTER_ROOT=D:\bang\game\setup\flutter"
+export "FLUTTER_APPLICATION_PATH=D:\hk6\FoodApp\project\bang_s_application1"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_TARGET=lib\main.dart"
 export "FLUTTER_BUILD_DIR=build"

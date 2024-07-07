@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import '../core/app_export.dart';
 
-LightCodeColors get appTheme => ThemeHelper().themeColor();
+LightCodeColors get   appTheme => ThemeHelper().themeColor();
 ThemeData get theme => ThemeHelper().themeData();
 
 /// Helper class for managing themes and colors.
@@ -168,4 +168,39 @@ class LightCodeColors {
   Color get gray500E5 => Color(0XE5999A98);
 // White
   Color get whiteA700 => Color(0XFFFEFEFE);
+  Color get black90001 => Color(0XFF000000);
+// BlueGrayf
+// BlueGray
+  Color get blueGray300 => Color(0XFF97A1B0);
+  Color get blueGray40001 => Color(0XFF888888);
+  Color get blueGray500 => Color(0XFF738189);
+  Color get blueGray50001 => Color(0XFF748189);
+  Color get blueGray700 => Color(0XFF48515E);
+// DeepOrange
+  Color get deepOrange100 => Color(0XFFFFC6BA);
+// Gray
+  Color get gray200 => Color(0XFFE8E8E8);
+  Color get gray20001 => Color(0XFFEEEEEE);
+  Color get gray50 => Color(0XFFFAFAFA);
+  Color get gray700 => Color(0XFF5B5B5E);
+  Color get gray900 => Color(0XFF0A2533);
+  Color get gray90001 => Color(0XFF111719);
+  Color get gray90002 => Color(0XFF0E0E2C);
+// Indigo
+  Color get indigo50 => Color(0XFFE6EBF2);
+// Teal
+  Color get teal200 => Color(0XFF6FB9BE);
+  Color get teal50 => Color(0XFFE3EBEB);
+  Color get teal90019 => Color(0X19053336);
+
+// BlueGray
+  Color get blueGray100 => Color(0XFFCBD2E3);
+  Color get blueGray800 => Color(0XFF34495E);
+// DeepOrange
+  Color get deepOrange300 => Color(0XFFFF785B);
+// Gray
+  Color get gray70001 => Color(0XFF5D5959);
+// Red
+  Color get red400 => Color(0XFFEF5B5B);
+// White
 }

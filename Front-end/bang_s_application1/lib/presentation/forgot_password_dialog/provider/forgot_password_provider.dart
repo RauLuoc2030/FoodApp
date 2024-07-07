@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../../core/app_export.dart';
 import '../models/forgot_password_model.dart';
@@ -18,5 +19,15 @@ class ForgotPasswordProvider extends ChangeNotifier {
   void dispose() {
     super.dispose();
     emailController.dispose();
+  }
+  Future resetPassword() async{
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(
+          email: emailController.text.trim());
+    }on FirebaseAuthException catch(e){
+      print(e);
+
+    }
+
   }
 }

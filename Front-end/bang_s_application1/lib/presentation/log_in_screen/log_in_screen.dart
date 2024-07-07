@@ -1,3 +1,4 @@
+import 'package:bang_s_application1/Services/NguoiDungService.dart';
 import 'package:flutter/material.dart';
 import 'package:bang_s_application1/Authenticate/auth.dart';
 import '../../core/app_export.dart';
@@ -34,12 +35,16 @@ class LogInScreen extends StatefulWidget {
 class LogInScreenState extends State<LogInScreen> {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final _auth = FirebaseAuth.instance;
+  NguoiDungService nguoiDungService=NguoiDungService();
+
   String? errorMessage;
   @override
   void initState() {
     super.initState();
   }
-
+  void initUser() async{
+    await nguoiDungService.getNguoiDungs();
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -236,7 +241,8 @@ class LogInScreenState extends State<LogInScreen> {
                       onPressed: () async {
                         final userCredential = await AuthService().signInWithGoogle();
                         if (userCredential != null) {
-                          // Handle successful sign-in (e.g., navigate to a new page)
+
+
                         } else {
                           // Handle sign-in failure (e.g., show an error message)
                         }
@@ -272,6 +278,7 @@ class LogInScreenState extends State<LogInScreen> {
               contentPadding: EdgeInsets.zero,
               insetPadding: EdgeInsets.zero,
             ));
+
   }
   void signIn(String email, String password) async {
     if (_formKey.currentState!.validate()) {

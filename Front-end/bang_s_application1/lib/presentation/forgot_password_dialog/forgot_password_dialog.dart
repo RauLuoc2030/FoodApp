@@ -34,6 +34,7 @@ class ForgotPasswordDialogState extends State<ForgotPasswordDialog> {
 
   @override
   Widget build(BuildContext context) {
+    var providerA = Provider.of<ForgotPasswordProvider>(context);
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -122,8 +123,7 @@ class ForgotPasswordDialogState extends State<ForgotPasswordDialog> {
                   buttonStyle: CustomButtonStyles.fillPrimary,
                   buttonTextStyle: theme.textTheme.labelLarge!,
                   onPressed: () {
-
-                    onTapResetpassword(context);
+                    providerA.resetPassword();
                   },
                 ),
                 SizedBox(height: 22.v)
@@ -136,32 +136,6 @@ class ForgotPasswordDialogState extends State<ForgotPasswordDialog> {
   }
 
   /// Displays a dialog with the [VerifyCodeDialog] content.
-  onTapResetpassword(BuildContext context) {
-    var acs = ActionCodeSettings(
-      // URL you want to redirect back to. The domain (www.example.com) for this
-      // URL must be whitelisted in the Firebase Console.
-        url: 'https://bangtasty-3c647.firebaseapp.com/__/auth/action?mode=action&oobCode=code',
-        // This must be true
-        handleCodeInApp: true,
-        androidPackageName: 'com.bangsapplication.app',
-        // installIfNotAvailable
-        androidInstallApp: true,
-        // minimumVersion
-        androidMinimumVersion: '12');
-    var emailAuth = 'tranxuanbang2003@gmail.com';
-    FirebaseAuth.instance.sendSignInLinkToEmail(
-        email: emailAuth, actionCodeSettings: acs)
-        .catchError((onError) => print('Error sending email verification $onError'))
-        .then((value) =>  showDialog(
-        context: NavigatorService.navigatorKey.currentContext!,
-        builder: (_) => AlertDialog(
-          content: VerifyCodeDialog.builder(
-              NavigatorService.navigatorKey.currentContext!),
-          backgroundColor: Colors.transparent,
-          contentPadding: EdgeInsets.zero,
-          insetPadding: EdgeInsets.zero,
-        )));
 
-  }
 
 }

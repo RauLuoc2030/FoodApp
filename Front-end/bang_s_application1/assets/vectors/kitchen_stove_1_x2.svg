@@ -1,0 +1,17 @@
+<svg width="58" height="50" viewBox="0 0 58 50" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<path d="M56.4,0L0,0L0,48.68L56.4,48.68L56.4,0Z" fill="url(#pf_0_3602_2221)" stroke="#000000" stroke-width="2" stroke-miterlimit="3.999327" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12.8,41.2C16.556,41.2 19.6,38.155 19.6,34.4C19.6,30.644 16.556,27.6 12.8,27.6C9.044,27.6 6,30.644 6,34.4C6,38.155 9.044,41.2 12.8,41.2Z" fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="3.999327" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M33,41.2C36.756,41.2 39.8,38.155 39.8,34.4C39.8,30.644 36.756,27.6 33,27.6C29.245,27.6 26.2,30.644 26.2,34.4C26.2,38.155 29.245,41.2 33,41.2Z" fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="3.999327" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="46" y1="28.399" x2="49.8" y2="28.399" stroke="#000000" stroke-width="2" stroke-miterlimit="3.999327" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="46" y1="36.399" x2="49.8" y2="36.399" stroke="#000000" stroke-width="2" stroke-miterlimit="3.999327" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12.8,21.2C16.556,21.2 19.6,18.155 19.6,14.4C19.6,10.644 16.556,7.6 12.8,7.6C9.044,7.6 6,10.644 6,14.4C6,18.155 9.044,21.2 12.8,21.2Z" fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="3.999327" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M33,21.2C36.756,21.2 39.8,18.155 39.8,14.4C39.8,10.644 36.756,7.6 33,7.6C29.245,7.6 26.2,10.644 26.2,14.4C26.2,18.155 29.245,21.2 33,21.2Z" fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="3.999327" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="46" y1="8.399" x2="49.8" y2="8.399" stroke="#000000" stroke-width="2" stroke-miterlimit="3.999327" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="46" y1="16.399" x2="49.8" y2="16.399" stroke="#000000" stroke-width="2" stroke-miterlimit="3.999327" stroke-linecap="round" stroke-linejoin="round"/>
+<defs>
+<linearGradient id="pf_0_3602_2221" x1="8.667" y1="63.342" x2="51.79" y2="10.395" gradientUnits="userSpaceOnUse">
+<stop stop-color="#3BADF5"/>
+<stop offset="1" stop-color="#0083DA"/>
+</linearGradient>
+</defs>
+</svg>
