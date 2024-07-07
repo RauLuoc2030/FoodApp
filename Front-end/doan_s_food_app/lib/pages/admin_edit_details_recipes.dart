@@ -5,14 +5,14 @@ import 'package:doan_s_food_app/Model/NutritionInfo.dart';
 import 'package:doan_s_food_app/Model/Recipe.dart';
 import 'package:doan_s_food_app/Model/Recipe_Ingredient.dart';
 import 'package:doan_s_food_app/Model/Recipe_Nutrition.dart';
+import 'package:doan_s_food_app/Services/NutritionInfoService.dart';
 import 'package:flutter/material.dart';
-import 'dart:ui';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:doan_s_food_app/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:doan_s_food_app/pages/admin_recipes_2.dart';
+// ignore: unused_import
 import 'package:doan_s_food_app/pages/admin_edit_details_recipes.dart';
 
+// ignore: must_be_immutable
 class AdminEditDetailsRecipes extends StatefulWidget {
   Category? category;
   Recipe? recipe;
@@ -23,21 +23,13 @@ class AdminEditDetailsRecipes extends StatefulWidget {
   List<Recipe_Nutrition?> recipe_nutritions = [];
 
   AdminEditDetailsRecipes(
-      {this.category,
-      this.recipe,
-      this.ingredients = const [],
-      this.cookingSteps = const [],
-      this.nutritionInfos = const [],
-      this.recipe_ingredients = const [],
-      this.recipe_nutritions = const []}
-    );
+      {this.category, this.recipe, this.ingredients = const [], this.cookingSteps = const [], this.nutritionInfos = const [], this.recipe_ingredients = const [], this.recipe_nutritions = const []});
 
   @override
   _AdminEditDetailsRecipesState createState() => _AdminEditDetailsRecipesState();
 }
 
 class _AdminEditDetailsRecipesState extends State<AdminEditDetailsRecipes> {
-
   TextEditingController? _namerecipeController = TextEditingController();
   TextEditingController? _descriptionController = TextEditingController();
   TextEditingController? _timeController = TextEditingController();
@@ -45,21 +37,41 @@ class _AdminEditDetailsRecipesState extends State<AdminEditDetailsRecipes> {
   TextEditingController? _proteinsController = TextEditingController();
   TextEditingController? _kcalController = TextEditingController();
   TextEditingController? _fatsController = TextEditingController();
-  TextEditingController? _numberitemController = TextEditingController();
+  // TextEditingController? _numberitemController = TextEditingController();
   TextEditingController? _ingredient1Controller = TextEditingController();
   TextEditingController? _quantity1Controller = TextEditingController();
   TextEditingController? _ingredient2Controller = TextEditingController();
   TextEditingController? _quantity2Controller = TextEditingController();
   TextEditingController? _creatornameController = TextEditingController();
   TextEditingController? _creatordescripController = TextEditingController();
-  TextEditingController? _relate1Controller = TextEditingController();
-  TextEditingController? _relate2Controller = TextEditingController();
-  TextEditingController? _relate3Controller = TextEditingController();
-  TextEditingController? _preparation1Controller = TextEditingController();
-  TextEditingController? _preparation2Controller = TextEditingController();
-  TextEditingController? _preparation3Controller = TextEditingController();
-  TextEditingController? _preparation4Controller = TextEditingController();
-  TextEditingController? _preparation5Controller = TextEditingController();
+  // TextEditingController? _relate1Controller = TextEditingController();
+  // TextEditingController? _relate2Controller = TextEditingController();
+  // TextEditingController? _relate3Controller = TextEditingController();
+
+  List<TextEditingController> _controllersPreparationStep = [];
+  List<NutritionItem> _nutritionItems = [];
+
+  NutritionInfoService _nutritionInfoService = NutritionInfoService();
+
+  void addNutritionItem() {
+    setState(() {
+      _nutritionItems.add(NutritionItem());
+    });
+  }
+
+  // Function to add a new TextEditingController (and thus a new TextField)
+  void _addNewPreparationSteprTextField() {
+    setState(() {
+      _controllersPreparationStep.add(TextEditingController());
+    });
+  }
+
+  @override
+  void dispose() {
+    // Dispose of the controllers when the widget is removed from the widget tree
+    _controllersPreparationStep.forEach((controller) => controller.dispose());
+    super.dispose();
+  }
 
   @override
   void initState() {
@@ -68,6 +80,15 @@ class _AdminEditDetailsRecipesState extends State<AdminEditDetailsRecipes> {
     _namerecipeController = TextEditingController(text: widget.recipe?.rname);
     _descriptionController = TextEditingController(text: widget.recipe?.description);
     _timeController = TextEditingController(text: widget.recipe?.prepTime.toString());
+    initData();
+  }
+
+  void initData() async {
+    await _nutritionInfoService.getNutritionInfos();
+    setState(() {
+      widget.nutritionInfos = _nutritionInfoService.NutritionInfos;
+    });
+    // print("length: ${widget.nutritionInfos.length}");
   }
 
   @override
@@ -146,6 +167,10 @@ class _AdminEditDetailsRecipesState extends State<AdminEditDetailsRecipes> {
                                   //   context,
                                   //   MaterialPageRoute(builder: (context) => AdminEditDetailsRecipes()),
                                   // );
+                                  _nutritionItems.forEach((element) {
+                                    ;
+                                    print("nutritionId: ${_nutritionItems.firstWhere((nutritionInfo) => nutritionInfo.name == element.name).nutritionId ?? 0}, name: ${element.name}, value: ${element.value}");
+                                  });
                                 },
                                 style: ElevatedButton.styleFrom(
                                   shape: RoundedRectangleBorder(
@@ -309,9 +334,11 @@ class _AdminEditDetailsRecipesState extends State<AdminEditDetailsRecipes> {
                                     ),
                                     Container(
                                       margin: EdgeInsets.fromLTRB(0, 0, 0, 3.2),
-                                      child: Row( // Wrap TextField in a Row for proper alignment
+                                      child: Row(
+                                        // Wrap TextField in a Row for proper alignment
                                         children: [
-                                          SizedBox( // Control width of TextField
+                                          SizedBox(
+                                            // Control width of TextField
                                             height: 27,
                                             width: 40, // Adjust as needed
                                             child: TextField(
@@ -360,9 +387,11 @@ class _AdminEditDetailsRecipesState extends State<AdminEditDetailsRecipes> {
                                     ),
                                     Container(
                                       margin: EdgeInsets.fromLTRB(0, 0, 40, 3.2),
-                                      child: Row( // Wrap TextField in a Row for proper alignment
+                                      child: Row(
+                                        // Wrap TextField in a Row for proper alignment
                                         children: [
-                                          SizedBox( // Control width of TextField
+                                          SizedBox(
+                                            // Control width of TextField
                                             height: 27,
                                             width: 40, // Adjust as needed
                                             child: TextField(
@@ -420,9 +449,11 @@ class _AdminEditDetailsRecipesState extends State<AdminEditDetailsRecipes> {
                                     ),
                                     Container(
                                       margin: EdgeInsets.fromLTRB(0, 0, 0, 3.2),
-                                      child: Row( // Wrap TextField in a Row for proper alignment
+                                      child: Row(
+                                        // Wrap TextField in a Row for proper alignment
                                         children: [
-                                          SizedBox( // Control width of TextField
+                                          SizedBox(
+                                            // Control width of TextField
                                             height: 27,
                                             width: 40, // Adjust as needed
                                             child: TextField(
@@ -471,9 +502,11 @@ class _AdminEditDetailsRecipesState extends State<AdminEditDetailsRecipes> {
                                     ),
                                     Container(
                                       margin: EdgeInsets.fromLTRB(0, 0, 18, 3.2),
-                                      child: Row( // Wrap TextField in a Row for proper alignment
+                                      child: Row(
+                                        // Wrap TextField in a Row for proper alignment
                                         children: [
-                                          SizedBox( // Control width of TextField
+                                          SizedBox(
+                                            // Control width of TextField
                                             height: 27,
                                             width: 40, // Adjust as needed
                                             child: TextField(
@@ -511,6 +544,7 @@ class _AdminEditDetailsRecipesState extends State<AdminEditDetailsRecipes> {
                           Container(
                             margin: EdgeInsets.fromLTRB(0, 0, 4.8, 9.4),
                             child: Column(
+                              mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -578,172 +612,296 @@ class _AdminEditDetailsRecipesState extends State<AdminEditDetailsRecipes> {
                                     ),
                                   ),
                                 ),
-                                Container(
-                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 3.1),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(4.2),
-                                    color: Color(0xFFFFFFFF),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Color(0x1A063336),
-                                        offset: Offset(0, 0.5),
-                                        blurRadius: 2.0833332539,
-                                      ),
-                                    ],
-                                  ),
-                                  child: Container(
-                                    padding: EdgeInsets.fromLTRB(4.2, 4.2, 4.2, 4.2),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        SizedBox(
-                                          width: 100,
-                                          height: 10,
-                                          child: TextField(
-                                            controller: _ingredient1Controller,
-                                            style: GoogleFonts.getFont(
-                                              'Be Vietnam Pro',
-                                              fontWeight: FontWeight.w700,
-                                              fontSize: 7.8,
-                                              height: 1.1,
-                                              color: Color(0xFF0A2533),
-                                            ),
-                                            decoration: InputDecoration(
-                                              hintText: '...', // Hint text
-                                              border: InputBorder.none, // Remove border for cleaner look (optional)
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 80,
-                                          height: 10,
-                                          child: Align(
-                                            alignment: Alignment.centerRight,
-                                            child: TextField(
-                                              controller: _quantity1Controller,
-                                              textAlign: TextAlign.right,
-                                              style: GoogleFonts.getFont(
-                                                'Be Vietnam Pro',
-                                                fontWeight: FontWeight.w700,
-                                                fontSize: 7.8,
-                                                height: 1.1,
-                                                color: Color(0xFF0A2533),
-                                              ),
-                                              decoration: InputDecoration(
-                                                hintText: '...', // Hint text
-                                                border: InputBorder.none, // Remove border for cleaner look (optional)
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 3.1),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(4.2),
-                                    color: Color(0xFFFFFFFF),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Color(0x1A063336),
-                                        offset: Offset(0, 0.5),
-                                        blurRadius: 2.0833332539,
-                                      ),
-                                    ],
-                                  ),
-                                  child: Container(
-                                    padding: EdgeInsets.fromLTRB(4.2, 4.2, 4.2, 4.2),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        SizedBox(
-                                          width: 100,
-                                          height: 10,
-                                          child: TextField(
-                                            controller: _ingredient2Controller,
-                                            style: GoogleFonts.getFont(
-                                              'Be Vietnam Pro',
-                                              fontWeight: FontWeight.w700,
-                                              fontSize: 7.8,
-                                              height: 1.1,
-                                              color: Color(0xFF0A2533),
-                                            ),
-                                            decoration: InputDecoration(
-                                              hintText: '...', // Hint text
-                                              border: InputBorder.none, // Remove border for cleaner look (optional)
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 80,
-                                          height: 10,
-                                          child: Align(
-                                            alignment: Alignment.centerRight,
-                                            child: TextField(
-                                              controller: _quantity2Controller,
-                                              textAlign: TextAlign.right,
-                                              style: GoogleFonts.getFont(
-                                                'Be Vietnam Pro',
-                                                fontWeight: FontWeight.w700,
-                                                fontSize: 7.8,
-                                                height: 1.1,
-                                                color: Color(0xFF0A2533),
-                                              ),
-                                              decoration: InputDecoration(
-                                                hintText: '...', // Hint text
-                                                border: InputBorder.none, // Remove border for cleaner look (optional)
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 3.1),
-                                  height: 23, // Adjust width to match the container above
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(4.2),
-                                    color: Color(0xFFFFFFFF),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Color(0x1A063336),
-                                        offset: Offset(0, 0.5),
-                                        blurRadius: 2.0833332539,
-                                      ),
-                                    ],
-                                  ),
-                                  child: TextButton(
-                                    onPressed: () {
-                                      // Add logic to create a new container with TextFields here
-                                      // (consider using a stateful widget to manage the list of ingredients)
-                                    },
-                                    child: Container(
-                                      padding: EdgeInsets.fromLTRB(4.2, 0, 4.2, 0),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                Flexible(
+                                  fit: FlexFit.loose,
+                                  child: ListView.builder(
+                                    shrinkWrap: true,
+                                    itemCount: _nutritionItems.length,
+                                    itemBuilder: (context, index) {
+                                      return Row(
                                         children: [
-                                          Text(
-                                            'Add Item +',
-                                            style: GoogleFonts.getFont(
-                                              'Be Vietnam Pro',
-                                              fontWeight: FontWeight.w700,
-                                              fontSize: 7.8,
-                                              height: 1.1,
-                                              color: Color(0xFF0A2533), // Change text color for button
+                                          DropdownButton<String>(
+                                            value: _nutritionItems[index].name,
+                                            onChanged: (newValue) {
+                                              setState(() {
+                                                // final selectedNutritionInfo = widget.nutritionInfos.firstWhere(
+                                                //   (nutritionInfo) => nutritionInfo?.name == newValue,
+                                                //   orElse: () => NutritionInfo(),
+                                                // );
+                                                // // Update the type based on the id of the selected NutritionInfo
+                                                // _nutritionItems[index].name = selectedNutritionInfo?.id.toString() ?? '';
+                                                _nutritionItems[index].name = newValue!;
+                                              });
+                                            },
+                                            items: widget.nutritionInfos.map<DropdownMenuItem<String>>((NutritionInfo? nutritionInfo) {
+                                              return DropdownMenuItem<String>(
+                                                value: nutritionInfo?.name ?? '',
+                                                child: Text(nutritionInfo?.name ?? ''),
+                                              );
+                                            }).toList(),
+                                          ),
+                                          SizedBox(width: 10),
+                                          Expanded(
+                                            child: TextField(
+                                              onChanged: (newValue) {
+                                                _nutritionItems[index].value = newValue;
+                                              },
+                                              style: GoogleFonts.getFont(
+                                                'Be Vietnam Pro',
+                                                fontWeight: FontWeight.w700,
+                                                fontSize: 7.8,
+                                                height: 1.1,
+                                                color: Color(0xFF0A2533),
+                                              ),
+                                              decoration: InputDecoration(
+                                                // labelText: 'Value',
+                                                hintText: '...', // Hint text
+                                                border: InputBorder.none, // Remove border for cleaner look (optional)
+                                              ),
                                             ),
+                                          ),
+                                          IconButton(
+                                            icon: Icon(Icons.delete),
+                                            onPressed: () {
+                                              setState(() {
+                                                _nutritionItems.removeAt(index);
+                                              });
+                                            },
                                           ),
                                         ],
-                                      ),
+                                      );
+                                    },
+                                  ),
+                                ),
+                                ElevatedButton(
+                                  onPressed: addNutritionItem,
+                                  child: Container(
+                                    padding: EdgeInsets.fromLTRB(4.2, 0, 4.2, 0),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Add Item +',
+                                          style: GoogleFonts.getFont(
+                                            'Be Vietnam Pro',
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 7.8,
+                                            height: 1.1,
+                                            color: Color(0xFF0A2533), // Change text color for button
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
+                                // Column(
+                                //   children: [
+                                //     Expanded(
+                                //       child: ListView.builder(
+                                //         shrinkWrap: true,
+                                //         itemCount: _nutritionItems.length,
+                                //         itemBuilder: (context, index) {
+                                //           return Row(
+                                //             children: [
+                                //               DropdownButton<String>(
+                                //                 value: _nutritionItems[index].type,
+                                //                 onChanged: (newValue) {
+                                //                   setState(() {
+                                //                     _nutritionItems[index].type = newValue!;
+                                //                   });
+                                //                 },
+                                //                 items: <String>['Protein', 'Carbs', 'Fats'].map<DropdownMenuItem<String>>((String value) {
+                                //                   return DropdownMenuItem<String>(
+                                //                     value: value,
+                                //                     child: Text(value),
+                                //                   );
+                                //                 }).toList(),
+                                //               ),
+                                //               SizedBox(width: 10),
+                                //               Expanded(
+                                //                 child: TextField(
+                                //                   onChanged: (newValue) {
+                                //                     _nutritionItems[index].value = newValue;
+                                //                   },
+                                //                   decoration: InputDecoration(
+                                //                     labelText: 'Value',
+                                //                   ),
+                                //                 ),
+                                //               ),
+                                //             ],
+                                //           );
+                                //         },
+                                //       ),
+                                //     ),
+                                //   ],
+                                // ),
+                                // Container(
+                                //   margin: EdgeInsets.fromLTRB(0, 0, 0, 3.1),
+                                //   decoration: BoxDecoration(
+                                //     borderRadius: BorderRadius.circular(4.2),
+                                //     color: Color(0xFFFFFFFF),
+                                //     boxShadow: [
+                                //       BoxShadow(
+                                //         color: Color(0x1A063336),
+                                //         offset: Offset(0, 0.5),
+                                //         blurRadius: 2.0833332539,
+                                //       ),
+                                //     ],
+                                //   ),
+                                //   child: Container(
+                                //     padding: EdgeInsets.fromLTRB(4.2, 4.2, 4.2, 4.2),
+                                //     child: Row(
+                                //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                //       crossAxisAlignment: CrossAxisAlignment.start,
+                                //       children: [
+                                //         SizedBox(
+                                //           width: 100,
+                                //           height: 10,
+                                //           child: TextField(
+                                //             controller: _ingredient1Controller,
+                                //             style: GoogleFonts.getFont(
+                                //               'Be Vietnam Pro',
+                                //               fontWeight: FontWeight.w700,
+                                //               fontSize: 7.8,
+                                //               height: 1.1,
+                                //               color: Color(0xFF0A2533),
+                                //             ),
+                                //             decoration: InputDecoration(
+                                //               hintText: '...', // Hint text
+                                //               border: InputBorder.none, // Remove border for cleaner look (optional)
+                                //             ),
+                                //           ),
+                                //         ),
+                                //         SizedBox(
+                                //           width: 80,
+                                //           height: 10,
+                                //           child: Align(
+                                //             alignment: Alignment.centerRight,
+                                //             child: TextField(
+                                //               controller: _quantity1Controller,
+                                //               textAlign: TextAlign.right,
+                                //               style: GoogleFonts.getFont(
+                                //                 'Be Vietnam Pro',
+                                //                 fontWeight: FontWeight.w700,
+                                //                 fontSize: 7.8,
+                                //                 height: 1.1,
+                                //                 color: Color(0xFF0A2533),
+                                //               ),
+                                //               decoration: InputDecoration(
+                                //                 hintText: '...', // Hint text
+                                //                 border: InputBorder.none, // Remove border for cleaner look (optional)
+                                //               ),
+                                //             ),
+                                //           ),
+                                //         ),
+                                //       ],
+                                //     ),
+                                //   ),
+                                // ),
+                                // Container(
+                                //   margin: EdgeInsets.fromLTRB(0, 0, 0, 3.1),
+                                //   decoration: BoxDecoration(
+                                //     borderRadius: BorderRadius.circular(4.2),
+                                //     color: Color(0xFFFFFFFF),
+                                //     boxShadow: [
+                                //       BoxShadow(
+                                //         color: Color(0x1A063336),
+                                //         offset: Offset(0, 0.5),
+                                //         blurRadius: 2.0833332539,
+                                //       ),
+                                //     ],
+                                //   ),
+                                //   child: Container(
+                                //     padding: EdgeInsets.fromLTRB(4.2, 4.2, 4.2, 4.2),
+                                //     child: Row(
+                                //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                //       crossAxisAlignment: CrossAxisAlignment.start,
+                                //       children: [
+                                //         SizedBox(
+                                //           width: 100,
+                                //           height: 10,
+                                //           child: TextField(
+                                //             controller: _ingredient2Controller,
+                                //             style: GoogleFonts.getFont(
+                                //               'Be Vietnam Pro',
+                                //               fontWeight: FontWeight.w700,
+                                //               fontSize: 7.8,
+                                //               height: 1.1,
+                                //               color: Color(0xFF0A2533),
+                                //             ),
+                                //             decoration: InputDecoration(
+                                //               hintText: '...', // Hint text
+                                //               border: InputBorder.none, // Remove border for cleaner look (optional)
+                                //             ),
+                                //           ),
+                                //         ),
+                                //         SizedBox(
+                                //           width: 80,
+                                //           height: 10,
+                                //           child: Align(
+                                //             alignment: Alignment.centerRight,
+                                //             child: TextField(
+                                //               controller: _quantity2Controller,
+                                //               textAlign: TextAlign.right,
+                                //               style: GoogleFonts.getFont(
+                                //                 'Be Vietnam Pro',
+                                //                 fontWeight: FontWeight.w700,
+                                //                 fontSize: 7.8,
+                                //                 height: 1.1,
+                                //                 color: Color(0xFF0A2533),
+                                //               ),
+                                //               decoration: InputDecoration(
+                                //                 hintText: '...', // Hint text
+                                //                 border: InputBorder.none, // Remove border for cleaner look (optional)
+                                //               ),
+                                //             ),
+                                //           ),
+                                //         ),
+                                //       ],
+                                //     ),
+                                //   ),
+                                // ),
+                                // Container(
+                                //   margin: EdgeInsets.fromLTRB(0, 0, 0, 3.1),
+                                //   height: 23, // Adjust width to match the container above
+                                //   decoration: BoxDecoration(
+                                //     borderRadius: BorderRadius.circular(4.2),
+                                //     color: Color(0xFFFFFFFF),
+                                //     boxShadow: [
+                                //       BoxShadow(
+                                //         color: Color(0x1A063336),
+                                //         offset: Offset(0, 0.5),
+                                //         blurRadius: 2.0833332539,
+                                //       ),
+                                //     ],
+                                //   ),
+                                //   child: TextButton(
+                                //     onPressed: () {
+                                //       // Add logic to create a new container with TextFields here
+                                //       // (consider using a stateful widget to manage the list of ingredients)
+                                //     },
+                                //     child: Container(
+                                //       padding: EdgeInsets.fromLTRB(4.2, 0, 4.2, 0),
+                                //       child: Row(
+                                //         mainAxisAlignment: MainAxisAlignment.center,
+                                //         crossAxisAlignment: CrossAxisAlignment.center,
+                                //         children: [
+                                //           Text(
+                                //             'Add Item +',
+                                //             style: GoogleFonts.getFont(
+                                //               'Be Vietnam Pro',
+                                //               fontWeight: FontWeight.w700,
+                                //               fontSize: 7.8,
+                                //               height: 1.1,
+                                //               color: Color(0xFF0A2533), // Change text color for button
+                                //             ),
+                                //           ),
+                                //         ],
+                                //       ),
+                                //     ),
+                                //   ),
+                                // ),
                               ],
                             ),
                           ),
@@ -830,7 +988,7 @@ class _AdminEditDetailsRecipesState extends State<AdminEditDetailsRecipes> {
                                             ),
                                             SizedBox(
                                               height: 20,
-                                              child:TextField(
+                                              child: TextField(
                                                 controller: _creatordescripController,
                                                 style: GoogleFonts.getFont(
                                                   'Be Vietnam Pro',
@@ -1166,241 +1324,157 @@ class _AdminEditDetailsRecipesState extends State<AdminEditDetailsRecipes> {
                                     ),
                                   ),
                                 ),
-                                Container(
-                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 3.1),
-                                  child: Align(
-                                    alignment: Alignment.topLeft,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(4.2),
-                                        color: Color(0xFFFFFFFF),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Color(0x1A063336),
-                                            offset: Offset(0, 0.5),
-                                            blurRadius: 2.0833332539,
-                                          ),
-                                        ],
+                                Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    // Iterate over the list of controllers to create a TextField for each
+                                    Flexible(
+                                      fit: FlexFit.loose,
+                                      child: ListView.builder(
+                                        shrinkWrap: true,
+                                        itemCount: _controllersPreparationStep.length,
+                                        itemBuilder: (context, index) {
+                                          return Row(
+                                            children: [
+                                              Expanded(
+                                                child: Container(
+                                                  padding: EdgeInsets.fromLTRB(4.2, 8, 4.2, 0),
+                                                  child: SizedBox(
+                                                    height: 10,
+                                                    child: TextField(
+                                                      controller: _controllersPreparationStep[index],
+                                                      style: GoogleFonts.getFont(
+                                                        'Be Vietnam Pro',
+                                                        fontWeight: FontWeight.w700,
+                                                        fontSize: 7.8,
+                                                        height: 1.1,
+                                                        color: Color(0xFF0A2533),
+                                                      ),
+                                                      decoration: InputDecoration(
+                                                        hintText: '.........', // Optional hint text
+                                                        border: InputBorder.none, // Remove border for cleaner look (optional)
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              IconButton(
+                                                icon: Icon(Icons.delete),
+                                                onPressed: () {
+                                                  setState(() {
+                                                    _controllersPreparationStep.removeAt(index);
+                                                  });
+                                                },
+                                              ),
+                                            ],
+                                          );
+                                        },
                                       ),
+                                    ),
+                                    ElevatedButton(
+                                      onPressed: _addNewPreparationSteprTextField,
                                       child: Container(
-                                        padding: EdgeInsets.fromLTRB(4.2, 8, 4.2, 0),
-                                        child: SizedBox(
-                                          height: 10,
-                                          child: TextField(
-                                            controller: _preparation1Controller,
-                                            style: GoogleFonts.getFont(
-                                              'Be Vietnam Pro',
-                                              fontWeight: FontWeight.w700,
-                                              fontSize: 7.8,
-                                              height: 1.1,
-                                              color: Color(0xFF0A2533),
+                                        padding: EdgeInsets.fromLTRB(4.2, 0, 4.2, 0),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              'Add Step +',
+                                              style: GoogleFonts.getFont(
+                                                'Be Vietnam Pro',
+                                                fontWeight: FontWeight.w700,
+                                                fontSize: 7.8,
+                                                height: 1.1,
+                                                color: Color(0xFF0A2533), // Change text color for button
+                                              ),
                                             ),
-                                            decoration: InputDecoration(
-                                              hintText: '1. ...', // Optional hint text
-                                              border: InputBorder.none, // Remove border for cleaner look (optional)
-                                            ),
-                                          ),
+                                          ],
                                         ),
                                       ),
                                     ),
-                                  ),
+                                  ],
                                 ),
-                                Container(
-                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 3.1),
-                                  child: Align(
-                                    alignment: Alignment.topLeft,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(4.2),
-                                        color: Color(0xFFFFFFFF),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Color(0x1A063336),
-                                            offset: Offset(0, 0.5),
-                                            blurRadius: 2.0833332539,
-                                          ),
-                                        ],
-                                      ),
-                                      child: Container(
-                                        padding: EdgeInsets.fromLTRB(4.2, 8, 4.2, 0),
-                                        child: SizedBox(
-                                          height: 10,
-                                          child: TextField(
-                                            controller: _preparation2Controller,
-                                            style: GoogleFonts.getFont(
-                                              'Be Vietnam Pro',
-                                              fontWeight: FontWeight.w700,
-                                              fontSize: 7.8,
-                                              height: 1.1,
-                                              color: Color(0xFF0A2533),
-                                            ),
-                                            decoration: InputDecoration(
-                                              hintText: '2. ...', // Optional hint text
-                                              border: InputBorder.none, // Remove border for cleaner look (optional)
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 3.1),
-                                  child: Align(
-                                    alignment: Alignment.topLeft,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(4.2),
-                                        color: Color(0xFFFFFFFF),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Color(0x1A063336),
-                                            offset: Offset(0, 0.5),
-                                            blurRadius: 2.0833332539,
-                                          ),
-                                        ],
-                                      ),
-                                      child: Container(
-                                        padding: EdgeInsets.fromLTRB(4.2, 8, 4.2, 0),
-                                        child: SizedBox(
-                                          height: 10,
-                                          child: TextField(
-                                            controller: _preparation3Controller,
-                                            style: GoogleFonts.getFont(
-                                              'Be Vietnam Pro',
-                                              fontWeight: FontWeight.w700,
-                                              fontSize: 7.8,
-                                              height: 1.1,
-                                              color: Color(0xFF0A2533),
-                                            ),
-                                            decoration: InputDecoration(
-                                              hintText: '3. ...', // Optional hint text
-                                              border: InputBorder.none, // Remove border for cleaner look (optional)
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 3.1),
-                                  child: Align(
-                                    alignment: Alignment.topLeft,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(4.2),
-                                        color: Color(0xFFFFFFFF),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Color(0x1A063336),
-                                            offset: Offset(0, 0.5),
-                                            blurRadius: 2.0833332539,
-                                          ),
-                                        ],
-                                      ),
-                                      child: Container(
-                                        padding: EdgeInsets.fromLTRB(4.2, 8, 4.2, 0),
-                                        child: SizedBox(
-                                          height: 10,
-                                          child: TextField(
-                                            controller: _preparation4Controller,
-                                            style: GoogleFonts.getFont(
-                                              'Be Vietnam Pro',
-                                              fontWeight: FontWeight.w700,
-                                              fontSize: 7.8,
-                                              height: 1.1,
-                                              color: Color(0xFF0A2533),
-                                            ),
-                                            decoration: InputDecoration(
-                                              hintText: '4. ...', // Optional hint text
-                                              border: InputBorder.none, // Remove border for cleaner look (optional)
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 3.1),
-                                  child: Align(
-                                    alignment: Alignment.topLeft,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(4.2),
-                                        color: Color(0xFFFFFFFF),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Color(0x1A063336),
-                                            offset: Offset(0, 0.5),
-                                            blurRadius: 2.0833332539,
-                                          ),
-                                        ],
-                                      ),
-                                      child: Container(
-                                        padding: EdgeInsets.fromLTRB(4.2, 8, 4.2, 0),
-                                        child: SizedBox(
-                                          height: 10,
-                                          child: TextField(
-                                            controller: _preparation5Controller,
-                                            style: GoogleFonts.getFont(
-                                              'Be Vietnam Pro',
-                                              fontWeight: FontWeight.w700,
-                                              fontSize: 7.8,
-                                              height: 1.1,
-                                              color: Color(0xFF0A2533),
-                                            ),
-                                            decoration: InputDecoration(
-                                              hintText: '5. ...', // Optional hint text
-                                              border: InputBorder.none, // Remove border for cleaner look (optional)
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 3.1),
-                                  height: 23, // Adjust width to match the container above
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(4.2),
-                                    color: Color(0xFFFFFFFF),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Color(0x1A063336),
-                                        offset: Offset(0, 0.5),
-                                        blurRadius: 2.0833332539,
-                                      ),
-                                    ],
-                                  ),
-                                  child: TextButton(
-                                    onPressed: () {
-                                      // Add logic to create a new container with TextFields here
-                                      // (consider using a stateful widget to manage the list of ingredients)
-                                    },
-                                    child: Container(
-                                      padding: EdgeInsets.fromLTRB(4.2, 0, 4.2, 0),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'Add Item +',
-                                            style: GoogleFonts.getFont(
-                                              'Be Vietnam Pro',
-                                              fontWeight: FontWeight.w700,
-                                              fontSize: 7.8,
-                                              height: 1.1,
-                                              color: Color(0xFF0A2533), // Change text color for button
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
+
+                                // Container(
+                                //   margin: EdgeInsets.fromLTRB(0, 0, 0, 3.1),
+                                //   child: Align(
+                                //     alignment: Alignment.topLeft,
+                                //     child: Container(
+                                //       decoration: BoxDecoration(
+                                //         borderRadius: BorderRadius.circular(4.2),
+                                //         color: Color(0xFFFFFFFF),
+                                //         boxShadow: [
+                                //           BoxShadow(
+                                //             color: Color(0x1A063336),
+                                //             offset: Offset(0, 0.5),
+                                //             blurRadius: 2.0833332539,
+                                //           ),
+                                //         ],
+                                //       ),
+                                //       child: Container(
+                                //         padding: EdgeInsets.fromLTRB(4.2, 8, 4.2, 0),
+                                //         child: SizedBox(
+                                //           height: 10,
+                                //           child: TextField(
+                                //             controller: _preparation5Controller,
+                                //             style: GoogleFonts.getFont(
+                                //               'Be Vietnam Pro',
+                                //               fontWeight: FontWeight.w700,
+                                //               fontSize: 7.8,
+                                //               height: 1.1,
+                                //               color: Color(0xFF0A2533),
+                                //             ),
+                                //             decoration: InputDecoration(
+                                //               hintText: '5. ...', // Optional hint text
+                                //               border: InputBorder.none, // Remove border for cleaner look (optional)
+                                //             ),
+                                //           ),
+                                //         ),
+                                //       ),
+                                //     ),
+                                //   ),
+                                // ),
+                                // Container(
+                                //   margin: EdgeInsets.fromLTRB(0, 0, 0, 3.1),
+                                //   height: 23, // Adjust width to match the container above
+                                //   decoration: BoxDecoration(
+                                //     borderRadius: BorderRadius.circular(4.2),
+                                //     color: Color(0xFFFFFFFF),
+                                //     boxShadow: [
+                                //       BoxShadow(
+                                //         color: Color(0x1A063336),
+                                //         offset: Offset(0, 0.5),
+                                //         blurRadius: 2.0833332539,
+                                //       ),
+                                //     ],
+                                //   ),
+                                //   child: TextButton(
+                                //     onPressed: () {
+                                //       // Add logic to create a new container with TextFields here
+                                //       // (consider using a stateful widget to manage the list of ingredients)
+                                //     },
+                                //     child: Container(
+                                //       padding: EdgeInsets.fromLTRB(4.2, 0, 4.2, 0),
+                                //       child: Row(
+                                //         mainAxisAlignment: MainAxisAlignment.center,
+                                //         crossAxisAlignment: CrossAxisAlignment.center,
+                                //         children: [
+                                //           Text(
+                                //             'Add Item +',
+                                //             style: GoogleFonts.getFont(
+                                //               'Be Vietnam Pro',
+                                //               fontWeight: FontWeight.w700,
+                                //               fontSize: 7.8,
+                                //               height: 1.1,
+                                //               color: Color(0xFF0A2533), // Change text color for button
+                                //             ),
+                                //           ),
+                                //         ],
+                                //       ),
+                                //     ),
+                                //   ),
+                                // ),
                               ],
                             ),
                           ),
@@ -1416,4 +1490,12 @@ class _AdminEditDetailsRecipesState extends State<AdminEditDetailsRecipes> {
       ),
     );
   }
+}
+
+class NutritionItem {
+  int? nutritionId;
+  String? name;
+  String? value;
+
+  NutritionItem({this.name, this.value});
 }

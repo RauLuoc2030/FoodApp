@@ -60,10 +60,10 @@ class MyApp extends StatelessWidget {
             // MenuAdmin(),
             // AdminAccount(),
             //  AdminHomePage(), // Phải chạy từ file này đầu tiên
-            AdminRecipes(),    // Hoặc file này
+            // AdminRecipes(),    // Hoặc file này
             // AdminRecipes2 (),
             // AdminDetailsRecipes(),
-            // AdminEditDetailsRecipes(),
+            AdminEditDetailsRecipes(),
             // AdminCommunity (),
             // AdminCommunity1 (),
             // DetailProfileAdmin(),

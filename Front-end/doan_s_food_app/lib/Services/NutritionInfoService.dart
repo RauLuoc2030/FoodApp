@@ -15,7 +15,7 @@ class NutritionInfoService {
   Future<List<NutritionInfo>> getNutritionInfos() async {
     // Send a GET request to the server
     var response = await http.get(
-      Uri.parse('${Globals.serverUrl}/nutritioninfos'),
+      Uri.parse('${Globals.serverUrl}/nutritioninfoes'),
     );
 
     // If the request is successful
@@ -72,7 +72,7 @@ class NutritionInfoService {
   Future<NutritionInfo?> postNutritionInfo(NutritionInfo nutritionInfo) async {
     // Send a POST request to the server
     var response = await http.post(
-      Uri.parse('${Globals.serverUrl}/nutritioninfos'),
+      Uri.parse('${Globals.serverUrl}/nutritioninfoes'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },
@@ -96,7 +96,7 @@ class NutritionInfoService {
   Future<NutritionInfo?> putNutritionInfo(NutritionInfo nutritionInfo) async {
     // Send a PUT request to the server
     var response = await http.put(
-      Uri.parse('${Globals.serverUrl}/nutritioninfos/${nutritionInfo.id}'),
+      Uri.parse('${Globals.serverUrl}/nutritioninfoes/${nutritionInfo.id}'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -120,7 +120,7 @@ class NutritionInfoService {
   Future<void> deleteNutritionInfo(int id) async {
     // Send a DELETE request to the server
     var response = await http.delete(
-      Uri.parse('${Globals.serverUrl}/nutritioninfos/$id'),
+      Uri.parse('${Globals.serverUrl}/nutritioninfoes/$id'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },
