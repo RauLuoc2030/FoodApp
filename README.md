@@ -1,6 +1,6 @@
 # Food Social Networking App
 
-![Logo](./resource/LogoBangTasty.png)
+![Logo](./resource/Logo 2.png)
 
 ## Project Introduction
 The application provides features such as sharing images and reviews of food, creating and joining cooking communities, generating suitable meal plans, as well as searching for and saving favorite recipes
