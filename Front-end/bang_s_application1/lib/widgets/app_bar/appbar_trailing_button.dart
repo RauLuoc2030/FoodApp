@@ -29,6 +29,11 @@ class AppbarTrailingButton extends StatelessWidget {
           text: "lbl_b_qua".tr,
           buttonStyle: CustomButtonStyles.outlineBlueGrayFTL7,
           buttonTextStyle: theme.textTheme.bodySmall!,
+          onPressed:() async{
+            NavigatorService.pushNamed(
+              AppRoutes.homepage01MobileContainerScreen,
+            );
+          },
         ),
       ),
     );

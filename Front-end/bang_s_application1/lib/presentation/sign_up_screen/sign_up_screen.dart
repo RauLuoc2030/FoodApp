@@ -15,6 +15,9 @@ import 'package:bang_s_application1/presentation/log_in_screen/models/log_in_mod
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:bang_s_application1/Services/NguoiDungService.dart';
+import 'package:bang_s_application1/Model/NguoiDung.dart';
+
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key})
       : super(
@@ -40,11 +43,7 @@ class SignUpScreenState extends State<SignUpScreen> {
   // string for displaying the error Message
   String? errorMessage;
   // editing Controller
-  final firstNameEditingController = new TextEditingController();
-  final secondNameEditingController = new TextEditingController();
-  final emailEditingController = new TextEditingController();
-  final passwordEditingController = new TextEditingController();
-  final confirmPasswordEditingController = new TextEditingController();
+
   @override
   void initState() {
     super.initState();
@@ -56,6 +55,8 @@ class SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var providerA = Provider.of<SignUpProvider>(context);
+
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -163,8 +164,7 @@ class SignUpScreenState extends State<SignUpScreen> {
             hintText: "msg_x_c_nh_n_m_t_kh_u".tr,
             textInputType: TextInputType.visiblePassword,
             validator: (value) {
-              if (confirmPasswordEditingController.text !=
-                  passwordEditingController.text) {
+              if (confirmPasswordSectionController?.text !=  Provider.of<SignUpProvider>(context, listen: false).passwordSectionController.text) {
                 return "Password don't match";
               }
               return null;
@@ -179,6 +179,7 @@ class SignUpScreenState extends State<SignUpScreen> {
   /// Section Widget
   Widget _buildRegisterButtonSection(BuildContext context) {
     return CustomElevatedButton(
+
       height: 52.v,
       text: "lbl_ng_k".tr,
       margin: EdgeInsets.only(
@@ -336,10 +337,13 @@ class SignUpScreenState extends State<SignUpScreen> {
     );
   }
   RegisterButtonSection(BuildContext context) {
-
+    NguoiDungService nguoiDungService = NguoiDungService();
     String emailText = context.read<SignUpProvider>().emailSectionController.text;
     String password = context.read<SignUpProvider>().passwordSectionController.text;
     signUp(emailText, password);
+    NguoiDung nguoiDung=NguoiDung();
+    nguoiDung.email=emailText;
+    nguoiDungService.putNguoiDung(nguoiDung);
 
   }
   void signUp(String email, String password) async {
@@ -402,8 +406,7 @@ class SignUpScreenState extends State<SignUpScreen> {
     // writing all the values
     userModel.email = user!.email;
     userModel.uid = user.uid;
-    userModel.firstName = firstNameEditingController.text;
-    userModel.secondName = secondNameEditingController.text;
+
     StreamSubscription<User?> authStateChanges =
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user != null) {

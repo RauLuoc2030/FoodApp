@@ -30,9 +30,7 @@ class WelcomeScreenState extends State<WelcomeScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(milliseconds: 30000), () {
-      NavigatorService.popAndPushNamed(
-        AppRoutes.logInScreen,
-      );
+
     });
   }
 
@@ -40,8 +38,17 @@ class WelcomeScreenState extends State<WelcomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+
         appBar: _buildAppBar(context),
         body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment(0, -1),
+              end: Alignment(0, 1),
+              colors: <Color>[Color(0x00FFFFFF), Color(0xFFFE967F)],
+              stops: <double>[0, 1],
+            ),
+          ),
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(vertical: 26.v),
           child: Column(
@@ -172,7 +179,7 @@ class WelcomeScreenState extends State<WelcomeScreen> {
         ),
       ),
       buttonStyle: CustomButtonStyles.outlineBlueGrayFTL71,
-      buttonTextStyle: CustomTextStyles.beVietnamProBlack900,
+      buttonTextStyle: CustomTextStyles.beVietnamProBlack900Medium,
         onPressed: () async {
           final userCredential = await AuthService().signInWithFacebook();
           if (userCredential != null) {
@@ -200,7 +207,7 @@ class WelcomeScreenState extends State<WelcomeScreen> {
         ),
       ),
       buttonStyle: CustomButtonStyles.outlineBlueGrayFTL71,
-      buttonTextStyle: CustomTextStyles.beVietnamProBlack900,
+      buttonTextStyle: CustomTextStyles.beVietnamProBlack900Medium,
         onPressed: () async {
           final userCredential = await AuthService().signInWithGoogle();
           if (userCredential != null) {
@@ -217,6 +224,7 @@ class WelcomeScreenState extends State<WelcomeScreen> {
   Widget _buildRegisterButton(BuildContext context) {
     return CustomOutlinedButton(
       width: 253.h,
+
       text: "lbl_ng_k".tr,
       onPressed: () {
         onTapRegisterButton(context);
@@ -227,7 +235,7 @@ class WelcomeScreenState extends State<WelcomeScreen> {
   /// Navigates to the signUpScreen when the action is triggered.
   onTapRegisterButton(BuildContext context) {
     NavigatorService.pushNamed(
-      AppRoutes.signUpScreen,
+        AppRoutes.signUpScreen,
     );
   }
 

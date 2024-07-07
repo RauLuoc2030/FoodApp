@@ -1,6 +1,6 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=D:\FlutterSDK\flutter
-FLUTTER_APPLICATION_PATH=D:\Visual Studio Code\HK 6\FoodApp\Front-end\bang_s_application1
+FLUTTER_ROOT=D:\bang\game\setup\flutter
+FLUTTER_APPLICATION_PATH=D:\hk6\FoodApp\project\bang_s_application1
 COCOAPODS_PARALLEL_CODE_SIGN=true
 FLUTTER_TARGET=lib\main.dart
 FLUTTER_BUILD_DIR=build
